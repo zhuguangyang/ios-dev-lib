@@ -1,15 +1,20 @@
 //
 //  ViewController.h
-//  OznerLibraryDemo
+//  MxChip
 //
-//  Created by Zhiyongxu on 15/12/9.
-//  Copyright © 2015年 Ozner. All rights reserved.
+//  Created by Zhiyongxu on 15/11/23.
+//  Copyright © 2015年 Zhiyongxu. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
-
-@interface ViewController : UIViewController
-
-
+#import "MXChipPair.h"
+#import "OznerManager.h"
+#import "../OznerLibrary/Wifi/MXChip/MQTTProxy.h"
+@interface ViewController : UIViewController<OznerManagerDelegate,UITableViewDataSource,UITableViewDelegate>
+{
+    NSArray* devices;
+    MQTTProxy* mqtt;
+}
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 @end
 

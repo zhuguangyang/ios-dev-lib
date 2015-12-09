@@ -1,13 +1,13 @@
 //
 //  AppDelegate.m
-//  OznerLibraryDemo
+//  MxChip
 //
-//  Created by Zhiyongxu on 15/12/9.
-//  Copyright © 2015年 Ozner. All rights reserved.
+//  Created by Zhiyongxu on 15/11/23.
+//  Copyright © 2015年 Zhiyongxu. All rights reserved.
 //
 
 #import "AppDelegate.h"
-
+#import "../OznerLibrary/OznerManager.h"
 @interface AppDelegate ()
 
 @end
@@ -16,7 +16,8 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    OznerManager* mgr= [[OznerManager alloc] init];
+    [mgr setOwner:@"xzy"];
     return YES;
 }
 
@@ -26,6 +27,7 @@
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
+    
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 }

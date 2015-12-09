@@ -13,6 +13,64 @@
 		02E98B321C18673000ED06F1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02E98B301C18673000ED06F1 /* Main.storyboard */; };
 		02E98B341C18673000ED06F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02E98B331C18673000ED06F1 /* Assets.xcassets */; };
 		02E98B371C18673000ED06F1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02E98B351C18673000ED06F1 /* LaunchScreen.storyboard */; };
+		02E98B421C18675700ED06F1 /* DeviceViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02E98B3E1C18675700ED06F1 /* DeviceViewCell.xib */; };
+		02E98B431C18675700ED06F1 /* IODeviceViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E98B401C18675700ED06F1 /* IODeviceViewCell.m */; };
+		02E98B441C18675700ED06F1 /* IODeviceViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02E98B411C18675700ED06F1 /* IODeviceViewCell.xib */; };
+		02E98B4C1C18676400ED06F1 /* BluetoothAddDeviceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E98B461C18676400ED06F1 /* BluetoothAddDeviceController.m */; };
+		02E98B4D1C18676400ED06F1 /* DeviceViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E98B481C18676400ED06F1 /* DeviceViewCell.m */; };
+		02E98B4E1C18676400ED06F1 /* ic_settings_bluetooth.png in Resources */ = {isa = PBXBuildFile; fileRef = 02E98B4A1C18676400ED06F1 /* ic_settings_bluetooth.png */; };
+		02E98B4F1C18676400ED06F1 /* ic_settings_wifi.png in Resources */ = {isa = PBXBuildFile; fileRef = 02E98B4B1C18676400ED06F1 /* ic_settings_wifi.png */; };
+		02E98BC41C18679D00ED06F1 /* AirPurifier_MxChip.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E98B541C18679D00ED06F1 /* AirPurifier_MxChip.m */; };
+		02E98BC51C18679D00ED06F1 /* AirPurifierInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E98B571C18679D00ED06F1 /* AirPurifierInfo.m */; };
+		02E98BC61C18679D00ED06F1 /* AirPurifierSensor.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E98B591C18679D00ED06F1 /* AirPurifierSensor.m */; };
+		02E98BC71C18679D00ED06F1 /* AirPurifierStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E98B5B1C18679D00ED06F1 /* AirPurifierStatus.m */; };
+		02E98BC81C18679D00ED06F1 /* FilterStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E98B5D1C18679D00ED06F1 /* FilterStatus.m */; };
+		02E98BC91C18679D00ED06F1 /* BluetoothIO.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E98B601C18679D00ED06F1 /* BluetoothIO.m */; };
+		02E98BCA1C18679D00ED06F1 /* BluetoothIOMgr.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E98B621C18679D00ED06F1 /* BluetoothIOMgr.m */; };
+		02E98BCB1C18679D00ED06F1 /* BluetoothSynchronizedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E98B641C18679D00ED06F1 /* BluetoothSynchronizedObject.m */; };
+		02E98BCC1C18679D00ED06F1 /* FirmwareTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E98B661C18679D00ED06F1 /* FirmwareTools.m */; };
+		02E98BCD1C18679D00ED06F1 /* ScanData.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E98B681C18679D00ED06F1 /* ScanData.m */; };
+		02E98BCE1C18679D00ED06F1 /* Cup.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E98B6B1C18679D00ED06F1 /* Cup.m */; };
+		02E98BCF1C18679D00ED06F1 /* CupFirmware.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E98B6D1C18679D00ED06F1 /* CupFirmware.m */; };
+		02E98BD01C18679D00ED06F1 /* CupGravity.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E98B6F1C18679D00ED06F1 /* CupGravity.m */; };
+		02E98BD11C18679D00ED06F1 /* CupManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E98B711C18679D00ED06F1 /* CupManager.m */; };
+		02E98BD21C18679D00ED06F1 /* CupRawRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E98B731C18679D00ED06F1 /* CupRawRecord.m */; };
+		02E98BD31C18679D00ED06F1 /* CupRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E98B751C18679D00ED06F1 /* CupRecord.m */; };
+		02E98BD41C18679D00ED06F1 /* CupRecordList.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E98B771C18679D00ED06F1 /* CupRecordList.m */; };
+		02E98BD51C18679D00ED06F1 /* CupSensor.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E98B791C18679D00ED06F1 /* CupSensor.m */; };
+		02E98BD61C18679D00ED06F1 /* CupSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E98B7B1C18679D00ED06F1 /* CupSettings.m */; };
+		02E98BD71C18679D00ED06F1 /* BaseDeviceIO.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E98B7F1C18679D00ED06F1 /* BaseDeviceIO.m */; };
+		02E98BD81C18679D00ED06F1 /* BaseDeviceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E98B821C18679D00ED06F1 /* BaseDeviceManager.m */; };
+		02E98BD91C18679D00ED06F1 /* BaseOznerObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E98B841C18679D00ED06F1 /* BaseOznerObject.m */; };
+		02E98BDA1C18679D00ED06F1 /* DeviceSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E98B861C18679D00ED06F1 /* DeviceSetting.m */; };
+		02E98BDB1C18679D00ED06F1 /* IOManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E98B891C18679D00ED06F1 /* IOManager.m */; };
+		02E98BDC1C18679D00ED06F1 /* IOManagerList.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E98B8B1C18679D00ED06F1 /* IOManagerList.m */; };
+		02E98BDD1C18679D00ED06F1 /* OznerDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E98B8E1C18679D00ED06F1 /* OznerDevice.m */; };
+		02E98BDE1C18679D00ED06F1 /* Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E98B911C18679D00ED06F1 /* Helper.m */; };
+		02E98BDF1C18679D00ED06F1 /* SqlLiteDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E98B931C18679D00ED06F1 /* SqlLiteDB.m */; };
+		02E98BE01C18679D00ED06F1 /* MQTTClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02E98B941C18679D00ED06F1 /* MQTTClient.framework */; };
+		02E98BE11C18679D00ED06F1 /* OznerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E98B961C18679D00ED06F1 /* OznerManager.m */; };
+		02E98BE21C18679D00ED06F1 /* Tap.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E98B991C18679D00ED06F1 /* Tap.m */; };
+		02E98BE31C18679D00ED06F1 /* TapFirmware.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E98B9B1C18679D00ED06F1 /* TapFirmware.m */; };
+		02E98BE41C18679D00ED06F1 /* TapManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E98B9D1C18679D00ED06F1 /* TapManager.m */; };
+		02E98BE51C18679D00ED06F1 /* TapRawRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E98B9F1C18679D00ED06F1 /* TapRawRecord.m */; };
+		02E98BE61C18679D00ED06F1 /* TapRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E98BA11C18679D00ED06F1 /* TapRecord.m */; };
+		02E98BE71C18679D00ED06F1 /* TapRecordList.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E98BA31C18679D00ED06F1 /* TapRecordList.m */; };
+		02E98BE81C18679D00ED06F1 /* TapSensor.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E98BA51C18679D00ED06F1 /* TapSensor.m */; };
+		02E98BE91C18679D00ED06F1 /* TapSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E98BA71C18679D00ED06F1 /* TapSettings.m */; };
+		02E98BEA1C18679D00ED06F1 /* WaterPurifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E98BAA1C18679D00ED06F1 /* WaterPurifier.m */; };
+		02E98BEB1C18679D00ED06F1 /* WaterPurifierInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E98BAC1C18679D00ED06F1 /* WaterPurifierInfo.m */; };
+		02E98BEC1C18679D00ED06F1 /* WaterPurifierManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E98BAE1C18679D00ED06F1 /* WaterPurifierManager.m */; };
+		02E98BED1C18679D00ED06F1 /* WaterPurifierSensor.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E98BB01C18679D00ED06F1 /* WaterPurifierSensor.m */; };
+		02E98BEE1C18679D00ED06F1 /* WaterPurifierStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E98BB21C18679D00ED06F1 /* WaterPurifierStatus.m */; };
+		02E98BEF1C18679D00ED06F1 /* MQTTProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E98BB61C18679D00ED06F1 /* MQTTProxy.m */; };
+		02E98BF01C18679D00ED06F1 /* MXChipIO.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E98BB81C18679D00ED06F1 /* MXChipIO.m */; };
+		02E98BF11C18679D00ED06F1 /* MXChipIOManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E98BBA1C18679D00ED06F1 /* MXChipIOManager.m */; };
+		02E98BF21C18679D00ED06F1 /* MXChipPair.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E98BBC1C18679D00ED06F1 /* MXChipPair.m */; };
+		02E98BF31C18679D00ED06F1 /* ConfigurationDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E98BBF1C18679D00ED06F1 /* ConfigurationDevice.m */; };
+		02E98BF41C18679D00ED06F1 /* EasyLinkSender.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E98BC11C18679D00ED06F1 /* EasyLinkSender.m */; };
+		02E98BF51C18679D00ED06F1 /* HttpServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E98BC31C18679D00ED06F1 /* HttpServer.m */; };
+		02E98BF71C18686100ED06F1 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 02E98BF61C18686100ED06F1 /* libsqlite3.0.tbd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +84,121 @@
 		02E98B331C18673000ED06F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		02E98B361C18673000ED06F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		02E98B381C18673100ED06F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		02E98B3E1C18675700ED06F1 /* DeviceViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DeviceViewCell.xib; sourceTree = "<group>"; };
+		02E98B3F1C18675700ED06F1 /* IODeviceViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IODeviceViewCell.h; sourceTree = "<group>"; };
+		02E98B401C18675700ED06F1 /* IODeviceViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IODeviceViewCell.m; sourceTree = "<group>"; };
+		02E98B411C18675700ED06F1 /* IODeviceViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IODeviceViewCell.xib; sourceTree = "<group>"; };
+		02E98B451C18676400ED06F1 /* BluetoothAddDeviceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BluetoothAddDeviceController.h; sourceTree = "<group>"; };
+		02E98B461C18676400ED06F1 /* BluetoothAddDeviceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BluetoothAddDeviceController.m; sourceTree = "<group>"; };
+		02E98B471C18676400ED06F1 /* DeviceViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceViewCell.h; sourceTree = "<group>"; };
+		02E98B481C18676400ED06F1 /* DeviceViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceViewCell.m; sourceTree = "<group>"; };
+		02E98B4A1C18676400ED06F1 /* ic_settings_bluetooth.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_settings_bluetooth.png; sourceTree = "<group>"; };
+		02E98B4B1C18676400ED06F1 /* ic_settings_wifi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_settings_wifi.png; sourceTree = "<group>"; };
+		02E98B531C18679D00ED06F1 /* AirPurifier_MxChip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AirPurifier_MxChip.h; sourceTree = "<group>"; };
+		02E98B541C18679D00ED06F1 /* AirPurifier_MxChip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AirPurifier_MxChip.m; sourceTree = "<group>"; };
+		02E98B551C18679D00ED06F1 /* AirPurifierConsts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AirPurifierConsts.h; sourceTree = "<group>"; };
+		02E98B561C18679D00ED06F1 /* AirPurifierInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AirPurifierInfo.h; sourceTree = "<group>"; };
+		02E98B571C18679D00ED06F1 /* AirPurifierInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AirPurifierInfo.m; sourceTree = "<group>"; };
+		02E98B581C18679D00ED06F1 /* AirPurifierSensor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AirPurifierSensor.h; sourceTree = "<group>"; };
+		02E98B591C18679D00ED06F1 /* AirPurifierSensor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AirPurifierSensor.m; sourceTree = "<group>"; };
+		02E98B5A1C18679D00ED06F1 /* AirPurifierStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AirPurifierStatus.h; sourceTree = "<group>"; };
+		02E98B5B1C18679D00ED06F1 /* AirPurifierStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AirPurifierStatus.m; sourceTree = "<group>"; };
+		02E98B5C1C18679D00ED06F1 /* FilterStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterStatus.h; sourceTree = "<group>"; };
+		02E98B5D1C18679D00ED06F1 /* FilterStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterStatus.m; sourceTree = "<group>"; };
+		02E98B5F1C18679D00ED06F1 /* BluetoothIO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BluetoothIO.h; sourceTree = "<group>"; };
+		02E98B601C18679D00ED06F1 /* BluetoothIO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BluetoothIO.m; sourceTree = "<group>"; };
+		02E98B611C18679D00ED06F1 /* BluetoothIOMgr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BluetoothIOMgr.h; sourceTree = "<group>"; };
+		02E98B621C18679D00ED06F1 /* BluetoothIOMgr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BluetoothIOMgr.m; sourceTree = "<group>"; };
+		02E98B631C18679D00ED06F1 /* BluetoothSynchronizedObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BluetoothSynchronizedObject.h; sourceTree = "<group>"; };
+		02E98B641C18679D00ED06F1 /* BluetoothSynchronizedObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BluetoothSynchronizedObject.m; sourceTree = "<group>"; };
+		02E98B651C18679D00ED06F1 /* FirmwareTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirmwareTools.h; sourceTree = "<group>"; };
+		02E98B661C18679D00ED06F1 /* FirmwareTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirmwareTools.m; sourceTree = "<group>"; };
+		02E98B671C18679D00ED06F1 /* ScanData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScanData.h; sourceTree = "<group>"; };
+		02E98B681C18679D00ED06F1 /* ScanData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScanData.m; sourceTree = "<group>"; };
+		02E98B6A1C18679D00ED06F1 /* Cup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cup.h; sourceTree = "<group>"; };
+		02E98B6B1C18679D00ED06F1 /* Cup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cup.m; sourceTree = "<group>"; };
+		02E98B6C1C18679D00ED06F1 /* CupFirmware.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CupFirmware.h; sourceTree = "<group>"; };
+		02E98B6D1C18679D00ED06F1 /* CupFirmware.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CupFirmware.m; sourceTree = "<group>"; };
+		02E98B6E1C18679D00ED06F1 /* CupGravity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CupGravity.h; sourceTree = "<group>"; };
+		02E98B6F1C18679D00ED06F1 /* CupGravity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CupGravity.m; sourceTree = "<group>"; };
+		02E98B701C18679D00ED06F1 /* CupManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CupManager.h; sourceTree = "<group>"; };
+		02E98B711C18679D00ED06F1 /* CupManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CupManager.m; sourceTree = "<group>"; };
+		02E98B721C18679D00ED06F1 /* CupRawRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CupRawRecord.h; sourceTree = "<group>"; };
+		02E98B731C18679D00ED06F1 /* CupRawRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CupRawRecord.m; sourceTree = "<group>"; };
+		02E98B741C18679D00ED06F1 /* CupRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CupRecord.h; sourceTree = "<group>"; };
+		02E98B751C18679D00ED06F1 /* CupRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CupRecord.m; sourceTree = "<group>"; };
+		02E98B761C18679D00ED06F1 /* CupRecordList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CupRecordList.h; sourceTree = "<group>"; };
+		02E98B771C18679D00ED06F1 /* CupRecordList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CupRecordList.m; sourceTree = "<group>"; };
+		02E98B781C18679D00ED06F1 /* CupSensor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CupSensor.h; sourceTree = "<group>"; };
+		02E98B791C18679D00ED06F1 /* CupSensor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CupSensor.m; sourceTree = "<group>"; };
+		02E98B7A1C18679D00ED06F1 /* CupSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CupSettings.h; sourceTree = "<group>"; };
+		02E98B7B1C18679D00ED06F1 /* CupSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CupSettings.m; sourceTree = "<group>"; };
+		02E98B7D1C18679D00ED06F1 /* BaseDeviceIO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseDeviceIO.h; sourceTree = "<group>"; };
+		02E98B7E1C18679D00ED06F1 /* BaseDeviceIO.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BaseDeviceIO.hpp; sourceTree = "<group>"; };
+		02E98B7F1C18679D00ED06F1 /* BaseDeviceIO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseDeviceIO.m; sourceTree = "<group>"; };
+		02E98B801C18679D00ED06F1 /* BaseDeviceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseDeviceManager.h; sourceTree = "<group>"; };
+		02E98B811C18679D00ED06F1 /* BaseDeviceManager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BaseDeviceManager.hpp; sourceTree = "<group>"; };
+		02E98B821C18679D00ED06F1 /* BaseDeviceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseDeviceManager.m; sourceTree = "<group>"; };
+		02E98B831C18679D00ED06F1 /* BaseOznerObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseOznerObject.h; sourceTree = "<group>"; };
+		02E98B841C18679D00ED06F1 /* BaseOznerObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseOznerObject.m; sourceTree = "<group>"; };
+		02E98B851C18679D00ED06F1 /* DeviceSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceSetting.h; sourceTree = "<group>"; };
+		02E98B861C18679D00ED06F1 /* DeviceSetting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceSetting.m; sourceTree = "<group>"; };
+		02E98B871C18679D00ED06F1 /* IOManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IOManager.h; sourceTree = "<group>"; };
+		02E98B881C18679D00ED06F1 /* IOManager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = IOManager.hpp; sourceTree = "<group>"; };
+		02E98B891C18679D00ED06F1 /* IOManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IOManager.m; sourceTree = "<group>"; };
+		02E98B8A1C18679D00ED06F1 /* IOManagerList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IOManagerList.h; sourceTree = "<group>"; };
+		02E98B8B1C18679D00ED06F1 /* IOManagerList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IOManagerList.m; sourceTree = "<group>"; };
+		02E98B8C1C18679D00ED06F1 /* OznerDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OznerDevice.h; sourceTree = "<group>"; };
+		02E98B8D1C18679D00ED06F1 /* OznerDevice.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = OznerDevice.hpp; sourceTree = "<group>"; };
+		02E98B8E1C18679D00ED06F1 /* OznerDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OznerDevice.m; sourceTree = "<group>"; };
+		02E98B901C18679D00ED06F1 /* Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Helper.h; sourceTree = "<group>"; };
+		02E98B911C18679D00ED06F1 /* Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Helper.m; sourceTree = "<group>"; };
+		02E98B921C18679D00ED06F1 /* SqlLiteDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SqlLiteDB.h; sourceTree = "<group>"; };
+		02E98B931C18679D00ED06F1 /* SqlLiteDB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SqlLiteDB.m; sourceTree = "<group>"; };
+		02E98B941C18679D00ED06F1 /* MQTTClient.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MQTTClient.framework; sourceTree = "<group>"; };
+		02E98B951C18679D00ED06F1 /* OznerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OznerManager.h; sourceTree = "<group>"; };
+		02E98B961C18679D00ED06F1 /* OznerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OznerManager.m; sourceTree = "<group>"; };
+		02E98B981C18679D00ED06F1 /* Tap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tap.h; sourceTree = "<group>"; };
+		02E98B991C18679D00ED06F1 /* Tap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tap.m; sourceTree = "<group>"; };
+		02E98B9A1C18679D00ED06F1 /* TapFirmware.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TapFirmware.h; sourceTree = "<group>"; };
+		02E98B9B1C18679D00ED06F1 /* TapFirmware.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TapFirmware.m; sourceTree = "<group>"; };
+		02E98B9C1C18679D00ED06F1 /* TapManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TapManager.h; sourceTree = "<group>"; };
+		02E98B9D1C18679D00ED06F1 /* TapManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TapManager.m; sourceTree = "<group>"; };
+		02E98B9E1C18679D00ED06F1 /* TapRawRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TapRawRecord.h; sourceTree = "<group>"; };
+		02E98B9F1C18679D00ED06F1 /* TapRawRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TapRawRecord.m; sourceTree = "<group>"; };
+		02E98BA01C18679D00ED06F1 /* TapRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TapRecord.h; sourceTree = "<group>"; };
+		02E98BA11C18679D00ED06F1 /* TapRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TapRecord.m; sourceTree = "<group>"; };
+		02E98BA21C18679D00ED06F1 /* TapRecordList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TapRecordList.h; sourceTree = "<group>"; };
+		02E98BA31C18679D00ED06F1 /* TapRecordList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TapRecordList.m; sourceTree = "<group>"; };
+		02E98BA41C18679D00ED06F1 /* TapSensor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TapSensor.h; sourceTree = "<group>"; };
+		02E98BA51C18679D00ED06F1 /* TapSensor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TapSensor.m; sourceTree = "<group>"; };
+		02E98BA61C18679D00ED06F1 /* TapSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TapSettings.h; sourceTree = "<group>"; };
+		02E98BA71C18679D00ED06F1 /* TapSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TapSettings.m; sourceTree = "<group>"; };
+		02E98BA91C18679D00ED06F1 /* WaterPurifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaterPurifier.h; sourceTree = "<group>"; };
+		02E98BAA1C18679D00ED06F1 /* WaterPurifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaterPurifier.m; sourceTree = "<group>"; };
+		02E98BAB1C18679D00ED06F1 /* WaterPurifierInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaterPurifierInfo.h; sourceTree = "<group>"; };
+		02E98BAC1C18679D00ED06F1 /* WaterPurifierInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaterPurifierInfo.m; sourceTree = "<group>"; };
+		02E98BAD1C18679D00ED06F1 /* WaterPurifierManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaterPurifierManager.h; sourceTree = "<group>"; };
+		02E98BAE1C18679D00ED06F1 /* WaterPurifierManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaterPurifierManager.m; sourceTree = "<group>"; };
+		02E98BAF1C18679D00ED06F1 /* WaterPurifierSensor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaterPurifierSensor.h; sourceTree = "<group>"; };
+		02E98BB01C18679D00ED06F1 /* WaterPurifierSensor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaterPurifierSensor.m; sourceTree = "<group>"; };
+		02E98BB11C18679D00ED06F1 /* WaterPurifierStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaterPurifierStatus.h; sourceTree = "<group>"; };
+		02E98BB21C18679D00ED06F1 /* WaterPurifierStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaterPurifierStatus.m; sourceTree = "<group>"; };
+		02E98BB51C18679D00ED06F1 /* MQTTProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MQTTProxy.h; sourceTree = "<group>"; };
+		02E98BB61C18679D00ED06F1 /* MQTTProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MQTTProxy.m; sourceTree = "<group>"; };
+		02E98BB71C18679D00ED06F1 /* MXChipIO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXChipIO.h; sourceTree = "<group>"; };
+		02E98BB81C18679D00ED06F1 /* MXChipIO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXChipIO.m; sourceTree = "<group>"; };
+		02E98BB91C18679D00ED06F1 /* MXChipIOManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXChipIOManager.h; sourceTree = "<group>"; };
+		02E98BBA1C18679D00ED06F1 /* MXChipIOManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXChipIOManager.m; sourceTree = "<group>"; };
+		02E98BBB1C18679D00ED06F1 /* MXChipPair.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXChipPair.h; sourceTree = "<group>"; };
+		02E98BBC1C18679D00ED06F1 /* MXChipPair.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXChipPair.m; sourceTree = "<group>"; };
+		02E98BBE1C18679D00ED06F1 /* ConfigurationDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfigurationDevice.h; sourceTree = "<group>"; };
+		02E98BBF1C18679D00ED06F1 /* ConfigurationDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfigurationDevice.m; sourceTree = "<group>"; };
+		02E98BC01C18679D00ED06F1 /* EasyLinkSender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EasyLinkSender.h; sourceTree = "<group>"; };
+		02E98BC11C18679D00ED06F1 /* EasyLinkSender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EasyLinkSender.m; sourceTree = "<group>"; };
+		02E98BC21C18679D00ED06F1 /* HttpServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpServer.h; sourceTree = "<group>"; };
+		02E98BC31C18679D00ED06F1 /* HttpServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpServer.m; sourceTree = "<group>"; };
+		02E98BF61C18686100ED06F1 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +206,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02E98BF71C18686100ED06F1 /* libsqlite3.0.tbd in Frameworks */,
+				02E98BE01C18679D00ED06F1 /* MQTTClient.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +217,8 @@
 		02E98B1B1C18673000ED06F1 = {
 			isa = PBXGroup;
 			children = (
+				02E98BF61C18686100ED06F1 /* libsqlite3.0.tbd */,
+				02E98B501C18679D00ED06F1 /* OznerLibrary */,
 				02E98B261C18673000ED06F1 /* OznerLibraryDemo */,
 				02E98B251C18673000ED06F1 /* Products */,
 			);
@@ -63,8 +240,17 @@
 				02E98B2D1C18673000ED06F1 /* ViewController.h */,
 				02E98B2E1C18673000ED06F1 /* ViewController.m */,
 				02E98B301C18673000ED06F1 /* Main.storyboard */,
-				02E98B331C18673000ED06F1 /* Assets.xcassets */,
 				02E98B351C18673000ED06F1 /* LaunchScreen.storyboard */,
+				02E98B451C18676400ED06F1 /* BluetoothAddDeviceController.h */,
+				02E98B461C18676400ED06F1 /* BluetoothAddDeviceController.m */,
+				02E98B471C18676400ED06F1 /* DeviceViewCell.h */,
+				02E98B481C18676400ED06F1 /* DeviceViewCell.m */,
+				02E98B3E1C18675700ED06F1 /* DeviceViewCell.xib */,
+				02E98B3F1C18675700ED06F1 /* IODeviceViewCell.h */,
+				02E98B401C18675700ED06F1 /* IODeviceViewCell.m */,
+				02E98B411C18675700ED06F1 /* IODeviceViewCell.xib */,
+				02E98B491C18676400ED06F1 /* res */,
+				02E98B331C18673000ED06F1 /* Assets.xcassets */,
 				02E98B381C18673100ED06F1 /* Info.plist */,
 				02E98B271C18673000ED06F1 /* Supporting Files */,
 			);
@@ -77,6 +263,214 @@
 				02E98B281C18673000ED06F1 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		02E98B491C18676400ED06F1 /* res */ = {
+			isa = PBXGroup;
+			children = (
+				02E98B4A1C18676400ED06F1 /* ic_settings_bluetooth.png */,
+				02E98B4B1C18676400ED06F1 /* ic_settings_wifi.png */,
+			);
+			path = res;
+			sourceTree = "<group>";
+		};
+		02E98B501C18679D00ED06F1 /* OznerLibrary */ = {
+			isa = PBXGroup;
+			children = (
+				02E98B951C18679D00ED06F1 /* OznerManager.h */,
+				02E98B961C18679D00ED06F1 /* OznerManager.m */,
+				02E98B511C18679D00ED06F1 /* AirPurifier */,
+				02E98B5E1C18679D00ED06F1 /* Bluetooth */,
+				02E98B691C18679D00ED06F1 /* Cup */,
+				02E98B7C1C18679D00ED06F1 /* Device */,
+				02E98B8F1C18679D00ED06F1 /* Helper */,
+				02E98B941C18679D00ED06F1 /* MQTTClient.framework */,
+				02E98B971C18679D00ED06F1 /* Tap */,
+				02E98BA81C18679D00ED06F1 /* WaterPurifier */,
+				02E98BB31C18679D00ED06F1 /* Wifi */,
+			);
+			path = OznerLibrary;
+			sourceTree = "<group>";
+		};
+		02E98B511C18679D00ED06F1 /* AirPurifier */ = {
+			isa = PBXGroup;
+			children = (
+				02E98B521C18679D00ED06F1 /* MXChip */,
+			);
+			path = AirPurifier;
+			sourceTree = "<group>";
+		};
+		02E98B521C18679D00ED06F1 /* MXChip */ = {
+			isa = PBXGroup;
+			children = (
+				02E98B531C18679D00ED06F1 /* AirPurifier_MxChip.h */,
+				02E98B541C18679D00ED06F1 /* AirPurifier_MxChip.m */,
+				02E98B551C18679D00ED06F1 /* AirPurifierConsts.h */,
+				02E98B561C18679D00ED06F1 /* AirPurifierInfo.h */,
+				02E98B571C18679D00ED06F1 /* AirPurifierInfo.m */,
+				02E98B581C18679D00ED06F1 /* AirPurifierSensor.h */,
+				02E98B591C18679D00ED06F1 /* AirPurifierSensor.m */,
+				02E98B5A1C18679D00ED06F1 /* AirPurifierStatus.h */,
+				02E98B5B1C18679D00ED06F1 /* AirPurifierStatus.m */,
+				02E98B5C1C18679D00ED06F1 /* FilterStatus.h */,
+				02E98B5D1C18679D00ED06F1 /* FilterStatus.m */,
+			);
+			path = MXChip;
+			sourceTree = "<group>";
+		};
+		02E98B5E1C18679D00ED06F1 /* Bluetooth */ = {
+			isa = PBXGroup;
+			children = (
+				02E98B5F1C18679D00ED06F1 /* BluetoothIO.h */,
+				02E98B601C18679D00ED06F1 /* BluetoothIO.m */,
+				02E98B611C18679D00ED06F1 /* BluetoothIOMgr.h */,
+				02E98B621C18679D00ED06F1 /* BluetoothIOMgr.m */,
+				02E98B631C18679D00ED06F1 /* BluetoothSynchronizedObject.h */,
+				02E98B641C18679D00ED06F1 /* BluetoothSynchronizedObject.m */,
+				02E98B651C18679D00ED06F1 /* FirmwareTools.h */,
+				02E98B661C18679D00ED06F1 /* FirmwareTools.m */,
+				02E98B671C18679D00ED06F1 /* ScanData.h */,
+				02E98B681C18679D00ED06F1 /* ScanData.m */,
+			);
+			path = Bluetooth;
+			sourceTree = "<group>";
+		};
+		02E98B691C18679D00ED06F1 /* Cup */ = {
+			isa = PBXGroup;
+			children = (
+				02E98B6A1C18679D00ED06F1 /* Cup.h */,
+				02E98B6B1C18679D00ED06F1 /* Cup.m */,
+				02E98B6C1C18679D00ED06F1 /* CupFirmware.h */,
+				02E98B6D1C18679D00ED06F1 /* CupFirmware.m */,
+				02E98B6E1C18679D00ED06F1 /* CupGravity.h */,
+				02E98B6F1C18679D00ED06F1 /* CupGravity.m */,
+				02E98B701C18679D00ED06F1 /* CupManager.h */,
+				02E98B711C18679D00ED06F1 /* CupManager.m */,
+				02E98B721C18679D00ED06F1 /* CupRawRecord.h */,
+				02E98B731C18679D00ED06F1 /* CupRawRecord.m */,
+				02E98B741C18679D00ED06F1 /* CupRecord.h */,
+				02E98B751C18679D00ED06F1 /* CupRecord.m */,
+				02E98B761C18679D00ED06F1 /* CupRecordList.h */,
+				02E98B771C18679D00ED06F1 /* CupRecordList.m */,
+				02E98B781C18679D00ED06F1 /* CupSensor.h */,
+				02E98B791C18679D00ED06F1 /* CupSensor.m */,
+				02E98B7A1C18679D00ED06F1 /* CupSettings.h */,
+				02E98B7B1C18679D00ED06F1 /* CupSettings.m */,
+			);
+			path = Cup;
+			sourceTree = "<group>";
+		};
+		02E98B7C1C18679D00ED06F1 /* Device */ = {
+			isa = PBXGroup;
+			children = (
+				02E98B7D1C18679D00ED06F1 /* BaseDeviceIO.h */,
+				02E98B7E1C18679D00ED06F1 /* BaseDeviceIO.hpp */,
+				02E98B7F1C18679D00ED06F1 /* BaseDeviceIO.m */,
+				02E98B801C18679D00ED06F1 /* BaseDeviceManager.h */,
+				02E98B811C18679D00ED06F1 /* BaseDeviceManager.hpp */,
+				02E98B821C18679D00ED06F1 /* BaseDeviceManager.m */,
+				02E98B831C18679D00ED06F1 /* BaseOznerObject.h */,
+				02E98B841C18679D00ED06F1 /* BaseOznerObject.m */,
+				02E98B851C18679D00ED06F1 /* DeviceSetting.h */,
+				02E98B861C18679D00ED06F1 /* DeviceSetting.m */,
+				02E98B871C18679D00ED06F1 /* IOManager.h */,
+				02E98B881C18679D00ED06F1 /* IOManager.hpp */,
+				02E98B891C18679D00ED06F1 /* IOManager.m */,
+				02E98B8A1C18679D00ED06F1 /* IOManagerList.h */,
+				02E98B8B1C18679D00ED06F1 /* IOManagerList.m */,
+				02E98B8C1C18679D00ED06F1 /* OznerDevice.h */,
+				02E98B8D1C18679D00ED06F1 /* OznerDevice.hpp */,
+				02E98B8E1C18679D00ED06F1 /* OznerDevice.m */,
+			);
+			path = Device;
+			sourceTree = "<group>";
+		};
+		02E98B8F1C18679D00ED06F1 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				02E98B901C18679D00ED06F1 /* Helper.h */,
+				02E98B911C18679D00ED06F1 /* Helper.m */,
+				02E98B921C18679D00ED06F1 /* SqlLiteDB.h */,
+				02E98B931C18679D00ED06F1 /* SqlLiteDB.m */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		02E98B971C18679D00ED06F1 /* Tap */ = {
+			isa = PBXGroup;
+			children = (
+				02E98B981C18679D00ED06F1 /* Tap.h */,
+				02E98B991C18679D00ED06F1 /* Tap.m */,
+				02E98B9A1C18679D00ED06F1 /* TapFirmware.h */,
+				02E98B9B1C18679D00ED06F1 /* TapFirmware.m */,
+				02E98B9C1C18679D00ED06F1 /* TapManager.h */,
+				02E98B9D1C18679D00ED06F1 /* TapManager.m */,
+				02E98B9E1C18679D00ED06F1 /* TapRawRecord.h */,
+				02E98B9F1C18679D00ED06F1 /* TapRawRecord.m */,
+				02E98BA01C18679D00ED06F1 /* TapRecord.h */,
+				02E98BA11C18679D00ED06F1 /* TapRecord.m */,
+				02E98BA21C18679D00ED06F1 /* TapRecordList.h */,
+				02E98BA31C18679D00ED06F1 /* TapRecordList.m */,
+				02E98BA41C18679D00ED06F1 /* TapSensor.h */,
+				02E98BA51C18679D00ED06F1 /* TapSensor.m */,
+				02E98BA61C18679D00ED06F1 /* TapSettings.h */,
+				02E98BA71C18679D00ED06F1 /* TapSettings.m */,
+			);
+			path = Tap;
+			sourceTree = "<group>";
+		};
+		02E98BA81C18679D00ED06F1 /* WaterPurifier */ = {
+			isa = PBXGroup;
+			children = (
+				02E98BA91C18679D00ED06F1 /* WaterPurifier.h */,
+				02E98BAA1C18679D00ED06F1 /* WaterPurifier.m */,
+				02E98BAB1C18679D00ED06F1 /* WaterPurifierInfo.h */,
+				02E98BAC1C18679D00ED06F1 /* WaterPurifierInfo.m */,
+				02E98BAD1C18679D00ED06F1 /* WaterPurifierManager.h */,
+				02E98BAE1C18679D00ED06F1 /* WaterPurifierManager.m */,
+				02E98BAF1C18679D00ED06F1 /* WaterPurifierSensor.h */,
+				02E98BB01C18679D00ED06F1 /* WaterPurifierSensor.m */,
+				02E98BB11C18679D00ED06F1 /* WaterPurifierStatus.h */,
+				02E98BB21C18679D00ED06F1 /* WaterPurifierStatus.m */,
+			);
+			path = WaterPurifier;
+			sourceTree = "<group>";
+		};
+		02E98BB31C18679D00ED06F1 /* Wifi */ = {
+			isa = PBXGroup;
+			children = (
+				02E98BB41C18679D00ED06F1 /* MXChip */,
+			);
+			path = Wifi;
+			sourceTree = "<group>";
+		};
+		02E98BB41C18679D00ED06F1 /* MXChip */ = {
+			isa = PBXGroup;
+			children = (
+				02E98BB51C18679D00ED06F1 /* MQTTProxy.h */,
+				02E98BB61C18679D00ED06F1 /* MQTTProxy.m */,
+				02E98BB71C18679D00ED06F1 /* MXChipIO.h */,
+				02E98BB81C18679D00ED06F1 /* MXChipIO.m */,
+				02E98BB91C18679D00ED06F1 /* MXChipIOManager.h */,
+				02E98BBA1C18679D00ED06F1 /* MXChipIOManager.m */,
+				02E98BBB1C18679D00ED06F1 /* MXChipPair.h */,
+				02E98BBC1C18679D00ED06F1 /* MXChipPair.m */,
+				02E98BBD1C18679D00ED06F1 /* Pair */,
+			);
+			path = MXChip;
+			sourceTree = "<group>";
+		};
+		02E98BBD1C18679D00ED06F1 /* Pair */ = {
+			isa = PBXGroup;
+			children = (
+				02E98BBE1C18679D00ED06F1 /* ConfigurationDevice.h */,
+				02E98BBF1C18679D00ED06F1 /* ConfigurationDevice.m */,
+				02E98BC01C18679D00ED06F1 /* EasyLinkSender.h */,
+				02E98BC11C18679D00ED06F1 /* EasyLinkSender.m */,
+				02E98BC21C18679D00ED06F1 /* HttpServer.h */,
+				02E98BC31C18679D00ED06F1 /* HttpServer.m */,
+			);
+			path = Pair;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -110,6 +504,7 @@
 				TargetAttributes = {
 					02E98B231C18673000ED06F1 = {
 						CreatedOnToolsVersion = 7.1;
+						DevelopmentTeam = QZ9VM39BA7;
 					};
 				};
 			};
@@ -137,8 +532,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				02E98B371C18673000ED06F1 /* LaunchScreen.storyboard in Resources */,
+				02E98B4E1C18676400ED06F1 /* ic_settings_bluetooth.png in Resources */,
 				02E98B341C18673000ED06F1 /* Assets.xcassets in Resources */,
+				02E98B421C18675700ED06F1 /* DeviceViewCell.xib in Resources */,
+				02E98B4F1C18676400ED06F1 /* ic_settings_wifi.png in Resources */,
 				02E98B321C18673000ED06F1 /* Main.storyboard in Resources */,
+				02E98B441C18675700ED06F1 /* IODeviceViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -149,9 +548,61 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02E98B431C18675700ED06F1 /* IODeviceViewCell.m in Sources */,
+				02E98BED1C18679D00ED06F1 /* WaterPurifierSensor.m in Sources */,
 				02E98B2F1C18673000ED06F1 /* ViewController.m in Sources */,
+				02E98BE51C18679D00ED06F1 /* TapRawRecord.m in Sources */,
+				02E98BF01C18679D00ED06F1 /* MXChipIO.m in Sources */,
+				02E98BEC1C18679D00ED06F1 /* WaterPurifierManager.m in Sources */,
+				02E98BEF1C18679D00ED06F1 /* MQTTProxy.m in Sources */,
+				02E98BEA1C18679D00ED06F1 /* WaterPurifier.m in Sources */,
+				02E98BC91C18679D00ED06F1 /* BluetoothIO.m in Sources */,
+				02E98BDB1C18679D00ED06F1 /* IOManager.m in Sources */,
+				02E98BF41C18679D00ED06F1 /* EasyLinkSender.m in Sources */,
+				02E98BD61C18679D00ED06F1 /* CupSettings.m in Sources */,
+				02E98BD31C18679D00ED06F1 /* CupRecord.m in Sources */,
+				02E98BF51C18679D00ED06F1 /* HttpServer.m in Sources */,
+				02E98BE81C18679D00ED06F1 /* TapSensor.m in Sources */,
+				02E98BDD1C18679D00ED06F1 /* OznerDevice.m in Sources */,
+				02E98BC81C18679D00ED06F1 /* FilterStatus.m in Sources */,
+				02E98BF11C18679D00ED06F1 /* MXChipIOManager.m in Sources */,
+				02E98BE31C18679D00ED06F1 /* TapFirmware.m in Sources */,
+				02E98BCD1C18679D00ED06F1 /* ScanData.m in Sources */,
+				02E98BE21C18679D00ED06F1 /* Tap.m in Sources */,
+				02E98BC51C18679D00ED06F1 /* AirPurifierInfo.m in Sources */,
+				02E98BD91C18679D00ED06F1 /* BaseOznerObject.m in Sources */,
+				02E98BE71C18679D00ED06F1 /* TapRecordList.m in Sources */,
+				02E98B4D1C18676400ED06F1 /* DeviceViewCell.m in Sources */,
+				02E98BDF1C18679D00ED06F1 /* SqlLiteDB.m in Sources */,
+				02E98BD51C18679D00ED06F1 /* CupSensor.m in Sources */,
+				02E98B4C1C18676400ED06F1 /* BluetoothAddDeviceController.m in Sources */,
+				02E98BE61C18679D00ED06F1 /* TapRecord.m in Sources */,
+				02E98BD81C18679D00ED06F1 /* BaseDeviceManager.m in Sources */,
+				02E98BC61C18679D00ED06F1 /* AirPurifierSensor.m in Sources */,
+				02E98BE91C18679D00ED06F1 /* TapSettings.m in Sources */,
+				02E98BDA1C18679D00ED06F1 /* DeviceSetting.m in Sources */,
+				02E98BD21C18679D00ED06F1 /* CupRawRecord.m in Sources */,
+				02E98BCC1C18679D00ED06F1 /* FirmwareTools.m in Sources */,
+				02E98BDE1C18679D00ED06F1 /* Helper.m in Sources */,
 				02E98B2C1C18673000ED06F1 /* AppDelegate.m in Sources */,
+				02E98BCA1C18679D00ED06F1 /* BluetoothIOMgr.m in Sources */,
+				02E98BD71C18679D00ED06F1 /* BaseDeviceIO.m in Sources */,
+				02E98BD01C18679D00ED06F1 /* CupGravity.m in Sources */,
+				02E98BDC1C18679D00ED06F1 /* IOManagerList.m in Sources */,
 				02E98B291C18673000ED06F1 /* main.m in Sources */,
+				02E98BE41C18679D00ED06F1 /* TapManager.m in Sources */,
+				02E98BEB1C18679D00ED06F1 /* WaterPurifierInfo.m in Sources */,
+				02E98BCF1C18679D00ED06F1 /* CupFirmware.m in Sources */,
+				02E98BCB1C18679D00ED06F1 /* BluetoothSynchronizedObject.m in Sources */,
+				02E98BF21C18679D00ED06F1 /* MXChipPair.m in Sources */,
+				02E98BC71C18679D00ED06F1 /* AirPurifierStatus.m in Sources */,
+				02E98BCE1C18679D00ED06F1 /* Cup.m in Sources */,
+				02E98BE11C18679D00ED06F1 /* OznerManager.m in Sources */,
+				02E98BD11C18679D00ED06F1 /* CupManager.m in Sources */,
+				02E98BEE1C18679D00ED06F1 /* WaterPurifierStatus.m in Sources */,
+				02E98BD41C18679D00ED06F1 /* CupRecordList.m in Sources */,
+				02E98BF31C18679D00ED06F1 /* ConfigurationDevice.m in Sources */,
+				02E98BC41C18679D00ED06F1 /* AirPurifier_MxChip.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,6 +714,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/OznerLibrary",
+				);
 				INFOPLIST_FILE = OznerLibraryDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = xuzhiyong.OznerLibraryDemo;
@@ -274,6 +730,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/OznerLibrary",
+				);
 				INFOPLIST_FILE = OznerLibraryDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = xuzhiyong.OznerLibraryDemo;

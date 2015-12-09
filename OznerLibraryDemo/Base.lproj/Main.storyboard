@@ -1,25 +1,133 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="czh-6F-ZOk">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <scene sceneID="0Py-qu-cHu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="czh-6F-ZOk" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                        <viewControllerLayoutGuide type="top" id="SoO-5d-Q7Y"/>
+                        <viewControllerLayoutGuide type="bottom" id="srZ-DH-kYk"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" id="Vp7-iu-p3m">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kDe-9x-dm4">
+                                <rect key="frame" x="0.0" y="20" width="600" height="529"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="czh-6F-ZOk" id="JiG-qT-N1O"/>
+                                    <outlet property="delegate" destination="czh-6F-ZOk" id="138-fu-b6M"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qSQ-33-IEc">
+                                <rect key="frame" x="540" y="557" width="40" height="40"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="JA9-2D-8Dr"/>
+                                    <constraint firstAttribute="height" constant="40" id="Zlk-nY-xaN"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="ic_settings_wifi.png"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zOz-NZ-p23">
+                                <rect key="frame" x="481" y="557" width="40" height="40"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="Akc-oE-uBD"/>
+                                    <constraint firstAttribute="height" constant="40" id="aR1-Sq-qey"/>
+                                </constraints>
+                                <state key="normal" image="ic_settings_bluetooth.png"/>
+                                <connections>
+                                    <segue destination="ULD-oc-vln" kind="show" id="jRm-2C-fpc"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="kDe-9x-dm4" firstAttribute="top" secondItem="SoO-5d-Q7Y" secondAttribute="bottom" id="0d5-zL-pBu"/>
+                            <constraint firstItem="zOz-NZ-p23" firstAttribute="top" secondItem="kDe-9x-dm4" secondAttribute="bottom" constant="8" id="1Jl-Tw-Jb6"/>
+                            <constraint firstItem="srZ-DH-kYk" firstAttribute="top" secondItem="qSQ-33-IEc" secondAttribute="bottom" constant="3" id="VNC-zb-qAh"/>
+                            <constraint firstItem="kDe-9x-dm4" firstAttribute="leading" secondItem="Vp7-iu-p3m" secondAttribute="leadingMargin" constant="-20" id="XWc-3q-GzF"/>
+                            <constraint firstItem="srZ-DH-kYk" firstAttribute="top" secondItem="zOz-NZ-p23" secondAttribute="bottom" constant="3" id="Yow-3C-K5z"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="kDe-9x-dm4" secondAttribute="trailing" constant="-20" id="abF-E6-gBC"/>
+                            <constraint firstItem="qSQ-33-IEc" firstAttribute="leading" secondItem="zOz-NZ-p23" secondAttribute="trailing" constant="19" id="fKC-S8-C6m"/>
+                            <constraint firstItem="qSQ-33-IEc" firstAttribute="trailing" secondItem="Vp7-iu-p3m" secondAttribute="trailingMargin" id="uzn-YU-eYg"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="kDe-9x-dm4" id="r04-Lt-RiJ"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sZv-cD-QgJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-558" y="-165"/>
+        </scene>
+        <!--Bluetooth Add Device Controller-->
+        <scene sceneID="b5m-hg-lnU">
+            <objects>
+                <viewController id="ULD-oc-vln" customClass="BluetoothAddDeviceController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6Hf-t0-HMo"/>
+                        <viewControllerLayoutGuide type="bottom" id="OCa-nO-jxw"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6Mc-Ve-Hsd">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rmw-PX-c6D">
+                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                                <animations/>
+                                <items>
+                                    <navigationItem title="配对设备" id="ifM-Tc-CEi">
+                                        <barButtonItem key="leftBarButtonItem" title="返回" id="WxK-Po-KOr">
+                                            <connections>
+                                                <segue destination="czh-6F-ZOk" kind="show" id="C19-vN-GmL"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BEs-pd-N52">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="ULD-oc-vln" id="aeo-d0-eKX"/>
+                                    <outlet property="delegate" destination="ULD-oc-vln" id="A7f-yV-qRq"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="BEs-pd-N52" firstAttribute="leading" secondItem="6Mc-Ve-Hsd" secondAttribute="leadingMargin" constant="-20" id="5ZX-eX-QPh"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="rmw-PX-c6D" secondAttribute="trailing" constant="-20" id="CSr-Cg-TOq"/>
+                            <constraint firstItem="rmw-PX-c6D" firstAttribute="leading" secondItem="6Mc-Ve-Hsd" secondAttribute="leadingMargin" constant="-20" id="DaD-re-tsI"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="BEs-pd-N52" secondAttribute="trailing" constant="-20" id="Lo7-vQ-bQo"/>
+                            <constraint firstItem="BEs-pd-N52" firstAttribute="top" secondItem="rmw-PX-c6D" secondAttribute="bottom" id="SM9-fN-7A4"/>
+                            <constraint firstItem="OCa-nO-jxw" firstAttribute="top" secondItem="BEs-pd-N52" secondAttribute="bottom" id="dxn-A4-hu8"/>
+                            <constraint firstItem="rmw-PX-c6D" firstAttribute="top" secondItem="6Hf-t0-HMo" secondAttribute="bottom" id="kuY-OW-ejq"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="BEs-pd-N52" id="boA-qz-D7i"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oeo-PT-mxg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="171" y="-165"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="ic_settings_bluetooth.png" width="160" height="160"/>
+        <image name="ic_settings_wifi.png" width="160" height="160"/>
+    </resources>
 </document>
