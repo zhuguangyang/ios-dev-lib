@@ -6,9 +6,9 @@
 //  Copyright © 2015年 Zhiyongxu. All rights reserved.
 //
 
-#import "AirPurifierSensor.h"
+#import "MxChipAirPurifierSensor.h"
 #import "AirPurifierConsts.h"
-@implementation AirPurifierSensor
+@implementation MxChipAirPurifierSensor
 -(instancetype)init:(NSDictionary *)propertys
 {
     if (self=[super init])

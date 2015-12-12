@@ -66,6 +66,10 @@
 {
     
 }
+-(void)saveSettings
+{
+    
+}
 -(enum ConnectStatus)status
 {
     if (!io) return Disconnect;

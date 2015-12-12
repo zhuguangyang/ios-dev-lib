@@ -8,6 +8,7 @@
 
 #import "CupRecordList.h"
 
+#import "CupDBRecord.h"
 
 @implementation CupRecordList
 
@@ -17,272 +18,148 @@
     {
         self->mIdentifiter=[[NSString alloc]initWithString:Address];
         self->mDB=[[SqlLiteDB alloc] init:@"CupDB" Version:2];
-        [self->mDB ExecSQLNonQuery:@"CREATE TABLE IF NOT EXISTS DayDateTable (Id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, Identifiter VARCHAR NOT NULL, Time INTEGER NOT NULL, JSON TEXT NOT NULL, UpdateFlag BOOLEAN NOT NULL)" params:NULL];
-        
-        [self->mDB ExecSQLNonQuery:@"CREATE TABLE IF NOT EXISTS HourDateTable (Id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, Identifiter VARCHAR NOT NULL, Time INTEGER NOT NULL, JSON TEXT NOT NULL)" params:NULL];
-        
-        NSDate* time=[[NSDate alloc]initWithTimeIntervalSinceNow:0];
-        //小时表只保存当天数据，隔天删除
-        int t=(int)([time timeIntervalSince1970]-86400)/86400*86400;
-        NSString* sql=[[NSString alloc] initWithFormat:@"delete from HourDateTable where Time<%d",t];
-        [mDB ExecSQLNonQuery:sql params:nil];
+        [self->mDB ExecSQLNonQuery:@"CREATE TABLE IF NOT EXISTS CupRecordTable (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, Address VARCHAR NOT NULL, Time INTEGER NOT NULL,TDS INTEGER NOT NULL,VOLUME INTEGER NOT NULL,TEMPERATURE INTEGER NOT NULL, updated BOOLEAN NOT NULL)"  params:NULL];
     }
     return self;
 }
--(CupRecord*) lastDay
+-(CupRecord*) getLastDay
 {
-    NSArray* data=[mDB ExecSQL:@"select Id,Time,JSON from DayDateTable where Identifiter=? order by time desc limit 1;" params:[NSArray arrayWithObject:mIdentifiter]];
-    if ([data count]>0)
-    {
-        NSDate* time=[[NSDate alloc] initWithTimeIntervalSince1970: [[[data objectAtIndex:0] objectAtIndex:1] intValue]];
-        CupRecord* item= [[CupRecord alloc] initWithJSON:time JSON:[[data objectAtIndex:0] objectAtIndex:2]];
-        item.Id=[[[data objectAtIndex:0] objectAtIndex:0] intValue];
-        return item;
-    }else
-        return NULL;
-}
-
--(CupRecord*) lastHour
-{
-    NSArray* data=[mDB ExecSQL:@"select Id,Time,JSON from HourDateTable where Identifiter=? order by time desc limit 1;" params:[NSArray arrayWithObject:mIdentifiter]];
-    if ([data count]>0)
-    {
-        NSDate* time=[[NSDate alloc] initWithTimeIntervalSince1970: [[[data objectAtIndex:0] objectAtIndex:1] intValue]];
-        CupRecord* item= [[CupRecord alloc] initWithJSON:time JSON:[[data objectAtIndex:0] objectAtIndex:2]];
-        item.Id=[[[data objectAtIndex:0] objectAtIndex:0] intValue];
-        return item;
-    }else
-        return NULL;
-}
--(void) LoadReocrds:(NSArray*)dayRecords HourRecords:(NSArray*)hourRecords
-{
-    [mDB ExecSQLNonQuery:@"delete from DayDateTable where Identifiter=?" params:[NSArray arrayWithObject:mIdentifiter]];
-    [mDB ExecSQLNonQuery:@"delete from HourDateTable where Identifiter=?" params:[NSArray arrayWithObject:mIdentifiter]];
-    
-    
-    for (CupRecord* CupRecord in dayRecords) {
-        [mDB ExecSQLNonQuery:@"insert into DayDateTable (Identifiter,Time,JSON,UpdateFlag) values (?,?,?,1);"
-                      params:[NSArray arrayWithObjects:mIdentifiter
-                              ,[[NSString alloc] initWithFormat:@"%d",(int)[CupRecord.Time timeIntervalSince1970]]
-                              ,[CupRecord json],nil]];
-    }
-    
-    for (CupRecord* CupRecord in hourRecords) {
-        [mDB ExecSQLNonQuery:@"insert into HourDateTable (Identifiter,Time,JSON) values (?,?,?);"
-                      params:[NSArray arrayWithObjects:mIdentifiter
-                              ,[[NSString alloc] initWithFormat:@"%d",(int)[CupRecord.Time timeIntervalSince1970]]
-                              ,[CupRecord json],nil]];
-    }
-}
--(void) AddRecord:(NSArray*)CupRecords
-{
-    CupRecord* lastHour=[self lastHour];  //取小时表最后一条数据
-    CupRecord* lastDay=[self lastDay]; //去日表最后一条数据
-    if (!lastHour)            //如果没有数据初始化一个
-        lastHour=[[CupRecord alloc] init];
-    if (!lastDay)
-        lastDay=[[CupRecord alloc] init];
-    
-    int hour=(int)[lastHour.Time timeIntervalSince1970]/3600;  //取整数小时
-    int day=(int)[lastDay.Time timeIntervalSince1970]/86400;  //去整数日
-    BOOL dayChange=NO;
-    BOOL hourChange=NO;
-    //循环
-    for (CupRawRecord* item in CupRecords) {
-        int inv= [item.time timeIntervalSince1970];
-        if ((int)inv/3600==hour)
+    @synchronized(self) {
+        NSArray* data=[mDB ExecSQL:@"select time from CupRecordTable where address=? order by time desc limit 1;" params:[NSArray arrayWithObject:mIdentifiter]];
+        if (data.count>0)
         {
-            lastHour.Vol+=item.Vol;//如果数据和小时数据一样，把量累加
-            [lastHour incTDS:item.TDS];
-            [lastHour incTemp:item.Temperature];
-            hourChange=YES;
-        }else
-        {
-            if (hourChange) //如果小时不一样，看上次没有有改过数据，如果有数据更新到数据库中
+            int time=[[[data objectAtIndex:0] objectAtIndex:0] intValue]/86400*86400;
+            NSArray* values=[mDB ExecSQL:@"select time,tds,volume,temperature,updated from CupRecordTable where address=? and time>=?;" params:[NSArray arrayWithObjects:mIdentifiter,[NSNumber numberWithInt:time],nil]];
+            if (values.count>0)
             {
-                NSString* sql= @"Update HourDateTable set JSON=? where Id=?;";
-                [mDB ExecSQL:sql params:[NSArray arrayWithObjects:
-                                         [lastHour json],
-                                         [[NSString alloc] initWithFormat:@"%d",lastHour.Id],nil]];
+                CupRecord* ret=[[CupRecord alloc] init];
+                for (NSArray* value in values)
+                {
+                    [ret calcRecord:[[CupDBRecord alloc] initWithArray:value]];
+                }
+                return ret;
             }
             
-            lastHour=[[CupRecord alloc] init];
-            hour=inv/3600;
-            lastHour.Time=[NSDate dateWithTimeIntervalSince1970:hour*3600];
-            lastHour.Vol=item.Vol;
-            [lastHour incTDS:item.TDS];
-            [lastHour incTemp:item.Temperature];
-            ///吧新建的数据在数据库中加一条
-            NSString* sql=@"Insert into HourDateTable (Identifiter,Time,JSON) Values (?,?,?);";
-            if ([mDB ExecSQL:sql params:[NSArray arrayWithObjects:mIdentifiter
-                                         ,[[NSString alloc] initWithFormat:@"%d",(int)[lastHour.Time timeIntervalSince1970]]
-                                         ,[lastHour json], nil]])
-            {
-                ///拿到加的那条数据ID
-                lastHour.Id=[[mDB ExecSQLOneRet:@"select LAST_INSERT_ROWID();" params:nil] intValue];
-            }
-            hourChange=YES;
         }
+        return nil;
+    }
+}
+-(CupRecord*) getLastHour
+{
+    @synchronized(self) {
+        NSArray* data=[mDB ExecSQL:@"select time from CupRecordTable where address=? order by time desc limit 1;" params:[NSArray arrayWithObject:mIdentifiter]];
+        if (data.count>0)
+        {
+            int time=[[[data objectAtIndex:0] objectAtIndex:0] intValue]/3600*3600;
+            NSArray* values=[mDB ExecSQL:@"select time,tds,volume,Temperature,updated from CupRecordTable where address=? and time>=?;" params:[NSArray arrayWithObjects:mIdentifiter,[NSNumber numberWithInt:time],nil]];
+            if (values.count>0)
+            {
+                CupRecord* ret=[[CupRecord alloc] init];
+                for (NSArray* value in values)
+                {
+                    [ret calcRecord:[[CupDBRecord alloc] initWithArray:value]];
+                }
+                return ret;
+            }
+            
+        }
+        return nil;
+    }
+}
+-(void)AddRecord:(NSArray *)Records
+{
+    @synchronized(self) {
+        if (Records.count<=0) return;
+        for (CupRawRecord* record in Records)
+        {
+            NSString* sql=@"Insert into CupRecordTable (Identifiter,time,tds,volume,temperature,updated) Values (?,?,?,?,?,0);";
+            
+            if ([mDB ExecSQLNonQuery:sql params:[NSArray arrayWithObjects:mIdentifiter
+                                         ,[NSNumber numberWithInt:(int)[record.time timeIntervalSince1970]]
+                                         ,[NSNumber numberWithInt:record.TDS]
+                                         ,[NSNumber numberWithInt:record.Vol]
+                                         ,[NSNumber numberWithInt:record.Temperature]
+                                         , nil]])
+            {
+                NSLog(@"addRecord");
+            }
+        }
+    }
+}
+
+-(CupRecord*) getRecordByDate:(NSDate*) time
+{
+    @synchronized(self) {
+        NSArray* valueList=[mDB ExecSQL:@"select time,tds,volume,Temperature,updated from CupRecordTable where address=? and time>=?;"
+                                 params:[NSArray arrayWithObjects:mIdentifiter,[NSNumber numberWithInt:(int)[time timeIntervalSince1970]],nil]];
+        if (valueList.count<=0) return nil;
         
-        if ((int)inv/86400==day)
+        CupRecord* ret=[[CupRecord alloc] init];
+        for (NSArray* value in valueList)
         {
-            lastDay.Vol+=item.Vol;
-            [lastDay incTDS:item.TDS];
-            [lastDay incTemp:item.Temperature];
-            dayChange=YES;
-        }else
-        {
-            if (dayChange)
-            {
-                NSString* sql= @"Update DayDateTable set JSON=?,UpdateFlag=0 where Id=?;";
-                [mDB ExecSQL:sql params:[NSArray arrayWithObjects:
-                                         [lastDay json],
-                                         [[NSString alloc] initWithFormat:@"%d",lastDay.Id],nil]];
-                
-            }
-            
-            
-            lastDay=[[CupRecord alloc] init];
-            day=inv/86400;
-            lastDay.Time=[NSDate dateWithTimeIntervalSince1970: day*86400];
-            lastDay.Vol=item.Vol;
-            [lastDay incTDS:item.TDS];
-            [lastDay incTemp:item.Temperature];
-            ///吧新建的数据在数据库中加一条
-            NSString* sql=@"Insert into DayDateTable (Identifiter,Time,JSON,UpdateFlag) Values (?,?,?,0);";
-            if ([mDB ExecSQL:sql params:[NSArray arrayWithObjects:mIdentifiter
-                                         ,[[NSString alloc] initWithFormat:@"%d",(int)[lastDay.Time timeIntervalSince1970]]
-                                         ,[lastDay json],nil]])
-            {
-                ///拿到加的那条数据ID
-                lastDay.Id=[[mDB ExecSQLOneRet:@"select LAST_INSERT_ROWID();" params:nil] intValue];
-            }
-            
-            dayChange=YES;
+            [ret calcRecord:[[CupDBRecord alloc] initWithArray:value]];
         }
+        return ret;
     }
-    ///如果前面循环有数据变更，更新下数据库
-    if (hourChange)
-    {
-        NSString* sql= @"Update HourDateTable set JSON=? where Id=?;";
-        [mDB ExecSQL:sql params:[NSArray arrayWithObjects:
-                                 [lastHour json],
-                                 [[NSString alloc] initWithFormat:@"%d",lastHour.Id],nil]];
-    }
-    if (dayChange)
-    {
-        NSString* sql= @"Update DayDateTable set JSON=?,UpdateFlag=0 where Id=?;";
-        [mDB ExecSQL:sql params:[NSArray arrayWithObjects:
-                                 [lastDay json],
-                                 [[NSString alloc] initWithFormat:@"%d",lastDay.Id]
-                                 ,nil]];
-    }
-    
 }
 
-//去当前整数小时的喝水了量
--(int) GetCurrHourVol
+
+-(NSArray*) getRecordByDate:(NSDate*)time Interval:(enum QueryInterval)interval
 {
-    CupRecord* lastHour=[self lastHour];
-    if (lastHour)
-    {
-        if ([lastHour.Time timeIntervalSinceNow]>3600)
-            return 0;
-        else
-            return lastHour.Vol;
-    }else
-        return 0;
-}
--(CupRecord *)GetTodayItem
-{
-    NSDate* time=[NSDate dateWithTimeIntervalSinceNow:0];
-    return [self GetRecordByDate:time];
-}
--(CupRecord *)GetRecordByDate:(NSDate *)Time
-{
-    int start=(int)[Time timeIntervalSince1970]/86400*86400;
-    NSString* sql=[[NSString alloc] initWithFormat:@"select Id,Time,JSON from DayDateTable where Identifiter=? and Time=%d;",start];
-    NSArray* ret=[mDB ExecSQL:sql params:[NSArray arrayWithObject:mIdentifiter]];
-    for (NSArray* row in ret)
-    {
-        NSDate* time=[[NSDate alloc] initWithTimeIntervalSince1970: [[row objectAtIndex:1] intValue]];
-        CupRecord* item=[[CupRecord alloc] initWithJSON:time JSON:[row objectAtIndex:2]];
-        item.Id=[[row objectAtIndex:0] intValue];
-        return item;
+    @synchronized(self) {
+        NSArray* valueList=[mDB ExecSQL:@"select time,tds,volume,Temperature,updated from CupRecordTable where address=? and time>=?;"
+                                 params:[NSArray arrayWithObjects:mIdentifiter,[NSNumber numberWithInt:(int)[time timeIntervalSince1970]],nil]];
+        NSMutableArray* rets=[[NSMutableArray alloc] init];
+        if (valueList.count<=0) return rets;
+        NSInteger lastTime=0;
+        NSInteger t=0;
+        CupRecord* ret=nil;
+        for (NSArray* value in valueList)
+        {
+            CupDBRecord* record=[[CupDBRecord alloc] initWithArray:value];
+            switch (interval) {
+                case Raw:
+                    t=(int)[record.time timeIntervalSince1970];
+                    break;
+                case Hour:
+                    t=((int)[record.time timeIntervalSince1970])/3600*3600;
+                    break;
+                case Day:
+                    t=((int)[record.time timeIntervalSince1970])/86400*86400;
+                    break;
+                case Month:
+                {
+                    NSCalendar *calendar = [NSCalendar currentCalendar];
+                    unsigned unitFlags = NSCalendarUnitYear | NSCalendarUnitMonth ;
+                    NSDateComponents *components = [calendar components:unitFlags fromDate:record.time];
+                    t=components.year*100+components.month;
+                    break;
+                }
+                case Week:
+                {
+                    NSCalendar *calendar = [NSCalendar currentCalendar];
+                    unsigned unitFlags = NSCalendarUnitWeekOfYear;
+                    NSDateComponents *components = [calendar components:unitFlags fromDate:record.time];
+                    t=components.weekOfYear;
+                    break;
+                }
+                default:
+                    break;
+            }
+            if (t!=lastTime)
+            {
+                if (ret)
+                {
+                    [rets addObject:ret];
+                }
+                ret=[[CupRecord alloc] init];
+            }
+            lastTime=t;
+            [ret calcRecord:record];
+            
+        }
+        return rets;
     }
-    return nil;
-}
--(NSArray*)GetRecordsByDate:(NSDate *)Time
-{
-    NSMutableArray* rets=[[NSMutableArray alloc] init];
-    int start=(int)[Time timeIntervalSince1970]/86400*86400;
-    NSString* sql=[[NSString alloc] initWithFormat:@"select Id,Time,JSON from DayDateTable where Identifiter=? and Time>=%d;",start];
-    NSArray* ret=[mDB ExecSQL:sql params:[NSArray arrayWithObject:mIdentifiter]];
-    for (NSArray* row in ret)
-    {
-        NSDate* time=[[NSDate alloc] initWithTimeIntervalSince1970: [[row objectAtIndex:1] intValue]];
-        CupRecord* item=[[CupRecord alloc] initWithJSON:time JSON:[row objectAtIndex:2]];
-        item.Id=[[row objectAtIndex:0] intValue];
-        [rets addObject:item];
-    }
-    return rets;
-}
-//获取今日的饮水数据
--(NSArray*) GetToday
-{
-    NSMutableArray* rets=[[NSMutableArray alloc] init];
-    NSDate* t=[[NSDate alloc] initWithTimeIntervalSinceNow:0];
-    int start=(int)[t timeIntervalSince1970]/86400*86400;
-    int end=(int)[t timeIntervalSince1970]+86400/86400*86400;
-    NSString* sql=[[NSString alloc] initWithFormat:@"select Id,Time,JSON from HourDateTable where Identifiter=? and (Time between %d and %d);",start,end];
-    NSArray* ret=[mDB ExecSQL:sql params:[NSArray arrayWithObject:mIdentifiter]];
-    for (NSArray* row in ret)
-    {
-        NSDate* time=[[NSDate alloc] initWithTimeIntervalSince1970: [[row objectAtIndex:1] intValue]];
-        CupRecord* item=[[CupRecord alloc] initWithJSON:time JSON:[row objectAtIndex:2]];
-        item.Id=[[row objectAtIndex:0] intValue];
-        [rets addObject:item];
-    }
-    return rets;
 }
 
--(NSArray*) GetNoSyncItenDay:(NSDate*) Time
-{
-    NSMutableArray* rets=[[NSMutableArray alloc] init];
-    NSString* sql=[NSString stringWithFormat:@"select Id,Time,JSON from DayDateTable where Identifiter=? and Time>=%d and UpdateFlag=0",
-                   (int)[Time timeIntervalSince1970]];
-    
-    NSArray* ret=[mDB ExecSQL:sql params:[NSArray arrayWithObjects:mIdentifiter, nil]];
-    
-    for (NSArray* row in ret)
-    {
-        NSDate* time=[[NSDate alloc] initWithTimeIntervalSince1970: [[row objectAtIndex:1] intValue]];
-        CupRecord* item=[[CupRecord alloc] initWithJSON:time JSON:[row objectAtIndex:2]];
-        item.Id=[[row objectAtIndex:0] intValue];
-        [rets addObject:item];
-    }
-    
-    return rets;
-}
-
--(NSArray*) GetShotItemDay:(NSDate*) Time
-{
-    NSMutableArray* rets=[[NSMutableArray alloc] init];
-    NSString* sql=@"select Id,Time,JSON from DayDateTable where Identifiter=? and Time>=?";
-    NSArray* ret=[mDB ExecSQL:sql params:[NSArray arrayWithObjects:mIdentifiter,(uint)[Time timeIntervalSince1970], nil]];
-    for (NSArray* row in ret)
-    {
-        NSDate* time=[[NSDate alloc] initWithTimeIntervalSince1970: [[row objectAtIndex:1] intValue]];
-        CupRecord* item=[[CupRecord alloc] initWithJSON:time JSON:[row objectAtIndex:2]];
-        item.Id=[[row objectAtIndex:0] intValue];
-        [rets addObject:item];
-    }
-    return rets;
-}
-
--(void) SetSyncTime:(NSDate*) Time
-{
-    NSString* sql=[NSString stringWithFormat:@"update DayDateTable set UpdateFlag=1 where Identifiter=? and Time<=%d",(int)[Time timeIntervalSince1970]];
-    [mDB ExecSQLNonQuery:sql params:[NSArray arrayWithObjects:mIdentifiter, nil]];
-}
 @end

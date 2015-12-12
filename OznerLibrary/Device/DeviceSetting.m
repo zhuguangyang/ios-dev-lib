@@ -31,10 +31,11 @@
             if (error)
             {
                 NSLog(@"error:%@",[error debugDescription]);
-            }
-            
-            for (NSString* key in [dict allKeys]) {
-                [values setObject:[dict objectForKey:key] forKey:key];
+                
+            }else{
+                for (NSString* key in [dict allKeys]) {
+                    [values setObject:[dict objectForKey:key] forKey:key];
+                }
             }
         }
     }

@@ -50,6 +50,7 @@
         }
         [self.sensor setText:[self.device description]];
     }
+    
 }
 -(void)setDevice:(OznerDevice *)device
 {

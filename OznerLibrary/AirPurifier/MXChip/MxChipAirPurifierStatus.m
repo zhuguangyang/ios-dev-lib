@@ -6,9 +6,9 @@
 //  Copyright © 2015年 Zhiyongxu. All rights reserved.
 //
 
-#import "AirPurifierStatus.h"
+#import "MxChipAirPurifierStatus.h"
 #import "AirPurifierConsts.h"
-@implementation AirPurifierStatus
+@implementation MxChipAirPurifierStatus
 
 -(instancetype)init:(NSDictionary*)propertys Callback:(updateStatusHandler)cb;
 {
@@ -50,11 +50,37 @@
             return 0;
     }
 }
+
+-(BOOL)resetFilterStatus
+{
+    MxChipAirPurifierFilterStatus* status=[[MxChipAirPurifierFilterStatus alloc] init];
+    return callback(PROPERTY_FILTER,[status toBytes]);
+}
+
+-(MxChipAirPurifierFilterStatus *)filterStatus
+{
+    @synchronized(propertys) {
+        NSData* data=[propertys objectForKey:[NSNumber numberWithInt:PROPERTY_FILTER]];
+        if (data)
+        {
+            if (data.length>0)
+            {
+                return [[MxChipAirPurifierFilterStatus alloc] init:data];
+                
+            }else
+                return nil;
+        }else
+            return nil;
+    }
+}
+
+
 -(void)setPower:(BOOL)power
 {
     Byte data[1]={power?1:0};
     callback(PROPERTY_POWER,[NSData dataWithBytes:data length:sizeof(data)]);
 }
+
 -(BOOL)getPower
 {
     return [self getBool:PROPERTY_POWER];

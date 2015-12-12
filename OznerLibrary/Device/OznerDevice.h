@@ -24,6 +24,7 @@
 -(BOOL)bind:(BaseDeviceIO*)newio;
 
 -(void)updateSettings;
+-(void)saveSettings;
 -(NSString *)getDefaultName;
 
 @property (nonatomic, weak) id<OznerDeviceDelegate> delegate;

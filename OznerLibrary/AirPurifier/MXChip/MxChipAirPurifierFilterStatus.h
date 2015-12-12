@@ -8,12 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
-@interface FilterStatus : NSObject
+@interface MxChipAirPurifierFilterStatus : NSObject
 
 @property (copy,readonly,nonatomic) NSDate* lastTime;
 @property (copy,readonly,nonatomic) NSDate* stopTime;
 @property (nonatomic,readonly) int workTime;
 @property (nonatomic,readonly) int maxWorkTime;
 -(instancetype)init:(NSData*)data;
-
+-(NSData*)toBytes;
 @end

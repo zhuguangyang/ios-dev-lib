@@ -10,7 +10,7 @@
 
 #define AIR_PURIFIER_ERROR 0xffff
 
-@interface AirPurifierSensor : NSObject
+@interface MxChipAirPurifierSensor : NSObject
 {
      NSDictionary* propertys;
 }
