@@ -72,7 +72,7 @@
         if (Records.count<=0) return;
         for (CupRawRecord* record in Records)
         {
-            NSString* sql=@"Insert into CupRecordTable (Identifiter,time,tds,volume,temperature,updated) Values (?,?,?,?,?,0);";
+            NSString* sql=@"Insert into CupRecordTable (address,time,tds,volume,temperature,updated) Values (?,?,?,?,?,0);";
             
             if ([mDB ExecSQLNonQuery:sql params:[NSArray arrayWithObjects:mIdentifiter
                                          ,[NSNumber numberWithInt:(int)[record.time timeIntervalSince1970]]
@@ -107,7 +107,7 @@
 -(NSArray*) getRecordByDate:(NSDate*)time Interval:(enum QueryInterval)interval
 {
     @synchronized(self) {
-        NSArray* valueList=[mDB ExecSQL:@"select time,tds,volume,Temperature,updated from CupRecordTable where address=? and time>=?;"
+        NSArray* valueList=[mDB ExecSQL:@"select time,tds,volume,temperature,updated from CupRecordTable where address=? and time>=?;"
                                  params:[NSArray arrayWithObjects:mIdentifiter,[NSNumber numberWithInt:(int)[time timeIntervalSince1970]],nil]];
         NSMutableArray* rets=[[NSMutableArray alloc] init];
         if (valueList.count<=0) return rets;
@@ -158,6 +158,7 @@
             [ret calcRecord:record];
             
         }
+        [rets addObject:ret];
         return rets;
     }
 }

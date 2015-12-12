@@ -173,12 +173,12 @@ typedef struct _RecordTime
                     NSLog(@"重复数据：%@-%d",[formatter stringFromDate:record.time],record.TDS);
                 }
                 @synchronized(records) {
-                    [records addObject:records];
+                    [records addObject:record];
                 }
             }
             lastDataTime=[NSDate dateWithTimeIntervalSinceNow:0];
             @synchronized(records) {
-                if (([records count]>0) && (record.Index==0))
+                if (([records count]>0) && (record.Index==record.Count))
                 {
                     [self.recordList AddRecord:records];
                     [records removeAllObjects];

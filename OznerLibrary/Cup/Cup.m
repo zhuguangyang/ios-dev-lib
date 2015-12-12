@@ -116,7 +116,7 @@
         case opCode_ReadRecordRet:
         {
             CupRawRecord* record=[[CupRawRecord alloc] init:bytes+1];
-            if (record.TDS>0)
+            if (record.Vol>0)
             {
                 NSString* hash=[NSString stringWithFormat:@"%f-%d",[record.time timeIntervalSince1970],record.TDS];
                 if ([self->dataHash containsObject:hash])
@@ -126,12 +126,12 @@
                     NSLog(@"重复数据：%@-%d",[formatter stringFromDate:record.time],record.TDS);
                 }
                 @synchronized(records) {
-                    [records addObject:records];
+                    [records addObject:record];
                 }
             }
             lastDataTime=[NSDate dateWithTimeIntervalSinceNow:0];
             @synchronized(records) {
-                if (([records count]>0) && (record.Index==0))
+                if (([records count]>0) && (record.Index==record.Count))
                 {
                     [self.volumes AddRecord:records];
                     [records removeAllObjects];

@@ -7,7 +7,7 @@
 //
 
 #import "DeviceViewCell.h"
-
+#import "../OznerLibrary/Cup/Cup.h"
 @implementation DeviceViewCell
 
 - (void)awakeFromNib {
@@ -49,6 +49,43 @@
                 break;
         }
         [self.sensor setText:[self.device description]];
+        
+        if ([self.device isKindOfClass:[Cup class]])
+        {
+            Cup* cup=(Cup*) self.device;
+            CupRecord* record=[cup.volumes getLastDay];
+            NSLog(@"lastDay:%@",[record description]);
+            
+            record=[cup.volumes getLastHour];
+            NSLog(@"lastHour:%@",[record description]);
+            //去今天的0点时间
+            NSDate* date=[[NSDate alloc] initWithTimeIntervalSince1970:(int)([[NSDate dateWithTimeIntervalSinceNow:0] timeIntervalSince1970])/86400*86400];
+            
+            //取每次饮水纪录
+            NSArray* array=[cup.volumes getRecordByDate:date Interval:Raw];
+            for (CupRecord* r in array)
+            {
+                NSLog(@"Raw:%@",[r description]);
+            }
+            
+            //取今日每小时饮水纪录
+            array=[cup.volumes getRecordByDate:date Interval:Hour];
+            for (CupRecord* r in array)
+            {
+                NSLog(@"hour:%@",[r description]);
+            }
+            
+            //取今天饮水纪录
+            array=[cup.volumes getRecordByDate:date Interval:Day];
+            for (CupRecord* r in array)
+            {
+                NSLog(@"day:%@",[r description]);
+            }
+            
+            
+     
+            
+        }
     }
     
 }
