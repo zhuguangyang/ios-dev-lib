@@ -32,7 +32,8 @@
     _Temperature_MAX=MAX(_Temperature_MAX,record.temperature);
     _Count++;
     if (record.tds < 50)
-        _TDS_High++;
+        _TDS_Good++;
+    
     else if (record.tds > 200)
         _TDS_Bad++;
     else
