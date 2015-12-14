@@ -9,6 +9,10 @@
 #import "MXChipPair.h"
 #import "Pair/EasyLinkSender.h"
 #import <SystemConfiguration/CaptiveNetwork.h>
+
+#import "../../OznerManager.h"
+
+
 @implementation MXChipPair
 +(NSString*)getWifiSSID
 {
@@ -31,6 +35,7 @@
     [self->serviceBrowser searchForServicesOfType:@"_easylink._tcp" inDomain:@"local."];
 }
 #define Timeout 120
+
 -(void)run
 {
 //    if (![MXChipPair getWifiSSID])
@@ -55,6 +60,8 @@
         BOOL v2=true;
         while (!device)
         {
+            if ([NSThread currentThread].isCancelled)
+                return;
             
             if (v2)
                 [easy send_easylink_v2];
@@ -73,6 +80,7 @@
             {
                 break;
             }
+            
         }
     }
     @catch (NSException *exception) {
@@ -101,7 +109,11 @@
                                [tmp substringWithRange:NSMakeRange(6, 2)],
                                [tmp substringWithRange:NSMakeRange(8, 2)],
                                [tmp substringWithRange:NSMakeRange(10, 2)]];
-                [self.delegate mxChipComplete:mac Type:device.type];
+                device.mac=mac;
+                MXChipIO* io=[[OznerManager instance].ioManager.mxchip createMXChipIO:device.mac Type:device.type];
+                io.name=device.name;
+                [self.delegate mxChipComplete:io];
+                
                 return;
             }
         }
@@ -111,6 +123,9 @@
     [self performSelectorOnMainThread:@selector(startMDNS) withObject:self waitUntilDone:false];
     self->semaphore = dispatch_semaphore_create(0);
     dispatch_semaphore_wait(self->semaphore,  dispatch_time(DISPATCH_TIME_NOW, Timeout * NSEC_PER_SEC));
+    if ([NSThread currentThread].isCancelled)
+        return;
+    
     NSLog(@"dispatch_semaphore_wait");
     if (device.ip==nil)
     {
@@ -119,11 +134,24 @@
     }
     @try {
         [self.delegate mxChipPairActivate];
+        
         if (![self activeDevice])
         {
             [self.delegate mxChipFailure];
         }
-        [self.delegate mxChipComplete:device.mac Type:device.type];
+        
+        MXChipIO* io=[[OznerManager instance].ioManager.mxchip createMXChipIO:device.mac Type:device.type];
+        if (io!=NULL)
+        {
+            io.name=device.name;
+            [self.delegate mxChipComplete:io];
+        }else
+        {
+            [self.delegate mxChipFailure];
+        }
+        
+        
+      
     }
     @catch (NSException *exception) {
         [self.delegate mxChipFailure];
@@ -216,10 +244,22 @@
         NSLog(@"onFTCfinished exception:%@",[exception debugDescription]);
     }
 }
+-(BOOL)isRuning
+{
+    return runThread!=nil;
+}
+-(void)cancel
+{
+    [runThread cancel];
+    if (semaphore)
+    {
+        dispatch_semaphore_signal(semaphore);
+    }
+    
+    runThread=nil;
+}
 -(void) start:(NSString*)ssid Password:(NSString*)password;
 {
-
-
     if (runThread)
     {
         return;
@@ -228,7 +268,6 @@
     self->ssid=[NSString stringWithString:ssid];
     self->password=[NSString stringWithString:password];
     runThread=[[NSThread alloc] initWithTarget:self selector:@selector(run) object:NULL];
-    
     [runThread start];
 }
 @end

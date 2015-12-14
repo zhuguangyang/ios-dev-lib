@@ -76,6 +76,9 @@
 		02E98C041C1950FD00ED06F1 /* AirPurifier_Bluetooth.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E98C031C1950FD00ED06F1 /* AirPurifier_Bluetooth.m */; };
 		02E98C071C19517C00ED06F1 /* BluetoothAirPurifierSensor.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E98C061C19517C00ED06F1 /* BluetoothAirPurifierSensor.m */; };
 		02E98C0A1C1BB84600ED06F1 /* CupDBRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E98C091C1BB84600ED06F1 /* CupDBRecord.m */; };
+		02E98C1E1C1E544100ED06F1 /* CupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E98C1C1C1E544100ED06F1 /* CupViewController.m */; };
+		02E98C1F1C1E544100ED06F1 /* CupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02E98C1D1C1E544100ED06F1 /* CupViewController.xib */; };
+		02E98C221C1E566200ED06F1 /* WifiAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E98C211C1E566200ED06F1 /* WifiAddViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -214,6 +217,11 @@
 		02E98C061C19517C00ED06F1 /* BluetoothAirPurifierSensor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BluetoothAirPurifierSensor.m; path = Bluetooth/BluetoothAirPurifierSensor.m; sourceTree = "<group>"; };
 		02E98C081C1BB84600ED06F1 /* CupDBRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CupDBRecord.h; sourceTree = "<group>"; };
 		02E98C091C1BB84600ED06F1 /* CupDBRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CupDBRecord.m; sourceTree = "<group>"; };
+		02E98C1B1C1E544100ED06F1 /* CupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CupViewController.h; sourceTree = "<group>"; };
+		02E98C1C1C1E544100ED06F1 /* CupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CupViewController.m; sourceTree = "<group>"; };
+		02E98C1D1C1E544100ED06F1 /* CupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CupViewController.xib; sourceTree = "<group>"; };
+		02E98C201C1E566200ED06F1 /* WifiAddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WifiAddViewController.h; sourceTree = "<group>"; };
+		02E98C211C1E566200ED06F1 /* WifiAddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WifiAddViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -258,6 +266,8 @@
 				02E98B351C18673000ED06F1 /* LaunchScreen.storyboard */,
 				02E98B451C18676400ED06F1 /* BluetoothAddDeviceController.h */,
 				02E98B461C18676400ED06F1 /* BluetoothAddDeviceController.m */,
+				02E98C201C1E566200ED06F1 /* WifiAddViewController.h */,
+				02E98C211C1E566200ED06F1 /* WifiAddViewController.m */,
 				02E98B471C18676400ED06F1 /* DeviceViewCell.h */,
 				02E98B481C18676400ED06F1 /* DeviceViewCell.m */,
 				02E98B3E1C18675700ED06F1 /* DeviceViewCell.xib */,
@@ -268,6 +278,9 @@
 				02E98B331C18673000ED06F1 /* Assets.xcassets */,
 				02E98B381C18673100ED06F1 /* Info.plist */,
 				02E98B271C18673000ED06F1 /* Supporting Files */,
+				02E98C1B1C1E544100ED06F1 /* CupViewController.h */,
+				02E98C1C1C1E544100ED06F1 /* CupViewController.m */,
+				02E98C1D1C1E544100ED06F1 /* CupViewController.xib */,
 			);
 			path = OznerLibraryDemo;
 			sourceTree = "<group>";
@@ -537,7 +550,7 @@
 				TargetAttributes = {
 					02E98B231C18673000ED06F1 = {
 						CreatedOnToolsVersion = 7.1;
-						DevelopmentTeam = QZ9VM39BA7;
+						DevelopmentTeam = MTYS6HJ5R9;
 					};
 				};
 			};
@@ -569,6 +582,7 @@
 				02E98B341C18673000ED06F1 /* Assets.xcassets in Resources */,
 				02E98B421C18675700ED06F1 /* DeviceViewCell.xib in Resources */,
 				02E98B4F1C18676400ED06F1 /* ic_settings_wifi.png in Resources */,
+				02E98C1F1C1E544100ED06F1 /* CupViewController.xib in Resources */,
 				02E98B321C18673000ED06F1 /* Main.storyboard in Resources */,
 				02E98B441C18675700ED06F1 /* IODeviceViewCell.xib in Resources */,
 			);
@@ -612,6 +626,7 @@
 				02E98B4D1C18676400ED06F1 /* DeviceViewCell.m in Sources */,
 				02E98BDF1C18679D00ED06F1 /* SqlLiteDB.m in Sources */,
 				02E98BD51C18679D00ED06F1 /* CupSensor.m in Sources */,
+				02E98C221C1E566200ED06F1 /* WifiAddViewController.m in Sources */,
 				02E98B4C1C18676400ED06F1 /* BluetoothAddDeviceController.m in Sources */,
 				02E98BE61C18679D00ED06F1 /* TapRecord.m in Sources */,
 				02E98BD81C18679D00ED06F1 /* BaseDeviceManager.m in Sources */,
@@ -621,6 +636,7 @@
 				02E98BD21C18679D00ED06F1 /* CupRawRecord.m in Sources */,
 				02E98BCC1C18679D00ED06F1 /* FirmwareTools.m in Sources */,
 				02E98BDE1C18679D00ED06F1 /* Helper.m in Sources */,
+				02E98C1E1C1E544100ED06F1 /* CupViewController.m in Sources */,
 				02E98B2C1C18673000ED06F1 /* AppDelegate.m in Sources */,
 				02E98BCA1C18679D00ED06F1 /* BluetoothIOMgr.m in Sources */,
 				02E98BD71C18679D00ED06F1 /* BaseDeviceIO.m in Sources */,

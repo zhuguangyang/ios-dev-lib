@@ -41,6 +41,8 @@ OznerManager* oznerManager=nil;
         devices=[[NSMutableDictionary alloc] init];
         _ioManager=[[IOManagerList alloc] init];
         _ioManager.bluetooth.delegate=self;
+        _ioManager.mxchip.delegate=self;
+        
         deviceMgrList=[NSArray arrayWithObjects:
                        [[CupManager alloc] init],
                        [[TapManager alloc] init],
@@ -70,6 +72,12 @@ OznerManager* oznerManager=nil;
     [self.delegate OznerManagerDidOwnerChanged:self->owner];
     [self loadDevices];
     
+}
+-(BOOL)hashDevice:(NSString*)identifier
+{
+    @synchronized(devices) {
+        return [devices objectForKey:identifier]!=NULL;
+    }
 }
 -(OznerDevice*)getDevice:(NSString*)identifier;
 {
@@ -140,10 +148,15 @@ OznerManager* oznerManager=nil;
     [db ExecSQLNonQuery:sql params:[NSArray arrayWithObjects:device.identifier,device.type,[device.settings toJSON], nil]];
     
     [device updateSettings];
-    if (isNew)
-        [self.delegate OznerManagerDidAddDevice:device];
-    else
-        [self.delegate OznerManagerDidUpdateDevice:device];
+    @try {
+        if (isNew)
+            [self.delegate OznerManagerDidAddDevice:device];
+        else
+            [self.delegate OznerManagerDidUpdateDevice:device];
+    }
+    @catch (NSException *exception) {
+        
+    }
 }
 -(void)loadDevices
 {

@@ -21,6 +21,7 @@
 {
     [self update];
 }
+
 +(instancetype)loadNibCell;
 {
     return [[NSBundle mainBundle] loadNibNamed:@"DeviceViewCell" owner:nil options:nil][0];
@@ -37,7 +38,7 @@
         [self.name setText:self.device.settings.name];
         [self.identifier setText:[NSString stringWithFormat:@"id:%@",self.device.identifier]];
         [self.type setText:[NSString stringWithFormat:@"type:%@",self.device.type]];
-        switch (self.device.status) {
+        switch ([self.device connectStatus]) {
             case Connected:
                 [self.status setText:@"status:已连接"];
                 break;
@@ -58,7 +59,8 @@
             
             record=[cup.volumes getLastHour];
             NSLog(@"lastHour:%@",[record description]);
-            //去今天的0点时间
+            
+            //取今天的0点时间
             NSDate* date=[[NSDate alloc] initWithTimeIntervalSince1970:(int)([[NSDate dateWithTimeIntervalSinceNow:0] timeIntervalSince1970])/86400*86400];
             
             //取每次饮水纪录
@@ -82,8 +84,6 @@
                 NSLog(@"day:%@",[r description]);
             }
             
-            
-     
             
         }
     }

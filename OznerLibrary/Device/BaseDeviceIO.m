@@ -60,7 +60,7 @@
     self->_isReady=false;
     [self.delegate DeviceIODidConnected:self];
     NSLog(@"Connected:%@",self.identifier);
-    
+
 }
 -(void)doConnecting
 {

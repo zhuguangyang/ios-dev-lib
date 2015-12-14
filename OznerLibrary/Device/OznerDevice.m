@@ -70,7 +70,7 @@
 {
     
 }
--(enum ConnectStatus)status
+-(enum ConnectStatus)connectStatus
 {
     if (!io) return Disconnect;
     return io.status;
@@ -110,6 +110,7 @@
 {
     
 }
+
 -(void)DeviceIODidConnected:(BaseDeviceIO *)io
 {
     [self doStatusUpdate];

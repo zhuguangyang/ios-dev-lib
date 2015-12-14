@@ -31,7 +31,6 @@
     NSMutableArray* array=[[NSMutableArray alloc] init];
     [array addObjectsFromArray:[_bluetooth getAvailableDevices]];
     [array addObjectsFromArray:[_mxchip getAvailableDevices]];
-    
     return array;
 }
 -(void)closeAll

@@ -20,24 +20,35 @@
         clientId=[NSString stringWithFormat:@"v1-app-%@",[Helper rndString:12]];
         registerSeedId=0;
         onPublishList=[[NSMutableDictionary alloc] init];
-        self->runThread=[[NSThread alloc] initWithTarget:self selector:@selector(runThreadProc) object:nil];
-        [self->runThread start];
-        while (runLoop==NULL) sleep(0.01);
-        session=[[MQTTSession alloc] initWithClientId:clientId runLoop:runLoop forMode:NSDefaultRunLoopMode];
-        session.delegate=self;
         waitTime=defalutWaitTime;
-        isQuit=false;
-        [self reConnect];
+      
     }
     return self;
 }
+-(void)start
+{
+    if (runThread)return;
+    self->runThread=[[NSThread alloc] initWithTarget:self selector:@selector(runThreadProc) object:nil];
+    [self->runThread start];
+    while (runLoop==NULL) sleep(0.01);
+    session=[[MQTTSession alloc] initWithClientId:clientId runLoop:runLoop forMode:NSDefaultRunLoopMode];
+    session.delegate=self;
+    isQuit=false;
+    [self reConnect];
+}
+-(void)stop
+{
+    if (!runThread) return;
+    isQuit=true;
+    [runThread cancel];
 
+}
 -(void)runThreadProc
 {
     runLoop=[NSRunLoop currentRunLoop];
-    while([NSThread currentThread].isCancelled)
+    while(![NSThread currentThread].isCancelled)
     {
-        [[NSRunLoop currentRunLoop] run];
+        CFRunLoopRun();
     }
 }
 
@@ -68,14 +79,16 @@
 }
 -(BOOL)publish:(NSString*)topic Data:(NSData*)data
 {
-    return [session publishAndWaitData:data onTopic:topic retain:false qos:MQTTQosLevelAtLeastOnce];
+    [session publishData:data onTopic:topic];
+    return true;
+    //return [session publishAndWaitData:data onTopic:topic retain:false qos:MQTTQosLevelAtLeastOnce];
 }
 
 -(void)newMessage:(MQTTSession *)session data:(NSData *)data onTopic:(NSString *)topic qos:(MQTTQosLevel)qos retained:(BOOL)retained mid:(unsigned int)mid
 {
     NSArray* array=nil;
     @synchronized(onPublishList) {
-        [NSArray arrayWithArray:[onPublishList allValues]];
+      array=[NSArray arrayWithArray:[onPublishList allValues]];
     }
     for (MQTTProxyOnPublishHandler handler in array)
     {
@@ -85,7 +98,8 @@
 -(void)reConnect
 {
     NSLog(@"start connect");
-    [session connectToHost:MQTT_HOST port:MQTT_PORT];
+    [session connectToHost:MQTT_HOST port:MQTT_PORT usingSSL:false];
+
 }
 
 

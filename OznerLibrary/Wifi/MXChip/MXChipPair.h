@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "Pair/HttpServer.h"
 #import "Pair/ConfigurationDevice.h"
+#import "../MXChip/MXChipIO.h"
 @protocol MxChipPairDelegate <NSObject>
 
 /*!
@@ -27,7 +28,7 @@
 -(void)mxChipPairActivate;
 
 //配网完成
--(void)mxChipComplete:(NSString*)mac Type:(NSString*)type;
+-(void)mxChipComplete:(MXChipIO*)io;
 
 //配网失败
 -(void)mxChipFailure;
@@ -54,6 +55,8 @@
 +(NSString*)getWifiSSID;
 
 -(void) start:(NSString*)ssid Password:(NSString*)password;
+-(BOOL)isRuning;
+-(void)cancel;
 
 
 @end

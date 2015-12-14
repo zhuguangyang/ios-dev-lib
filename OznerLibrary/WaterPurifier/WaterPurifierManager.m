@@ -18,5 +18,14 @@
     [[OznerManager instance].ioManager.mxchip createMXChipIO:identifier Type:type];
     return device;
 }
++(BOOL)isWaterPurifier:(NSString*)type
+{
+    return [type isEqualToString:@"MXCHIP_HAOZE_Water"];
+}
+
+-(BOOL)isMyDevice:(NSString *)type
+{
+    return [WaterPurifierManager isWaterPurifier:type];
+}
 
 @end

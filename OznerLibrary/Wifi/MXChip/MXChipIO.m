@@ -61,8 +61,9 @@
 {
     int msgId=0;
     @try {
-        if (proxy.connected)
+        if (!proxy.connected)
             return ;
+        [self doConnecting];
         
         msgId=[proxy registerOnPublish:^(NSString *topic, NSData *data) {
             if (outKey)
@@ -74,6 +75,7 @@
 
         if (![proxy subscribe:outKey])
             return;
+        [self doConnected];
         
         if (![self doInit])
             return;
@@ -97,6 +99,7 @@
 {
     [self.statusDelegate IOClosed:self];
     [super doDisconnect];
+    
 }
 
 -(void)open
@@ -112,8 +115,8 @@
 
 -(void)setSecureCode:(NSString*)secureCode;
 {
-    self->inKey=[NSString stringWithFormat:@"%@/%@/in",secureCode,[[self.identifier stringByReplacingOccurrencesOfString:@"" withString:@":"] lowercaseString]];
-    self->outKey=[NSString stringWithFormat:@"%@/%@/out",secureCode,[[self.identifier stringByReplacingOccurrencesOfString:@"" withString:@":"] lowercaseString]];
+    self->inKey=[NSString stringWithFormat:@"%@/%@/in",secureCode,[[self.identifier stringByReplacingOccurrencesOfString:@":" withString:@""] lowercaseString]];
+    self->outKey=[NSString stringWithFormat:@"%@/%@/out",secureCode,[[self.identifier stringByReplacingOccurrencesOfString:@":" withString:@""] lowercaseString]];
 }
 
 

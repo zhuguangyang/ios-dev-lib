@@ -17,6 +17,10 @@
     }
     return self;
 }
+-(NSString *)description
+{
+    return [NSString stringWithFormat:@"Power:%d Cool:%d Hot:%d Sterilization:%d",self.power,self.cool,self.hot,self.sterilization];
+}
 -(void)load:(BytePtr)bytes
 {
     _hot = bytes[12] != 0;

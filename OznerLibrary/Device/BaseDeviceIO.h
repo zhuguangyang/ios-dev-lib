@@ -37,6 +37,8 @@ enum ConnectStatus {Connecting,Disconnect,Connected};
 
 @property (readonly,copy)NSString* type;
 
+@property (copy)NSString* name;
+
 @property (readonly) BOOL isReady;
 
 /*!

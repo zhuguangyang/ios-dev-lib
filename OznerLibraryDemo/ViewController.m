@@ -11,15 +11,13 @@
 
 @implementation ViewController
 
-
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
-    
-    mqtt=[[MQTTProxy alloc] init];
-    
     [OznerManager instance].delegate=self;
     [self update];
 }
+
 -(void)update
 {
     self->devices=[[OznerManager instance] getDevices];
@@ -73,7 +71,7 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 90;
+    return 120;
 }
 
 @end

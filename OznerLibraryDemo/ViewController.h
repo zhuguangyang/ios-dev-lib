@@ -7,13 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MXChipPair.h"
 #import "OznerManager.h"
 #import "../OznerLibrary/Wifi/MXChip/MQTTProxy.h"
 @interface ViewController : UIViewController<OznerManagerDelegate,UITableViewDataSource,UITableViewDelegate>
 {
     NSArray* devices;
-    MQTTProxy* mqtt;
 }
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @end

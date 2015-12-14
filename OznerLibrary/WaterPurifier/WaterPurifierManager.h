@@ -10,5 +10,6 @@
 #import "../Device/BaseDeviceManager.h"
 
 @interface WaterPurifierManager : BaseDeviceManager
++(BOOL)isWaterPurifier:(NSString*)type;
 
 @end

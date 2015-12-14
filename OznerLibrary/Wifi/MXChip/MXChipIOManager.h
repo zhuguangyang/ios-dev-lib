@@ -14,6 +14,7 @@
 @interface MXChipIOManager : IOManager<MQTTProxyDelegate,MXChipIOStatusDelegate>
 {
     MQTTProxy* proxy;
+    NSMutableDictionary* listenDeviceList;
 }
 -(MXChipIO*)createMXChipIO:(NSString *)identifier Type:(NSString*)type;
 

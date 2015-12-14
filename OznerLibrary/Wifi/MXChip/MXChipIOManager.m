@@ -9,74 +9,100 @@
 #import "MXChipIOManager.h"
 
 #import "../../Device/IOManager.hpp"
+#import "../../OznerManager.h"
 @implementation MXChipIOManager
 -(instancetype)init
 {
     if (self=[super init])
     {
         proxy=[[MQTTProxy alloc] init];
+        proxy.delegate=self;
+        [proxy start];
+        listenDeviceList=[[NSMutableDictionary alloc] init];
     }
     return self;
 }
--(void)delayAvailable:(MXChipIO*)io
+-(MXChipIO*)newIO:(NSString *)identifier Type:(NSString*)type
 {
-    if (proxy.connected)
-    {
-        [self doAvailable:io];
-    }
+    MXChipIO* io=[[MXChipIO alloc] init:identifier MQTT:proxy Type:type];
+    io.statusDelegate=self;
+    return io;
 }
 -(void)IOClosed:(MXChipIO *)io
 {
     [self doUnavailable:io];
-    if (proxy.connected)
-    {
-        //延迟5秒重新激活io
-        [self performSelector:@selector(delayAvailable:) withObject:io afterDelay:5];
-    }
 }
+
 -(MXChipIO*)createMXChipIO:(NSString *)identifier Type:(NSString*)type;
 {
-    MXChipIO* io=(MXChipIO*)[super getAvailableDevice:identifier];
-    if (!io)
-    {
-        io=[[MXChipIO alloc] init:identifier Type:type];
+    @synchronized(listenDeviceList) {
+        if (![listenDeviceList objectForKey:identifier])
+        {
+            [listenDeviceList setObject:type forKey:identifier];
+        }
     }
-    io.statusDelegate=self;
-    [self doAvailable:io];
-    return io;
+    if (proxy.connected)
+    {
+        MXChipIO* io=[self newIO:identifier Type:type];
+        [self doAvailable:io];
+        return io;
+    }else
+        return nil;
 }
 
 -(void)MQTTProxyConnected:(MQTTProxy *)proxy
 {
-    NSArray* devices=[super getAvailableDevices];
-    for (MXChipIO* io in devices) {
-        [self doAvailable:io];
+    @synchronized(listenDeviceList) {
+        for (NSString* identifier in [listenDeviceList allKeys])
+        {
+            NSString* type=[listenDeviceList objectForKey:identifier];
+            [self doAvailable:[self newIO:identifier Type:type]];
+        }
     }
 }
 
 -(void)MQTTProxyDisconnected:(MQTTProxy *)proxy
 {
-    NSArray* devices=[super getAvailableDevices];
-    for (MXChipIO* io in devices) {
-        [self doUnavailable:io];
+    @synchronized(listenDeviceList) {
+        for (NSString* address in [listenDeviceList allKeys])
+        {
+            BaseDeviceIO* io=[self getAvailableDevice:address];
+            if (io)
+                [self doUnavailable:io];
+        }
     }
 }
 
--(BaseDeviceIO *)getAvailableDevice:(NSString *)identifier
+-(void) delayedAvailable:(NSString*)identifier
 {
-    if (proxy.connected)
+    NSLog(@"delayedAvailable");
+    if (![[OznerManager instance] hashDevice:identifier])
     {
-        return [super getAvailableDevice:identifier];
-    }else
-        return nil;
+        return;
+    }
+    @synchronized(listenDeviceList) {
+        NSString* type=[listenDeviceList objectForKey:identifier];
+        if (type)
+        {
+            [self doAvailable:[self newIO:identifier Type:type]];
+        }
+    }
 }
 
--(NSArray *)getAvailableDevices
+-(void)doUnavailable:(BaseDeviceIO *)io
 {
-    if (proxy.connected)
+    [super doUnavailable:io];
+    if (![[OznerManager instance] hashDevice:io.identifier])
     {
-        return [super getAvailableDevices];
-    }else
-        return [[NSArray alloc] init];
+        @synchronized(listenDeviceList) {
+            [listenDeviceList removeObjectForKey:io.identifier];
+        }
+    }else{
+        if (proxy.connected)
+        {
+           [self performSelectorInBackground:@selector(delayedAvailable:) withObject:io.identifier]; //重新进io
+        }
+        
+    }
 }
 @end

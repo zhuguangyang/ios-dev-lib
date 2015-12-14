@@ -28,7 +28,7 @@
     {
         ConfigurationDevice* ret=[[ConfigurationDevice alloc] init];
         ret->_name=[NSString stringWithString:[object objectForKey:@"N"]];
-        ret->_type=[[object objectForKey:@"FW"] stringByReplacingOccurrencesOfString:@"" withString:@"@"];
+        ret->_type=[[object objectForKey:@"FW"] stringByReplacingOccurrencesOfString:@"@" withString:@""];
         NSDictionary* cloudInfo=[ConfigurationDevice getValue:[object objectForKey:@"C"] Name:@"Cloud info"];
         if (cloudInfo)
         {

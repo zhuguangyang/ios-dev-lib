@@ -54,19 +54,21 @@
     
     if ([_start isEqualToDate:_end])
     {
-        return [NSString stringWithFormat:@"time:%@\nvol:%d tds:%d temp:%d count:%d\n温度高:%d 温度中:%d 温度低:%d\nTDS好:%d TDS中:%d TDS差:%d",
+        return [NSString stringWithFormat:@"time:%@\nvol:%d tds:%d temp:%d count:%d\n温度高:%d 温度中:%d 温度低:%d\nTDS好:%d TDS中:%d TDS差:%d TDS最高:%d 温度最高:%d",
         [dateFormatter stringFromDate:_start],
         _volume,_tds,_temperature,_Count,
         _Temperature_High, _Temperature_Mid, _Temperature_Low,
-        _TDS_Good, _TDS_Mid, _TDS_Bad];
+        _TDS_Good, _TDS_Mid, _TDS_Bad,_TDS_High,_Temperature_MAX];
     }else
     {
-        return [NSString stringWithFormat:@"start:%@\nend:%@\nvol:%d tds:%d temp:%d count:%d\n温度高:%d 温度中:%d 温度低:%d\nTDS好:%d TDS中:%d TDS差:%d",
+        return [NSString stringWithFormat:@"start:%@\nend:%@\nvol:%d tds:%d temp:%d count:%d\n温度高:%d 温度中:%d 温度低:%d\nTDS好:%d TDS中:%d TDS差:%d TDS最高:%d 温度最高:%d",
                              [dateFormatter stringFromDate:_start],
                              [dateFormatter stringFromDate:_end],
                              _volume,_tds,_temperature,_Count,
                              _Temperature_High, _Temperature_Mid, _Temperature_Low,
-                             _TDS_Good, _TDS_Mid, _TDS_Bad];
+                             _TDS_Good, _TDS_Mid, _TDS_Bad,
+                             _TDS_High,_Temperature_MAX
+                ];
     }
     
 }

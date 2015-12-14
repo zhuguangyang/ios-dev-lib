@@ -31,5 +31,5 @@
 @property (readonly,strong) DeviceSetting* settings;
 @property (readonly,copy)NSString* identifier;
 @property (readonly,copy)NSString* type;
--(enum ConnectStatus) status;
+-(enum ConnectStatus) connectStatus;
 @end

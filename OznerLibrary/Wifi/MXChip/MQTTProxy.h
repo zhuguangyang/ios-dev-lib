@@ -30,7 +30,7 @@ typedef void (^MQTTProxyOnPublishHandler)(NSString* topic,NSData* data);
     int registerSeedId;
 }
 @property (readonly,nonatomic) BOOL connected;
-@property (nullable, nonatomic, weak) id<MQTTProxyDelegate> delegate;
+@property (nonatomic, weak) id<MQTTProxyDelegate> delegate;
 
 -(int)registerOnPublish:(MQTTProxyOnPublishHandler)onPublishHandler;
 -(void)unregisterOnPublish:(int)registerId;
@@ -38,5 +38,5 @@ typedef void (^MQTTProxyOnPublishHandler)(NSString* topic,NSData* data);
 -(BOOL)unsubscribe:(NSString*)topic;
 -(BOOL)publish:(NSString*)topic Data:(NSData*)data;
 -(void)start;
--(void)stop;
+
 @end

@@ -76,6 +76,9 @@
  */
 -(NSArray*)getDevices;
 
+-(BOOL)hashDevice:(NSString*)identifier;
+
+
 /*!
  @function getDeviceByIO
  @discussion 获取通过扫描到的io获取设备

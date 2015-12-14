@@ -42,6 +42,13 @@
     return ret;
 }
 
+-(NSString *)description
+{
+    return [NSString stringWithFormat:@"Status:%@ Sensor:%@",
+            
+            [self.status description],[self.sensor description]];
+}
+
 -(void)doSetDeviceIO:(BaseDeviceIO *)oldio NewIO:(BaseDeviceIO *)newio
 {
     MXChipIO* io=(MXChipIO*)newio;
@@ -128,11 +135,24 @@
 {
     [self reqeusetStatsus];
     [self start_auto_update];
+    @try {
+         [super DeviceIODidReadly:io];
+    }
+    @catch (NSException *exception) {
+        
+    }
+   
 }
 
--(void)DeviceIODidConnected:(BaseDeviceIO *)io
+-(void)DeviceIODidDisconnected:(BaseDeviceIO *)io
 {
     [self stop_auto_update];
+    @try {
+        [super DeviceIODidDisconnected:io];
+    }
+    @catch (NSException *exception) {
+        
+    }
 }
 
 -(void)stop_auto_update

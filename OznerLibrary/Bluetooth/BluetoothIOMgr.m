@@ -101,6 +101,7 @@
         if (!io)
         {
             io=[[BluetoothIO alloc] initWithPeripheral:peripheral Address:[self getIdentifier:peripheral] CentralManager:centralManager BluetoothData:scanData];
+            io.name=peripheral.name;
         }
             
         [io updateScarnResponse:scanData.scanResponesType Data:scanData.scanResponesData];

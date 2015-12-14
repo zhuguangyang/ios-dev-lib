@@ -18,7 +18,10 @@
     }
     return self;
 }
-
+-(NSString *)description
+{
+    return [NSString stringWithFormat:@"TDS1:%d TDS2:%d",_TDS1,_TDS2];
+}
 -(void)load:(BytePtr)bytes
 {
     _TDS1 = *((short*) bytes+16);
