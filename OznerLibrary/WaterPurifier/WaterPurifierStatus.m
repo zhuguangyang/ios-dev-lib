@@ -40,22 +40,22 @@
 }
 -(void)setPower:(BOOL)power
 {
-    if ([self toSet])
-        _power=power;
+    _power=power;
+    [self toSet];
 }
 -(void)setSterilization:(BOOL)sterilization
 {
-    if ([self toSet])
-        _sterilization=sterilization;
+    _sterilization=sterilization;
+    [self toSet];
 }
 -(void)setCool:(BOOL)cool
 {
-    if ([self toSet])
-        _cool=cool;
+    _cool=cool;
+    [self toSet];
 }
 -(void)setHot:(BOOL)hot
 {
-    if ([self toSet])
-        _hot=hot;
+    _hot=hot;
+    [self toSet];
 }
 @end

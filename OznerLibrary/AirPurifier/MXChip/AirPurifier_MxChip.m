@@ -8,13 +8,14 @@
 
 #import "AirPurifier_MxChip.h"
 #import "AirPurifierConsts.h"
+#import "../../Wifi/MXChip/MXChipIO.h"
 #import "../../Helper/Helper.h"
 #import "../../Device/OznerDevice.h"
 #import "../../Device/OznerDevice.hpp"
 
 @implementation AirPurifier_MxChip
 #define Timeout 5
-
+#define SecureCode @"580c2783"
 
 -(instancetype)init:(NSString *)identifier Type:(NSString *)type Settings:(NSString *)json
 {
@@ -24,6 +25,7 @@
         _status=[[MxChipAirPurifierStatus alloc] init:propertys Callback:^BOOL(Byte propertyId, NSData *data) {
             return [self setProperty:propertyId Data:data];
         }];
+        _sensor=[[MxChipAirPurifierSensor alloc]init:propertys];
         _powerTimer=[[PowerTimer alloc] init];
         NSString* json=[self.settings get:@"powerTimer" Default:@""];
         [_powerTimer loadByJSON:json];
@@ -34,17 +36,24 @@
 {
     //NSString* json=[self.settings get:@"powerTimer" Default:@""];
     NSData* data=[_powerTimer toBytes];
-    [propertys setObject:data forKey:[NSNumber numberWithInt:PROPERTY_POWER_TIMER]];
+    [propertys setObject:data forKey:[NSString stringWithFormat:@"%d",PROPERTY_POWER_TIMER]];
     [self setProperty:PROPERTY_POWER_TIMER Data:data];
     [super updateSettings];
     
+}
+-(NSString *)description
+{
+    return [NSString stringWithFormat:@"%@\n%@",[self.status description],[self.sensor description]];
 }
 -(void)saveSettings
 {
     NSString* json=[_powerTimer toJSON];
     [self.settings put:json Value:@"powerTimer"];
 }
-
+-(NSString *)getDefaultName
+{
+    return @"AirPurifier";
+}
 -(BOOL)reqesutProperty:(NSSet*)propertys
 {
     if (!io) return false;
@@ -54,7 +63,7 @@
     Byte bytes[len];
     
     bytes[0] = (Byte) 0xfb;
-    *((ushort*)bytes)=len;
+    *((ushort*)(bytes+1))=len;
     bytes[3] =  CMD_REQUEST_PROPERTY;
     
     NSData* mac=[Helper stringToHexData:[self.identifier stringByReplacingOccurrencesOfString:@":" withString:@""]];
@@ -99,17 +108,21 @@
     bytes[10]=0;
     bytes[11]=0;
     bytes[12] = propertyId;
-    memccpy(bytes+13, [value bytes], 0, value.length);
+    memcpy(bytes+13, [value bytes], value.length);
     return [io send:[NSData dataWithBytes:bytes length:len]];
 }
 
+-(void)doSetDeviceIO:(BaseDeviceIO *)oldio NewIO:(BaseDeviceIO *)newio
+{
+    [(MXChipIO*)newio setSecureCode:SecureCode];
+}
 -(void)DeviceIO:(BaseDeviceIO *)io recv:(NSData *)data
 {
     if (!data) return;
     if (data.length<=0) return;
     BytePtr bytes=(BytePtr)[data bytes];
     if (bytes[0]!=0xFA) return;
-    int len=*((ushort*)bytes+1);
+    int len=*((ushort*)(bytes+1));
     if (len<0) return;
     Byte cmd=bytes[3];
     switch (cmd) {
@@ -126,16 +139,16 @@
                 p++;
                 NSData* data=[NSData dataWithBytes:bytes+p length:size];
                 p+=size;
-                [set setObject:data forKey:[NSNumber numberWithInt:propertys]];
+                [set setObject:data forKey:[NSString stringWithFormat:@"%d",property]];
                 
             }
             @synchronized(propertys) {
-                for (NSNumber* property in [set allKeys])
+                for (NSString* property in [set allKeys])
                 {
                     [propertys setObject:[set valueForKey:property] forKey:property];
                 }
             }
-            for (NSNumber* property in [set allKeys])
+            for (NSString* property in [set allKeys])
             {
                 switch (property.intValue) {
                     case PROPERTY_POWER_TIMER:
@@ -186,12 +199,12 @@
     [self setTime];
 
     NSMutableSet* set=[[NSMutableSet alloc] init];
-    [set addObject:[NSNumber numberWithInt:PROPERTY_FILTER]];
-    [set addObject:[NSNumber numberWithInt:PROPERTY_MODEL]];
-    [set addObject:[NSNumber numberWithInt:PROPERTY_DEVICE_TYPE]];
-    [set addObject:[NSNumber numberWithInt:PROPERTY_CONTROL_BOARD]];
-    [set addObject:[NSNumber numberWithInt:PROPERTY_MAIN_BOARD]];
-    [set addObject:[NSNumber numberWithInt:PROPERTY_VERSION]];
+    [set addObject:[NSString stringWithFormat:@"%d",PROPERTY_FILTER]];
+    [set addObject:[NSString stringWithFormat:@"%d",PROPERTY_MODEL]];
+    [set addObject:[NSString stringWithFormat:@"%d",PROPERTY_DEVICE_TYPE]];
+    [set addObject:[NSString stringWithFormat:@"%d",PROPERTY_CONTROL_BOARD]];
+    [set addObject:[NSString stringWithFormat:@"%d",PROPERTY_MAIN_BOARD]];
+    [set addObject:[NSString stringWithFormat:@"%d",PROPERTY_VERSION]];
     [self reqesutProperty:set];
     [self wait:Timeout];
     return true;
@@ -226,15 +239,15 @@
 -(void)auto_update
 {
     NSMutableSet* set=[[NSMutableSet alloc] init];
-    [set addObject:[NSNumber numberWithInt:PROPERTY_PM25]];
-    [set addObject:[NSNumber numberWithInt:PROPERTY_LIGHT_SENSOR]];
-    [set addObject:[NSNumber numberWithInt:PROPERTY_TEMPERATURE]];
-    [set addObject:[NSNumber numberWithInt:PROPERTY_VOC]];
-    [set addObject:[NSNumber numberWithInt:PROPERTY_HUMIDITY]];
-    [set addObject:[NSNumber numberWithInt:PROPERTY_POWER]];
-    [set addObject:[NSNumber numberWithInt:PROPERTY_SPEED]];
-    [set addObject:[NSNumber numberWithInt:PROPERTY_LIGHT]];
-    [set addObject:[NSNumber numberWithInt:PROPERTY_LOCK]];
+    [set addObject:[NSString stringWithFormat:@"%d",PROPERTY_PM25]];
+    [set addObject:[NSString stringWithFormat:@"%d",PROPERTY_LIGHT_SENSOR]];
+    [set addObject:[NSString stringWithFormat:@"%d",PROPERTY_TEMPERATURE]];
+    [set addObject:[NSString stringWithFormat:@"%d",PROPERTY_VOC]];
+    [set addObject:[NSString stringWithFormat:@"%d",PROPERTY_HUMIDITY]];
+    [set addObject:[NSString stringWithFormat:@"%d",PROPERTY_POWER]];
+    [set addObject:[NSString stringWithFormat:@"%d",PROPERTY_SPEED]];
+    [set addObject:[NSString stringWithFormat:@"%d",PROPERTY_LIGHT]];
+    [set addObject:[NSString stringWithFormat:@"%d",PROPERTY_LOCK]];
     [self reqesutProperty:set];
 }
 

@@ -38,7 +38,7 @@
         return [self postSend:data];
     }else
     {
-        [self performSelector:@selector(postSend:) onThread:runThread withObject:data waitUntilDone:true];
+        [self performSelector:@selector(postSend:) onThread:runThread withObject:data waitUntilDone:false];
         return errorinfo==nil;
     }
 }

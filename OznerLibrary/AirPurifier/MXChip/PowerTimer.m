@@ -15,8 +15,8 @@
     if ((data==nil) || (data.length<6)) return false;
     BytePtr bytes=(BytePtr)[data bytes];
     _enable=*bytes!=0;
-    _powerOnTime=*((ushort*)bytes+1);
-    _powerOffTime=*((ushort*)bytes+3);
+    _powerOnTime=*((ushort*)(bytes+1));
+    _powerOffTime=*((ushort*)(bytes+3));
     _week=*(bytes+5);
     return true;
 }
@@ -59,8 +59,8 @@
 {
     Byte bytes[6];
     bytes[0]=_enable?1:0;
-    *((ushort*)bytes+1)=_powerOnTime;
-    *((ushort*)bytes+3)=_powerOffTime;
+    *((ushort*)(bytes+1))=_powerOnTime;
+    *((ushort*)(bytes+3))=_powerOffTime;
     *(bytes+5)=_week;
     return [NSData dataWithBytes:bytes length:sizeof(bytes)];
 }

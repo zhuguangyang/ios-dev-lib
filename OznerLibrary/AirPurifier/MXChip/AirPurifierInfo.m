@@ -22,7 +22,7 @@
 -(NSString*) getString: (int)propertyId
 {
     @synchronized(propertys) {
-        NSData* data=[propertys objectForKey:[NSNumber numberWithInt:propertyId]];
+        NSData* data=[propertys objectForKey:[NSString stringWithFormat:@"%d",propertyId]];
         if (data)
         {
             if (data.length>0)

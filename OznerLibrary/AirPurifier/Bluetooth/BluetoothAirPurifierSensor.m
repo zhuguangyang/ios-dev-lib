@@ -31,6 +31,6 @@
     BytePtr bytes=(BytePtr)[data bytes];
     _Temperature = bytes[1];
     _Humidity = bytes[2];
-    _PM25=*((ushort*)bytes+3);
+    _PM25=*((ushort*)(bytes+3));
 }
 @end

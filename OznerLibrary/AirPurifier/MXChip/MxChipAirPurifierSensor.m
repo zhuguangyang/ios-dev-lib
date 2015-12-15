@@ -17,15 +17,15 @@
     }
     return self;
 }
--(BOOL)getShort:(int)propertyId
+-(short)getShort:(int)propertyId
 {
     @synchronized(propertys) {
-        NSData* data=[propertys objectForKey:[NSNumber numberWithInt:propertyId]];
+        NSData* data=[propertys objectForKey:[NSString stringWithFormat:@"%d",propertyId]];
         if (data)
         {
             if (data.length>0)
             {
-                return *((ushort*)[data bytes])==1;
+                return *((ushort*)[data bytes]);
             }else
                 return AIR_PURIFIER_ERROR;
         }else
@@ -34,7 +34,7 @@
 }
 -(int)getLight
 {
-    return [self getShort:PROPERTY_LIGHT];
+    return [self getShort:PROPERTY_LIGHT_SENSOR];
 }
 -(int)getTemperature
 {
@@ -51,6 +51,11 @@
 -(int)getPM25
 {
     return [self getShort:PROPERTY_PM25];
+}
+-(NSString *)description
+{
+    return [NSString stringWithFormat:@"PM25:%d Temperature:%d VOC:%d Humidity:%d Light:%d",
+            self.PM25,self.Temperature,self.VOC,self.Humidity,self.Light];
 }
 
 @end

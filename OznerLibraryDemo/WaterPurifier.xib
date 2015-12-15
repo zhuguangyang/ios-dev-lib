@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="WaiterPurifierView">
+            <rect key="frame" x="0.0" y="0.0" width="548" height="67"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="20" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Dh5-GC-lvh">
+                    <rect key="frame" x="8" y="10" width="250" height="45"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lx2-1A-E8g" customClass="MyButton">
+                            <rect key="frame" x="0.0" y="0.0" width="70" height="45"/>
+                            <animations/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="45" id="3QG-fP-ELh"/>
+                                <constraint firstAttribute="width" constant="70" id="T81-kt-1lw"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                            <state key="normal" title="Power">
+                                <color key="titleShadowColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="PowerClick:" destination="iN0-l3-epB" eventType="touchDown" id="Zdy-Ja-GwG"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7OT-5z-rvH" customClass="MyButton">
+                            <rect key="frame" x="90" y="0.0" width="70" height="45"/>
+                            <animations/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="70" id="VHa-uf-BUZ"/>
+                                <constraint firstAttribute="height" constant="45" id="Yqm-qN-4qx"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                            <state key="normal" title="Hot"/>
+                            <connections>
+                                <action selector="HotClick:" destination="iN0-l3-epB" eventType="touchDown" id="fyu-Xp-hyt"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AyQ-tn-Bn5" customClass="MyButton">
+                            <rect key="frame" x="180" y="0.0" width="70" height="45"/>
+                            <animations/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="70" id="v7s-YN-rY6"/>
+                                <constraint firstAttribute="height" constant="45" id="wJb-Qn-GA4"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                            <state key="normal" title="Cool"/>
+                            <connections>
+                                <action selector="CoolClick:" destination="iN0-l3-epB" eventType="touchDown" id="UgW-iN-Adg"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <animations/>
+                    <constraints>
+                        <constraint firstItem="AyQ-tn-Bn5" firstAttribute="leading" secondItem="7OT-5z-rvH" secondAttribute="trailing" constant="20" id="2M9-dq-Kd5"/>
+                        <constraint firstItem="AyQ-tn-Bn5" firstAttribute="top" secondItem="Dh5-GC-lvh" secondAttribute="top" id="Yij-Qc-KJb"/>
+                        <constraint firstItem="7OT-5z-rvH" firstAttribute="top" secondItem="Dh5-GC-lvh" secondAttribute="top" id="f7P-Kl-ouP"/>
+                        <constraint firstItem="7OT-5z-rvH" firstAttribute="leading" secondItem="Lx2-1A-E8g" secondAttribute="trailing" constant="20" id="haD-3b-C8A"/>
+                        <constraint firstItem="Lx2-1A-E8g" firstAttribute="top" secondItem="Dh5-GC-lvh" secondAttribute="top" id="qcy-Yk-el2"/>
+                        <constraint firstItem="Lx2-1A-E8g" firstAttribute="leading" secondItem="Dh5-GC-lvh" secondAttribute="leading" id="wMU-cZ-zQi"/>
+                    </constraints>
+                </stackView>
+            </subviews>
+            <animations/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="Dh5-GC-lvh" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="R10-89-O6m"/>
+                <constraint firstItem="Dh5-GC-lvh" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="T1h-ky-iUh"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="347" y="194.5"/>
+        </view>
+    </objects>
+</document>

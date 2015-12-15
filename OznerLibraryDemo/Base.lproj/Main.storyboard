@@ -179,17 +179,23 @@
                                 </subviews>
                                 <animations/>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h12-el-P8Z">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h12-el-P8Z" customClass="MyButton">
                                 <rect key="frame" x="516" y="567" width="64" height="20"/>
                                 <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="64" id="Mg8-lH-r3C"/>
+                                </constraints>
                                 <state key="normal" title="Start"/>
                                 <connections>
                                     <action selector="startPair:" destination="Wv3-nP-3qu" eventType="touchDown" id="QiK-F7-ghE"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8mD-KM-evJ">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8mD-KM-evJ" customClass="MyButton">
                                 <rect key="frame" x="433" y="567" width="64" height="20"/>
                                 <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="64" id="xYU-nv-bz8"/>
+                                </constraints>
                                 <state key="normal" title="Cancel"/>
                                 <connections>
                                     <action selector="cancelPair:" destination="Wv3-nP-3qu" eventType="touchDown" id="A7Z-kp-ydP"/>

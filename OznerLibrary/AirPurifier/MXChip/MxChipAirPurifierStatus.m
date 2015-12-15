@@ -22,7 +22,7 @@
 -(BOOL)getBool:(int)propertyId
 {
     @synchronized(propertys) {
-        NSData* data=[propertys objectForKey:[NSNumber numberWithInt:propertyId]];
+        NSData* data=[propertys objectForKey:[NSString stringWithFormat:@"%d",propertyId]];
         if (data)
         {
             if (data.length>0)
@@ -38,7 +38,7 @@
 -(Byte)getByte:(int)propertyId
 {
     @synchronized(propertys) {
-        NSData* data=[propertys objectForKey:[NSNumber numberWithInt:propertyId]];
+        NSData* data=[propertys objectForKey:[NSString stringWithFormat:@"%d",propertyId]];
         if (data)
         {
             if (data.length>0)
@@ -60,7 +60,7 @@
 -(MxChipAirPurifierFilterStatus *)filterStatus
 {
     @synchronized(propertys) {
-        NSData* data=[propertys objectForKey:[NSNumber numberWithInt:PROPERTY_FILTER]];
+        NSData* data=[propertys objectForKey:[NSString stringWithFormat:@"%d",PROPERTY_FILTER]];
         if (data)
         {
             if (data.length>0)
@@ -113,5 +113,8 @@
     Byte data[1]={speed};
     callback(PROPERTY_SPEED,[NSData dataWithBytes:data length:sizeof(data)]);
 }
-
+-(NSString *)description
+{
+    return [NSString stringWithFormat:@"Power:%d Speed:%d Light:%d Lock:%d",self.power,self.speed,self.light,self.lock];
+}
 @end

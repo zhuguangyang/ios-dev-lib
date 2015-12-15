@@ -24,7 +24,7 @@
 }
 -(void)load:(BytePtr)bytes
 {
-    _TDS1 = *((short*) bytes+16);
-    _TDS2 = *((short*) bytes+18);
+    _TDS1 = *((short*)(bytes+16));
+    _TDS2 = *((short*)(bytes+18));
 }
 @end

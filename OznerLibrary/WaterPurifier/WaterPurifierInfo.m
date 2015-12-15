@@ -23,6 +23,6 @@
     self->_MainBoard=[[NSString alloc] initWithBytes:bytes+38 length:22 encoding:NSASCIIStringEncoding];
     self->_ControlBoard=[[NSString alloc] initWithBytes:bytes+60 length:22 encoding:NSASCIIStringEncoding];
     self->_ErrorCount=bytes[123];
-    self->_Error=*((int*)bytes+124);
+    self->_Error=*((int*)(bytes+124));
 }
 @end

@@ -155,6 +155,7 @@
     }
     @catch (NSException *exception) {
         [self.delegate mxChipFailure];
+        runThread=nil;
     }
     @finally {
     }

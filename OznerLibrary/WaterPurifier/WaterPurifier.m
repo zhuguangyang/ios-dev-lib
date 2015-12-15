@@ -44,15 +44,14 @@
 
 -(NSString *)description
 {
-    return [NSString stringWithFormat:@"Status:%@ Sensor:%@",
+    return [NSString stringWithFormat:@"Status:%@\nSensor:%@",
             
             [self.status description],[self.sensor description]];
 }
 
 -(void)doSetDeviceIO:(BaseDeviceIO *)oldio NewIO:(BaseDeviceIO *)newio
 {
-    MXChipIO* io=(MXChipIO*)newio;
-    [io setSecureCode:SecureCode];
+    [(MXChipIO*)newio setSecureCode:SecureCode];
 }
 
 -(NSString *)getDefaultName
@@ -79,7 +78,7 @@
     bytes[11]=0;
     if (payload)
     {
-        memccpy(bytes+12, [payload bytes], 0, payload.length);
+        memcpy(bytes+12, [payload bytes],  payload.length);
     }
     bytes[len-1]=[Helper Crc8:bytes inLen:len-1];
     return [NSData dataWithBytes:bytes length:len];

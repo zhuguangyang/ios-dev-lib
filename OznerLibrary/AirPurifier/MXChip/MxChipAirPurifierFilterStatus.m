@@ -43,9 +43,9 @@
 {
     Byte bytes[16];
     *((UInt32*)bytes)=(int)[_lastTime timeIntervalSince1970];
-    *((UInt32*)bytes+4)=_workTime;
-    *((UInt32*)bytes+8)=(int)[_stopTime timeIntervalSince1970];
-    *((UInt32*)bytes+12)=_maxWorkTime;
+    *((UInt32*)(bytes+4))=_workTime;
+    *((UInt32*)(bytes+8))=(int)[_stopTime timeIntervalSince1970];
+    *((UInt32*)(bytes+12))=_maxWorkTime;
     return [NSData dataWithBytes:bytes length:sizeof(bytes)];
 }
 @end
