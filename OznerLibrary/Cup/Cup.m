@@ -63,14 +63,27 @@
     return [self send:opCode_UpdateTime Bytes:(Byte*)&cupTime Length:sizeof(cupTime)];
 }
 
--(BOOL) sendSetting;
+-(void) sendSetting:(OperateCallback)cb
 {
     Byte buffer[19];
     [self.settings getBytes:buffer];
-    return [self send:opCode_SetRemind Bytes:buffer Length:19];
+    [self send:opCode_SetRemind Bytes:buffer Length:19 Callback:cb];
 }
 
-
+-(void)send:(UInt8)code Bytes:(Byte*)bytes Length:(UInt8)size Callback:(OperateCallback)cb
+{
+    if (!io) return;
+    @try {
+        NSMutableData* data=[[NSMutableData alloc] init];
+        [data appendBytes:&code length:1];
+        if (bytes && size>0)
+            [data appendBytes:bytes length:size];
+        return [io send:data Callback:cb];
+    }
+    @catch (NSException *exception) {
+        
+    }
+}
 -(BOOL)send:(UInt8)code Bytes:(Byte*)bytes Length:(UInt8)size
 {
     if (!io) return false;
@@ -189,10 +202,7 @@
         return false;
     }
     sleep(0.1f);
-    if (![self sendSetting])
-    {
-        return false;
-    }
+    [self sendSetting:nil];
     sleep(0.1f);
     
 
@@ -262,11 +272,11 @@
 {
     return @"Ozner Tap";
 }
--(void)updateSettings
+-(void)updateSettings:(OperateCallback) cb
 {
     if (io && (io.isReady))
     {
-        [self sendSetting];
+        [self sendSetting:cb];
     }
 }
 -(NSString *)description

@@ -22,9 +22,10 @@
     if (self=[super init:identifier Type:type Settings:json])
     {
         propertys=[[NSMutableDictionary alloc] init];
-        _status=[[MxChipAirPurifierStatus alloc] init:propertys Callback:^BOOL(Byte propertyId, NSData *data) {
-            return [self setProperty:propertyId Data:data];
+        _status=[[MxChipAirPurifierStatus alloc] init:propertys Callback:^(Byte propertyId, NSData *data, OperateCallback cb) {
+            [self setProperty:propertyId Data:data Callback:cb];
         }];
+        
         _sensor=[[MxChipAirPurifierSensor alloc]init:propertys];
         _powerTimer=[[PowerTimer alloc] init];
         NSString* json=[self.settings get:@"powerTimer" Default:@""];
@@ -32,13 +33,13 @@
     }
     return self;
 }
--(void)updateSettings
+-(void)updateSettings:(OperateCallback)cb
 {
     //NSString* json=[self.settings get:@"powerTimer" Default:@""];
     NSData* data=[_powerTimer toBytes];
     [propertys setObject:data forKey:[NSString stringWithFormat:@"%d",PROPERTY_POWER_TIMER]];
-    [self setProperty:PROPERTY_POWER_TIMER Data:data];
-    [super updateSettings];
+    [self setProperty:PROPERTY_POWER_TIMER Data:data Callback:cb];
+    [super updateSettings:cb];
     
 }
 -(NSString *)description
@@ -48,7 +49,7 @@
 -(void)saveSettings
 {
     NSString* json=[_powerTimer toJSON];
-    [self.settings put:json Value:@"powerTimer"];
+    [self.settings put:@"powerTimer" Value:json];
 }
 -(NSString *)getDefaultName
 {
@@ -85,16 +86,16 @@
     }
     return [io send:[NSData dataWithBytes:bytes length:len]];
 }
--(BOOL)setProperty:(Byte)propertyId Data:(NSData*)value
+-(void)setProperty:(Byte)propertyId Data:(NSData*)value Callback:(OperateCallback)cb
 {
-    if (!io) return false;
-    if (!io.isReady) return false;
+    if (!io) return;
+    if (!io.isReady) return;
     
     int len=13 + (int)value.length;
     Byte bytes[len];
     
     bytes[0] = (Byte) 0xfb;
-    *((ushort*)bytes)=len;
+    *((ushort*)bytes+1)=len;
     bytes[3] =  CMD_SET_PROPERTY;
     
     NSData* mac=[Helper stringToHexData:[self.identifier stringByReplacingOccurrencesOfString:@":" withString:@""]];
@@ -109,7 +110,7 @@
     bytes[11]=0;
     bytes[12] = propertyId;
     memcpy(bytes+13, [value bytes], value.length);
-    return [io send:[NSData dataWithBytes:bytes length:len]];
+    [io send:[NSData dataWithBytes:bytes length:len] Callback:cb];
 }
 
 -(void)doSetDeviceIO:(BaseDeviceIO *)oldio NewIO:(BaseDeviceIO *)newio
@@ -180,19 +181,17 @@
             break;
     }
 }
--(BOOL)setTime
+-(void)setTime
 {
     Byte bytes[4];
     NSDate* date=[NSDate dateWithTimeIntervalSinceNow:0];
     int time=(int)[date timeIntervalSince1970];
     *((int*)bytes)=time;
-    if ([self setProperty:PROPERTY_TIME Data:[NSData dataWithBytes:bytes length:sizeof(bytes)]])
-    {
-        return [self wait:Timeout];
-    }else
-    {
-        return false;
-    }
+    [self setProperty:PROPERTY_TIME Data:[NSData dataWithBytes:bytes length:sizeof(bytes)] Callback:^(NSError* error)
+     {
+         [self wait:Timeout];
+     }];
+    
 }
 -(BOOL)DeviceIOWellInit:(BaseDeviceIO *)io
 {

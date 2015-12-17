@@ -30,6 +30,7 @@
         queue=dispatch_queue_create(queueName, NULL);
         centralManager=[[CBCentralManager alloc] initWithDelegate:self queue:queue];
         centralManager.delegate=self;
+        addressList=[[NSMutableDictionary alloc] init];
     }
     return self;
 }
@@ -61,7 +62,14 @@
 
 -(NSString*)getIdentifier:(CBPeripheral*)peripheral
 {
-    return [[peripheral identifier] UUIDString];
+    @synchronized(addressList) {
+        NSString* identifier=[addressList objectForKey:[peripheral.identifier UUIDString]];
+        if (!identifier)
+        {
+            return [peripheral.identifier UUIDString];
+        }
+        return identifier;
+    }
 }
 
 -(void)centralManager:(CBCentralManager *)central didDiscoverPeripheral:(CBPeripheral *)peripheral advertisementData:(NSDictionary *)advertisementData RSSI:(NSNumber *)RSSI
@@ -101,6 +109,10 @@
         if (!io)
         {
             io=[[BluetoothIO alloc] initWithPeripheral:peripheral Address:[self getIdentifier:peripheral] CentralManager:centralManager BluetoothData:scanData];
+            @synchronized(addressList) {
+                //设置mac和identifier uuid对应关系
+                [addressList setObject:[NSString stringWithString:io.identifier] forKey:[peripheral.identifier UUIDString]];
+            }
             io.name=peripheral.name;
         }
             

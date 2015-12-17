@@ -17,3 +17,10 @@
 -(void)doConnected;
 -(BOOL)doInit;
 @end
+
+@interface OperateData :NSObject
++(id)Operate:(NSData*)data Callback:(OperateCallback)cb;
+@property (strong,nonatomic) OperateCallback callback;
+@property (strong,nonatomic) NSData* data;
+@end
+

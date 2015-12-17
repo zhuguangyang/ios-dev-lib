@@ -68,7 +68,7 @@ typedef struct _RecordTime
     return [self send:opCode_UpdateTime Bytes:(Byte*)&cupTime Length:sizeof(cupTime)];
 }
 
--(BOOL) sendSetting;
+-(void) sendSetting:(OperateCallback)cb
 {
     TapSettings* setting=(TapSettings*)self.settings;
     UInt8 data[12];
@@ -100,9 +100,22 @@ typedef struct _RecordTime
         data[11]=(UInt8)((int)setting.DetectTime4 % 60);
     }
     
-    return [self send:opCode_SetDetectTime Bytes:data Length:12];
+    [self send:opCode_SetDetectTime Bytes:data Length:12 Callback:cb];
 }
 
+-(void)send:(UInt8)code Bytes:(Byte*)bytes Length:(UInt8)size Callback:(OperateCallback)cb
+{
+    if (!io) return ;
+    @try {
+        NSMutableData* data=[[NSMutableData alloc] init];
+        [data appendBytes:&code length:1];
+        if (bytes && size>0)
+            [data appendBytes:bytes length:size];
+        [io send:data Callback:cb];
+    }
+    @catch (NSException *exception) {
+    }
+}
 
 -(BOOL)send:(UInt8)code Bytes:(Byte*)bytes Length:(UInt8)size
 {
@@ -237,10 +250,7 @@ typedef struct _RecordTime
         return false;
     }
     sleep(0.1f);
-    if (![self sendSetting])
-    {
-        return false;
-    }
+    [self sendSetting:nil];
     sleep(0.1f);
     
 
@@ -316,11 +326,12 @@ typedef struct _RecordTime
 {
     return @"Ozner Tap";
 }
--(void)updateSettings
+
+-(void)updateSettings:(OperateCallback)cb
 {
     if (io && (io.isReady))
     {
-        [self sendSetting];
+        [self sendSetting:nil];
     }
 }
 -(NSString *)description

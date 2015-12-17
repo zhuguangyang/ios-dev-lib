@@ -8,7 +8,8 @@
 
 #import "ViewController.h"
 #import "BaseTableViewCell.h"
-
+#import "WaterPurifier.h"
+#import "AirPurifier_MxChip.h"
 
 @implementation ViewController
 
@@ -16,6 +17,12 @@
     
     [super viewDidLoad];
     [OznerManager instance].delegate=self;
+    [self->_tableView registerNib:[UINib nibWithNibName:@"WaterPurifier_TableViewCell" bundle:nil] forCellReuseIdentifier:NSStringFromClass([WaterPurifier class])];
+    
+    [self->_tableView registerNib:[UINib nibWithNibName:@"AirPurifier_MXChip_TableViewCell" bundle:nil] forCellReuseIdentifier:NSStringFromClass([AirPurifier_MxChip class])];
+    
+    [self->_tableView registerNib:[UINib nibWithNibName:@"DeviceTableViewCell" bundle:nil] forCellReuseIdentifier:@"DeviceTableViewCell"];
+    
     [self update];
 }
 
@@ -23,8 +30,6 @@
 {
     self->devices=[[OznerManager instance] getDevices];
     [self.tableView reloadData];
-
-    
 }
 
 -(void)OznerManagerDidAddDevice:(OznerDevice *)device
@@ -62,7 +67,6 @@
     return false;
 }
 -(void)tableView:(UITableView *)tableView didHighlightRowAtIndexPath:(NSIndexPath *)indexPath
-
 {
     
 }
@@ -73,20 +77,28 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     OznerDevice* device=[devices objectAtIndex:indexPath.item];
-    NSString* name=[NSString stringWithUTF8String:object_getClassName(device)];
+    NSString* name=NSStringFromClass(device.class);
     BaseTableViewCell *cell = (BaseTableViewCell*)[tableView dequeueReusableCellWithIdentifier:name];
-    if (!cell)
+    if (cell==nil)
     {
-        cell=[[BaseTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:name];
+        cell = (BaseTableViewCell*)[tableView dequeueReusableCellWithIdentifier:@"DeviceTableViewCell"];
     }
     cell.device=device;
-    [cell setNeedsDisplay];
     return cell;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 180;
+    OznerDevice* device=[devices objectAtIndex:indexPath.item];
+    if ([device.class isSubclassOfClass:[WaterPurifier class]])
+    {
+        return 200;
+    }
+    if ([device.class isSubclassOfClass:[AirPurifier_MxChip class]])
+    {
+        return 390;
+    }
+    return 240;
 }
 
 @end

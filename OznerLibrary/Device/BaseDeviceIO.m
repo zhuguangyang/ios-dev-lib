@@ -8,7 +8,20 @@
 
 #import "BaseDeviceIO.h"
 #import "BaseDeviceIO.hpp"
+@implementation OperateData
+
++(id)Operate:(NSData*)data Callback:(OperateCallback)cb
+{
+    OperateData* op=[[OperateData alloc] init];
+    op.data=data;
+    op.callback=cb;
+    return op;
+}
+@end
+
 @implementation BaseDeviceIO
+
+
 
 -(instancetype)init:(NSString *)identifier Type:(NSString *)type
 {
@@ -36,6 +49,11 @@
 {
     return false;
 }
+
+-(void)send:(NSData*)data Callback:(OperateCallback) cb;
+{
+}
+
 -(BOOL)doInit
 {
     if (self.delegate)

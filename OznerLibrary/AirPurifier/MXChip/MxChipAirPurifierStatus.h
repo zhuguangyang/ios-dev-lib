@@ -8,22 +8,39 @@
 
 #import <Foundation/Foundation.h>
 #import "MxChipAirPurifierFilterStatus.h"
-typedef BOOL (^updateStatusHandler)(Byte propertyId,NSData* data);
+#import "../../Device/OznerDevice.h"
+typedef void (^updateStatusHandler)(Byte propertyId,NSData* data,OperateCallback cb);
+
 @interface MxChipAirPurifierStatus : NSObject
 {
     NSDictionary* propertys;
     updateStatusHandler callback;
 }
+
+#define FAN_SPEED_AUTO      0
+#define FAN_SPEED_HIGH      1
+#define FAN_SPEED_MID       2
+#define FAN_SPEED_LOW       3
+#define FAN_SPEED_SILENT    4
+#define FAN_SPEED_POWER     5
+
+
 -(instancetype)init:(NSDictionary*)propertys Callback:(updateStatusHandler)cb;
 
-@property (getter=getPower,setter=setPower:) BOOL power;
-@property (getter=getLock,setter=setLock:) BOOL lock;
-@property (getter=getSpeed,setter=setSpeed:) Byte speed;
-@property (getter=getLight,setter=setLight:) Byte light;
+@property (getter=getPower,readonly) BOOL power;
+@property (getter=getLock,readonly) BOOL lock;
+@property (getter=getSpeed,readonly) Byte speed;
+@property (getter=getLight,readonly) Byte light;
+
+-(void)setSpeed:(Byte)speed Callback:(OperateCallback)cb;
+-(void)setLight:(Byte)light Callback:(OperateCallback)cb;
+-(void)setLock:(BOOL)lock Callback:(OperateCallback)cb;
+-(void)setPower:(BOOL)power Callback:(OperateCallback)cb;
+
 /*!
  @function filterStatus
  @discussion 滤芯状态
  */
 -(MxChipAirPurifierFilterStatus*) filterStatus;
--(BOOL)resetFilterStatus;
+-(void)resetFilterStatus:(OperateCallback)cb;
 @end

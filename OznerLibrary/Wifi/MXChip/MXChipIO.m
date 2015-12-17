@@ -29,24 +29,51 @@
     }
  
 }
+-(void)send:(NSData *)data Callback:(OperateCallback)cb
+{
+    if (!runThread)
+    {
+        cb([NSError errorWithDomain:@"BluetoothIO Closed" code:0 userInfo:nil]);
+        return;
+    }
+    OperateData* op=[OperateData Operate:data Callback:cb];
+    if ([[NSThread currentThread] isEqual:runThread])
+    {
+        [self postSend:op];
+    }else
+    {
+        [self performSelector:@selector(postSend:) onThread:runThread withObject:op waitUntilDone:false];
+    }
+}
 
 -(BOOL)send:(NSData*) data
 {
     if (!runThread) return false;
+    OperateData* op=[OperateData Operate:data Callback:nil];
     if ([[NSThread currentThread] isEqual:runThread])
     {
-        return [self postSend:data];
+        return [self postSend:op];
     }else
     {
-        [self performSelector:@selector(postSend:) onThread:runThread withObject:data waitUntilDone:false];
+        [self performSelector:@selector(postSend:) onThread:runThread withObject:op waitUntilDone:false];
         return errorinfo==nil;
     }
 }
 
--(BOOL)postSend:(NSData*)data
+-(BOOL)postSend:(OperateData*)data
 {
-    [self doSend:data];
-    return [proxy publish:inKey Data:data];
+    [self doSend:data.data];
+    if ([proxy publish:inKey Data:data.data])
+    {
+        if (data.callback)
+            data.callback(nil);
+        return true;
+    }else
+    {
+        if (data.callback)
+            data.callback([NSError errorWithDomain:@"MXChipIO send error" code:0 userInfo:nil]);
+        return false;
+    }
 }
 
 -(BOOL)runJob:(SEL)aSelector withObject:(nullable id)arg waitUntilDone:(BOOL)wait

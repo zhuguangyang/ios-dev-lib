@@ -28,7 +28,7 @@
     _power = bytes[14] != 0;
     _sterilization = bytes[15] != 0;
 }
--(BOOL)toSet
+-(void)toSet:(OperateCallback)cb
 {
     Byte bytes[4];
     bytes[0]=self.hot?1:0;
@@ -36,26 +36,28 @@
     bytes[2]=self.power?1:0;
     bytes[3]=self.sterilization?1:0;
     NSData* data=[NSData dataWithBytes:bytes length:4];
-    return callback(data);
+    callback(data,cb);
 }
--(void)setPower:(BOOL)power
+
+
+-(void)setPower:(BOOL)power Callback:(OperateCallback)cb
 {
     _power=power;
-    [self toSet];
+    [self toSet:cb];
 }
--(void)setSterilization:(BOOL)sterilization
+-(void)setSterilization:(BOOL)sterilization Callback:(OperateCallback)cb
 {
     _sterilization=sterilization;
-    [self toSet];
+    [self toSet:cb];
 }
--(void)setCool:(BOOL)cool
+-(void)setCool:(BOOL)cool Callback:(OperateCallback)cb
 {
     _cool=cool;
-    [self toSet];
+    [self toSet:cb];
 }
--(void)setHot:(BOOL)hot
+-(void)setHot:(BOOL)hot Callback:(OperateCallback)cb
 {
     _hot=hot;
-    [self toSet];
+    [self toSet:cb];
 }
 @end

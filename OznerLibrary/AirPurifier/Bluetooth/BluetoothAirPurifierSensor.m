@@ -29,8 +29,13 @@
 -(void)load:(NSData *)data
 {
     BytePtr bytes=(BytePtr)[data bytes];
-    _Temperature = bytes[1];
-    _Humidity = bytes[2];
-    _PM25=*((ushort*)(bytes+3));
+    _Temperature = bytes[0];
+    _Humidity = bytes[1];
+    _PM25=*((ushort*)(bytes+2));
+}
+
+-(NSString *)description
+{
+    return [NSString stringWithFormat:@"Temperature:%d PM25:%d Humidity:%d",_Temperature,_PM25,_Humidity];
 }
 @end

@@ -51,10 +51,10 @@
     }
 }
 
--(BOOL)resetFilterStatus
+-(void)resetFilterStatus:(OperateCallback)cb
 {
     MxChipAirPurifierFilterStatus* status=[[MxChipAirPurifierFilterStatus alloc] init];
-    return callback(PROPERTY_FILTER,[status toBytes]);
+    callback(PROPERTY_FILTER,[status toBytes],cb);
 }
 
 -(MxChipAirPurifierFilterStatus *)filterStatus
@@ -75,10 +75,10 @@
 }
 
 
--(void)setPower:(BOOL)power
+-(void)setPower:(BOOL)power Callback:(OperateCallback)cb
 {
     Byte data[1]={power?1:0};
-    callback(PROPERTY_POWER,[NSData dataWithBytes:data length:sizeof(data)]);
+    callback(PROPERTY_POWER,[NSData dataWithBytes:data length:sizeof(data)],cb);
 }
 
 -(BOOL)getPower
@@ -90,31 +90,55 @@
 {
     return [self getBool:PROPERTY_LOCK];
 }
--(void)setLock:(BOOL)lock
+-(void)setLock:(BOOL)lock Callback:(OperateCallback)cb
 {
     Byte data[1]={lock?1:0};
-    callback(PROPERTY_LOCK,[NSData dataWithBytes:data length:sizeof(data)]);
+    callback(PROPERTY_LOCK,[NSData dataWithBytes:data length:sizeof(data)],cb);
 }
 -(Byte)getLight
 {
     return [self getByte:PROPERTY_LIGHT];
 }
--(void)setLight:(Byte)light
+-(void)setLight:(Byte)light Callback:(OperateCallback)cb
 {
     Byte data[1]={light};
-    callback(PROPERTY_LIGHT,[NSData dataWithBytes:data length:sizeof(data)]);
+    callback(PROPERTY_LIGHT,[NSData dataWithBytes:data length:sizeof(data)],cb);
 }
 -(Byte)getSpeed
 {
     return [self getByte:PROPERTY_SPEED];
 }
--(void)setSpeed:(Byte)speed
+-(void)setSpeed:(Byte)speed Callback:(OperateCallback)cb
 {
     Byte data[1]={speed};
-    callback(PROPERTY_SPEED,[NSData dataWithBytes:data length:sizeof(data)]);
+    callback(PROPERTY_SPEED,[NSData dataWithBytes:data length:sizeof(data)],cb);
 }
+
+
 -(NSString *)description
 {
-    return [NSString stringWithFormat:@"Power:%d Speed:%d Light:%d Lock:%d",self.power,self.speed,self.light,self.lock];
+    NSString* speed=@"AUTO";
+    switch (self.speed) {
+        case FAN_SPEED_AUTO:
+            speed=@"Auto";
+            break;
+        case FAN_SPEED_HIGH:
+            speed=@"High";
+            break;
+        case FAN_SPEED_MID:
+            speed=@"Mid";
+            break;
+        case FAN_SPEED_LOW:
+            speed=@"Low";
+            break;
+        case FAN_SPEED_SILENT:
+            speed=@"Silent";
+            break;
+        case FAN_SPEED_POWER:
+            speed=@"Power";
+    }
+    return [NSString stringWithFormat:@"Power:%d Speed:%@ Light:%d Lock:%d\nFilter:%@",
+            self.power,speed,self.light,self.lock,[[self filterStatus] description]];
+    
 }
 @end

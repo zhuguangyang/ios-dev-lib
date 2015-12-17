@@ -20,7 +20,6 @@
     OznerDevice* device= [[OznerManager instance] getDeviceByIO:self.io];
     if (device)
     {
-        device.settings.name=@"test";
         //保存配对设备
         [[OznerManager instance] save:device];
     }

@@ -20,8 +20,7 @@
     CBCentralManager * centralManager;
     dispatch_queue_t queue;
     NSThread* scanThread;
-    
-    
+    NSMutableDictionary* addressList;
 }
 -(instancetype)init;
 

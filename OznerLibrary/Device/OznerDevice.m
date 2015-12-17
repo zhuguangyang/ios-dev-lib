@@ -62,7 +62,7 @@
     return true;
 }
 
--(void)updateSettings
+-(void)updateSettings:(OperateCallback) cb
 {
     
 }

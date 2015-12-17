@@ -12,7 +12,7 @@
 
 #import "../../OznerManager.h"
 
-
+#define Timeout 120
 @implementation MXChipPair
 +(NSString*)getWifiSSID
 {
@@ -34,105 +34,90 @@
     self->serviceBrowser.delegate=self;
     [self->serviceBrowser searchForServicesOfType:@"_easylink._tcp" inDomain:@"local."];
 }
-#define Timeout 120
+
 
 -(void)run
 {
-//    if (![MXChipPair getWifiSSID])
-//    {
-//        [self.delegate mxChipFailure];
-//    }
-    [services removeAllObjects];
-    device=NULL;
-//    self->device=[[ConfigurationDevice alloc] init];
-//    //device.ip=@"192.168.1.184";
-//    device.name=@"EMW3162(43FD77)";
-//    device.login_id=@"admin";
-//    device.devPasswd=@"12345678";
-    
-    HttpServer* httpServer=[[HttpServer alloc] init:8000];
-    httpServer.delegate=self;
-    [httpServer start];
-    [self.delegate mxChipPairSendConfiguration];
-    EasyLinkSender* easy=[[EasyLinkSender alloc] init:ssid Password:password];
     @try {
-        NSDate* time=[NSDate dateWithTimeIntervalSinceNow:0];
-        BOOL v2=true;
-        while (!device)
-        {
-            if ([NSThread currentThread].isCancelled)
-                return;
-            
-            if (v2)
-                [easy send_easylink_v2];
-            else
-                [easy send_easylink_v3];
-            [NSThread sleepForTimeInterval:1.5f];
-            
-            
-            int t=abs((int)[time timeIntervalSinceNow]);
-            if ((t % 10)==0)
+        [services removeAllObjects];
+        device=NULL;
+        HttpServer* httpServer=[[HttpServer alloc] init:8000];
+        httpServer.delegate=self;
+        [httpServer start];
+        [self.delegate mxChipPairSendConfiguration];
+        EasyLinkSender* easy=[[EasyLinkSender alloc] init:ssid Password:password];
+        @try {
+            NSDate* time=[NSDate dateWithTimeIntervalSinceNow:0];
+            BOOL v2=true;
+            while (!device)
             {
-                v2=!v2;
-            }
-            
-            if (t>Timeout)
-            {
-                break;
-            }
-            
-        }
-    }
-    @catch (NSException *exception) {
-        NSLog(@"except:%@",[exception debugDescription]);
-    }
-    @finally {
-        [httpServer close];
-    }
-  
-    if (!device)
-    {
-        [self.delegate mxChipFailure];
-        return;
-    }
-    if (device.activated)
-    {
-        NSRange range=[device.deviceId rangeOfString:@"/"];
-        if (range.location!=NSNotFound)
-        {
-            NSString* tmp=[[device.deviceId substringFromIndex:range.length+range.length] uppercaseString];
-            if (tmp.length== 12) {
-                NSString* mac=[NSString stringWithFormat:@"%@:%@:%@:%@:%@:%@",
-                               [tmp substringWithRange:NSMakeRange(0, 2)],
-                               [tmp substringWithRange:NSMakeRange(2, 2)],
-                               [tmp substringWithRange:NSMakeRange(4, 2)],
-                               [tmp substringWithRange:NSMakeRange(6, 2)],
-                               [tmp substringWithRange:NSMakeRange(8, 2)],
-                               [tmp substringWithRange:NSMakeRange(10, 2)]];
-                device.mac=mac;
-                MXChipIO* io=[[OznerManager instance].ioManager.mxchip createMXChipIO:device.mac Type:device.type];
-                io.name=device.name;
-                [self.delegate mxChipComplete:io];
+                if ([NSThread currentThread].isCancelled)
+                    return;
                 
-                return;
+                if (v2)
+                    [easy send_easylink_v2];
+                else
+                    [easy send_easylink_v3];
+                [NSThread sleepForTimeInterval:1.5f];
+                
+                int t=abs((int)[time timeIntervalSinceNow]);
+                if ((t % 10)==0)
+                {
+                    v2=!v2;
+                }
+                
+                if (t>Timeout)
+                {
+                    break;
+                }
             }
         }
-    }
-    
-    [self.delegate mxChipPairWaitConnectWifi];
-    [self performSelectorOnMainThread:@selector(startMDNS) withObject:self waitUntilDone:false];
-    self->semaphore = dispatch_semaphore_create(0);
-    dispatch_semaphore_wait(self->semaphore,  dispatch_time(DISPATCH_TIME_NOW, Timeout * NSEC_PER_SEC));
-    if ([NSThread currentThread].isCancelled)
-        return;
-    
-    NSLog(@"dispatch_semaphore_wait");
-    if (device.ip==nil)
-    {
-        [self.delegate mxChipFailure];
-        return;
-    }
-    @try {
+        @finally {
+            [httpServer close];
+        }
+        
+        if (!device)
+        {
+            [self.delegate mxChipFailure];
+            return;
+        }
+        if (device.activated)
+        {
+            NSRange range=[device.deviceId rangeOfString:@"/"];
+            if (range.location!=NSNotFound)
+            {
+                NSString* tmp=[[device.deviceId substringFromIndex:range.length+range.length] uppercaseString];
+                if (tmp.length== 12) {
+                    NSString* mac=[NSString stringWithFormat:@"%@:%@:%@:%@:%@:%@",
+                                   [tmp substringWithRange:NSMakeRange(0, 2)],
+                                   [tmp substringWithRange:NSMakeRange(2, 2)],
+                                   [tmp substringWithRange:NSMakeRange(4, 2)],
+                                   [tmp substringWithRange:NSMakeRange(6, 2)],
+                                   [tmp substringWithRange:NSMakeRange(8, 2)],
+                                   [tmp substringWithRange:NSMakeRange(10, 2)]];
+                    device.mac=mac;
+                    MXChipIO* io=[[OznerManager instance].ioManager.mxchip createMXChipIO:device.mac Type:device.type];
+                    io.name=device.name;
+                    [self.delegate mxChipComplete:io];
+                    
+                    return;
+                }
+            }
+        }
+        
+        [self.delegate mxChipPairWaitConnectWifi];
+        [self performSelectorOnMainThread:@selector(startMDNS) withObject:self waitUntilDone:false];
+        self->semaphore = dispatch_semaphore_create(0);
+        dispatch_semaphore_wait(self->semaphore,  dispatch_time(DISPATCH_TIME_NOW, Timeout * NSEC_PER_SEC));
+        if ([NSThread currentThread].isCancelled)
+            return;
+        
+        NSLog(@"dispatch_semaphore_wait");
+        if (device.ip==nil)
+        {
+            [self.delegate mxChipFailure];
+            return;
+        }
         [self.delegate mxChipPairActivate];
         
         if (![self activeDevice])
@@ -148,16 +133,16 @@
         }else
         {
             [self.delegate mxChipFailure];
+            return;
         }
-        
-        
-      
+
     }
     @catch (NSException *exception) {
         [self.delegate mxChipFailure];
-        runThread=nil;
+        NSLog(@"exception:%@",[exception debugDescription]);
     }
     @finally {
+        runThread=nil;
     }
 }
 

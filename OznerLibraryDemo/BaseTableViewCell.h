@@ -9,14 +9,15 @@
 #import <UIKit/UIKit.h>
 #import "OznerManager.h"
 #import "DeviceInfoView.h"
-#import "BaseDeviceView.h"
 @interface BaseTableViewCell : UITableViewCell<OznerDeviceDelegate>
 {
-    DeviceInfoView* deviceInfo;
-    BaseDeviceView* deviceView;
-    int infoHeight;
+    //DeviceInfoView* deviceInfo;
+    //int infoHeight;
 }
-
+@property (weak, nonatomic) IBOutlet DeviceInfoView *deviceInfo;
 @property (weak,nonatomic) OznerDevice* device;
 -(void)update;
+-(void)printSendStatus:(NSError*)error;
+
 @end
+

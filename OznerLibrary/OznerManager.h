@@ -69,6 +69,8 @@
  @discussion 保存设备
  */
 -(void)save:(OznerDevice*)device;
+-(void)save:(OznerDevice*)device Callback:(OperateCallback)cb;
+
 
 /*!
  @function getDevices

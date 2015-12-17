@@ -19,7 +19,19 @@
 
 -(instancetype)initWithPeripheral:(CBPeripheral*)Peripheral Address:(NSString*)address CentralManager:(CBCentralManager *)CentralManager BluetoothData:(ScanData *)scanData
 {
+    
     NSString* identifier=[NSString stringWithString:address];
+    if (scanData.scanResponesType==0x20)
+    {
+        if ((scanData.scanResponesData) && (scanData.scanResponesData.length>7))
+        {
+            BytePtr bytes=(BytePtr)[scanData.scanResponesData bytes];
+            identifier =[NSString stringWithFormat:@"%02X:%02X:%02X:%02X:%02X:%02X",
+              bytes[6],bytes[5],bytes[4],bytes[3],bytes[2],bytes[1]];
+            
+        }
+    }
+    
     if (self=[super init:identifier Type:scanData.model])
     {
         self->centralManager=CentralManager;
@@ -27,6 +39,7 @@
         self->_firmwareVersion=[NSDate dateWithTimeIntervalSince1970:[scanData.firmware timeIntervalSince1970]];
         self->_Platform=[NSString stringWithString:scanData.platform];
         peripheral.delegate=self;
+       
     }
     return self;
 }
@@ -77,26 +90,49 @@
     [self set:error];
 }
 
+-(void)send:(NSData *)data Callback:(OperateCallback)cb
+{
+    if (!runThread)
+    {
+        cb([NSError errorWithDomain:@"BluetoothIO Closed" code:0 userInfo:nil]);
+        return;
+    }
+    OperateData* op=[OperateData Operate:data Callback:cb];
+    if ([[NSThread currentThread] isEqual:runThread])
+    {
+        [self postSend:op];
+    }else
+    {
+        [self performSelector:@selector(postSend:) onThread:runThread withObject:op waitUntilDone:true];
+    }
+}
 
 -(BOOL)send:(NSData*) data
 {
     if (!runThread) return false;
+
+    OperateData* op=[OperateData Operate:data Callback:nil];
+    
     if ([[NSThread currentThread] isEqual:runThread])
     {
-        return [self postSend:data];
+        return [self postSend:op];
     }else
     {
-        [self performSelector:@selector(postSend:) onThread:runThread withObject:data waitUntilDone:true];
+        [self performSelector:@selector(postSend:) onThread:runThread withObject:op waitUntilDone:true];
         return errorinfo==nil;
     }
 }
 
--(BOOL)postSend:(NSData*)data
+-(BOOL)postSend:(OperateData*)data
 {
-    [self doSend:data];
-    [peripheral writeValue:data forCharacteristic:input type:CBCharacteristicWriteWithResponse];
-    return [self wait];
-    
+    [self doSend:data.data];
+    [peripheral writeValue:data.data forCharacteristic:input type:CBCharacteristicWriteWithResponse];
+    NSError* error=[self wait:Timeout];
+    if (data.callback)
+    {
+        data.callback(error);
+    }
+    return error==nil;
 }
 -(BOOL)runJob:(SEL)aSelector withObject:(nullable id)arg waitUntilDone:(BOOL)wait
 {

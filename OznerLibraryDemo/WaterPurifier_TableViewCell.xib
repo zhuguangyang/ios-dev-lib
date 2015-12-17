@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="WaterPurifier" rowHeight="165" id="KGk-i7-Jjw" customClass="WaterPurifier_TableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="170"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="169.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" axis="vertical" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="vBr-lm-tUN">
+                        <rect key="frame" x="8" y="8" width="304" height="122"/>
+                        <subviews>
+                            <stackView tag="100" contentMode="redraw" ambiguous="YES" misplaced="YES" restorationIdentifier="DeviceInfo" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="190-5k-ZwO" customClass="DeviceInfoView">
+                                <rect key="frame" x="0.0" y="0.0" width="50" height="89"/>
+                                <color key="backgroundColor" red="0.25098040700000002" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" distribution="fillEqually" alignment="center" spacing="20" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="amy-RC-kG9">
+                                <rect key="frame" x="0.0" y="93" width="304" height="29"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4pL-dQ-GXJ" customClass="MyButton">
+                                        <rect key="frame" x="0.0" y="0.0" width="61" height="29"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <state key="normal" title="电源">
+                                            <color key="titleShadowColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="PowerClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Hrx-Ag-XoU"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SFR-2e-HiK" customClass="MyButton">
+                                        <rect key="frame" x="81" y="0.0" width="61" height="29"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <state key="normal" title="加热"/>
+                                        <connections>
+                                            <action selector="HotClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="maO-Bs-uFz"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Joo-7k-Rxe" customClass="MyButton">
+                                        <rect key="frame" x="162" y="0.0" width="61" height="29"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <state key="normal" title="制冷"/>
+                                        <connections>
+                                            <action selector="CoolClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="EkI-9m-eyn"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q7Y-ry-5fe" customClass="MyButton">
+                                        <rect key="frame" x="243" y="0.0" width="61" height="29"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <state key="normal" title="杀菌"/>
+                                        <connections>
+                                            <action selector="CoolClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="yHP-fl-bYj"/>
+                                            <action selector="SterilizationClick:" destination="KGk-i7-Jjw" eventType="touchDown" id="kjJ-yo-nzw"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="amy-RC-kG9" firstAttribute="leading" secondItem="vBr-lm-tUN" secondAttribute="leading" id="8ts-1n-xx3"/>
+                            <constraint firstAttribute="trailing" secondItem="amy-RC-kG9" secondAttribute="trailing" id="vUT-SJ-O95"/>
+                        </constraints>
+                    </stackView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="vBr-lm-tUN" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="3pt-2A-9q9"/>
+                    <constraint firstItem="vBr-lm-tUN" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="DKM-52-VZZ"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="vBr-lm-tUN" secondAttribute="trailing" id="TG3-Aq-hi1"/>
+                </constraints>
+            </tableViewCellContentView>
+            <point key="canvasLocation" x="339" y="283"/>
+        </tableViewCell>
+    </objects>
+</document>

@@ -11,6 +11,8 @@
 #import "ScanData.h"
 #import <CoreBluetooth/CoreBluetooth.h>
 
+
+
 @interface BluetoothIO : BaseDeviceIO<CBPeripheralDelegate>
 {
     NSThread* runThread;

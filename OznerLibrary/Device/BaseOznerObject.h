@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 enum RunningMode {Background, Foreground};
+typedef void (^OperateCallback)(NSError* error);
 @interface BaseOznerObject : NSObject
 {
     NSCondition* waitObject;

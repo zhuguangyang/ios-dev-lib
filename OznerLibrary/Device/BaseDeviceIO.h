@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "BaseOznerObject.h"
 @class BaseDeviceIO;
+
 enum ConnectStatus {Connecting,Disconnect,Connected};
 
 @protocol DeviceIODelegate <NSObject>
@@ -57,6 +58,7 @@ enum ConnectStatus {Connecting,Disconnect,Connected};
 -(void)open;
 -(void)close;
 -(BOOL)send:(NSData*)data;
+-(void)send:(NSData*)data Callback:(OperateCallback) cb;
 
 
 

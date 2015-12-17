@@ -8,13 +8,18 @@
 
 #import <UIKit/UIKit.h>
 #import "OznerManager.h"
-@interface DeviceInfoView : UIView
-@property (weak, nonatomic) IBOutlet UILabel *NameLable;
-@property (weak, nonatomic) IBOutlet UILabel *IdLabel;
-@property (weak, nonatomic) IBOutlet UILabel *TypeLabel;
-@property (weak, nonatomic) IBOutlet UILabel *StatusLabel;
-@property (weak, nonatomic) IBOutlet UILabel *DescLabel;
+@interface DeviceInfoView : UIStackView
+{
+    UILabel *NameLable;
+    UILabel *IdLabel;
+    UILabel *TypeLabel;
+    UILabel *StatusLabel;
+    UILabel *DescLabel;
+    UILabel *SendStatus;
+    
+}
+-(void) printSendStatus:(NSError*)error;
 -(void) load:(OznerDevice*)device;
-@property (weak, nonatomic) IBOutlet DeviceInfoView *StackView;
-+(instancetype)loadNibCell:(id)owner;
+-(void)startSend;
+
 @end

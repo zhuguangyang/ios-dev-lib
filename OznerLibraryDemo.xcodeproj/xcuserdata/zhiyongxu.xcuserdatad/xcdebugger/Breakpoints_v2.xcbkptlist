@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OznerLibrary/Wifi/MXChip/MXChipIO.m"
-            timestampString = "471776784.727423"
+            timestampString = "471949098.944479"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "78"
-            endingLineNumber = "78"
+            startingLineNumber = "105"
+            endingLineNumber = "105"
             landmarkName = "-runThreadProc"
             landmarkType = "5">
          </BreakpointContent>
@@ -25,13 +25,29 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "OznerLibrary/AirPurifier/AirPurifierManager.m"
-            timestampString = "471861105.977689"
+            filePath = "OznerLibrary/Wifi/MXChip/MXChipPair.m"
+            timestampString = "472037542.995327"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "42"
-            endingLineNumber = "42"
-            landmarkName = "-createDevice:Type:Settings:"
+            startingLineNumber = "239"
+            endingLineNumber = "239"
+            landmarkName = "-cancel"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OznerLibraryDemo/WifiAddViewController.m"
+            timestampString = "472006177.834536"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "153"
+            endingLineNumber = "153"
+            landmarkName = "-startPair:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

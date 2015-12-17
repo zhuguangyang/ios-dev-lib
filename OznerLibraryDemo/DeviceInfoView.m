@@ -10,29 +10,65 @@
 
 @implementation DeviceInfoView
 
-
-+(instancetype)loadNibCell:(id)owner
+-(instancetype)initWithCoder:(NSCoder *)aDecoder
 {
-    return [[[NSBundle mainBundle] loadNibNamed:@"DeviceInfoView" owner:owner options:nil] lastObject];
-}
+    if (self=[super initWithCoder:aDecoder])
+    {
+        NameLable=[[UILabel alloc] init];
+        IdLabel=[[UILabel alloc] init];
+        TypeLabel=[[UILabel alloc] init];
+        DescLabel=[[UILabel alloc] init];
+        SendStatus=[[UILabel alloc] init];
+        
+        StatusLabel=[[UILabel alloc] init];
+        [DescLabel setNumberOfLines:0];
+        
+        [SendStatus setText:@"发送状态:"];
+        [SendStatus setNumberOfLines:0];
+        
+        [self addArrangedSubview:NameLable];
+        [self addArrangedSubview:IdLabel];
+        [self addArrangedSubview:TypeLabel];
+        
+        [self addArrangedSubview:StatusLabel];
+        [self addArrangedSubview:DescLabel];
 
+        [self addArrangedSubview:SendStatus];
+        
+    }
+    return self;
+}
+-(void)startSend
+{
+    [SendStatus setText:@"发送状态:正在发送"];
+}
+-(void)printSendStatus:(NSError *)error
+{
+    if (error)
+    {
+        [SendStatus setText:[NSString stringWithFormat:@"发送状态:%@",[error debugDescription]]];
+    }else
+    {
+        [SendStatus setText:@"发送状态:成功"];
+    }
+}
 -(void) load:(OznerDevice*)device
 {
-    [self.NameLable setText:device.settings.name];
-    [self.IdLabel setText:[NSString stringWithFormat:@"id:%@",device.identifier]];
-    [self.TypeLabel setText:[NSString stringWithFormat:@"type:%@",device.type]];
+    [NameLable setText:device.settings.name];
+    [IdLabel setText:[NSString stringWithFormat:@"id:%@",device.identifier]];
+    [TypeLabel setText:[NSString stringWithFormat:@"type:%@",device.type]];
     switch ([device connectStatus]) {
         case Connected:
-            [self.StatusLabel setText:@"status:已连接"];
+            [StatusLabel setText:@"连接状态:已连接"];
             break;
         case Disconnect:
-            [self.StatusLabel setText:@"status:未连接"];
+            [StatusLabel setText:@"连接状态:未连接"];
             break;
         case Connecting:
-            [self.StatusLabel setText:@"status:连接中"];
+            [StatusLabel setText:@"连接状态:连接中"];
             break;
     }
-    [self.DescLabel setText:[device description]];
+    [DescLabel setText:[device description]];
 }
 
 

@@ -28,18 +28,17 @@
     if (self=[super init:identifier Type:type Settings:json])
     {
         self->_info=[[WaterPurifierInfo alloc] init];
-        self->_status=[[WaterPurifierStatus alloc] init:^BOOL(NSData *data) {
-            return [self setStatus:data];
+        self->_status=[[WaterPurifierStatus alloc] init:^(NSData *data,OperateCallback cb) {
+            return [self setStatus:data Callback:cb];
         }];
         self->_sensor=[[WaterPurifierSensor alloc] init];
     }
     return self;
 }
--(BOOL)setStatus:(NSData*)data
+-(void)setStatus:(NSData*)data Callback:(OperateCallback)cb
 {
-    BOOL ret=[io send:[self MakeWoodyBytes:GroupCode_AppToDevice Opcode:Opcode_ChangeStatus Data:data]];
+    [io send:[self MakeWoodyBytes:GroupCode_AppToDevice Opcode:Opcode_ChangeStatus Data:data] Callback:cb];
     [self reqeusetStatsus];
-    return ret;
 }
 
 -(NSString *)description

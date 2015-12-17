@@ -130,8 +130,7 @@ OznerManager* oznerManager=nil;
     }
     return array;
 }
-
--(void)save:(OznerDevice *)device
+-(void)save:(OznerDevice*)device Callback:(OperateCallback)cb;
 {
     if (!devices) return;
     if (StringIsNullOrEmpty(owner)) return;
@@ -145,11 +144,14 @@ OznerManager* oznerManager=nil;
         }else
             isNew=false;
     }
+    [device saveSettings];
     NSString* sql=[NSString stringWithFormat:@"INSERT OR REPLACE INTO %@(identifier,Type,JSON) VALUES (?,?,?);",
                    [self getOwnerTableName]];
-    [db ExecSQLNonQuery:sql params:[NSArray arrayWithObjects:device.identifier,device.type,[device.settings toJSON], nil]];
+    NSString* json=[device.settings toJSON];
+    NSLog(@"json:%@",json);
+    [db ExecSQLNonQuery:sql params:[NSArray arrayWithObjects:device.identifier,device.type,json, nil]];
     
-    [device updateSettings];
+    [device updateSettings:cb];
     @try {
         if (isNew)
             [self.delegate OznerManagerDidAddDevice:device];
@@ -159,6 +161,10 @@ OznerManager* oznerManager=nil;
     @catch (NSException *exception) {
         
     }
+}
+-(void)save:(OznerDevice *)device
+{
+    [self save:device Callback:nil];
 }
 -(void)loadDevices
 {
@@ -236,6 +242,7 @@ OznerManager* oznerManager=nil;
         }
     }
 }
+
 -(void)doDidFoundDevice:(BaseDeviceIO*)io;
 {
     [self.delegate OznerManagerDidFoundDevice:io];

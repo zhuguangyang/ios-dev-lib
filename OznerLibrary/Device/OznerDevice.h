@@ -23,7 +23,7 @@
 -(instancetype) init:(NSString*)identifier Type:(NSString*)type Settings:(NSString*)json;
 -(BOOL)bind:(BaseDeviceIO*)newio;
 
--(void)updateSettings;
+-(void)updateSettings:(OperateCallback) cb;
 -(void)saveSettings;
 -(NSString *)getDefaultName;
 

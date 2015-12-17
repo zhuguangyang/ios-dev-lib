@@ -30,8 +30,20 @@
             self.Password.text=pwd;
         }
      }
+    [self regNotification];
+    selfHeightConstraint=[NSLayoutConstraint constraintWithItem:self.view attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:self.view.frame.size.height];
+    
+    [self.view addConstraint:selfHeightConstraint];
+    for (NSLayoutConstraint* c in self.view.constraints)
+    {
+        NSLog(@"constraint:%@",[c description]);
+    }
 }
+-(void)dealloc
+{
+    [self unregNotification];
 
+}
 -(void)showStatus:(NSString*)status
 {
     self.StatusView.hidden=false;
@@ -71,13 +83,17 @@
 {
     [self complete:io];
 }
--(void)mxChipFailure
+-(void)doFailure
 {
-    [self performSelectorOnMainThread:@selector(showStatus:) withObject:@"配网失败" waitUntilDone:false];
-    
+    [self showStatus:@"配网失败"];
+    [self.indicator stopAnimating];
+    self.indicator.hidden=true;
     self.CancelButton.enabled=false;
     self.StartButton.enabled=true;
-    
+}
+-(void)mxChipFailure
+{
+    [self performSelectorOnMainThread:@selector(doFailure) withObject:nil waitUntilDone:false];
 }
 -(void)mxChipPairActivate
 {
@@ -103,6 +119,35 @@
     // Pass the selected object to the new view controller.
 }
 */
+- (void)regNotification
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillChangeFrame:) name:UIKeyboardWillChangeFrameNotification object:nil];
+}
+
+- (void)unregNotification
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillChangeFrameNotification object:nil];
+}
+
+
+- (void)keyboardWillChangeFrame:(NSNotification *)notification
+{
+    NSDictionary *info = [notification userInfo];
+    CGFloat duration = [[info objectForKey:UIKeyboardAnimationDurationUserInfoKey] floatValue];
+    CGRect beginKeyboardRect = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue];
+    CGRect endKeyboardRect = [[info objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    
+    CGFloat yOffset = beginKeyboardRect.origin.y-endKeyboardRect.origin.y;
+    
+    CGRect selfRect = self.view.frame;
+    selfHeightConstraint.constant=selfRect.size.height-yOffset;
+    
+    //selfRect.size.height -= yOffset;
+    
+    [UIView animateWithDuration:duration animations:^{
+        [self.view updateConstraintsIfNeeded];
+    }];
+}
 
 - (IBAction)startPair:(id)sender {
     if (foundIO)
@@ -119,7 +164,7 @@
         {
             UIAlertController* alert=[UIAlertController alertControllerWithTitle:@"错误"
                                                                          message:@"请输入SSID"
-                                                                  preferredStyle:UIAlertViewStyleDefault];
+                                                                  preferredStyle:UIAlertControllerStyleAlert];
             
             UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"好的"
                                                                style:UIAlertActionStyleDefault

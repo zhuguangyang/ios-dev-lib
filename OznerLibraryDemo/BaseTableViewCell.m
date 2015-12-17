@@ -18,37 +18,43 @@
     [super setSelected:selected animated:animated];
 }
 
--(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
+//-(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
+//{
+//    if (self=[super initWithStyle:style reuseIdentifier:reuseIdentifier])
+//    {
+//        deviceInfo=[DeviceInfoView loadNib:self];
+//        deviceInfo.frame=CGRectMake(0, 0, deviceInfo.frame.size.width, deviceInfo.frame.size.height);
+//        //deviceInfo.translatesAutoresizingMaskIntoConstraints = NO;
+//        //self.contentView.translatesAutoresizingMaskIntoConstraints = NO;
+//        [self addSubview:deviceInfo];
+//        //[self addSubview:deviceInfo];
+//        @try {
+//            NSArray* array=[[NSBundle mainBundle] loadNibNamed:reuseIdentifier owner:self options:nil];
+//            if (array!=nil)
+//            {
+//                deviceView=[array lastObject];
+//                deviceView.frame=CGRectMake(0, deviceInfo.frame.size.height, deviceView.frame.size.width, deviceView.frame.size.height);
+//                //deviceView.translatesAutoresizingMaskIntoConstraints = NO;
+//                [self addSubview:deviceView];
+//                //[self addSubview:deviceView];
+//            }
+//        }
+//        @catch (NSException *exception) {
+//        }
+//        self.selectionStyle = UITableViewCellSelectionStyleNone;
+//    }
+//    return self;
+//}
+
+-(instancetype)initWithCoder:(NSCoder *)aDecoder
 {
-    if (self=[super initWithStyle:style reuseIdentifier:reuseIdentifier])
+    if (self=[super initWithCoder:aDecoder])
     {
-        deviceInfo=[DeviceInfoView loadNibCell:self];
-        infoHeight=deviceInfo.frame.size.height;
-        [self addSubview:deviceInfo];
-        @try {
-            NSArray* array=[[NSBundle mainBundle] loadNibNamed:reuseIdentifier owner:self options:nil];
-            if (array!=nil)
-            {
-                deviceView=[array lastObject];
-                CGRect r=deviceView.frame;
-                r.origin.y=infoHeight;
-                deviceView.frame=r;
-                [self addSubview:deviceView];
-                
-            }
-        }
-        @catch (NSException *exception) {
-            
-        }
-        
-        
+        _deviceInfo=[self viewWithTag:100];
         self.selectionStyle = UITableViewCellSelectionStyleNone;
-   
     }
     return self;
 }
-
-
 -(void)OznerDeviceSensorUpdate:(OznerDevice *)device
 {
     [self performSelectorOnMainThread:@selector(update) withObject:nil waitUntilDone:false];
@@ -66,14 +72,23 @@
 
 -(void)update
 {
-    [deviceInfo load:_device];
+    [_deviceInfo load:_device];
 }
 
 -(void)setDevice:(OznerDevice *)device
 {
-    deviceView.device=device;
     _device=device;
     _device.delegate=self;
     [self update];
+}
+
+-(void)printSendStatusSel:(NSError *)error
+{
+    [_deviceInfo printSendStatus:error];
+}
+
+-(void)printSendStatus:(NSError *)error
+{
+    [self performSelectorOnMainThread:@selector(printSendStatusSel:) withObject:error waitUntilDone:false];
 }
 @end

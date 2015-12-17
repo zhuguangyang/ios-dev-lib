@@ -79,10 +79,11 @@
 }
 -(BOOL)publish:(NSString*)topic Data:(NSData*)data
 {
-    [session publishData:data onTopic:topic];
-    return true;
-    //[session publishDataAtLeastOnce:data onTopic:topic];
+    //[session publishData:data onTopic:topic];
     //return true;
+    [session publishDataAtLeastOnce:data onTopic:topic];
+    return true;
+
     //return [session publishAndWaitData:data onTopic:topic retain:false qos:MQTTQosLevelAtLeastOnce];
 }
 

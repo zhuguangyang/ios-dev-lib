@@ -13,6 +13,7 @@
     NSDate* startTime;
     MXChipPair* pair;
     MXChipIO* foundIO;
+    NSLayoutConstraint* selfHeightConstraint;
 }
 @property (weak, nonatomic) IBOutlet UITextField *SSID;
 @property (weak, nonatomic) IBOutlet UITextField *Password;
