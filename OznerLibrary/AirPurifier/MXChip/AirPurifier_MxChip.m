@@ -58,8 +58,6 @@
 -(BOOL)reqesutProperty:(NSSet*)propertys
 {
     if (!io) return false;
-    if (!io.isReady) return false;
-    
     int len=14 + [propertys count];
     Byte bytes[len];
     
@@ -88,8 +86,14 @@
 }
 -(void)setProperty:(Byte)propertyId Data:(NSData*)value Callback:(OperateCallback)cb
 {
-    if (!io) return;
-    if (!io.isReady) return;
+    if (!io)
+    {
+        if (cb)
+        {
+            cb([NSError errorWithDomain:@"Connection Closed" code:0 userInfo:nil]);
+        }
+        return;
+    }
     
     int len=13 + (int)value.length;
     Byte bytes[len];
@@ -196,7 +200,8 @@
 -(BOOL)DeviceIOWellInit:(BaseDeviceIO *)io
 {
     [self setTime];
-
+    [self wait:Timeout];
+    
     NSMutableSet* set=[[NSMutableSet alloc] init];
     [set addObject:[NSString stringWithFormat:@"%d",PROPERTY_FILTER]];
     [set addObject:[NSString stringWithFormat:@"%d",PROPERTY_MODEL]];
@@ -238,7 +243,10 @@
 -(void)auto_update
 {
     NSMutableSet* set=[[NSMutableSet alloc] init];
+    [set addObject:[NSString stringWithFormat:@"%d",PROPERTY_FILTER]];
+    
     [set addObject:[NSString stringWithFormat:@"%d",PROPERTY_PM25]];
+    
     [set addObject:[NSString stringWithFormat:@"%d",PROPERTY_LIGHT_SENSOR]];
     [set addObject:[NSString stringWithFormat:@"%d",PROPERTY_TEMPERATURE]];
     [set addObject:[NSString stringWithFormat:@"%d",PROPERTY_VOC]];

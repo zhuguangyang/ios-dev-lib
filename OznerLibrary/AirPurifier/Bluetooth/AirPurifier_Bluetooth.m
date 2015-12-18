@@ -102,7 +102,14 @@
 
 -(void)send:(UInt8)code Data:(NSData*)data Callback:(OperateCallback)cb
 {
-    if (!io) return;
+    if (!io)
+    {
+        if (cb)
+        {
+            cb([NSError errorWithDomain:@"Connection Closed" code:0 userInfo:nil]);
+        }
+        return;
+    }
     @try {
         return [io send:[self makePacket:code Bytes:data] Callback:cb];
     }

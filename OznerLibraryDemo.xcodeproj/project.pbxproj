@@ -14,9 +14,18 @@
 		0286D5771C21438C00C027B5 /* DeviceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0286D5751C21438C00C027B5 /* DeviceTableViewCell.xib */; };
 		0286D57A1C229B7E00C027B5 /* BluetoothAirPurifierStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 0286D5791C229B7E00C027B5 /* BluetoothAirPurifierStatus.m */; };
 		0286D5831C229E2D00C027B5 /* BluetoothAirPurifierFilterStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 0286D5821C229E2D00C027B5 /* BluetoothAirPurifierFilterStatus.m */; };
+		0286D5891C23A1A700C027B5 /* AirPurifier_Bluetooth_TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0286D5881C23A1A700C027B5 /* AirPurifier_Bluetooth_TableViewCell.m */; };
+		0286D58B1C23A34000C027B5 /* AirPurifier_Bluetooth_TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0286D58A1C23A34000C027B5 /* AirPurifier_Bluetooth_TableViewCell.xib */; };
 		029F93E71C1FA44200D73A35 /* DeviceInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 029F93E61C1FA44200D73A35 /* DeviceInfoView.m */; };
 		029F93FD1C1FB9E300D73A35 /* BaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 029F93FC1C1FB9E300D73A35 /* BaseTableViewCell.m */; };
 		029F940D1C1FF45C00D73A35 /* MyButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 029F940C1C1FF45C00D73A35 /* MyButton.m */; };
+		02ACBD771C23DC2200F8BAB3 /* MQTTDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 02ACBD6A1C23DC2200F8BAB3 /* MQTTDecoder.m */; };
+		02ACBD781C23DC2200F8BAB3 /* MQTTEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 02ACBD6C1C23DC2200F8BAB3 /* MQTTEncoder.m */; };
+		02ACBD791C23DC2200F8BAB3 /* MQTTMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 02ACBD6E1C23DC2200F8BAB3 /* MQTTMessage.m */; };
+		02ACBD7A1C23DC2200F8BAB3 /* MQTTPersistence.m in Sources */ = {isa = PBXBuildFile; fileRef = 02ACBD701C23DC2200F8BAB3 /* MQTTPersistence.m */; };
+		02ACBD7B1C23DC2200F8BAB3 /* MQTTSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 02ACBD721C23DC2200F8BAB3 /* MQTTSession.m */; };
+		02ACBD7C1C23DC2200F8BAB3 /* MQTTSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 02ACBD741C23DC2200F8BAB3 /* MQTTSessionManager.m */; };
+		02ACBD7D1C23DC2200F8BAB3 /* MQTTSSLSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = 02ACBD761C23DC2200F8BAB3 /* MQTTSSLSecurityPolicy.m */; };
 		02E98B291C18673000ED06F1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E98B281C18673000ED06F1 /* main.m */; };
 		02E98B2C1C18673000ED06F1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E98B2B1C18673000ED06F1 /* AppDelegate.m */; };
 		02E98B2F1C18673000ED06F1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E98B2E1C18673000ED06F1 /* ViewController.m */; };
@@ -56,7 +65,6 @@
 		02E98BDD1C18679D00ED06F1 /* OznerDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E98B8E1C18679D00ED06F1 /* OznerDevice.m */; };
 		02E98BDE1C18679D00ED06F1 /* Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E98B911C18679D00ED06F1 /* Helper.m */; };
 		02E98BDF1C18679D00ED06F1 /* SqlLiteDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E98B931C18679D00ED06F1 /* SqlLiteDB.m */; };
-		02E98BE01C18679D00ED06F1 /* MQTTClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02E98B941C18679D00ED06F1 /* MQTTClient.framework */; };
 		02E98BE11C18679D00ED06F1 /* OznerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E98B961C18679D00ED06F1 /* OznerManager.m */; };
 		02E98BE21C18679D00ED06F1 /* Tap.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E98B991C18679D00ED06F1 /* Tap.m */; };
 		02E98BE31C18679D00ED06F1 /* TapFirmware.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E98B9B1C18679D00ED06F1 /* TapFirmware.m */; };
@@ -99,12 +107,31 @@
 		0286D5791C229B7E00C027B5 /* BluetoothAirPurifierStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BluetoothAirPurifierStatus.m; path = Bluetooth/BluetoothAirPurifierStatus.m; sourceTree = "<group>"; };
 		0286D5811C229E2D00C027B5 /* BluetoothAirPurifierFilterStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BluetoothAirPurifierFilterStatus.h; path = Bluetooth/BluetoothAirPurifierFilterStatus.h; sourceTree = "<group>"; };
 		0286D5821C229E2D00C027B5 /* BluetoothAirPurifierFilterStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BluetoothAirPurifierFilterStatus.m; path = Bluetooth/BluetoothAirPurifierFilterStatus.m; sourceTree = "<group>"; };
+		0286D5871C23A1A700C027B5 /* AirPurifier_Bluetooth_TableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AirPurifier_Bluetooth_TableViewCell.h; sourceTree = "<group>"; };
+		0286D5881C23A1A700C027B5 /* AirPurifier_Bluetooth_TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AirPurifier_Bluetooth_TableViewCell.m; sourceTree = "<group>"; };
+		0286D58A1C23A34000C027B5 /* AirPurifier_Bluetooth_TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AirPurifier_Bluetooth_TableViewCell.xib; sourceTree = "<group>"; };
 		029F93E51C1FA44200D73A35 /* DeviceInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceInfoView.h; sourceTree = "<group>"; };
 		029F93E61C1FA44200D73A35 /* DeviceInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceInfoView.m; sourceTree = "<group>"; };
 		029F93FB1C1FB9E300D73A35 /* BaseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableViewCell.h; sourceTree = "<group>"; };
 		029F93FC1C1FB9E300D73A35 /* BaseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewCell.m; sourceTree = "<group>"; };
 		029F940B1C1FF45C00D73A35 /* MyButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyButton.h; sourceTree = "<group>"; };
 		029F940C1C1FF45C00D73A35 /* MyButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyButton.m; sourceTree = "<group>"; };
+		02ACBD671C23DC2200F8BAB3 /* MQTTClient-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MQTTClient-Prefix.pch"; sourceTree = "<group>"; };
+		02ACBD681C23DC2200F8BAB3 /* MQTTClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MQTTClient.h; sourceTree = "<group>"; };
+		02ACBD691C23DC2200F8BAB3 /* MQTTDecoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MQTTDecoder.h; sourceTree = "<group>"; };
+		02ACBD6A1C23DC2200F8BAB3 /* MQTTDecoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MQTTDecoder.m; sourceTree = "<group>"; };
+		02ACBD6B1C23DC2200F8BAB3 /* MQTTEncoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MQTTEncoder.h; sourceTree = "<group>"; };
+		02ACBD6C1C23DC2200F8BAB3 /* MQTTEncoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MQTTEncoder.m; sourceTree = "<group>"; };
+		02ACBD6D1C23DC2200F8BAB3 /* MQTTMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MQTTMessage.h; sourceTree = "<group>"; };
+		02ACBD6E1C23DC2200F8BAB3 /* MQTTMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MQTTMessage.m; sourceTree = "<group>"; };
+		02ACBD6F1C23DC2200F8BAB3 /* MQTTPersistence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MQTTPersistence.h; sourceTree = "<group>"; };
+		02ACBD701C23DC2200F8BAB3 /* MQTTPersistence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MQTTPersistence.m; sourceTree = "<group>"; };
+		02ACBD711C23DC2200F8BAB3 /* MQTTSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MQTTSession.h; sourceTree = "<group>"; };
+		02ACBD721C23DC2200F8BAB3 /* MQTTSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MQTTSession.m; sourceTree = "<group>"; };
+		02ACBD731C23DC2200F8BAB3 /* MQTTSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MQTTSessionManager.h; sourceTree = "<group>"; };
+		02ACBD741C23DC2200F8BAB3 /* MQTTSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MQTTSessionManager.m; sourceTree = "<group>"; };
+		02ACBD751C23DC2200F8BAB3 /* MQTTSSLSecurityPolicy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MQTTSSLSecurityPolicy.h; sourceTree = "<group>"; };
+		02ACBD761C23DC2200F8BAB3 /* MQTTSSLSecurityPolicy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MQTTSSLSecurityPolicy.m; sourceTree = "<group>"; };
 		02E98B241C18673000ED06F1 /* OznerLibraryDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OznerLibraryDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		02E98B281C18673000ED06F1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		02E98B2A1C18673000ED06F1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -183,7 +210,6 @@
 		02E98B911C18679D00ED06F1 /* Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Helper.m; sourceTree = "<group>"; };
 		02E98B921C18679D00ED06F1 /* SqlLiteDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SqlLiteDB.h; sourceTree = "<group>"; };
 		02E98B931C18679D00ED06F1 /* SqlLiteDB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SqlLiteDB.m; sourceTree = "<group>"; };
-		02E98B941C18679D00ED06F1 /* MQTTClient.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MQTTClient.framework; sourceTree = "<group>"; };
 		02E98B951C18679D00ED06F1 /* OznerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OznerManager.h; sourceTree = "<group>"; };
 		02E98B961C18679D00ED06F1 /* OznerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OznerManager.m; sourceTree = "<group>"; };
 		02E98B981C18679D00ED06F1 /* Tap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tap.h; sourceTree = "<group>"; };
@@ -247,7 +273,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				02E98BF71C18686100ED06F1 /* libsqlite3.0.tbd in Frameworks */,
-				02E98BE01C18679D00ED06F1 /* MQTTClient.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,8 +293,34 @@
 				0286D56F1C213B3B00C027B5 /* WaterPurifier_TableViewCell.m */,
 				0286D5701C213B3B00C027B5 /* WaterPurifier_TableViewCell.xib */,
 				0286D5751C21438C00C027B5 /* DeviceTableViewCell.xib */,
+				0286D5871C23A1A700C027B5 /* AirPurifier_Bluetooth_TableViewCell.h */,
+				0286D5881C23A1A700C027B5 /* AirPurifier_Bluetooth_TableViewCell.m */,
+				0286D58A1C23A34000C027B5 /* AirPurifier_Bluetooth_TableViewCell.xib */,
 			);
 			name = DeviceCells;
+			sourceTree = "<group>";
+		};
+		02ACBD661C23DC2200F8BAB3 /* MQTTClient */ = {
+			isa = PBXGroup;
+			children = (
+				02ACBD671C23DC2200F8BAB3 /* MQTTClient-Prefix.pch */,
+				02ACBD681C23DC2200F8BAB3 /* MQTTClient.h */,
+				02ACBD691C23DC2200F8BAB3 /* MQTTDecoder.h */,
+				02ACBD6A1C23DC2200F8BAB3 /* MQTTDecoder.m */,
+				02ACBD6B1C23DC2200F8BAB3 /* MQTTEncoder.h */,
+				02ACBD6C1C23DC2200F8BAB3 /* MQTTEncoder.m */,
+				02ACBD6D1C23DC2200F8BAB3 /* MQTTMessage.h */,
+				02ACBD6E1C23DC2200F8BAB3 /* MQTTMessage.m */,
+				02ACBD6F1C23DC2200F8BAB3 /* MQTTPersistence.h */,
+				02ACBD701C23DC2200F8BAB3 /* MQTTPersistence.m */,
+				02ACBD711C23DC2200F8BAB3 /* MQTTSession.h */,
+				02ACBD721C23DC2200F8BAB3 /* MQTTSession.m */,
+				02ACBD731C23DC2200F8BAB3 /* MQTTSessionManager.h */,
+				02ACBD741C23DC2200F8BAB3 /* MQTTSessionManager.m */,
+				02ACBD751C23DC2200F8BAB3 /* MQTTSSLSecurityPolicy.h */,
+				02ACBD761C23DC2200F8BAB3 /* MQTTSSLSecurityPolicy.m */,
+			);
+			path = MQTTClient;
 			sourceTree = "<group>";
 		};
 		02E98B1B1C18673000ED06F1 = {
@@ -337,7 +388,6 @@
 		02E98B501C18679D00ED06F1 /* OznerLibrary */ = {
 			isa = PBXGroup;
 			children = (
-				02E98B941C18679D00ED06F1 /* MQTTClient.framework */,
 				02E98B951C18679D00ED06F1 /* OznerManager.h */,
 				02E98B961C18679D00ED06F1 /* OznerManager.m */,
 				02E98B511C18679D00ED06F1 /* AirPurifier */,
@@ -514,6 +564,7 @@
 		02E98BB41C18679D00ED06F1 /* MXChip */ = {
 			isa = PBXGroup;
 			children = (
+				02ACBD661C23DC2200F8BAB3 /* MQTTClient */,
 				02E98BB51C18679D00ED06F1 /* MQTTProxy.h */,
 				02E98BB61C18679D00ED06F1 /* MQTTProxy.m */,
 				02E98BB71C18679D00ED06F1 /* MXChipIO.h */,
@@ -586,7 +637,7 @@
 				TargetAttributes = {
 					02E98B231C18673000ED06F1 = {
 						CreatedOnToolsVersion = 7.1;
-						DevelopmentTeam = MTYS6HJ5R9;
+						DevelopmentTeam = BQE6636VJ7;
 					};
 				};
 			};
@@ -614,6 +665,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				02E98B371C18673000ED06F1 /* LaunchScreen.storyboard in Resources */,
+				0286D58B1C23A34000C027B5 /* AirPurifier_Bluetooth_TableViewCell.xib in Resources */,
 				0286D5771C21438C00C027B5 /* DeviceTableViewCell.xib in Resources */,
 				02E98B4E1C18676400ED06F1 /* ic_settings_bluetooth.png in Resources */,
 				02E98B341C18673000ED06F1 /* Assets.xcassets in Resources */,
@@ -632,6 +684,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02ACBD7C1C23DC2200F8BAB3 /* MQTTSessionManager.m in Sources */,
+				02ACBD791C23DC2200F8BAB3 /* MQTTMessage.m in Sources */,
 				02E98B431C18675700ED06F1 /* IODeviceViewCell.m in Sources */,
 				02E98BED1C18679D00ED06F1 /* WaterPurifierSensor.m in Sources */,
 				02E98B2F1C18673000ED06F1 /* ViewController.m in Sources */,
@@ -640,12 +694,14 @@
 				02E98BEC1C18679D00ED06F1 /* WaterPurifierManager.m in Sources */,
 				029F93E71C1FA44200D73A35 /* DeviceInfoView.m in Sources */,
 				0286D57A1C229B7E00C027B5 /* BluetoothAirPurifierStatus.m in Sources */,
+				02ACBD771C23DC2200F8BAB3 /* MQTTDecoder.m in Sources */,
 				02E98C0A1C1BB84600ED06F1 /* CupDBRecord.m in Sources */,
 				0286D56C1C21350700C027B5 /* AirPurifier_MXChip_TableViewCell.m in Sources */,
 				02E98BEF1C18679D00ED06F1 /* MQTTProxy.m in Sources */,
 				02E98BEA1C18679D00ED06F1 /* WaterPurifier.m in Sources */,
 				02E98BC91C18679D00ED06F1 /* BluetoothIO.m in Sources */,
 				02E98C041C1950FD00ED06F1 /* AirPurifier_Bluetooth.m in Sources */,
+				0286D5891C23A1A700C027B5 /* AirPurifier_Bluetooth_TableViewCell.m in Sources */,
 				02E98BDB1C18679D00ED06F1 /* IOManager.m in Sources */,
 				02E98BF41C18679D00ED06F1 /* EasyLinkSender.m in Sources */,
 				02E98BD61C18679D00ED06F1 /* CupSettings.m in Sources */,
@@ -683,7 +739,9 @@
 				02E98BD71C18679D00ED06F1 /* BaseDeviceIO.m in Sources */,
 				02E98BD01C18679D00ED06F1 /* CupGravity.m in Sources */,
 				02E98BDC1C18679D00ED06F1 /* IOManagerList.m in Sources */,
+				02ACBD7B1C23DC2200F8BAB3 /* MQTTSession.m in Sources */,
 				02E98B291C18673000ED06F1 /* main.m in Sources */,
+				02ACBD7A1C23DC2200F8BAB3 /* MQTTPersistence.m in Sources */,
 				02E98BE41C18679D00ED06F1 /* TapManager.m in Sources */,
 				02E98BEB1C18679D00ED06F1 /* WaterPurifierInfo.m in Sources */,
 				02E98BCF1C18679D00ED06F1 /* CupFirmware.m in Sources */,
@@ -692,8 +750,10 @@
 				02E98BC71C18679D00ED06F1 /* MxChipAirPurifierStatus.m in Sources */,
 				02E98BCE1C18679D00ED06F1 /* Cup.m in Sources */,
 				02E98BE11C18679D00ED06F1 /* OznerManager.m in Sources */,
+				02ACBD781C23DC2200F8BAB3 /* MQTTEncoder.m in Sources */,
 				02E98C071C19517C00ED06F1 /* BluetoothAirPurifierSensor.m in Sources */,
 				0286D5711C213B3B00C027B5 /* WaterPurifier_TableViewCell.m in Sources */,
+				02ACBD7D1C23DC2200F8BAB3 /* MQTTSSLSecurityPolicy.m in Sources */,
 				02E98BD11C18679D00ED06F1 /* CupManager.m in Sources */,
 				02E98BEE1C18679D00ED06F1 /* WaterPurifierStatus.m in Sources */,
 				02E98BD41C18679D00ED06F1 /* CupRecordList.m in Sources */,
@@ -817,7 +877,7 @@
 				);
 				INFOPLIST_FILE = OznerLibraryDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = xuzhiyong.OznerLibraryDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ozner.LibraryDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -833,7 +893,7 @@
 				);
 				INFOPLIST_FILE = OznerLibraryDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = xuzhiyong.OznerLibraryDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ozner.LibraryDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

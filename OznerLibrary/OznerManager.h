@@ -79,7 +79,12 @@
 -(NSArray*)getDevices;
 
 -(BOOL)hashDevice:(NSString*)identifier;
+/*!
+ @function remove
+ @discussion 删除设备
+ */
 
+-(void)remove:(OznerDevice*)device;
 
 /*!
  @function getDeviceByIO

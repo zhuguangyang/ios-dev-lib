@@ -37,6 +37,14 @@
 }
 -(void)setStatus:(NSData*)data Callback:(OperateCallback)cb
 {
+    if (!io)
+    {
+        if (cb)
+        {
+            cb([NSError errorWithDomain:@"Connection Closed" code:0 userInfo:nil]);
+        }
+        return;
+    }
     [io send:[self MakeWoodyBytes:GroupCode_AppToDevice Opcode:Opcode_ChangeStatus Data:data] Callback:cb];
     [self reqeusetStatsus];
 }

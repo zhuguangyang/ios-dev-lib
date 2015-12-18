@@ -10,22 +10,28 @@
 #import "BaseTableViewCell.h"
 #import "WaterPurifier.h"
 #import "AirPurifier_MxChip.h"
-
+#import "AirPurifier_Bluetooth.h"
 @implementation ViewController
 
 - (void)viewDidLoad {
     
     [super viewDidLoad];
-    [OznerManager instance].delegate=self;
+    
     [self->_tableView registerNib:[UINib nibWithNibName:@"WaterPurifier_TableViewCell" bundle:nil] forCellReuseIdentifier:NSStringFromClass([WaterPurifier class])];
     
     [self->_tableView registerNib:[UINib nibWithNibName:@"AirPurifier_MXChip_TableViewCell" bundle:nil] forCellReuseIdentifier:NSStringFromClass([AirPurifier_MxChip class])];
     
+    [self->_tableView registerNib:[UINib nibWithNibName:@"AirPurifier_Bluetooth_TableViewCell" bundle:nil] forCellReuseIdentifier:NSStringFromClass([AirPurifier_Bluetooth class])];
+    
     [self->_tableView registerNib:[UINib nibWithNibName:@"DeviceTableViewCell" bundle:nil] forCellReuseIdentifier:@"DeviceTableViewCell"];
     
+    
+}
+-(void)viewDidAppear:(BOOL)animated
+{
+    [OznerManager instance].delegate=self;
     [self update];
 }
-
 -(void)update
 {
     self->devices=[[OznerManager instance] getDevices];
@@ -62,6 +68,19 @@
     return 1;
 }
 
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle==UITableViewCellEditingStyleDelete) {
+        OznerDevice* device=[devices objectAtIndex:indexPath.item];
+        [[OznerManager instance] remove:device];
+        [self update];
+    }  
+}
+
+-(UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return UITableViewCellEditingStyleDelete	;
+}
 -(BOOL)tableView:(UITableView *)tableView canFocusRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return false;
@@ -96,7 +115,11 @@
     }
     if ([device.class isSubclassOfClass:[AirPurifier_MxChip class]])
     {
-        return 390;
+        return 460;
+    }
+    if ([device.class isSubclassOfClass:[AirPurifier_Bluetooth class]])
+    {
+        return 310;
     }
     return 240;
 }

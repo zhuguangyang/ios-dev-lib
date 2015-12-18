@@ -56,8 +56,7 @@
     MxChipAirPurifierFilterStatus* status=[[MxChipAirPurifierFilterStatus alloc] init];
     callback(PROPERTY_FILTER,[status toBytes],cb);
 }
-
--(MxChipAirPurifierFilterStatus *)filterStatus
+-(MxChipAirPurifierFilterStatus *)getFilterStatus
 {
     @synchronized(propertys) {
         NSData* data=[propertys objectForKey:[NSString stringWithFormat:@"%d",PROPERTY_FILTER]];
@@ -73,6 +72,7 @@
             return nil;
     }
 }
+
 
 
 -(void)setPower:(BOOL)power Callback:(OperateCallback)cb
@@ -138,7 +138,7 @@
             speed=@"Power";
     }
     return [NSString stringWithFormat:@"Power:%d Speed:%@ Light:%d Lock:%d\nFilter:%@",
-            self.power,speed,self.light,self.lock,[[self filterStatus] description]];
+            self.power,speed,self.light,self.lock,[self.filterStatus description]];
     
 }
 @end

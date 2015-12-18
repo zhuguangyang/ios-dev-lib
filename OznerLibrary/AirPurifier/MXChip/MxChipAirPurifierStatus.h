@@ -31,16 +31,13 @@ typedef void (^updateStatusHandler)(Byte propertyId,NSData* data,OperateCallback
 @property (getter=getLock,readonly) BOOL lock;
 @property (getter=getSpeed,readonly) Byte speed;
 @property (getter=getLight,readonly) Byte light;
-
+/*!
+ @discussion 滤芯状态
+ */
+@property (getter=getFilterStatus,readonly) MxChipAirPurifierFilterStatus* filterStatus;
 -(void)setSpeed:(Byte)speed Callback:(OperateCallback)cb;
 -(void)setLight:(Byte)light Callback:(OperateCallback)cb;
 -(void)setLock:(BOOL)lock Callback:(OperateCallback)cb;
 -(void)setPower:(BOOL)power Callback:(OperateCallback)cb;
-
-/*!
- @function filterStatus
- @discussion 滤芯状态
- */
--(MxChipAirPurifierFilterStatus*) filterStatus;
 -(void)resetFilterStatus:(OperateCallback)cb;
 @end

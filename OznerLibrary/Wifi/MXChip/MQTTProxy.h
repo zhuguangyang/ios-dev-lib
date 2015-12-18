@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <MQTTClient/MQTTClient.h>
+#import "MQTTClient/MQTTClient.h"
 #define MQTT_HOST @"api.easylink.io"
 #define MQTT_PORT 1883
 @class MQTTProxy;

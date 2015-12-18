@@ -105,7 +105,14 @@ typedef struct _RecordTime
 
 -(void)send:(UInt8)code Bytes:(Byte*)bytes Length:(UInt8)size Callback:(OperateCallback)cb
 {
-    if (!io) return ;
+    if (!io)
+    {
+        if (cb)
+        {
+            cb([NSError errorWithDomain:@"Connection Closed" code:0 userInfo:nil]);
+        }
+        return;
+    }
     @try {
         NSMutableData* data=[[NSMutableData alloc] init];
         [data appendBytes:&code length:1];
