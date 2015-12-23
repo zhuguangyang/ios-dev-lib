@@ -19,6 +19,7 @@
     
 }
 -(void) printSendStatus:(NSError*)error;
+-(void)printStatus:(NSString *)text;
 -(void) load:(OznerDevice*)device;
 -(void)startSend;
 

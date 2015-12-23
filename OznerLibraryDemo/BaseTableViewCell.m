@@ -87,6 +87,15 @@
     [_deviceInfo printSendStatus:error];
 }
 
+-(void)printSendTextSel:(NSString *)text
+{
+    [_deviceInfo printStatus:text];
+}
+
+-(void)printText:(NSString *)text
+{
+    [self performSelectorOnMainThread:@selector(printSendTextSel:) withObject:text waitUntilDone:false];
+}
 -(void)printSendStatus:(NSError *)error
 {
     [self performSelectorOnMainThread:@selector(printSendStatusSel:) withObject:error waitUntilDone:false];

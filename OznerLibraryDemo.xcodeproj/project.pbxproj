@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		02067F7F1C27E607009A05D4 /* WaterReplenishmentMeterMgr.m in Sources */ = {isa = PBXBuildFile; fileRef = 02067F7E1C27E607009A05D4 /* WaterReplenishmentMeterMgr.m */; };
+		02067F821C27E67A009A05D4 /* WaterReplenishmentMeter.m in Sources */ = {isa = PBXBuildFile; fileRef = 02067F811C27E67A009A05D4 /* WaterReplenishmentMeter.m */; };
+		02067F851C27E6E3009A05D4 /* WaterReplenishmentMeterStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 02067F841C27E6E3009A05D4 /* WaterReplenishmentMeterStatus.m */; };
+		02067F891C27F797009A05D4 /* WaterReplenishmentMeter_TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 02067F871C27F797009A05D4 /* WaterReplenishmentMeter_TableViewCell.m */; };
+		02067F8A1C27F797009A05D4 /* WaterReplenishmentMeter_TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02067F881C27F797009A05D4 /* WaterReplenishmentMeter_TableViewCell.xib */; };
 		0286D56C1C21350700C027B5 /* AirPurifier_MXChip_TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0286D56A1C21350700C027B5 /* AirPurifier_MXChip_TableViewCell.m */; };
 		0286D56D1C21350700C027B5 /* AirPurifier_MXChip_TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0286D56B1C21350700C027B5 /* AirPurifier_MXChip_TableViewCell.xib */; };
 		0286D5711C213B3B00C027B5 /* WaterPurifier_TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0286D56F1C213B3B00C027B5 /* WaterPurifier_TableViewCell.m */; };
@@ -96,6 +101,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		02067F7D1C27E607009A05D4 /* WaterReplenishmentMeterMgr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WaterReplenishmentMeterMgr.h; path = WaterReplenishmentMeter/WaterReplenishmentMeterMgr.h; sourceTree = "<group>"; };
+		02067F7E1C27E607009A05D4 /* WaterReplenishmentMeterMgr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WaterReplenishmentMeterMgr.m; path = WaterReplenishmentMeter/WaterReplenishmentMeterMgr.m; sourceTree = "<group>"; };
+		02067F801C27E67A009A05D4 /* WaterReplenishmentMeter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WaterReplenishmentMeter.h; path = WaterReplenishmentMeter/WaterReplenishmentMeter.h; sourceTree = "<group>"; };
+		02067F811C27E67A009A05D4 /* WaterReplenishmentMeter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WaterReplenishmentMeter.m; path = WaterReplenishmentMeter/WaterReplenishmentMeter.m; sourceTree = "<group>"; };
+		02067F831C27E6E3009A05D4 /* WaterReplenishmentMeterStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WaterReplenishmentMeterStatus.h; path = WaterReplenishmentMeter/WaterReplenishmentMeterStatus.h; sourceTree = "<group>"; };
+		02067F841C27E6E3009A05D4 /* WaterReplenishmentMeterStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WaterReplenishmentMeterStatus.m; path = WaterReplenishmentMeter/WaterReplenishmentMeterStatus.m; sourceTree = "<group>"; };
+		02067F861C27F797009A05D4 /* WaterReplenishmentMeter_TableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaterReplenishmentMeter_TableViewCell.h; sourceTree = "<group>"; };
+		02067F871C27F797009A05D4 /* WaterReplenishmentMeter_TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaterReplenishmentMeter_TableViewCell.m; sourceTree = "<group>"; };
+		02067F881C27F797009A05D4 /* WaterReplenishmentMeter_TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WaterReplenishmentMeter_TableViewCell.xib; sourceTree = "<group>"; };
 		0286D5691C21350700C027B5 /* AirPurifier_MXChip_TableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AirPurifier_MXChip_TableViewCell.h; sourceTree = "<group>"; };
 		0286D56A1C21350700C027B5 /* AirPurifier_MXChip_TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AirPurifier_MXChip_TableViewCell.m; sourceTree = "<group>"; };
 		0286D56B1C21350700C027B5 /* AirPurifier_MXChip_TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AirPurifier_MXChip_TableViewCell.xib; sourceTree = "<group>"; };
@@ -279,6 +293,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		02067F7C1C27E5CE009A05D4 /* WaterReplenishmentMeter */ = {
+			isa = PBXGroup;
+			children = (
+				02067F7D1C27E607009A05D4 /* WaterReplenishmentMeterMgr.h */,
+				02067F7E1C27E607009A05D4 /* WaterReplenishmentMeterMgr.m */,
+				02067F801C27E67A009A05D4 /* WaterReplenishmentMeter.h */,
+				02067F811C27E67A009A05D4 /* WaterReplenishmentMeter.m */,
+				02067F831C27E6E3009A05D4 /* WaterReplenishmentMeterStatus.h */,
+				02067F841C27E6E3009A05D4 /* WaterReplenishmentMeterStatus.m */,
+			);
+			name = WaterReplenishmentMeter;
+			sourceTree = "<group>";
+		};
 		029F93EE1C1FA73100D73A35 /* DeviceCells */ = {
 			isa = PBXGroup;
 			children = (
@@ -296,6 +323,9 @@
 				0286D5871C23A1A700C027B5 /* AirPurifier_Bluetooth_TableViewCell.h */,
 				0286D5881C23A1A700C027B5 /* AirPurifier_Bluetooth_TableViewCell.m */,
 				0286D58A1C23A34000C027B5 /* AirPurifier_Bluetooth_TableViewCell.xib */,
+				02067F861C27F797009A05D4 /* WaterReplenishmentMeter_TableViewCell.h */,
+				02067F871C27F797009A05D4 /* WaterReplenishmentMeter_TableViewCell.m */,
+				02067F881C27F797009A05D4 /* WaterReplenishmentMeter_TableViewCell.xib */,
 			);
 			name = DeviceCells;
 			sourceTree = "<group>";
@@ -388,6 +418,7 @@
 		02E98B501C18679D00ED06F1 /* OznerLibrary */ = {
 			isa = PBXGroup;
 			children = (
+				02067F7C1C27E5CE009A05D4 /* WaterReplenishmentMeter */,
 				02E98B951C18679D00ED06F1 /* OznerManager.h */,
 				02E98B961C18679D00ED06F1 /* OznerManager.m */,
 				02E98B511C18679D00ED06F1 /* AirPurifier */,
@@ -665,6 +696,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				02E98B371C18673000ED06F1 /* LaunchScreen.storyboard in Resources */,
+				02067F8A1C27F797009A05D4 /* WaterReplenishmentMeter_TableViewCell.xib in Resources */,
 				0286D58B1C23A34000C027B5 /* AirPurifier_Bluetooth_TableViewCell.xib in Resources */,
 				0286D5771C21438C00C027B5 /* DeviceTableViewCell.xib in Resources */,
 				02E98B4E1C18676400ED06F1 /* ic_settings_bluetooth.png in Resources */,
@@ -719,6 +751,7 @@
 				02E98BC51C18679D00ED06F1 /* AirPurifierInfo.m in Sources */,
 				02E98BD91C18679D00ED06F1 /* BaseOznerObject.m in Sources */,
 				029F940D1C1FF45C00D73A35 /* MyButton.m in Sources */,
+				02067F891C27F797009A05D4 /* WaterReplenishmentMeter_TableViewCell.m in Sources */,
 				0286D5831C229E2D00C027B5 /* BluetoothAirPurifierFilterStatus.m in Sources */,
 				02E98BE71C18679D00ED06F1 /* TapRecordList.m in Sources */,
 				02E98BDF1C18679D00ED06F1 /* SqlLiteDB.m in Sources */,
@@ -740,9 +773,11 @@
 				02E98BD01C18679D00ED06F1 /* CupGravity.m in Sources */,
 				02E98BDC1C18679D00ED06F1 /* IOManagerList.m in Sources */,
 				02ACBD7B1C23DC2200F8BAB3 /* MQTTSession.m in Sources */,
+				02067F851C27E6E3009A05D4 /* WaterReplenishmentMeterStatus.m in Sources */,
 				02E98B291C18673000ED06F1 /* main.m in Sources */,
 				02ACBD7A1C23DC2200F8BAB3 /* MQTTPersistence.m in Sources */,
 				02E98BE41C18679D00ED06F1 /* TapManager.m in Sources */,
+				02067F7F1C27E607009A05D4 /* WaterReplenishmentMeterMgr.m in Sources */,
 				02E98BEB1C18679D00ED06F1 /* WaterPurifierInfo.m in Sources */,
 				02E98BCF1C18679D00ED06F1 /* CupFirmware.m in Sources */,
 				02E98BCB1C18679D00ED06F1 /* BluetoothSynchronizedObject.m in Sources */,
@@ -752,6 +787,7 @@
 				02E98BE11C18679D00ED06F1 /* OznerManager.m in Sources */,
 				02ACBD781C23DC2200F8BAB3 /* MQTTEncoder.m in Sources */,
 				02E98C071C19517C00ED06F1 /* BluetoothAirPurifierSensor.m in Sources */,
+				02067F821C27E67A009A05D4 /* WaterReplenishmentMeter.m in Sources */,
 				0286D5711C213B3B00C027B5 /* WaterPurifier_TableViewCell.m in Sources */,
 				02ACBD7D1C23DC2200F8BAB3 /* MQTTSSLSecurityPolicy.m in Sources */,
 				02E98BD11C18679D00ED06F1 /* CupManager.m in Sources */,

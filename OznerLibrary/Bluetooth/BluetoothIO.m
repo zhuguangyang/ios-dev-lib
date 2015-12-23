@@ -103,7 +103,7 @@
         [self postSend:op];
     }else
     {
-        [self performSelector:@selector(postSend:) onThread:runThread withObject:op waitUntilDone:true];
+        [self performSelector:@selector(postSend:) onThread:runThread withObject:op waitUntilDone:false];
     }
 }
 

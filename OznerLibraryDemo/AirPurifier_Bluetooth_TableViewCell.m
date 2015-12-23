@@ -17,7 +17,7 @@
 
 - (IBAction)PowerClick:(id)sender {
     [self.deviceInfo startSend];
-    [air.status setPower:air.status.power Callback:^(NSError* error){
+    [air.status setPower:!air.status.power Callback:^(NSError* error){
         [self.deviceInfo printSendStatus:error];
     }];
     

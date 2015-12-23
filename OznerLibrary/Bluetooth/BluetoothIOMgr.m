@@ -75,7 +75,10 @@
 -(void)centralManager:(CBCentralManager *)central didDiscoverPeripheral:(CBPeripheral *)peripheral advertisementData:(NSDictionary *)advertisementData RSSI:(NSNumber *)RSSI
 {
     NSString* name=[peripheral name];
-    if (!name) return;
+    if (!name)
+    {
+        NSLog(@"found nil name");
+    }
     ScanData* scanData;
     if ([advertisementData objectForKey:CBAdvertisementDataServiceDataKey])
     {
@@ -90,6 +93,7 @@
         }
         
     }
+    NSLog(@"found:%@",peripheral.name);
     if (scanData==nil)
     {
         if ([advertisementData objectForKey:CBAdvertisementDataManufacturerDataKey])
@@ -102,7 +106,7 @@
             return ;
         
     }
-    
+
     if (scanData)
     {
         BluetoothIO* io=(BluetoothIO*)[self getAvailableDevice:[self getIdentifier:peripheral]];
@@ -148,7 +152,7 @@
 
 -(void)centralManagerDidUpdateState:(CBCentralManager *)central
 {
-    NSLog(@"centralManagerDidUpdateState Status:%d",(int)central.state);
+    NSLog(@"centralManpagerDidUpdateState Status:%d",(int)central.state);
     switch ([central state]) {
         case CBCentralManagerStatePoweredOn:
             if (!scanThread)

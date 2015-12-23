@@ -42,6 +42,10 @@
 {
     [SendStatus setText:@"发送状态:正在发送"];
 }
+-(void)printStatus:(NSString *)text;
+{
+    [SendStatus setText:text];
+}
 -(void)printSendStatus:(NSError *)error
 {
     if (error)
