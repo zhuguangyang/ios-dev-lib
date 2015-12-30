@@ -48,7 +48,7 @@
         EasyLinkSender* easy=[[EasyLinkSender alloc] init:ssid Password:password];
         @try {
             NSDate* time=[NSDate dateWithTimeIntervalSinceNow:0];
-            BOOL v2=true;
+            BOOL v2=false;
             while (!device)
             {
                 if ([NSThread currentThread].isCancelled)
@@ -58,14 +58,11 @@
                     [easy send_easylink_v2];
                 else
                     [easy send_easylink_v3];
-                [NSThread sleepForTimeInterval:1.5f];
+                
+                [NSThread sleepForTimeInterval:1.0f];
                 
                 int t=abs((int)[time timeIntervalSinceNow]);
-                if ((t % 10)==0)
-                {
-                    v2=!v2;
-                }
-                
+                v2=!v2;
                 if (t>Timeout)
                 {
                     break;
