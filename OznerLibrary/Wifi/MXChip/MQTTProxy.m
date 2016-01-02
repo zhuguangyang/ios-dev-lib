@@ -10,7 +10,6 @@
 #import "../../Helper/Helper.h"
 
 @implementation MQTTProxy
-
 #define defalutWaitTime 1
 
 -(instancetype)init
@@ -21,41 +20,63 @@
         registerSeedId=0;
         onPublishList=[[NSMutableDictionary alloc] init];
         waitTime=defalutWaitTime;
-      
+        mqtt= [[MQTTClient alloc] initWithClientId:clientId];
+        mqtt.port=MQTT_PORT;
+        mqtt.username=@"admin";
+        mqtt.password=@"admin";
+        mqtt.keepAlive=60;
+        mqtt.cleanSession=false;
+        mqtt.reconnectDelay=10;
+        //mqtt.username="
+        
+        NSLog(@"start connect");
+        [mqtt setDisconnectionHandler:^(NSUInteger code)
+         {
+             [self doDiconnected];
+         }];
+        
+        [mqtt connectToHost:MQTT_HOST
+                 completionHandler:^(NSUInteger code) {
+                     switch (code) {
+                         case ConnectionAccepted:
+                             [self doConnected];
+                             break;
+                             
+                         default:
+                             NSLog(@"error:connect MQTT");
+                             //[self doDiconnect];
+                             break;
+                     }
+                 }];
+        [mqtt setMessageHandler:^(MQTTMessage *message) {
+            
+            NSArray* array=nil;
+            @synchronized(self->onPublishList) {
+                array=[NSArray arrayWithArray:[onPublishList allValues]];
+            }
+            
+            for (MQTTProxyOnPublishHandler handler in array)
+            {
+                @try {
+                    handler(message.topic,message.payload);
+                }
+                @catch (NSException *exception) {
+                    
+                }
+            }
+        }];
+
     }
     return self;
 }
--(void)start
-{
-    if (runThread)return;
-    self->runThread=[[NSThread alloc] initWithTarget:self selector:@selector(runThreadProc) object:nil];
-    [self->runThread start];
-    while (runLoop==NULL) sleep(0.01);
-    session=[[MQTTSession alloc] initWithClientId:clientId runLoop:runLoop forMode:NSDefaultRunLoopMode];
-    session.delegate=self;
-    isQuit=false;
-    [self reConnect];
-}
--(void)stop
-{
-    if (!runThread) return;
-    isQuit=true;
-    [runThread cancel];
 
-}
--(void)runThreadProc
-{
-    runLoop=[NSRunLoop currentRunLoop];
-    while(![NSThread currentThread].isCancelled)
-    {
-        CFRunLoopRun();
-    }
-}
+
 
 -(int)registerOnPublish:(MQTTProxyOnPublishHandler)onPublishHandler;
 {
     @synchronized(onPublishList) {
         registerSeedId++;
+        
         [onPublishList setObject:[onPublishHandler copy] forKey:[NSNumber numberWithUnsignedInteger:registerSeedId]];
         return registerSeedId;
     }
@@ -70,67 +91,45 @@
 
 -(BOOL)subscribe:(NSString *)topic
 {
-    return [session subscribeAndWaitToTopic:topic atLevel:MQTTQosLevelAtMostOnce];
+    if (mqtt.connected)
+    {
+        [mqtt subscribe:topic withQos:AtLeastOnce completionHandler:nil];
+        return true;
+    }else
+        return false;
 }
 
--(BOOL)unsubscribe:(NSString *)topic
+-(void)unsubscribe:(NSString *)topic
 {
-    return [session unsubscribeAndWaitTopic:topic];
+    [mqtt unsubscribe:topic withCompletionHandler:nil];
 }
 -(BOOL)publish:(NSString*)topic Data:(NSData*)data
 {
-    //[session publishData:data onTopic:topic];
-    //return true;
-    [session publishDataAtLeastOnce:data onTopic:topic];
-    return true;
-
-    //return [session publishAndWaitData:data onTopic:topic retain:false qos:MQTTQosLevelAtLeastOnce];
-}
-
--(void)newMessage:(MQTTSession *)session data:(NSData *)data onTopic:(NSString *)topic qos:(MQTTQosLevel)qos retained:(BOOL)retained mid:(unsigned int)mid
-{
-    NSArray* array=nil;
-    @synchronized(onPublishList) {
-      array=[NSArray arrayWithArray:[onPublishList allValues]];
-    }
-    for (MQTTProxyOnPublishHandler handler in array)
+    if (mqtt.connected)
     {
-        handler(topic,data);
-    }
-}
--(void)reConnect
-{
-    NSLog(@"start connect");
-    [session connectToHost:MQTT_HOST port:MQTT_PORT usingSSL:false];
-
+        [mqtt publishData:data toTopic:topic withQos:AtLeastOnce retain:false completionHandler:^(int mid) {
+        }];
+        return true;
+    }else
+        return false;
 }
 
 
--(void)connected:(MQTTSession *)session
+
+-(void)doConnected
 {
+    NSLog(@"mqtt connected");
     waitTime=defalutWaitTime;
     self->_connected=true;
-    NSLog(@"mqtt connected");
     [self.delegate MQTTProxyConnected:self];
     
 }
-
--(void)connectionClosed:(MQTTSession *)session
+-(void)doDiconnected
 {
     NSLog(@"mqtt connectionClosed");
-    self->_connected=true;
-     [self.delegate MQTTProxyDisconnected:self];
-    if (!isQuit)
-    {
-        sleep(waitTime);
-        waitTime=waitTime*2;
-        if (waitTime>10) waitTime=10;
-        [self reConnect];
-    }
+    self->_connected=false;
+    [self.delegate MQTTProxyDisconnected:self];
+    
 }
 
--(void)connectionError:(MQTTSession *)session error:(NSError *)error
-{
-    NSLog(@"mqtt connectionError:%@",[error debugDescription]);
-}
 @end

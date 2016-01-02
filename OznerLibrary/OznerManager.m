@@ -205,7 +205,7 @@ OznerManager* oznerManager=nil;
             return;
     }
     
-    NSString* sql=[NSString stringWithFormat:@"delete form %@ where identifier=?",[self getOwnerTableName]];
+    NSString* sql=[NSString stringWithFormat:@"delete from %@ where identifier=?;",[self getOwnerTableName]];
     [db ExecSQLNonQuery:sql params:[NSArray arrayWithObjects:device.identifier, nil]];
     @synchronized(devices) {
         [devices removeObjectForKey:device.identifier];

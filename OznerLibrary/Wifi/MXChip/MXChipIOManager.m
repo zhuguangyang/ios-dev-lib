@@ -17,7 +17,6 @@
     {
         proxy=[[MQTTProxy alloc] init];
         proxy.delegate=self;
-        [proxy start];
         listenDeviceList=[[NSMutableDictionary alloc] init];
     }
     return self;
@@ -49,7 +48,10 @@
     }else
         return nil;
 }
-
+-(void)holdMQTT
+{
+    [self->proxy subscribe:@"16a21bd6/123456789012/out"];
+}
 -(void)MQTTProxyConnected:(MQTTProxy *)proxy
 {
     @synchronized(listenDeviceList) {
@@ -59,6 +61,7 @@
             [self doAvailable:[self newIO:identifier Type:type]];
         }
     }
+    [self performSelector:@selector(holdMQTT) withObject:NULL afterDelay:1];
 }
 
 -(void)MQTTProxyDisconnected:(MQTTProxy *)proxy

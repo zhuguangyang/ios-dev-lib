@@ -21,16 +21,25 @@
 		0286D5831C229E2D00C027B5 /* BluetoothAirPurifierFilterStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 0286D5821C229E2D00C027B5 /* BluetoothAirPurifierFilterStatus.m */; };
 		0286D5891C23A1A700C027B5 /* AirPurifier_Bluetooth_TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0286D5881C23A1A700C027B5 /* AirPurifier_Bluetooth_TableViewCell.m */; };
 		0286D58B1C23A34000C027B5 /* AirPurifier_Bluetooth_TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0286D58A1C23A34000C027B5 /* AirPurifier_Bluetooth_TableViewCell.xib */; };
+		028727DD1C37B3340013857D /* logging_mosq.c in Sources */ = {isa = PBXBuildFile; fileRef = 028727BD1C37B3340013857D /* logging_mosq.c */; };
+		028727DE1C37B3340013857D /* memory_mosq.c in Sources */ = {isa = PBXBuildFile; fileRef = 028727BF1C37B3340013857D /* memory_mosq.c */; };
+		028727DF1C37B3340013857D /* messages_mosq.c in Sources */ = {isa = PBXBuildFile; fileRef = 028727C11C37B3340013857D /* messages_mosq.c */; };
+		028727E01C37B3340013857D /* mosquitto.c in Sources */ = {isa = PBXBuildFile; fileRef = 028727C31C37B3340013857D /* mosquitto.c */; };
+		028727E11C37B3340013857D /* net_mosq.c in Sources */ = {isa = PBXBuildFile; fileRef = 028727C71C37B3340013857D /* net_mosq.c */; };
+		028727E21C37B3340013857D /* read_handle.c in Sources */ = {isa = PBXBuildFile; fileRef = 028727C91C37B3340013857D /* read_handle.c */; };
+		028727E31C37B3340013857D /* read_handle_client.c in Sources */ = {isa = PBXBuildFile; fileRef = 028727CB1C37B3340013857D /* read_handle_client.c */; };
+		028727E41C37B3340013857D /* read_handle_shared.c in Sources */ = {isa = PBXBuildFile; fileRef = 028727CC1C37B3340013857D /* read_handle_shared.c */; };
+		028727E51C37B3340013857D /* send_client_mosq.c in Sources */ = {isa = PBXBuildFile; fileRef = 028727CD1C37B3340013857D /* send_client_mosq.c */; };
+		028727E61C37B3340013857D /* send_mosq.c in Sources */ = {isa = PBXBuildFile; fileRef = 028727CE1C37B3340013857D /* send_mosq.c */; };
+		028727E71C37B3340013857D /* thread_mosq.c in Sources */ = {isa = PBXBuildFile; fileRef = 028727D01C37B3340013857D /* thread_mosq.c */; };
+		028727E81C37B3340013857D /* time_mosq.c in Sources */ = {isa = PBXBuildFile; fileRef = 028727D11C37B3340013857D /* time_mosq.c */; };
+		028727E91C37B3340013857D /* tls_mosq.c in Sources */ = {isa = PBXBuildFile; fileRef = 028727D31C37B3340013857D /* tls_mosq.c */; };
+		028727EA1C37B3340013857D /* util_mosq.c in Sources */ = {isa = PBXBuildFile; fileRef = 028727D51C37B3340013857D /* util_mosq.c */; };
+		028727EB1C37B3340013857D /* will_mosq.c in Sources */ = {isa = PBXBuildFile; fileRef = 028727D71C37B3340013857D /* will_mosq.c */; };
+		028727EC1C37B3340013857D /* MQTTKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 028727DC1C37B3340013857D /* MQTTKit.m */; };
 		029F93E71C1FA44200D73A35 /* DeviceInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 029F93E61C1FA44200D73A35 /* DeviceInfoView.m */; };
 		029F93FD1C1FB9E300D73A35 /* BaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 029F93FC1C1FB9E300D73A35 /* BaseTableViewCell.m */; };
 		029F940D1C1FF45C00D73A35 /* MyButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 029F940C1C1FF45C00D73A35 /* MyButton.m */; };
-		02ACBD771C23DC2200F8BAB3 /* MQTTDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 02ACBD6A1C23DC2200F8BAB3 /* MQTTDecoder.m */; };
-		02ACBD781C23DC2200F8BAB3 /* MQTTEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 02ACBD6C1C23DC2200F8BAB3 /* MQTTEncoder.m */; };
-		02ACBD791C23DC2200F8BAB3 /* MQTTMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 02ACBD6E1C23DC2200F8BAB3 /* MQTTMessage.m */; };
-		02ACBD7A1C23DC2200F8BAB3 /* MQTTPersistence.m in Sources */ = {isa = PBXBuildFile; fileRef = 02ACBD701C23DC2200F8BAB3 /* MQTTPersistence.m */; };
-		02ACBD7B1C23DC2200F8BAB3 /* MQTTSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 02ACBD721C23DC2200F8BAB3 /* MQTTSession.m */; };
-		02ACBD7C1C23DC2200F8BAB3 /* MQTTSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 02ACBD741C23DC2200F8BAB3 /* MQTTSessionManager.m */; };
-		02ACBD7D1C23DC2200F8BAB3 /* MQTTSSLSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = 02ACBD761C23DC2200F8BAB3 /* MQTTSSLSecurityPolicy.m */; };
 		02E98B291C18673000ED06F1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E98B281C18673000ED06F1 /* main.m */; };
 		02E98B2C1C18673000ED06F1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E98B2B1C18673000ED06F1 /* AppDelegate.m */; };
 		02E98B2F1C18673000ED06F1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E98B2E1C18673000ED06F1 /* ViewController.m */; };
@@ -124,28 +133,44 @@
 		0286D5871C23A1A700C027B5 /* AirPurifier_Bluetooth_TableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AirPurifier_Bluetooth_TableViewCell.h; sourceTree = "<group>"; };
 		0286D5881C23A1A700C027B5 /* AirPurifier_Bluetooth_TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AirPurifier_Bluetooth_TableViewCell.m; sourceTree = "<group>"; };
 		0286D58A1C23A34000C027B5 /* AirPurifier_Bluetooth_TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AirPurifier_Bluetooth_TableViewCell.xib; sourceTree = "<group>"; };
+		028727BB1C37B3340013857D /* config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = config.h; sourceTree = "<group>"; };
+		028727BC1C37B3340013857D /* dummypthread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dummypthread.h; sourceTree = "<group>"; };
+		028727BD1C37B3340013857D /* logging_mosq.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = logging_mosq.c; sourceTree = "<group>"; };
+		028727BE1C37B3340013857D /* logging_mosq.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = logging_mosq.h; sourceTree = "<group>"; };
+		028727BF1C37B3340013857D /* memory_mosq.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = memory_mosq.c; sourceTree = "<group>"; };
+		028727C01C37B3340013857D /* memory_mosq.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = memory_mosq.h; sourceTree = "<group>"; };
+		028727C11C37B3340013857D /* messages_mosq.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = messages_mosq.c; sourceTree = "<group>"; };
+		028727C21C37B3340013857D /* messages_mosq.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = messages_mosq.h; sourceTree = "<group>"; };
+		028727C31C37B3340013857D /* mosquitto.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mosquitto.c; sourceTree = "<group>"; };
+		028727C41C37B3340013857D /* mosquitto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mosquitto.h; sourceTree = "<group>"; };
+		028727C51C37B3340013857D /* mosquitto_internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mosquitto_internal.h; sourceTree = "<group>"; };
+		028727C61C37B3340013857D /* mqtt3_protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mqtt3_protocol.h; sourceTree = "<group>"; };
+		028727C71C37B3340013857D /* net_mosq.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = net_mosq.c; sourceTree = "<group>"; };
+		028727C81C37B3340013857D /* net_mosq.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = net_mosq.h; sourceTree = "<group>"; };
+		028727C91C37B3340013857D /* read_handle.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = read_handle.c; sourceTree = "<group>"; };
+		028727CA1C37B3340013857D /* read_handle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = read_handle.h; sourceTree = "<group>"; };
+		028727CB1C37B3340013857D /* read_handle_client.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = read_handle_client.c; sourceTree = "<group>"; };
+		028727CC1C37B3340013857D /* read_handle_shared.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = read_handle_shared.c; sourceTree = "<group>"; };
+		028727CD1C37B3340013857D /* send_client_mosq.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = send_client_mosq.c; sourceTree = "<group>"; };
+		028727CE1C37B3340013857D /* send_mosq.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = send_mosq.c; sourceTree = "<group>"; };
+		028727CF1C37B3340013857D /* send_mosq.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = send_mosq.h; sourceTree = "<group>"; };
+		028727D01C37B3340013857D /* thread_mosq.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = thread_mosq.c; sourceTree = "<group>"; };
+		028727D11C37B3340013857D /* time_mosq.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = time_mosq.c; sourceTree = "<group>"; };
+		028727D21C37B3340013857D /* time_mosq.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = time_mosq.h; sourceTree = "<group>"; };
+		028727D31C37B3340013857D /* tls_mosq.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = tls_mosq.c; sourceTree = "<group>"; };
+		028727D41C37B3340013857D /* tls_mosq.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tls_mosq.h; sourceTree = "<group>"; };
+		028727D51C37B3340013857D /* util_mosq.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = util_mosq.c; sourceTree = "<group>"; };
+		028727D61C37B3340013857D /* util_mosq.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = util_mosq.h; sourceTree = "<group>"; };
+		028727D71C37B3340013857D /* will_mosq.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = will_mosq.c; sourceTree = "<group>"; };
+		028727D81C37B3340013857D /* will_mosq.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = will_mosq.h; sourceTree = "<group>"; };
+		028727DB1C37B3340013857D /* MQTTKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MQTTKit.h; sourceTree = "<group>"; };
+		028727DC1C37B3340013857D /* MQTTKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MQTTKit.m; sourceTree = "<group>"; };
 		029F93E51C1FA44200D73A35 /* DeviceInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceInfoView.h; sourceTree = "<group>"; };
 		029F93E61C1FA44200D73A35 /* DeviceInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceInfoView.m; sourceTree = "<group>"; };
 		029F93FB1C1FB9E300D73A35 /* BaseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableViewCell.h; sourceTree = "<group>"; };
 		029F93FC1C1FB9E300D73A35 /* BaseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewCell.m; sourceTree = "<group>"; };
 		029F940B1C1FF45C00D73A35 /* MyButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyButton.h; sourceTree = "<group>"; };
 		029F940C1C1FF45C00D73A35 /* MyButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyButton.m; sourceTree = "<group>"; };
-		02ACBD671C23DC2200F8BAB3 /* MQTTClient-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MQTTClient-Prefix.pch"; sourceTree = "<group>"; };
-		02ACBD681C23DC2200F8BAB3 /* MQTTClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MQTTClient.h; sourceTree = "<group>"; };
-		02ACBD691C23DC2200F8BAB3 /* MQTTDecoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MQTTDecoder.h; sourceTree = "<group>"; };
-		02ACBD6A1C23DC2200F8BAB3 /* MQTTDecoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MQTTDecoder.m; sourceTree = "<group>"; };
-		02ACBD6B1C23DC2200F8BAB3 /* MQTTEncoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MQTTEncoder.h; sourceTree = "<group>"; };
-		02ACBD6C1C23DC2200F8BAB3 /* MQTTEncoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MQTTEncoder.m; sourceTree = "<group>"; };
-		02ACBD6D1C23DC2200F8BAB3 /* MQTTMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MQTTMessage.h; sourceTree = "<group>"; };
-		02ACBD6E1C23DC2200F8BAB3 /* MQTTMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MQTTMessage.m; sourceTree = "<group>"; };
-		02ACBD6F1C23DC2200F8BAB3 /* MQTTPersistence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MQTTPersistence.h; sourceTree = "<group>"; };
-		02ACBD701C23DC2200F8BAB3 /* MQTTPersistence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MQTTPersistence.m; sourceTree = "<group>"; };
-		02ACBD711C23DC2200F8BAB3 /* MQTTSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MQTTSession.h; sourceTree = "<group>"; };
-		02ACBD721C23DC2200F8BAB3 /* MQTTSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MQTTSession.m; sourceTree = "<group>"; };
-		02ACBD731C23DC2200F8BAB3 /* MQTTSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MQTTSessionManager.h; sourceTree = "<group>"; };
-		02ACBD741C23DC2200F8BAB3 /* MQTTSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MQTTSessionManager.m; sourceTree = "<group>"; };
-		02ACBD751C23DC2200F8BAB3 /* MQTTSSLSecurityPolicy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MQTTSSLSecurityPolicy.h; sourceTree = "<group>"; };
-		02ACBD761C23DC2200F8BAB3 /* MQTTSSLSecurityPolicy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MQTTSSLSecurityPolicy.m; sourceTree = "<group>"; };
 		02E98B241C18673000ED06F1 /* OznerLibraryDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OznerLibraryDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		02E98B281C18673000ED06F1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		02E98B2A1C18673000ED06F1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -306,6 +331,52 @@
 			name = WaterReplenishmentMeter;
 			sourceTree = "<group>";
 		};
+		028727BA1C37B3340013857D /* libmosquitto */ = {
+			isa = PBXGroup;
+			children = (
+				028727BB1C37B3340013857D /* config.h */,
+				028727BC1C37B3340013857D /* dummypthread.h */,
+				028727BD1C37B3340013857D /* logging_mosq.c */,
+				028727BE1C37B3340013857D /* logging_mosq.h */,
+				028727BF1C37B3340013857D /* memory_mosq.c */,
+				028727C01C37B3340013857D /* memory_mosq.h */,
+				028727C11C37B3340013857D /* messages_mosq.c */,
+				028727C21C37B3340013857D /* messages_mosq.h */,
+				028727C31C37B3340013857D /* mosquitto.c */,
+				028727C41C37B3340013857D /* mosquitto.h */,
+				028727C51C37B3340013857D /* mosquitto_internal.h */,
+				028727C61C37B3340013857D /* mqtt3_protocol.h */,
+				028727C71C37B3340013857D /* net_mosq.c */,
+				028727C81C37B3340013857D /* net_mosq.h */,
+				028727C91C37B3340013857D /* read_handle.c */,
+				028727CA1C37B3340013857D /* read_handle.h */,
+				028727CB1C37B3340013857D /* read_handle_client.c */,
+				028727CC1C37B3340013857D /* read_handle_shared.c */,
+				028727CD1C37B3340013857D /* send_client_mosq.c */,
+				028727CE1C37B3340013857D /* send_mosq.c */,
+				028727CF1C37B3340013857D /* send_mosq.h */,
+				028727D01C37B3340013857D /* thread_mosq.c */,
+				028727D11C37B3340013857D /* time_mosq.c */,
+				028727D21C37B3340013857D /* time_mosq.h */,
+				028727D31C37B3340013857D /* tls_mosq.c */,
+				028727D41C37B3340013857D /* tls_mosq.h */,
+				028727D51C37B3340013857D /* util_mosq.c */,
+				028727D61C37B3340013857D /* util_mosq.h */,
+				028727D71C37B3340013857D /* will_mosq.c */,
+				028727D81C37B3340013857D /* will_mosq.h */,
+			);
+			path = libmosquitto;
+			sourceTree = "<group>";
+		};
+		028727D91C37B3340013857D /* MQTTKit */ = {
+			isa = PBXGroup;
+			children = (
+				028727DB1C37B3340013857D /* MQTTKit.h */,
+				028727DC1C37B3340013857D /* MQTTKit.m */,
+			);
+			path = MQTTKit;
+			sourceTree = "<group>";
+		};
 		029F93EE1C1FA73100D73A35 /* DeviceCells */ = {
 			isa = PBXGroup;
 			children = (
@@ -328,29 +399,6 @@
 				02067F881C27F797009A05D4 /* WaterReplenishmentMeter_TableViewCell.xib */,
 			);
 			name = DeviceCells;
-			sourceTree = "<group>";
-		};
-		02ACBD661C23DC2200F8BAB3 /* MQTTClient */ = {
-			isa = PBXGroup;
-			children = (
-				02ACBD671C23DC2200F8BAB3 /* MQTTClient-Prefix.pch */,
-				02ACBD681C23DC2200F8BAB3 /* MQTTClient.h */,
-				02ACBD691C23DC2200F8BAB3 /* MQTTDecoder.h */,
-				02ACBD6A1C23DC2200F8BAB3 /* MQTTDecoder.m */,
-				02ACBD6B1C23DC2200F8BAB3 /* MQTTEncoder.h */,
-				02ACBD6C1C23DC2200F8BAB3 /* MQTTEncoder.m */,
-				02ACBD6D1C23DC2200F8BAB3 /* MQTTMessage.h */,
-				02ACBD6E1C23DC2200F8BAB3 /* MQTTMessage.m */,
-				02ACBD6F1C23DC2200F8BAB3 /* MQTTPersistence.h */,
-				02ACBD701C23DC2200F8BAB3 /* MQTTPersistence.m */,
-				02ACBD711C23DC2200F8BAB3 /* MQTTSession.h */,
-				02ACBD721C23DC2200F8BAB3 /* MQTTSession.m */,
-				02ACBD731C23DC2200F8BAB3 /* MQTTSessionManager.h */,
-				02ACBD741C23DC2200F8BAB3 /* MQTTSessionManager.m */,
-				02ACBD751C23DC2200F8BAB3 /* MQTTSSLSecurityPolicy.h */,
-				02ACBD761C23DC2200F8BAB3 /* MQTTSSLSecurityPolicy.m */,
-			);
-			path = MQTTClient;
 			sourceTree = "<group>";
 		};
 		02E98B1B1C18673000ED06F1 = {
@@ -595,7 +643,8 @@
 		02E98BB41C18679D00ED06F1 /* MXChip */ = {
 			isa = PBXGroup;
 			children = (
-				02ACBD661C23DC2200F8BAB3 /* MQTTClient */,
+				028727BA1C37B3340013857D /* libmosquitto */,
+				028727D91C37B3340013857D /* MQTTKit */,
 				02E98BB51C18679D00ED06F1 /* MQTTProxy.h */,
 				02E98BB61C18679D00ED06F1 /* MQTTProxy.m */,
 				02E98BB71C18679D00ED06F1 /* MXChipIO.h */,
@@ -668,7 +717,7 @@
 				TargetAttributes = {
 					02E98B231C18673000ED06F1 = {
 						CreatedOnToolsVersion = 7.1;
-						DevelopmentTeam = BQE6636VJ7;
+						DevelopmentTeam = MTYS6HJ5R9;
 					};
 				};
 			};
@@ -716,8 +765,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				02ACBD7C1C23DC2200F8BAB3 /* MQTTSessionManager.m in Sources */,
-				02ACBD791C23DC2200F8BAB3 /* MQTTMessage.m in Sources */,
 				02E98B431C18675700ED06F1 /* IODeviceViewCell.m in Sources */,
 				02E98BED1C18679D00ED06F1 /* WaterPurifierSensor.m in Sources */,
 				02E98B2F1C18673000ED06F1 /* ViewController.m in Sources */,
@@ -725,16 +772,20 @@
 				02E98BF01C18679D00ED06F1 /* MXChipIO.m in Sources */,
 				02E98BEC1C18679D00ED06F1 /* WaterPurifierManager.m in Sources */,
 				029F93E71C1FA44200D73A35 /* DeviceInfoView.m in Sources */,
+				028727EC1C37B3340013857D /* MQTTKit.m in Sources */,
+				028727E01C37B3340013857D /* mosquitto.c in Sources */,
 				0286D57A1C229B7E00C027B5 /* BluetoothAirPurifierStatus.m in Sources */,
-				02ACBD771C23DC2200F8BAB3 /* MQTTDecoder.m in Sources */,
 				02E98C0A1C1BB84600ED06F1 /* CupDBRecord.m in Sources */,
 				0286D56C1C21350700C027B5 /* AirPurifier_MXChip_TableViewCell.m in Sources */,
 				02E98BEF1C18679D00ED06F1 /* MQTTProxy.m in Sources */,
+				028727E71C37B3340013857D /* thread_mosq.c in Sources */,
 				02E98BEA1C18679D00ED06F1 /* WaterPurifier.m in Sources */,
 				02E98BC91C18679D00ED06F1 /* BluetoothIO.m in Sources */,
 				02E98C041C1950FD00ED06F1 /* AirPurifier_Bluetooth.m in Sources */,
+				028727EA1C37B3340013857D /* util_mosq.c in Sources */,
 				0286D5891C23A1A700C027B5 /* AirPurifier_Bluetooth_TableViewCell.m in Sources */,
 				02E98BDB1C18679D00ED06F1 /* IOManager.m in Sources */,
+				028727E91C37B3340013857D /* tls_mosq.c in Sources */,
 				02E98BF41C18679D00ED06F1 /* EasyLinkSender.m in Sources */,
 				02E98BD61C18679D00ED06F1 /* CupSettings.m in Sources */,
 				02E98BD31C18679D00ED06F1 /* CupRecord.m in Sources */,
@@ -759,24 +810,29 @@
 				02E98C221C1E566200ED06F1 /* WifiAddViewController.m in Sources */,
 				02E98B4C1C18676400ED06F1 /* BluetoothAddDeviceController.m in Sources */,
 				02E98BE61C18679D00ED06F1 /* TapRecord.m in Sources */,
+				028727E31C37B3340013857D /* read_handle_client.c in Sources */,
 				02E98BD81C18679D00ED06F1 /* BaseDeviceManager.m in Sources */,
 				02E98BC61C18679D00ED06F1 /* MxChipAirPurifierSensor.m in Sources */,
 				02E98BE91C18679D00ED06F1 /* TapSettings.m in Sources */,
 				02E98BDA1C18679D00ED06F1 /* DeviceSetting.m in Sources */,
 				02E98BD21C18679D00ED06F1 /* CupRawRecord.m in Sources */,
+				028727E11C37B3340013857D /* net_mosq.c in Sources */,
 				02E98BCC1C18679D00ED06F1 /* FirmwareTools.m in Sources */,
 				02E98BDE1C18679D00ED06F1 /* Helper.m in Sources */,
 				02E98B2C1C18673000ED06F1 /* AppDelegate.m in Sources */,
+				028727DF1C37B3340013857D /* messages_mosq.c in Sources */,
 				029F93FD1C1FB9E300D73A35 /* BaseTableViewCell.m in Sources */,
 				02E98BCA1C18679D00ED06F1 /* BluetoothIOMgr.m in Sources */,
+				028727DD1C37B3340013857D /* logging_mosq.c in Sources */,
 				02E98BD71C18679D00ED06F1 /* BaseDeviceIO.m in Sources */,
 				02E98BD01C18679D00ED06F1 /* CupGravity.m in Sources */,
+				028727DE1C37B3340013857D /* memory_mosq.c in Sources */,
 				02E98BDC1C18679D00ED06F1 /* IOManagerList.m in Sources */,
-				02ACBD7B1C23DC2200F8BAB3 /* MQTTSession.m in Sources */,
 				02067F851C27E6E3009A05D4 /* WaterReplenishmentMeterStatus.m in Sources */,
 				02E98B291C18673000ED06F1 /* main.m in Sources */,
-				02ACBD7A1C23DC2200F8BAB3 /* MQTTPersistence.m in Sources */,
+				028727E51C37B3340013857D /* send_client_mosq.c in Sources */,
 				02E98BE41C18679D00ED06F1 /* TapManager.m in Sources */,
+				028727E21C37B3340013857D /* read_handle.c in Sources */,
 				02067F7F1C27E607009A05D4 /* WaterReplenishmentMeterMgr.m in Sources */,
 				02E98BEB1C18679D00ED06F1 /* WaterPurifierInfo.m in Sources */,
 				02E98BCF1C18679D00ED06F1 /* CupFirmware.m in Sources */,
@@ -785,13 +841,15 @@
 				02E98BC71C18679D00ED06F1 /* MxChipAirPurifierStatus.m in Sources */,
 				02E98BCE1C18679D00ED06F1 /* Cup.m in Sources */,
 				02E98BE11C18679D00ED06F1 /* OznerManager.m in Sources */,
-				02ACBD781C23DC2200F8BAB3 /* MQTTEncoder.m in Sources */,
+				028727E81C37B3340013857D /* time_mosq.c in Sources */,
+				028727E41C37B3340013857D /* read_handle_shared.c in Sources */,
 				02E98C071C19517C00ED06F1 /* BluetoothAirPurifierSensor.m in Sources */,
 				02067F821C27E67A009A05D4 /* WaterReplenishmentMeter.m in Sources */,
 				0286D5711C213B3B00C027B5 /* WaterPurifier_TableViewCell.m in Sources */,
-				02ACBD7D1C23DC2200F8BAB3 /* MQTTSSLSecurityPolicy.m in Sources */,
+				028727EB1C37B3340013857D /* will_mosq.c in Sources */,
 				02E98BD11C18679D00ED06F1 /* CupManager.m in Sources */,
 				02E98BEE1C18679D00ED06F1 /* WaterPurifierStatus.m in Sources */,
+				028727E61C37B3340013857D /* send_mosq.c in Sources */,
 				02E98BD41C18679D00ED06F1 /* CupRecordList.m in Sources */,
 				02E98BF31C18679D00ED06F1 /* ConfigurationDevice.m in Sources */,
 				02E98BC41C18679D00ED06F1 /* AirPurifier_MxChip.m in Sources */,
@@ -910,6 +968,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/OznerLibrary",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = OznerLibraryDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -927,6 +986,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/OznerLibrary",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = OznerLibraryDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;

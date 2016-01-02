@@ -113,7 +113,7 @@
     dstAdd.sin_port=htons(UDP_START_PORT);
     dstAdd.sin_addr.s_addr=broadcatIp;
     NSAssert(sendto(socket,buffer,len,0,(struct sockaddr*)&dstAdd,sizeof(dstAdd))!=-1,@"sendto error:%d",errno);
-    [NSThread sleepForTimeInterval:0.02f];
+    [NSThread sleepForTimeInterval:0.1f];
 }
 static int port=10000;
 -(void)send_multicast:(int)socket address:(NSString*)ip Data:(const void*) data Length:(uint)len

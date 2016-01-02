@@ -7,7 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "MQTTClient/MQTTClient.h"
+#import "MQTTKit/MQTTKit.h"
+
 #define MQTT_HOST @"api.easylink.io"
 #define MQTT_PORT 1883
 @class MQTTProxy;
@@ -18,9 +19,9 @@
 @end
 typedef void (^MQTTProxyOnPublishHandler)(NSString* topic,NSData* data);
 
-@interface MQTTProxy : NSObject<MQTTSessionDelegate>
+@interface MQTTProxy : NSObject
 {
-    MQTTSession* session;
+    MQTTClient* mqtt;
     NSThread* runThread;
     NSRunLoop* runLoop;
     NSString* clientId;
@@ -35,8 +36,7 @@ typedef void (^MQTTProxyOnPublishHandler)(NSString* topic,NSData* data);
 -(int)registerOnPublish:(MQTTProxyOnPublishHandler)onPublishHandler;
 -(void)unregisterOnPublish:(int)registerId;
 -(BOOL)subscribe:(NSString*)topic;
--(BOOL)unsubscribe:(NSString*)topic;
+-(void)unsubscribe:(NSString*)topic;
 -(BOOL)publish:(NSString*)topic Data:(NSData*)data;
--(void)start;
 
 @end

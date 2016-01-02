@@ -36,6 +36,7 @@ typedef struct _Sensor
     if (self.Battery>2100) return 0.03f;
     return 0;
 }
+
 -(void)reset
 {
     _TDS=CUP_SENSOR_ERROR;

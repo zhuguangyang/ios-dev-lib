@@ -112,11 +112,14 @@
 {
     char HexString[] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
     NSMutableString * ret=[[NSMutableString alloc] init];
+    uint key=(int)[[NSDate dateWithTimeIntervalSinceNow:0] timeIntervalSince1970];
+    
     for (int i=0;i<len;i++)
     {
-        uint key=[[NSDate dateWithTimeIntervalSinceNow:0] timeIntervalSince1970]*1000;
         
-        uint rnd=rand_r(&key)%sizeof(HexString);
+        rand_r(&key);
+        
+        uint rnd=key%sizeof(HexString);
         [ret appendFormat:@"%c",HexString[rnd]];
     }
     return ret;

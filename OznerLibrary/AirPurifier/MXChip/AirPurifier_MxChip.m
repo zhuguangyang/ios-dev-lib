@@ -24,6 +24,11 @@
         propertys=[[NSMutableDictionary alloc] init];
         _status=[[MxChipAirPurifierStatus alloc] init:propertys Callback:^(Byte propertyId, NSData *data, OperateCallback cb) {
             [self setProperty:propertyId Data:data Callback:cb];
+            
+            NSMutableSet* set=[[NSMutableSet alloc] init];
+            [set addObject:[NSString stringWithFormat:@"%d",propertyId]];
+            [self reqesutProperty:set];
+            
         }];
         
         _sensor=[[MxChipAirPurifierSensor alloc]init:propertys];
@@ -246,6 +251,7 @@
     [set addObject:[NSString stringWithFormat:@"%d",PROPERTY_FILTER]];
     
     [set addObject:[NSString stringWithFormat:@"%d",PROPERTY_PM25]];
+    
     
     [set addObject:[NSString stringWithFormat:@"%d",PROPERTY_LIGHT_SENSOR]];
     [set addObject:[NSString stringWithFormat:@"%d",PROPERTY_TEMPERATURE]];

@@ -43,7 +43,7 @@
         [self.info setText:[io description]];
         BOOL bind=[[OznerManager instance]  checkisBindMode:io];
         NSLog(@"bind:%d",bind);
-        [self.bind setEnabled:bind];
+        [self.bind setEnabled:true];
         
     }
 }

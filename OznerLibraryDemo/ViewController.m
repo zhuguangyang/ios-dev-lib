@@ -25,7 +25,7 @@
     
     [self->_tableView registerNib:[UINib nibWithNibName:@"DeviceTableViewCell" bundle:nil] forCellReuseIdentifier:@"DeviceTableViewCell"];
     
-    
+ 
 }
 -(void)viewDidAppear:(BOOL)animated
 {
@@ -60,6 +60,7 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+
 }
 
 #pragma mark - Table view data source
