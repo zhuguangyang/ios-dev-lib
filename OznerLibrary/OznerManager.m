@@ -102,6 +102,7 @@ OznerManager* oznerManager=nil;
         if ([mgr isMyDevice:io.type])
         {
             device=[mgr loadDevice:io.identifier Type:io.type Settings:@""];
+            [device bind:io];
             return device;
         }
     }

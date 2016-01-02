@@ -38,7 +38,9 @@
     {
         NSLog(@"constraint:%@",[c description]);
     }
-
+    MXChipIO* io=[[OznerManager instance].ioManager.mxchip createMXChipIO:@"C8:93:46:45:33:19" Type:@"MXCHIP_HAOZE_Water"];
+    OznerDevice* device= [[OznerManager instance] getDeviceByIO:io];
+    [[OznerManager instance]save:device];
 }
 -(void)dealloc
 {

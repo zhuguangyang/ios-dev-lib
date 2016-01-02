@@ -20,6 +20,7 @@
         {
             device=[self createDevice:identifier Type:type Settings:json];
         }
+        
         return device;
     }else
         return NULL;
