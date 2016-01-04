@@ -55,7 +55,7 @@
                     return;
                 
                 if (v2)
-                    [easy send_easylink_v2];
+                   [easy send_easylink_v2];
                 else
                     [easy send_easylink_v3];
                 

@@ -72,7 +72,7 @@
         checksum = (short) (checksum + (send_data[j] & 255));
     }
     
-    send_data[i++] = (byte) ((checksum & 0xffff) >> 8);
+    send_data[i++] = (byte) ((checksum & (short)0xffff) >> 8);
     send_data[i++] = (byte) (checksum & 255);
 }
 
@@ -113,7 +113,7 @@
     dstAdd.sin_port=htons(UDP_START_PORT);
     dstAdd.sin_addr.s_addr=broadcatIp;
     NSAssert(sendto(socket,buffer,len,0,(struct sockaddr*)&dstAdd,sizeof(dstAdd))!=-1,@"sendto error:%d",errno);
-    [NSThread sleepForTimeInterval:0.1f];
+    [NSThread sleepForTimeInterval:0.01f];
 }
 static int port=10000;
 -(void)send_multicast:(int)socket address:(NSString*)ip Data:(const void*) data Length:(uint)len
@@ -130,7 +130,7 @@ static int port=10000;
     
     dstAdd.sin_addr.s_addr=inet_addr([[ip dataUsingEncoding:NSASCIIStringEncoding] bytes]);
     NSAssert(sendto(socket, data, len, 0, (struct sockaddr *)&dstAdd, sizeof(dstAdd))!=-1,@"sendto error:%d",errno);
-    [NSThread sleepForTimeInterval:0.02f];
+    [NSThread sleepForTimeInterval:0.01f];
 }
 
 -(void)send_easylink_v2
@@ -286,8 +286,16 @@ static int port=10000;
     {
         NSString* strIP = [self getWifiIPAddress];
         NSLog(@"local:%@",strIP);
-        in_addr_t ipAddress= inet_addr([[strIP dataUsingEncoding:NSASCIIStringEncoding] bytes]);
+        
+        NSData* data=[strIP dataUsingEncoding:NSASCIIStringEncoding];
+        const char* ipBytes=malloc(16); //[data bytes] 返回的字符串可能有非0结尾的字符串，导致取ip错误，分配一个内存来，来吧data的数据复制进去，后面0结尾来修正
+        memset(ipBytes, 0, 16);
+        memcpy(ipBytes, [data bytes], data.length);
+        in_addr_t ipAddress= inet_addr(ipBytes);
+        free(ipBytes);
         broadcatIp = 0xFF000000 | ipAddress;
+        //broadcatIp=0xFFFFFFFF;
+        
         user_info[0]=0x23;
         user_info[1]=((lpBytes)&ipAddress)[3];
         user_info[2]=((lpBytes)&ipAddress)[2];

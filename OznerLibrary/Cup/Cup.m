@@ -277,7 +277,7 @@
 }
 -(NSString *)getDefaultName
 {
-    return @"Ozner Tap";
+    return @"Ozner Cup";
 }
 -(void)updateSettings:(OperateCallback) cb
 {
