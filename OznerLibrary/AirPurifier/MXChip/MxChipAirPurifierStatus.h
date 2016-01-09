@@ -18,9 +18,9 @@ typedef void (^updateStatusHandler)(Byte propertyId,NSData* data,OperateCallback
 }
 
 #define FAN_SPEED_AUTO      0
-#define FAN_SPEED_HIGH      1
-#define FAN_SPEED_MID       2
-#define FAN_SPEED_LOW       3
+//#define FAN_SPEED_HIGH      1
+//#define FAN_SPEED_MID       2
+//#define FAN_SPEED_LOW       3
 #define FAN_SPEED_SILENT    4
 #define FAN_SPEED_POWER     5
 

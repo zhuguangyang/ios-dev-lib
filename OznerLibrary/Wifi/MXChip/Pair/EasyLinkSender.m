@@ -158,11 +158,11 @@ static int port=10000;
         }
         if (data.length%2==0)
         {
-            byte temp[2]={sizeof(user_info),0};
+            byte temp[2]={(byte)sizeof(user_info),0};
             [data appendBytes:temp length:sizeof(temp)];
             
         }else{
-            byte temp[3]={0,sizeof(user_info),0};
+            byte temp[3]={0,(byte)sizeof(user_info),0};
             [data appendBytes:temp length:sizeof(temp)];
         }
         [data appendBytes:user_info length:sizeof(user_info)];
@@ -176,6 +176,7 @@ static int port=10000;
                 [ip appendFormat:@"%d.%d",bytes[k] & 0xff,0];
             int len=k/2+20;
             byte bbbb[len];
+            
             [self send_multicast:s address:ip Data:bbbb Length:len];
         }
     }
@@ -288,10 +289,10 @@ static int port=10000;
         NSLog(@"local:%@",strIP);
         
         NSData* data=[strIP dataUsingEncoding:NSASCIIStringEncoding];
-        const char* ipBytes=malloc(16); //[data bytes] 返回的字符串可能有非0结尾的字符串，导致取ip错误，分配一个内存来，来吧data的数据复制进去，后面0结尾来修正
+        void* ipBytes=malloc(16); //[data bytes] 返回的字符串可能有非0结尾的字符串，导致取ip错误，分配一个内存来，来吧data的数据复制进去，后面0结尾来修正
         memset(ipBytes, 0, 16);
         memcpy(ipBytes, [data bytes], data.length);
-        in_addr_t ipAddress= inet_addr(ipBytes);
+        in_addr_t ipAddress= inet_addr((const char*)ipBytes);
         free(ipBytes);
         broadcatIp = 0xFF000000 | ipAddress;
         //broadcatIp=0xFFFFFFFF;

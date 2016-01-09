@@ -17,7 +17,7 @@
         _lastTime=[NSDate dateWithTimeIntervalSinceNow:0];
         _workTime=0;
         _stopTime=[NSDate dateWithTimeIntervalSinceNow:0];
-        _maxWorkTime=60 * 1000;
+        _maxWorkTime=129600;//60 * 1000;
         NSCalendar *cal = [NSCalendar currentCalendar];
         NSDateComponents *components = [[NSDateComponents alloc] init];
         [components setYear:1];

@@ -73,15 +73,15 @@
         if (!ver) {
             @throw [NSException exceptionWithName:@"Firmware Exception" reason:@"文件错误" userInfo:nil];
         } else {
-            int ver_pos = *((int*)bytes+v_pos+16);
+            int ver_pos = *((int*)(bytes+v_pos+16));
             if ((ver_pos < 0) || (ver_pos > Size))
                 @throw [NSException exceptionWithName:@"Firmware Exception" reason:@"文件错误" userInfo:nil];
             
-            int day_pos = *((int*)bytes+v_pos+20);
+            int day_pos = *((int*)(bytes+v_pos+20));
             if ((day_pos < 0) || (day_pos > Size))
                 @throw [NSException exceptionWithName:@"Firmware Exception" reason:@"文件错误" userInfo:nil];
             
-            int time_pos = *((int*)bytes+v_pos+24);
+            int time_pos = *((int*)(bytes+v_pos+24));
             if ((time_pos < 0) || (time_pos > Size))
                 @throw [NSException exceptionWithName:@"Firmware Exception" reason:@"文件错误" userInfo:nil];
             NSString* verS=[[NSString alloc] initWithBytes:bytes+ver_pos length:3 encoding:NSASCIIStringEncoding];

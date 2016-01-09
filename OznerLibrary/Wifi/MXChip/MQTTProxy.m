@@ -107,7 +107,7 @@
 {
     if (mqtt.connected)
     {
-        [mqtt publishData:data toTopic:topic withQos:AtLeastOnce retain:false completionHandler:^(int mid) {
+        [mqtt publishData:data toTopic:topic withQos:AtMostOnce retain:false completionHandler:^(int mid) {
         }];
         return true;
     }else

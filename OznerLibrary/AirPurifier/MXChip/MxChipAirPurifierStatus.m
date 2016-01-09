@@ -122,15 +122,15 @@
         case FAN_SPEED_AUTO:
             speed=@"Auto";
             break;
-        case FAN_SPEED_HIGH:
-            speed=@"High";
-            break;
-        case FAN_SPEED_MID:
-            speed=@"Mid";
-            break;
-        case FAN_SPEED_LOW:
-            speed=@"Low";
-            break;
+//        case FAN_SPEED_HIGH:
+//            speed=@"High";
+//            break;
+//        case FAN_SPEED_MID:
+//            speed=@"Mid";
+//            break;
+//        case FAN_SPEED_LOW:
+//            speed=@"Low";
+//            break;
         case FAN_SPEED_SILENT:
             speed=@"Silent";
             break;

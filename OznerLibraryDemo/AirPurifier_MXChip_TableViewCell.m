@@ -33,9 +33,22 @@
 - (IBAction)SpeedClick:(id)sender {
     AirPurifier_MxChip* air=(AirPurifier_MxChip*)self.device;
     Byte speed=air.status.speed;
-    speed++;
-    if (speed>FAN_SPEED_POWER)
-        speed=FAN_SPEED_AUTO;
+    
+    switch (speed) {
+        case FAN_SPEED_AUTO:
+            speed=FAN_SPEED_POWER;
+            break;
+        case FAN_SPEED_POWER:
+            speed=FAN_SPEED_SILENT;
+            break;
+        case FAN_SPEED_SILENT:
+            speed=FAN_SPEED_AUTO;
+            break;
+        default:
+            speed=FAN_SPEED_AUTO;
+            break;
+    }
+    
     [self.deviceInfo startSend];
     
     [air.status setSpeed:speed Callback:^(NSError *error) {

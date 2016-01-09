@@ -25,9 +25,9 @@
         _status=[[MxChipAirPurifierStatus alloc] init:propertys Callback:^(Byte propertyId, NSData *data, OperateCallback cb) {
             [self setProperty:propertyId Data:data Callback:cb];
             
-            NSMutableSet* set=[[NSMutableSet alloc] init];
-            [set addObject:[NSString stringWithFormat:@"%d",propertyId]];
-            [self reqesutProperty:set];
+            //NSMutableSet* set=[[NSMutableSet alloc] init];
+            //[set addObject:[NSString stringWithFormat:@"%d",propertyId]];
+            //[self reqesutProperty:set];
             
         }];
         
@@ -65,10 +65,13 @@
     if (!io) return false;
     int len=14 + [propertys count];
     Byte bytes[len];
-    
+    memset(bytes, 0, len);
     bytes[0] = (Byte) 0xfb;
+    //bytes[1]=len&0xff;
+    //bytes[2]=len<<8;
+    
     *((ushort*)(bytes+1))=len;
-    bytes[3] =  CMD_REQUEST_PROPERTY;
+    //bytes[3] =  CMD_REQUEST_PROPERTY;
     
     NSData* mac=[Helper stringToHexData:[self.identifier stringByReplacingOccurrencesOfString:@":" withString:@""]];
     BytePtr tmp=(BytePtr)[mac bytes];
@@ -102,9 +105,10 @@
     
     int len=13 + (int)value.length;
     Byte bytes[len];
-    
+    memset(bytes, 0, len);
     bytes[0] = (Byte) 0xfb;
-    *((ushort*)bytes+1)=len;
+    *((ushort*)(bytes+1))=(ushort)len;
+    
     bytes[3] =  CMD_SET_PROPERTY;
     
     NSData* mac=[Helper stringToHexData:[self.identifier stringByReplacingOccurrencesOfString:@":" withString:@""]];
