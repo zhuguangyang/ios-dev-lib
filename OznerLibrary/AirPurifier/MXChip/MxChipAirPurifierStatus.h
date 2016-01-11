@@ -31,6 +31,13 @@ typedef void (^updateStatusHandler)(Byte propertyId,NSData* data,OperateCallback
 @property (getter=getLock,readonly) BOOL lock;
 @property (getter=getSpeed,readonly) Byte speed;
 @property (getter=getLight,readonly) Byte light;
+
+/*!
+ @discussion wifi强度 0-100
+ */
+@property (getter=getWifi,readonly) Byte wifi;
+
+
 /*!
  @discussion 滤芯状态
  */
@@ -39,5 +46,6 @@ typedef void (^updateStatusHandler)(Byte propertyId,NSData* data,OperateCallback
 -(void)setLight:(Byte)light Callback:(OperateCallback)cb;
 -(void)setLock:(BOOL)lock Callback:(OperateCallback)cb;
 -(void)setPower:(BOOL)power Callback:(OperateCallback)cb;
+
 -(void)resetFilterStatus:(OperateCallback)cb;
 @end

@@ -17,6 +17,21 @@
     }
     return self;
 }
+-(short)getInt:(int)propertyId
+{
+    @synchronized(propertys) {
+        NSData* data=[propertys objectForKey:[NSString stringWithFormat:@"%d",propertyId]];
+        if (data)
+        {
+            if (data.length>0)
+            {
+                return *((int*)[data bytes]);
+            }else
+                return AIR_PURIFIER_ERROR;
+        }else
+            return AIR_PURIFIER_ERROR;
+    }
+}
 -(short)getShort:(int)propertyId
 {
     @synchronized(propertys) {
@@ -31,6 +46,10 @@
         }else
             return AIR_PURIFIER_ERROR;
     }
+}
+-(int)getTotalClean
+{
+    return [self getInt:PROPERTY_TOTAL_CLEAN];
 }
 -(int)getLight
 {
@@ -54,8 +73,8 @@
 }
 -(NSString *)description
 {
-    return [NSString stringWithFormat:@"PM25:%d Temperature:%d VOC:%d Humidity:%d Light:%d",
-            self.PM25,self.Temperature,self.VOC,self.Humidity,self.Light];
+    return [NSString stringWithFormat:@"PM25:%d Temperature:%d VOC:%d Humidity:%d Light:%d TotalClean:%d",
+            self.PM25,self.Temperature,self.VOC,self.Humidity,self.Light,self.TotalClean];
 }
 
 @end

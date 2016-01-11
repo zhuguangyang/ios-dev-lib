@@ -21,5 +21,6 @@
 @property (readonly,nonatomic,getter=getTemperature)int Temperature;
 @property (readonly,nonatomic,getter=getVOC)int VOC;
 @property (readonly,nonatomic,getter=getLight)int Light;
+@property (readonly,nonatomic,getter=getTotalClean)int TotalClean;
 
 @end

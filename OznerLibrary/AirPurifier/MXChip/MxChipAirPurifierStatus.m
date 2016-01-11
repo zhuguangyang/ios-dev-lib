@@ -114,6 +114,10 @@
     callback(PROPERTY_SPEED,[NSData dataWithBytes:data length:sizeof(data)],cb);
 }
 
+-(Byte)getWifi
+{
+    return [self getByte:PROPERTY_WIFI];
+}
 
 -(NSString *)description
 {
@@ -137,8 +141,8 @@
         case FAN_SPEED_POWER:
             speed=@"Power";
     }
-    return [NSString stringWithFormat:@"Power:%d Speed:%@ Light:%d Lock:%d\nFilter:%@",
-            self.power,speed,self.light,self.lock,[self.filterStatus description]];
+    return [NSString stringWithFormat:@"Power:%d Speed:%@ Light:%d Lock:%d\nFilter:%@wifi:%d",
+            self.power,speed,self.light,self.lock,[self.filterStatus description],self.wifi];
     
 }
 @end
