@@ -12,6 +12,7 @@
 #import "Cup/CupManager.h"
 #import "WaterPurifier/WaterPurifierManager.h"
 #import "AirPurifier/AirPurifierManager.h"
+#import "WaterReplenishmentMeter/WaterReplenishmentMeterMgr.h"
 #import "Helper/Helper.h"
 
 
@@ -48,6 +49,8 @@ OznerManager* oznerManager=nil;
                        [[TapManager alloc] init],
                        [[WaterPurifierManager alloc] init],
                        [[AirPurifierManager alloc] init],
+                       [[WaterReplenishmentMeterMgr alloc] init],
+                       
                        
                        nil];
         

@@ -30,5 +30,8 @@
 {
     _power=false;
 }
-
+- (NSString *)description
+{
+    return [NSString stringWithFormat:@"Power:%b Battery:%d",_power,_battery];
+}
 @end

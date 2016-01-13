@@ -131,8 +131,10 @@
             if (packet && (packet.length>3))
             {
                 BytePtr bytes=(BytePtr)[packet bytes];
-                ushort value=*((ushort*)(bytes+1));
-                data.callback([NSNumber numberWithFloat:value/10.0f]);
+                //ushort value=*((ushort*)(bytes+1));
+                float value=(bytes[1]*0xff+bytes[2])/10.0f;
+                
+                data.callback([NSNumber numberWithFloat:value]);
             }
         }
         
