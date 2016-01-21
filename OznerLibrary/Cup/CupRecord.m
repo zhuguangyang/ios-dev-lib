@@ -31,17 +31,16 @@
     _TDS_High=MAX(_TDS_High,record.tds);
     _Temperature_MAX=MAX(_Temperature_MAX,record.temperature);
     _Count++;
-    if (record.tds < 50)
+    if (record.tds < tds_good)
         _TDS_Good++;
-    
-    else if (record.tds > 200)
+    else if (record.tds > tds_bad)
         _TDS_Bad++;
     else
         _TDS_Mid++;
     
-    if (record.temperature < 25)
+    if (record.temperature < temperature_low)
         _Temperature_Low++;
-    else if (record.temperature > 65)
+    else if (record.temperature > temperature_high)
         _Temperature_High++;
     else
         _Temperature_Mid++;
