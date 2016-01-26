@@ -17,7 +17,7 @@
     }
     return self;
 }
--(short)getInt:(int)propertyId
+-(int)getInt:(int)propertyId
 {
     @synchronized(propertys) {
         NSData* data=[propertys objectForKey:[NSString stringWithFormat:@"%d",propertyId]];

@@ -24,6 +24,7 @@
     _Humidity=AIR_PURIFIER_ERROR;
     _Temperature=AIR_PURIFIER_ERROR;
     _PM25=AIR_PURIFIER_ERROR;
+    
 }
 
 -(void)load:(NSData *)data

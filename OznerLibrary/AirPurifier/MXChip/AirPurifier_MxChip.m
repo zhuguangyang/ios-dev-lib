@@ -176,6 +176,13 @@
                     }
                         
                     case PROPERTY_FILTER:
+                    {
+                        //两个上次更换时间在2000年以前,直接重置
+                        if ([self->_status.filterStatus.lastTime timeIntervalSince1970]<=946684800*1000)
+                        {
+                            [_status resetFilterStatus:nil];
+                        }
+                    }
                     case PROPERTY_PM25:
                     case PROPERTY_TEMPERATURE:
                     case PROPERTY_VOC:
