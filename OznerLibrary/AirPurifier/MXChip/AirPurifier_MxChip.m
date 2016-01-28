@@ -67,11 +67,11 @@
     Byte bytes[len];
     memset(bytes, 0, len);
     bytes[0] = (Byte) 0xfb;
-    //bytes[1]=len&0xff;
-    //bytes[2]=len<<8;
     
-    *((ushort*)(bytes+1))=len;
-    //bytes[3] =  CMD_REQUEST_PROPERTY;
+    *((ushort*)(bytes+1))=(ushort)len;
+    
+    //*((ushort*)(bytes+1))=len;
+    bytes[3] =  CMD_REQUEST_PROPERTY;
     
     NSData* mac=[Helper stringToHexData:[self.identifier stringByReplacingOccurrencesOfString:@":" withString:@""]];
     BytePtr tmp=(BytePtr)[mac bytes];
@@ -178,7 +178,7 @@
                     case PROPERTY_FILTER:
                     {
                         //两个上次更换时间在2000年以前,直接重置
-                        if ([self->_status.filterStatus.lastTime timeIntervalSince1970]<=946684800*1000)
+                        if ([self->_status.filterStatus.lastTime timeIntervalSince1970]<=946684800)
                         {
                             [_status resetFilterStatus:nil];
                         }

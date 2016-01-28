@@ -40,7 +40,7 @@
     }
     //c89346c04dc2
     //MXChipIO* io=[[OznerManager instance].ioManager.mxchip createMXChipIO:@"C8:93:46:4F:84:03" Type:@"FOG_HAOZE_AIR"];
-    //MXChipIO* io=[[OznerManager instance].ioManager.mxchip createMXChipIO:@"C8:93:46:C0:4D:C2" Type:@"FOG_HAOZE_AIR"];
+    //MXChipIO* io=[[OznerManager instance].ioManager.mxchip createMXChipIO:@"C8:93:46:4F:89:CF" Type:@"FOG_HAOZE_AIR"];
     
     //OznerDevice* device= [[OznerManager instance] getDeviceByIO:io];
     //[[OznerManager instance]save:device];
