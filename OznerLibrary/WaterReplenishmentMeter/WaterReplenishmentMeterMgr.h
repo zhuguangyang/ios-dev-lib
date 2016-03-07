@@ -11,5 +11,5 @@
 #import "../Device/BaseDeviceManager.h"
 
 @interface WaterReplenishmentMeterMgr : BaseDeviceManager
-
++(BOOL)isWaterReplenishmentMeter:(NSString*)type;
 @end
