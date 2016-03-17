@@ -12,12 +12,9 @@
 #import "WaterReplenishmentMeterStatus.h"
 
 typedef void (^TestCallback)(NSNumber* value);
-enum TestParts {Face=0,Hand=1,Eye=2,Other=4};
 @interface TestData : NSObject
 {
 }
-@property (strong) TestCallback callback;
-@property enum TestParts testParts;
 @end
 
 @interface WaterReplenishmentMeter : OznerDevice
@@ -26,7 +23,6 @@ enum TestParts {Face=0,Hand=1,Eye=2,Other=4};
     NSDate* lastDataTime;
 }
 @property (strong,readonly) WaterReplenishmentMeterStatus* status;
--(void)Test:(enum TestParts) testParts Callback:(TestCallback)callback;
 
 +(BOOL)isBindMode:(BluetoothIO*)io;
 @end

@@ -19,6 +19,7 @@
 #define opCode_StatusResp       0x21
 #define opCode_StartTest        0x32
 #define opCode_TestResp         0x33
+#define opCode_Testing          0x34
 
 
 -(instancetype)init:(NSString *)identifier Type:(NSString *)type Settings:(NSString *)json
@@ -103,6 +104,10 @@
 {
     return [NSString stringWithFormat:@"status:%@",[_status description]];
 }
+-(void)stopTest
+{
+    [_status loadTest:0];
+}
 -(void)DeviceIO:(BaseDeviceIO *)io recv:(NSData *)data
 {
     if (data==nil) return;
@@ -115,48 +120,20 @@
             [_status load:[NSData dataWithBytes:bytes+1 length:data.length-1]];
             [self doStatusUpdate];
             break;
-        case opCode_TestResp:
-            [self set];
+        case opCode_Testing:
+            [_status startTest];
+            [self performSelector:@selector(startTest) withObject:self afterDelay:6];
+            [self doSensorUpdate];
             break;
-    }
-}
--(void) runTestJob:(TestData*)data
-{
-    Byte  parts[1]={(Byte)data.testParts};
-    if ([self send:opCode_StartTest Bytes:parts Length:sizeof(parts)])
-    {
-        if ([self wait:10]==NULL)
+        case opCode_TestResp:
         {
-            NSData* packet=[io lastRecvPacket];
-            if (packet && (packet.length>3))
-            {
-                BytePtr bytes=(BytePtr)[packet bytes];
-                //ushort value=*((ushort*)(bytes+1));
-                float value=(bytes[1]*0xff+bytes[2])/10.0f;
-                
-                data.callback([NSNumber numberWithFloat:value]);
-            }
+            short adc=*((short*)(bytes+1));
+            [_status loadTest:adc];
+            break;
         }
-        
     }
-    data.callback(nil);
 }
 
--(void)Test:(enum TestParts)testParts Callback:(TestCallback)callback
-{
-    if (self->io && self->io.isReady)
-    {
-        BluetoothIO* blue=(BluetoothIO*)self->io;
-        TestData* data=[[TestData alloc] init];
-        data.testParts=testParts;
-        data.callback=callback;
-        
-        [blue runJob:@selector(runTestJob:) withObject:data waitUntilDone:false];
-    }else
-    {
-        callback(nil);
-    }
-}
 
 -(void)DeviceIODidReadly:(BaseDeviceIO *)io
 {

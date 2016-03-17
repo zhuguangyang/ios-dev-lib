@@ -11,11 +11,5 @@
 @implementation WaterReplenishmentMeter_TableViewCell
 
 
-- (IBAction)TestClick:(id)sender {
-    [self.deviceInfo startSend];
-    WaterReplenishmentMeter* water=(WaterReplenishmentMeter*)self.device;
-    [water Test:Face Callback:^(NSNumber *value) {
-        [self.deviceInfo printStatus:[NSString stringWithFormat:@"测试结果:%f",value.floatValue]];
-    }];
-}
+
 @end

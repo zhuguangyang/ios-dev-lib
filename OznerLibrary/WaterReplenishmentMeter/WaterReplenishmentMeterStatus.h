@@ -14,6 +14,12 @@
 -(instancetype)init;
 @property (readonly) BOOL power;
 @property (readonly) int battery;
+@property (readonly) BOOL testing;
+@property (readonly) float moisture;
+@property (readonly) float oil;
+
 -(void)load:(NSData*)data;
+-(void)loadTest:(int)adc;
+-(void)startTest;
 -(void)reset;
 @end

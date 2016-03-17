@@ -12,5 +12,4 @@
 #import "BaseTableViewCell.h"
 @interface WaterReplenishmentMeter_TableViewCell : BaseTableViewCell
 
-- (IBAction)TestClick:(id)sender;
 @end
