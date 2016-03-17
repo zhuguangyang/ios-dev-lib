@@ -42,7 +42,7 @@
     {
         if (io.scanResponseData)
         {
-            if (io.scanResponseData.length>7)
+            if (io.scanResponseData.length>1)
             {
                 BytePtr bytes=(BytePtr)[io.scanResponseData bytes];
                 return bytes[0]!=0;
