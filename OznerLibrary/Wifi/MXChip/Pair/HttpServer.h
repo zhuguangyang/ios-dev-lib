@@ -14,7 +14,7 @@
 
 @protocol onFTCfinishedDelegate <NSObject>
 @required
--(void)onFTCfinished:(HttpServer*)server JSON:(NSString *)json;
+-(void)onFTCfinished:(NSString *)json;
 @end
 
 @interface HttpServer : NSObject

@@ -7,7 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Pair/HttpServer.h"
+#import "HTTPServer.h"
+//#import "MyHTTPConnection.h"
 #import "Pair/ConfigurationDevice.h"
 #import "../MXChip/MXChipIO.h"
 @protocol MxChipPairDelegate <NSObject>

@@ -9,7 +9,8 @@
 #import "MXChipPair.h"
 #import "Pair/EasyLinkSender.h"
 #import <SystemConfiguration/CaptiveNetwork.h>
-
+//#import "HTTPServer.h"
+#import "HttpServer.h"
 #import "../../OznerManager.h"
 
 #define Timeout 120
@@ -44,21 +45,39 @@
         HttpServer* httpServer=[[HttpServer alloc] init:8000];
         httpServer.delegate=self;
         [httpServer start];
+//        HTTPServer* httpServer=[[HTTPServer alloc] init];
+//        [httpServer setType:@"_http._tcp."];
+//        [httpServer setConnectionClass:[MyHTTPConnection class]];
+//        
+//        [MyHTTPConnection setFtcDelegate:self];
+//        NSError *error = nil;
+//        [httpServer setPort:8000];
+//        if(![httpServer start:&error])
+//        {
+//            NSLog(@"Error starting HTTP Server: %@", error);
+//        }
         [self.delegate mxChipPairSendConfiguration];
         EasyLinkSender* easy=[[EasyLinkSender alloc] init:ssid Password:password];
         @try {
             NSDate* time=[NSDate dateWithTimeIntervalSinceNow:0];
-            BOOL v2=false;
+            bool v2=YES;
             while (!device)
             {
+                
                 if ([NSThread currentThread].isCancelled)
                     return;
                 
-                if (v2)
-                   [easy send_easylink_v2];
+                if (v2==YES)
+                {
+                    NSLog(@"send v2");
+                    [easy send_easylink_v2];
+                }
                 else
+                {
+                    NSLog(@"send v3");
+                    
                     [easy send_easylink_v3];
-                
+                }
                 [NSThread sleepForTimeInterval:1.0f];
                 
                 int t=abs((int)[time timeIntervalSinceNow]);
@@ -69,8 +88,11 @@
                 }
             }
         }
+        
         @finally {
             [httpServer close];
+            //[MyHTTPConnection setFtcDelegate:nil];
+            //[httpServer stop];
         }
         
         if (!device)
@@ -218,8 +240,9 @@
 {
     dispatch_semaphore_signal(semaphore);
 }
--(void)onFTCfinished:(HttpServer *)server JSON:(NSString *)json
+-(void)onFTCfinished:(NSString *)json
 {
+    NSLog(@"json:%@",json);
     @try {
         self->device=[ConfigurationDevice withJSON:json];
     }

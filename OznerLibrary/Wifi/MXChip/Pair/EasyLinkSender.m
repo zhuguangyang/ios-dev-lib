@@ -109,19 +109,27 @@
 -(void)send_broadcat:(int)socket Length:(int)len
 {
     struct sockaddr_in dstAdd;
+    bzero(&dstAdd, sizeof(dstAdd));
     dstAdd.sin_family=AF_INET;
     dstAdd.sin_port=htons(UDP_START_PORT);
     dstAdd.sin_addr.s_addr=broadcatIp;
-    NSAssert(sendto(socket,buffer,len,0,(struct sockaddr*)&dstAdd,sizeof(dstAdd))!=-1,@"sendto error:%d",errno);
-    [NSThread sleepForTimeInterval:0.01f];
+    dstAdd.sin_len=sizeof(dstAdd);
+    ssize_t ret=sendto(socket,buffer,len,0,(struct sockaddr*)&dstAdd,sizeof(dstAdd));
+    NSAssert(ret!=-1,@"sendto error:%d",errno);
+    if (ret<0)
+    {
+        NSLog(@"send_broadcat_error:%d",errno);
+    }
+    [NSThread sleepForTimeInterval:0.02f];
 }
 static int port=10000;
 -(void)send_multicast:(int)socket address:(NSString*)ip Data:(const void*) data Length:(uint)len
 {
     struct sockaddr_in dstAdd;
+    bzero(&dstAdd, sizeof(dstAdd));
+    dstAdd.sin_len=sizeof(dstAdd);
     dstAdd.sin_family=AF_INET;
     dstAdd.sin_port=htons(port);
-    
     port++;
     if (port>65523)
     {
@@ -129,8 +137,13 @@ static int port=10000;
     }
     
     dstAdd.sin_addr.s_addr=inet_addr([[ip dataUsingEncoding:NSASCIIStringEncoding] bytes]);
-    NSAssert(sendto(socket, data, len, 0, (struct sockaddr *)&dstAdd, sizeof(dstAdd))!=-1,@"sendto error:%d",errno);
-    [NSThread sleepForTimeInterval:0.01f];
+    ssize_t ret=sendto(socket, data, len, 0, (struct sockaddr *)&dstAdd, sizeof(dstAdd));
+    if (ret<0)
+    {
+        NSLog(@"send_multicast_error:%d",errno);
+    }
+    //NSLog(@"send_multicast:%d",(int)ret);
+    [NSThread sleepForTimeInterval:0.03f];
 }
 
 -(void)send_easylink_v2
@@ -147,9 +160,11 @@ static int port=10000;
     [data appendData:password_data];
     
     int s=socket(AF_INET, SOCK_DGRAM, IPPROTO_IP);
-    int opt = 1;
-    NSAssert(setsockopt(s, SOL_SOCKET, SO_BROADCAST, (const void *)&opt, sizeof(opt))==0,
-             @"setsockopt error:%d",errno); //设置广播
+    UInt32 opt = 1;
+    if (setsockopt(s, SOL_SOCKET, SO_BROADCAST, (const void *)&opt, sizeof(opt))<0)
+    {
+        NSLog(@"setsockopt error:%d",errno); //设置广播
+    }
     NSAssert(s!=-1, @"socket error:%d",errno);
     @try {
         for (int i=0;i<5;i++)
@@ -254,9 +269,12 @@ static int port=10000;
     NSAssert(s!=-1, @"socket error:%d",errno);
     @try {
         
-        int opt = 1;
-        NSAssert(setsockopt(s, SOL_SOCKET, SO_BROADCAST, (const void *)&opt, sizeof(opt))==0,
-                 @"setsockopt error:%d",errno); //设置广播
+        UInt32 opt = 1;
+        if (setsockopt(s, SOL_SOCKET, SO_BROADCAST, (const void *)&opt, sizeof(opt))<0)
+        {
+            NSLog(@"setsockopt error:%d",errno); //设置广播
+        }
+        opt=0;
         [self send_broadcat:s Length:START_FLAG1];
         [self send_broadcat:s Length:START_FLAG2];
         [self send_broadcat:s Length:START_FLAG3];
@@ -294,8 +312,8 @@ static int port=10000;
         memcpy(ipBytes, [data bytes], data.length);
         in_addr_t ipAddress= inet_addr((const char*)ipBytes);
         free(ipBytes);
-        broadcatIp = 0xFF000000 | ipAddress;
-        //broadcatIp=0xFFFFFFFF;
+        //broadcatIp = 0xFF000000 | ipAddress;
+        broadcatIp=0xFFFFFFFF;
         
         user_info[0]=0x23;
         user_info[1]=((lpBytes)&ipAddress)[3];

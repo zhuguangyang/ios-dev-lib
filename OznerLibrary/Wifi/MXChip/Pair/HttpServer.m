@@ -15,8 +15,7 @@
     if (self=[super init])
     {
         self->_port=port;
-        self->_socket=socket(PF_INET, SOCK_STREAM, IPPROTO_TCP);
-        NSAssert(_socket!=-1, @"socket error");
+
     }
     return self;
 }
@@ -101,7 +100,7 @@
             {
                 if (content.length>0)
                 {
-                    [self.delegate onFTCfinished:self JSON:[[NSString alloc] initWithData:content encoding:NSASCIIStringEncoding]];
+                    [self.delegate onFTCfinished:[[NSString alloc] initWithData:content encoding:NSASCIIStringEncoding]];
                 }
             }
         }
@@ -116,29 +115,51 @@
 -(void)mainThreadRun
 {
     @autoreleasepool {
+        self->_socket=socket(PF_INET, SOCK_STREAM, IPPROTO_TCP);
+        NSAssert(_socket!=-1, @"socket error");
         struct  sockaddr_in local;      // 定义监听地址以及端口
-        memset(&local , 0, sizeof (local));
-        local.sin_len = sizeof (local);
+        int len=sizeof(struct sockaddr_in);
+        
+        local.sin_len = len;
         local.sin_family = AF_INET;
         local.sin_port =htons(_port);
         local.sin_addr.s_addr = htonl(INADDR_ANY);
         
-        int optval = 1;
-        setsockopt(_socket, SOL_SOCKET, SO_REUSEADDR, // 允许重用本地地址和端口
-                   (void *)&optval, sizeof(optval));
+        UInt32 optval = 1;
+        if (setsockopt(_socket, SOL_SOCKET, SO_REUSEADDR, // 允许重用本地地址和端口
+                (void *)&optval, sizeof(optval))<0)
+        {
+            NSLog(@"setsockopt error:%d",errno);
+        }
         @try {
-            NSAssert(bind(_socket, (const struct sockaddr *)&local, sizeof(local))==0,@"bind error:%d",errno);
-            NSAssert(listen(_socket, 16)==0,@"listen error");
+            if (bind(_socket, (const struct sockaddr *)&local, sizeof(local))<0)
+            {
+                NSLog(@"bind error:%d",errno);
+            }
+            if (listen(_socket, 16)<0)
+            {
+                NSLog(@"listen error:%d",errno);
+            }
+            
             while (!_mainThread.cancelled) {
                 struct  sockaddr_in addr;
-                socklen_t size=sizeof(addr);
-                int s=accept(_socket, (struct sockaddr *)&addr, &size);
+                socklen_t len=sizeof(addr);
+                //memset(&addr, 0, size);
+                //addr.sin_len=size;
+                bzero(&addr, len);
+                addr.sin_len=len;
+                
+                NSLog(@"socket:%d",_socket);
+                int s=accept(_socket, (struct sockaddr *)&addr, &len);
                 if (s!=-1)
                 {
                     NSThread* thread=[[NSThread alloc] initWithTarget:self
                                                              selector:@selector(clientThreadRun:)
                                                                object:[[NSNumber alloc] initWithInt:s]];
                     [thread start];
+                }else
+                {
+                    NSLog(@"socket error:%d",errno);
                 }
             }
         }

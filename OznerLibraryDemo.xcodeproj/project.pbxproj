@@ -37,6 +37,7 @@
 		028727EA1C37B3340013857D /* util_mosq.c in Sources */ = {isa = PBXBuildFile; fileRef = 028727D51C37B3340013857D /* util_mosq.c */; };
 		028727EB1C37B3340013857D /* will_mosq.c in Sources */ = {isa = PBXBuildFile; fileRef = 028727D71C37B3340013857D /* will_mosq.c */; };
 		028727EC1C37B3340013857D /* MQTTKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 028727DC1C37B3340013857D /* MQTTKit.m */; };
+		0292AB1E1CA23F0C005882D7 /* HttpServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0292AB1D1CA23F0C005882D7 /* HttpServer.m */; };
 		029F93E71C1FA44200D73A35 /* DeviceInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 029F93E61C1FA44200D73A35 /* DeviceInfoView.m */; };
 		029F93FD1C1FB9E300D73A35 /* BaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 029F93FC1C1FB9E300D73A35 /* BaseTableViewCell.m */; };
 		029F940D1C1FF45C00D73A35 /* MyButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 029F940C1C1FF45C00D73A35 /* MyButton.m */; };
@@ -99,7 +100,6 @@
 		02E98BF21C18679D00ED06F1 /* MXChipPair.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E98BBC1C18679D00ED06F1 /* MXChipPair.m */; };
 		02E98BF31C18679D00ED06F1 /* ConfigurationDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E98BBF1C18679D00ED06F1 /* ConfigurationDevice.m */; };
 		02E98BF41C18679D00ED06F1 /* EasyLinkSender.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E98BC11C18679D00ED06F1 /* EasyLinkSender.m */; };
-		02E98BF51C18679D00ED06F1 /* HttpServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E98BC31C18679D00ED06F1 /* HttpServer.m */; };
 		02E98BF71C18686100ED06F1 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 02E98BF61C18686100ED06F1 /* libsqlite3.0.tbd */; };
 		02E98BFA1C192EBF00ED06F1 /* PowerTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E98BF91C192EBF00ED06F1 /* PowerTimer.m */; };
 		02E98C001C194F5100ED06F1 /* AirPurifierManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E98BFF1C194F5100ED06F1 /* AirPurifierManager.m */; };
@@ -107,6 +107,7 @@
 		02E98C071C19517C00ED06F1 /* BluetoothAirPurifierSensor.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E98C061C19517C00ED06F1 /* BluetoothAirPurifierSensor.m */; };
 		02E98C0A1C1BB84600ED06F1 /* CupDBRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E98C091C1BB84600ED06F1 /* CupDBRecord.m */; };
 		02E98C221C1E566200ED06F1 /* WifiAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E98C211C1E566200ED06F1 /* WifiAddViewController.m */; };
+		02FBC0A91CA0DD6000C6DB5E /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 02FBC0A81CA0DD5F00C6DB5E /* libxml2.tbd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -165,6 +166,8 @@
 		028727D81C37B3340013857D /* will_mosq.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = will_mosq.h; sourceTree = "<group>"; };
 		028727DB1C37B3340013857D /* MQTTKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MQTTKit.h; sourceTree = "<group>"; };
 		028727DC1C37B3340013857D /* MQTTKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MQTTKit.m; sourceTree = "<group>"; };
+		0292AB1C1CA23F0C005882D7 /* HttpServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpServer.h; sourceTree = "<group>"; };
+		0292AB1D1CA23F0C005882D7 /* HttpServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpServer.m; sourceTree = "<group>"; };
 		029F93E51C1FA44200D73A35 /* DeviceInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceInfoView.h; sourceTree = "<group>"; };
 		029F93E61C1FA44200D73A35 /* DeviceInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceInfoView.m; sourceTree = "<group>"; };
 		029F93FB1C1FB9E300D73A35 /* BaseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableViewCell.h; sourceTree = "<group>"; };
@@ -289,8 +292,6 @@
 		02E98BBF1C18679D00ED06F1 /* ConfigurationDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfigurationDevice.m; sourceTree = "<group>"; };
 		02E98BC01C18679D00ED06F1 /* EasyLinkSender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EasyLinkSender.h; sourceTree = "<group>"; };
 		02E98BC11C18679D00ED06F1 /* EasyLinkSender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EasyLinkSender.m; sourceTree = "<group>"; };
-		02E98BC21C18679D00ED06F1 /* HttpServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpServer.h; sourceTree = "<group>"; };
-		02E98BC31C18679D00ED06F1 /* HttpServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpServer.m; sourceTree = "<group>"; };
 		02E98BF61C18686100ED06F1 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		02E98BF81C192EBF00ED06F1 /* PowerTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PowerTimer.h; sourceTree = "<group>"; };
 		02E98BF91C192EBF00ED06F1 /* PowerTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PowerTimer.m; sourceTree = "<group>"; };
@@ -304,6 +305,7 @@
 		02E98C091C1BB84600ED06F1 /* CupDBRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CupDBRecord.m; sourceTree = "<group>"; };
 		02E98C201C1E566200ED06F1 /* WifiAddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WifiAddViewController.h; sourceTree = "<group>"; };
 		02E98C211C1E566200ED06F1 /* WifiAddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WifiAddViewController.m; sourceTree = "<group>"; };
+		02FBC0A81CA0DD5F00C6DB5E /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -311,6 +313,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02FBC0A91CA0DD6000C6DB5E /* libxml2.tbd in Frameworks */,
 				02E98BF71C18686100ED06F1 /* libsqlite3.0.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -404,6 +407,7 @@
 		02E98B1B1C18673000ED06F1 = {
 			isa = PBXGroup;
 			children = (
+				02FBC0A81CA0DD5F00C6DB5E /* libxml2.tbd */,
 				02E98BF61C18686100ED06F1 /* libsqlite3.0.tbd */,
 				02E98B501C18679D00ED06F1 /* OznerLibrary */,
 				02E98B261C18673000ED06F1 /* OznerLibraryDemo */,
@@ -661,12 +665,12 @@
 		02E98BBD1C18679D00ED06F1 /* Pair */ = {
 			isa = PBXGroup;
 			children = (
+				0292AB1C1CA23F0C005882D7 /* HttpServer.h */,
+				0292AB1D1CA23F0C005882D7 /* HttpServer.m */,
 				02E98BBE1C18679D00ED06F1 /* ConfigurationDevice.h */,
 				02E98BBF1C18679D00ED06F1 /* ConfigurationDevice.m */,
 				02E98BC01C18679D00ED06F1 /* EasyLinkSender.h */,
 				02E98BC11C18679D00ED06F1 /* EasyLinkSender.m */,
-				02E98BC21C18679D00ED06F1 /* HttpServer.h */,
-				02E98BC31C18679D00ED06F1 /* HttpServer.m */,
 			);
 			path = Pair;
 			sourceTree = "<group>";
@@ -790,7 +794,6 @@
 				02E98BD61C18679D00ED06F1 /* CupSettings.m in Sources */,
 				02E98BD31C18679D00ED06F1 /* CupRecord.m in Sources */,
 				02E98BFA1C192EBF00ED06F1 /* PowerTimer.m in Sources */,
-				02E98BF51C18679D00ED06F1 /* HttpServer.m in Sources */,
 				02E98C001C194F5100ED06F1 /* AirPurifierManager.m in Sources */,
 				02E98BE81C18679D00ED06F1 /* TapSensor.m in Sources */,
 				02E98BDD1C18679D00ED06F1 /* OznerDevice.m in Sources */,
@@ -845,6 +848,7 @@
 				028727E41C37B3340013857D /* read_handle_shared.c in Sources */,
 				02E98C071C19517C00ED06F1 /* BluetoothAirPurifierSensor.m in Sources */,
 				02067F821C27E67A009A05D4 /* WaterReplenishmentMeter.m in Sources */,
+				0292AB1E1CA23F0C005882D7 /* HttpServer.m in Sources */,
 				0286D5711C213B3B00C027B5 /* WaterPurifier_TableViewCell.m in Sources */,
 				028727EB1C37B3340013857D /* will_mosq.c in Sources */,
 				02E98BD11C18679D00ED06F1 /* CupManager.m in Sources */,
@@ -970,9 +974,11 @@
 					"$(PROJECT_DIR)/OznerLibrary",
 					"$(PROJECT_DIR)",
 				);
+				HEADER_SEARCH_PATHS = "${SDK_DIR}/usr/include/libxml2";
 				INFOPLIST_FILE = OznerLibraryDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-lxml2 ";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ozner.LibraryDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -988,9 +994,12 @@
 					"$(PROJECT_DIR)/OznerLibrary",
 					"$(PROJECT_DIR)",
 				);
+				GCC_OPTIMIZATION_LEVEL = s;
+				HEADER_SEARCH_PATHS = "${SDK_DIR}/usr/include/libxml2";
 				INFOPLIST_FILE = OznerLibraryDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-lxml2 ";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ozner.LibraryDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
