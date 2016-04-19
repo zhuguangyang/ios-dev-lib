@@ -10,7 +10,10 @@
 #import "ScanData.h"
 #import "BluetoothSynchronizedObject.h"
 #import "../Device/IOManager.hpp"
+#import <UIKit/UIKit.h>
 @implementation BluetoothIOMgr
+
+#define iOS9 ([[[UIDevice currentDevice] systemVersion] floatValue] >= 9.0)
 - (void)applicationWillEnterForeground:(NSNotification *)notification
 {
     
@@ -31,23 +34,35 @@
         centralManager=[[CBCentralManager alloc] initWithDelegate:self queue:queue];
         centralManager.delegate=self;
         addressList=[[NSMutableDictionary alloc] init];
+        
     }
     return self;
 }
-
+-(bool)isScanning
+{
+    if (iOS9)
+    {
+        return centralManager.isScanning;
+    }else
+    {
+        return bleScaning;
+    }
+    
+}
 -(void)scanThreadProc
 {
     while (![[NSThread currentThread] isCancelled])
     {
         @synchronized([BluetoothSynchronizedObject synchronizedObject]) {
-            if (!centralManager.isScanning)
+            if (![self isScanning])
             {
+                bleScaning=true;
                 [centralManager scanForPeripheralsWithServices:@[[CBUUID UUIDWithString:UUID_Service]]
                                                        options:@{CBCentralManagerScanOptionAllowDuplicatesKey:@YES}];
-                
             }
             sleep(2.0f);
             [centralManager stopScan];
+            bleScaning=false;
         }
         sleep(1.0f);
     }
@@ -71,6 +86,7 @@
         return identifier;
     }
 }
+
 
 -(void)centralManager:(CBCentralManager *)central didDiscoverPeripheral:(CBPeripheral *)peripheral advertisementData:(NSDictionary *)advertisementData RSSI:(NSNumber *)RSSI
 {
@@ -157,6 +173,7 @@
         case CBCentralManagerStatePoweredOn:
             if (!scanThread)
             {
+                bleScaning=false;
                 scanThread=[[NSThread alloc] initWithTarget:self selector:@selector(scanThreadProc) object:nil];
                 [scanThread start];
             }

@@ -17,6 +17,7 @@
 
 @interface BluetoothIOMgr : IOManager<CBCentralManagerDelegate>
 {
+    bool bleScaning;
     CBCentralManager * centralManager;
     dispatch_queue_t queue;
     NSThread* scanThread;
