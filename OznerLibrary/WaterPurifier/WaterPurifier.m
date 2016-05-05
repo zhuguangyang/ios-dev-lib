@@ -9,7 +9,12 @@
 #import "WaterPurifier.h"
 #import "../Device/OznerDevice.hpp"
 #import "../Helper/Helper.h"
-
+@interface WaterPurifier()
+{
+    NSTimer* updateTimer;
+    int _requestCount;
+}
+@end
 @implementation WaterPurifier
 
 #define GroupCode_DeviceToApp 0xFB
@@ -32,6 +37,7 @@
             return [self setStatus:data Callback:cb];
         }];
         self->_sensor=[[WaterPurifierSensor alloc] init];
+        _isOffline=false;
     }
     return self;
 }
@@ -93,7 +99,15 @@
 
 -(void)DeviceIO:(BaseDeviceIO *)io recv:(NSData *)data
 {
+    _requestCount=0;
+    if (_isOffline)
+    {
+        _isOffline=false;
+        [self doStatusUpdate];
+    }
+    
     if (data==nil) return;
+    
     BytePtr bytes=(BytePtr)[data bytes];
     if (data.length > 10) {
         Byte group = bytes[0];
@@ -122,6 +136,12 @@
 {
     if (io)
     {
+        _requestCount++;
+        if (_requestCount>=3)
+        {
+            _isOffline=true;
+            [self doStatusUpdate];
+        }
         return [io send:[self MakeWoodyBytes:GroupCode_AppToDevice Opcode:Opcode_RequestStatus Data:nil]];
     }else
         return false;

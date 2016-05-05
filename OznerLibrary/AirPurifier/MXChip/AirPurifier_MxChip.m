@@ -12,7 +12,14 @@
 #import "../../Helper/Helper.h"
 #import "../../Device/OznerDevice.h"
 #import "../../Device/OznerDevice.hpp"
+@interface AirPurifier_MxChip()
+{
+    NSMutableDictionary* propertys;
+    NSTimer* updateTimer;
+    int _requestCount;
+}
 
+@end
 @implementation AirPurifier_MxChip
 #define Timeout 5
 #define SecureCode @"580c2783"
@@ -34,6 +41,7 @@
         _sensor=[[MxChipAirPurifierSensor alloc]init:propertys];
         _powerTimer=[[PowerTimer alloc] init];
         NSString* json=[self.settings get:@"powerTimer" Default:@""];
+        _isOffline=true;
         [_powerTimer loadByJSON:json];
     }
     return self;
@@ -132,6 +140,12 @@
 }
 -(void)DeviceIO:(BaseDeviceIO *)io recv:(NSData *)data
 {
+    _requestCount=0;
+    if (_isOffline)
+    {
+        _isOffline=false;
+        [self doStatusUpdate];
+    }
     if (!data) return;
     if (data.length<=0) return;
     BytePtr bytes=(BytePtr)[data bytes];
@@ -281,6 +295,12 @@
     [set addObject:[NSString stringWithFormat:@"%d",PROPERTY_LIGHT]];
     [set addObject:[NSString stringWithFormat:@"%d",PROPERTY_LOCK]];
     [self reqesutProperty:set];
+    _requestCount++;
+    if (_requestCount>=3)
+    {
+        _isOffline=true;
+        [self doStatusUpdate];
+    }
 }
 
 @end

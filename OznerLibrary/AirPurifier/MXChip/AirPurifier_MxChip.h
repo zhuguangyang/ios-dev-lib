@@ -14,11 +14,10 @@
 #import "../../Device/OznerDevice.h"
 @interface AirPurifier_MxChip : OznerDevice
 {
-    NSMutableDictionary* propertys;
-    NSTimer* updateTimer;
-}
+    }
 @property (strong,nonatomic)MxChipAirPurifierStatus* status;
 @property (strong,nonatomic)MxChipAirPurifierSensor* sensor;
 @property (strong,nonatomic)AirPurifierInfo* info;
 @property (strong,nonatomic)PowerTimer* powerTimer;
+@property (readonly,nonatomic) bool isOffline;
 @end

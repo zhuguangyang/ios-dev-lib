@@ -15,11 +15,11 @@
 
 @interface WaterPurifier : OznerDevice
 {
-    NSTimer* updateTimer;
+    
 }
 
 @property (strong,readonly,nonatomic) WaterPurifierInfo* info;
 @property (strong,readonly,nonatomic) WaterPurifierStatus* status;
 @property (strong,readonly,nonatomic) WaterPurifierSensor* sensor;
-
+@property (readonly,nonatomic) bool isOffline;
 @end
