@@ -13,7 +13,7 @@
 
 static double testValueTable[][8]=
 {
-    {8, 220, 0, 0, 0, 0, 0, 0},
+    {8, 220, -1, -1, -1, -1, 0, 0},
     {220,300,0.093,20 ,28 ,0.042,9 ,13},
     {300,350,0.092,28 ,32 ,0.041,12 ,14},
     {350,400,0.09,32 ,36 ,0.04,14 ,16},
@@ -45,8 +45,8 @@ static double testValueTable[][8]=
     {
         if ((adc>=testValueTable[i][0]) && (adc<=testValueTable[i][1]))
         {
-            _moisture=testValueTable[i][1]-testValueTable[i][0]*testValueTable[i][2]+testValueTable[i][3];
-            _oil=testValueTable[i][1]-testValueTable[i][0]*testValueTable[i][5]+testValueTable[i][6];
+            _moisture=(float)(ABS(testValueTable[i][1]-testValueTable[i][0])*testValueTable[i][2]+testValueTable[i][3]);
+            _oil=(float)(ABS(testValueTable[i][1]-testValueTable[i][0])*testValueTable[i][5]+testValueTable[i][6]);
             break;
         }
     }
@@ -65,6 +65,6 @@ static double testValueTable[][8]=
 }
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"Power:%d Battery:%f moisture:%f oil:%f",_power,_battery,_moisture,_oil];
+    return [NSString stringWithFormat:@"Power:%d Testing:%d Battery:%f moisture:%f oil:%f",_power,_testing, _battery,_moisture,_oil];
 }
 @end

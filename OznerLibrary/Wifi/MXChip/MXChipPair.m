@@ -75,11 +75,10 @@
                 else
                 {
                     NSLog(@"send v3");
-                    
                     [easy send_easylink_v3];
                 }
-                [NSThread sleepForTimeInterval:1.0f];
                 
+                [NSThread sleepForTimeInterval:1.0f];
                 int t=abs((int)[time timeIntervalSinceNow]);
                 v2=!v2;
                 if (t>Timeout)
