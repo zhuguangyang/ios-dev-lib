@@ -106,13 +106,17 @@
     lastTime->min=[dateComps minute];
     lastTime->sec=[dateComps second];
     
+    NSDate* nextTime=[cal dateByAddingUnit:NSCalendarUnitMonth value:3 toDate:time options:nil];
+    
+    NSDateComponents *stopComps = [cal components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay|NSCalendarUnitHour|NSCalendarUnitMinute|NSCalendarUnitSecond fromDate:nextTime];
+    
     lpRecordTime stopTime=(lpRecordTime)(bytes+6);
-    stopTime->year=[dateComps year]-2000+1;
-    stopTime->month=[dateComps month];
-    stopTime->day=[dateComps day];
-    stopTime->hour=[dateComps hour];
-    stopTime->min=[dateComps minute];
-    stopTime->sec=[dateComps second];
+    stopTime->year=[stopComps year]-2000;
+    stopTime->month=[stopComps month];
+    stopTime->day=[stopComps day];
+    stopTime->hour=[stopComps hour];
+    stopTime->min=[stopComps minute];
+    stopTime->sec=[stopComps second];
     
     *((int*)(bytes+12))=60*1000;
     callback(opCode_ResetFilter,[NSData dataWithBytes:bytes length:sizeof(bytes)],cb);
