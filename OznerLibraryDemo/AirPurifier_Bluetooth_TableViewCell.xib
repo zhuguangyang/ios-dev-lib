@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
@@ -37,27 +36,36 @@
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="6nU-NN-o7a">
-                                        <rect key="frame" x="74" y="0.0" width="354" height="50"/>
+                                        <rect key="frame" x="74" y="0.0" width="350" height="50"/>
                                         <subviews>
                                             <slider opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="bVb-FD-TFk">
-                                                <rect key="frame" x="-2" y="0.0" width="358" height="35"/>
+                                                <rect key="frame" x="-2" y="0.0" width="354" height="35"/>
                                                 <connections>
                                                     <action selector="SilderChanged:" destination="GA8-Zb-ylH" eventType="valueChanged" id="fwY-Xk-Hh9"/>
                                                 </connections>
                                             </slider>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="70" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IbK-RT-n0Q">
-                                                <rect key="frame" x="0.0" y="34" width="354" height="16"/>
+                                                <rect key="frame" x="0.0" y="34" width="350" height="16"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AI1-Ad-D1I" customClass="MyButton">
-                                        <rect key="frame" x="437" y="0.0" width="65" height="50"/>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bcl-Ra-oLj" customClass="MyButton">
+                                        <rect key="frame" x="433" y="0.0" width="30" height="50"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="65" id="5lX-hq-mXN"/>
-                                            <constraint firstAttribute="height" constant="46" id="M4n-eX-1Hv"/>
+                                            <constraint firstAttribute="width" constant="30" id="SsA-VA-jpS"/>
+                                        </constraints>
+                                        <state key="normal" title="重置"/>
+                                        <connections>
+                                            <action selector="resetClick:" destination="GA8-Zb-ylH" eventType="touchDown" id="xJM-2N-Ckt"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AI1-Ad-D1I" customClass="MyButton">
+                                        <rect key="frame" x="472" y="0.0" width="30" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="Gj4-oU-P2a"/>
                                         </constraints>
                                         <state key="normal" title="设置"/>
                                         <connections>

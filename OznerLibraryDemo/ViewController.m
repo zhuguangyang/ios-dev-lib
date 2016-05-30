@@ -120,7 +120,7 @@
     }
     if ([device.class isSubclassOfClass:[AirPurifier_Bluetooth class]])
     {
-        return 310;
+        return 370;
     }
     return 240;
 }

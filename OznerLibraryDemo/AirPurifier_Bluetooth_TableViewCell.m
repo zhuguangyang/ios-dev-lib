@@ -22,6 +22,13 @@
     }];
     
 }
+- (IBAction)resetClick:(id)sender {
+    int RPM=_SpeedSlider.value;
+    [self.deviceInfo startSend];
+    [air.status resetFilterStatus:^(NSError *error) {
+        [self.deviceInfo printSendStatus:error];
+    }];
+}
 
 - (IBAction)SetClick:(id)sender {
     int RPM=_SpeedSlider.value;

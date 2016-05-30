@@ -107,7 +107,7 @@
     lastTime->sec=[dateComps second];
     
     lpRecordTime stopTime=(lpRecordTime)(bytes+6);
-    stopTime->year=[dateComps year]-2000;
+    stopTime->year=[dateComps year]-2000+1;
     stopTime->month=[dateComps month];
     stopTime->day=[dateComps day];
     stopTime->hour=[dateComps hour];
