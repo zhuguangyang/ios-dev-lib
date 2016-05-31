@@ -32,4 +32,6 @@
 -(BOOL)runJob:(nonnull SEL)aSelector withObject:(nullable id)arg waitUntilDone:(BOOL)wait;
 -(void)updateScarnResponse:(int)type Data:(nullable NSData*)data;
 -(void)updateConnectStatus:(enum ConnectStatus)status;
+-(void)setInfo:(NSString*)platform Firmware:(NSDate*)firmwareVersion;
+
 @end

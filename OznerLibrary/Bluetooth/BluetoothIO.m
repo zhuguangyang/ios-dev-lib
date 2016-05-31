@@ -43,6 +43,11 @@
     }
     return self;
 }
+-(void)setInfo:(NSString*)platform Firmware:(NSDate*)firmwareVersion
+{
+    self->_Platform=[NSString stringWithString:platform];
+    self->_firmwareVersion=[firmwareVersion copy];
+}
 -(void)updateScarnResponse:(int)type Data:(NSData*)data
 {
     self->_scanResponseType=type;

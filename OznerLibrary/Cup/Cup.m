@@ -26,6 +26,8 @@
 #define opCode_ReadRecordRet  0xA4
 #define opCode_UpdateTime  0xF0
 #define opCode_Foreground 0x21
+#define opCode_ReadInfo 0x82
+#define opCode_ReadInfoRet 0x82
 
 -(instancetype)init:(NSString *)identifier Type:(NSString *)type Settings:(NSString *)json
 {
@@ -46,7 +48,10 @@
 {
     return [[CupSettings alloc] initWithJSON:json];
 }
-
+-(BOOL) sendReadInfo
+{
+    return [self send:opCode_ReadInfo Bytes:nil Length:0];
+}
 -(BOOL) sendTime;
 {
     NSDate* time=[NSDate dateWithTimeIntervalSinceNow:0];
@@ -124,6 +129,31 @@
     BytePtr bytes=(BytePtr)data.bytes;
     Byte opCode=*bytes;
     switch (opCode) {
+        case opCode_ReadInfoRet:
+        {
+            NSString* platform=[[NSString alloc] initWithBytes:(BytePtr)(bytes+1) length:3 encoding:NSASCIIStringEncoding];
+            
+            NSString* month=[[NSString alloc] initWithBytes:(BytePtr)(bytes+4) length:3 encoding:NSASCIIStringEncoding];
+            
+            NSString* day=[[NSString alloc] initWithBytes:(BytePtr)(bytes+7) length:2 encoding:NSASCIIStringEncoding];
+            
+            NSString* year=[[NSString alloc] initWithBytes:(BytePtr)(bytes+9) length:4 encoding:NSASCIIStringEncoding];
+            
+            
+            NSString* hour=[[NSString alloc] initWithBytes:(BytePtr)(bytes+13) length:2 encoding:NSASCIIStringEncoding];
+            
+            NSString* min=[[NSString alloc] initWithBytes:(BytePtr)(bytes+15) length:2 encoding:NSASCIIStringEncoding];
+            
+            NSString* sec=[[NSString alloc] initWithBytes:(BytePtr)(bytes+17) length:2 encoding:NSASCIIStringEncoding];
+            
+            
+            NSDateFormatter *formatter = [[NSDateFormatter alloc] init] ;
+            [formatter setDateFormat:@"MMM dd yyyy HH:mm:ss"];
+            NSDate* date= [formatter dateFromString:[NSString stringWithFormat:@"%@ %@ %@ %@:%@:%@",month,day,year,hour,min,sec]];
+            
+            [((BluetoothIO*)io) setInfo:platform Firmware:date];
+            
+        }
         case opCode_ReadSensorRet:
         {
             NSLog(@"Recv Sensor");
@@ -209,6 +239,11 @@
     {
         return false;
     }
+    if (![self sendReadInfo])
+    {
+        return false;
+    }
+    
     sleep(0.1f);
     [self sendSetting:nil];
     sleep(0.1f);
