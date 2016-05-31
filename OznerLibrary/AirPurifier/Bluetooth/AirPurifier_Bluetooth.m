@@ -39,6 +39,7 @@
 -(void)DeviceIODidDisconnected:(BaseDeviceIO *)io
 {
     [_sensor reset];
+    [super DeviceIODidDisconnected:io];
 }
 
 +(BOOL)isBindMode:(BluetoothIO*)io

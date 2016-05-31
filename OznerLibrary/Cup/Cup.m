@@ -190,6 +190,7 @@
     [self stop_auto_update];
     [super DeviceIODidDisconnected:io];
     [self.sensor reset];
+    
 }
 
 -(void)doSetDeviceIO:(BaseDeviceIO *)oldio NewIO:(BaseDeviceIO *)newio

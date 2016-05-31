@@ -79,6 +79,7 @@
 {
     _device=device;
     _device.delegate=self;
+    
     [self update];
 }
 
