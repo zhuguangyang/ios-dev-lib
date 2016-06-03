@@ -14,7 +14,7 @@
 {
     if (self=[super init])
     {
-        
+        _workTime=-1;
     }
     return self;
 }
