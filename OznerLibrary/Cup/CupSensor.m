@@ -24,17 +24,26 @@ typedef struct _Sensor
 -(float)powerPer
 {
     if (self.Battery==CUP_SENSOR_ERROR) return CUP_SENSOR_ERROR;
-    if (self.Battery>3000) return 1;
-    if (self.Battery>2900) return 0.9f;
-    if (self.Battery>2800) return 0.7f;
-    if (self.Battery>2700) return 0.5f;
-    if (self.Battery>2600) return 0.3f;
-    if (self.Battery>2500) return 0.17f;
-    if (self.Battery>2400) return 0.16f;
-    if (self.Battery>2300) return 0.15f;
-    if (self.Battery>2200) return 0.07f;
-    if (self.Battery>2100) return 0.03f;
-    return 0;
+    
+    if (_Battery >= 3000) {
+        float ret = _Battery - 3000.0f / (4200.0f - 3000.0f);
+        if (ret > 100)
+            ret = 100;
+        return ret;
+    } else
+        return 0;
+    
+//    if (self.Battery>3000) return 1;
+//    if (self.Battery>2900) return 0.9f;
+//    if (self.Battery>2800) return 0.7f;
+//    if (self.Battery>2700) return 0.5f;
+//    if (self.Battery>2600) return 0.3f;
+//    if (self.Battery>2500) return 0.17f;
+//    if (self.Battery>2400) return 0.16f;
+//    if (self.Battery>2300) return 0.15f;
+//    if (self.Battery>2200) return 0.07f;
+//    if (self.Battery>2100) return 0.03f;
+//    return 0;
 }
 
 -(void)reset
