@@ -26,7 +26,7 @@ typedef struct _Sensor
     if (self.Battery==CUP_SENSOR_ERROR) return CUP_SENSOR_ERROR;
     
     if (_Battery >= 3000) {
-        float ret = _Battery - 3000.0f / (4200.0f - 3000.0f);
+        float ret = (_Battery - 3000.0f) / (4200.0f - 3000.0f);
         if (ret > 100)
             ret = 100;
         return ret;
