@@ -26,6 +26,7 @@
 /*!
  @function OznerManagerDidRemoveDevice
  @discussion 删除一个配对设备事件
+ 
 */
 -(void)OznerManagerDidRemoveDevice:(OznerDevice*)device;
 /*!
