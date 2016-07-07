@@ -13,7 +13,7 @@
 @implementation TapManager
 +(BOOL)isTap:(NSString*)type
 {
-    return [type isEqualToString:@"SC001"];
+    return [type isEqualToString:@"SC001"] || [type isEqualToString:@"SCP001"];
 }
 
 -(BOOL)isMyDevice:(NSString *)type

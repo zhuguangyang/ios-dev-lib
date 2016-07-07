@@ -16,6 +16,7 @@
 #import "Helper/Helper.h"
 
 
+
 @implementation OznerManager
 
 OznerManager* oznerManager=nil;
@@ -60,6 +61,7 @@ OznerManager* oznerManager=nil;
 }
 -(void)closeAll
 {
+    
     [self.ioManager closeAll];
 }
 -(void)setOwner:(NSString *)aOwner
