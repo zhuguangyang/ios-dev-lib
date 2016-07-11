@@ -64,11 +64,12 @@ OznerManager* oznerManager=nil;
     
     [self.ioManager closeAll];
 }
--(void)setOwner:(NSString *)aOwner
+-(void)setOwner:(NSString *)aOwner Token:(NSString*)Token
 {
     if (!aOwner) return;
     
     self->owner=[[NSString stringWithString:aOwner] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    _token=Token;
     @synchronized(devices) {
         [devices removeAllObjects];
     }

@@ -53,12 +53,12 @@
     NSArray* deviceMgrList;
 }
 @property (nonatomic, weak) id<OznerManagerDelegate> delegate;
-
+@property (nonatomic, weak) NSString* token;
 /*!
  @function setOwner
  @discussion 设置当前运行账号
  */
--(void)setOwner:(NSString*)owner;
+-(void)setOwner:(NSString*)owner Token:(NSString*)Token;
 /*!
  @function getDevice
  @discussion 通过设备id获取设备对象

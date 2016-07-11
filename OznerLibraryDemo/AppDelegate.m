@@ -17,7 +17,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     OznerManager* mgr= [[OznerManager alloc] init];
-    [mgr setOwner:@"xzy"];
+    [mgr setOwner:@"18001919461" Token:@"eyJ1dWlkIjoiZTJiNmE0MzUtODExZi00ODY5LWI3MGUtNWI4NWM4ZGQyYTZkIiwic2Vzc2lvbmlkIjoiMmYzdXF5bWFjNG90aTFtMDNyMXdseHFpIiwidHlwZSI6ImFjY2Vzc190b2tlbiJ9"];
     return YES;
 }
 

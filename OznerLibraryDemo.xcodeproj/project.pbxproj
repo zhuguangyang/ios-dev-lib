@@ -108,14 +108,13 @@
 		02E98C0A1C1BB84600ED06F1 /* CupDBRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E98C091C1BB84600ED06F1 /* CupDBRecord.m */; };
 		02E98C221C1E566200ED06F1 /* WifiAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E98C211C1E566200ED06F1 /* WifiAddViewController.m */; };
 		02FBC0A91CA0DD6000C6DB5E /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 02FBC0A81CA0DD5F00C6DB5E /* libxml2.tbd */; };
-		8D1C1FC61D2E9F1700A4B45C /* AylaLibraryBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8D1C1F631D2E9F1700A4B45C /* AylaLibraryBundle.bundle */; };
-		8D1C1FC71D2E9F1700A4B45C /* libAFNetworking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D1C1FAE1D2E9F1700A4B45C /* libAFNetworking.a */; };
-		8D1C1FC81D2E9F1700A4B45C /* libCocoaAsyncSocket.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D1C1FAF1D2E9F1700A4B45C /* libCocoaAsyncSocket.a */; };
-		8D1C1FC91D2E9F1700A4B45C /* libCocoaHTTPServer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D1C1FB01D2E9F1700A4B45C /* libCocoaHTTPServer.a */; };
-		8D1C1FCA1D2E9F1700A4B45C /* libCocoaLumberjack.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D1C1FB11D2E9F1700A4B45C /* libCocoaLumberjack.a */; };
-		8D1C1FCB1D2E9F1700A4B45C /* libiOS_AylaLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D1C1FB21D2E9F1700A4B45C /* libiOS_AylaLibrary.a */; };
-		8D1C1FCC1D2E9F1700A4B45C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D1C1FB31D2E9F1700A4B45C /* libPods.a */; };
-		C1D8454D28B57075F00430D2 /* Pods_OznerLibraryDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B14056FB839D68CCC0B5CBE /* Pods_OznerLibraryDemo.framework */; };
+		8D66929C1D337F5500CE76A5 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D66929B1D337F5500CE76A5 /* libz.tbd */; };
+		8D66929E1D337F7D00CE76A5 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D66929D1D337F7D00CE76A5 /* SystemConfiguration.framework */; };
+		8D6692A01D337FE700CE76A5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D66929F1D337FE700CE76A5 /* UIKit.framework */; };
+		8D6692A21D337FF600CE76A5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D6692A11D337FF600CE76A5 /* Foundation.framework */; };
+		8D6693EA1D33990400CE76A5 /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D6693E91D33990400CE76A5 /* ExternalAccessory.framework */; };
+		8D6693EC1D33990D00CE76A5 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D6693EB1D33990D00CE76A5 /* Security.framework */; };
+		8D6693EE1D33991500CE76A5 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D6693ED1D33991500CE76A5 /* MobileCoreServices.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -314,157 +313,17 @@
 		02E98C201C1E566200ED06F1 /* WifiAddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WifiAddViewController.h; sourceTree = "<group>"; };
 		02E98C211C1E566200ED06F1 /* WifiAddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WifiAddViewController.m; sourceTree = "<group>"; };
 		02FBC0A81CA0DD5F00C6DB5E /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
-		0FC5B885947E76CDD2AA39F1 /* Pods-OznerLibraryDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OznerLibraryDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-OznerLibraryDemo/Pods-OznerLibraryDemo.release.xcconfig"; sourceTree = "<group>"; };
-		3B14056FB839D68CCC0B5CBE /* Pods_OznerLibraryDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OznerLibraryDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8D1C1F301D2E9F1700A4B45C /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
-		8D1C1F311D2E9F1700A4B45C /* AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
-		8D1C1F321D2E9F1700A4B45C /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager.h; sourceTree = "<group>"; };
-		8D1C1F331D2E9F1700A4B45C /* AFNetworkActivityIndicatorManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkActivityIndicatorManager.h; sourceTree = "<group>"; };
-		8D1C1F341D2E9F1700A4B45C /* AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworking.h; sourceTree = "<group>"; };
-		8D1C1F351D2E9F1700A4B45C /* AFNetworkReachabilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkReachabilityManager.h; sourceTree = "<group>"; };
-		8D1C1F361D2E9F1700A4B45C /* AFSecurityPolicy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFSecurityPolicy.h; sourceTree = "<group>"; };
-		8D1C1F371D2E9F1700A4B45C /* AFURLConnectionOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLConnectionOperation.h; sourceTree = "<group>"; };
-		8D1C1F381D2E9F1700A4B45C /* AFURLRequestSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLRequestSerialization.h; sourceTree = "<group>"; };
-		8D1C1F391D2E9F1700A4B45C /* AFURLResponseSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLResponseSerialization.h; sourceTree = "<group>"; };
-		8D1C1F3A1D2E9F1700A4B45C /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
-		8D1C1F3B1D2E9F1700A4B45C /* AsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncSocket.h; sourceTree = "<group>"; };
-		8D1C1F3C1D2E9F1700A4B45C /* AsyncUdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncUdpSocket.h; sourceTree = "<group>"; };
-		8D1C1F3E1D2E9F1700A4B45C /* AylaApiClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AylaApiClient.h; sourceTree = "<group>"; };
-		8D1C1F3F1D2E9F1700A4B45C /* AylaApiClientSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AylaApiClientSupport.h; sourceTree = "<group>"; };
-		8D1C1F401D2E9F1700A4B45C /* AylaAppNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AylaAppNotification.h; sourceTree = "<group>"; };
-		8D1C1F411D2E9F1700A4B45C /* AylaAppNotificationSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AylaAppNotificationSupport.h; sourceTree = "<group>"; };
-		8D1C1F421D2E9F1700A4B45C /* AylaArrayQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AylaArrayQueue.h; sourceTree = "<group>"; };
-		8D1C1F431D2E9F1700A4B45C /* AylaBatchRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AylaBatchRequest.h; sourceTree = "<group>"; };
-		8D1C1F441D2E9F1700A4B45C /* AylaBatchResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AylaBatchResponse.h; sourceTree = "<group>"; };
-		8D1C1F451D2E9F1700A4B45C /* AylaCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AylaCache.h; sourceTree = "<group>"; };
-		8D1C1F461D2E9F1700A4B45C /* AylaCacheSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AylaCacheSupport.h; sourceTree = "<group>"; };
-		8D1C1F471D2E9F1700A4B45C /* AylaConnectionOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AylaConnectionOperation.h; sourceTree = "<group>"; };
-		8D1C1F481D2E9F1700A4B45C /* AylaConnectionOperationSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AylaConnectionOperationSupport.h; sourceTree = "<group>"; };
-		8D1C1F491D2E9F1700A4B45C /* AylaContact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AylaContact.h; sourceTree = "<group>"; };
-		8D1C1F4A1D2E9F1700A4B45C /* AylaDatum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AylaDatum.h; sourceTree = "<group>"; };
-		8D1C1F4B1D2E9F1700A4B45C /* AylaDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AylaDefines.h; sourceTree = "<group>"; };
-		8D1C1F4C1D2E9F1700A4B45C /* AylaDefines_Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AylaDefines_Internal.h; sourceTree = "<group>"; };
-		8D1C1F4D1D2E9F1700A4B45C /* AylaDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AylaDevice.h; sourceTree = "<group>"; };
-		8D1C1F4E1D2E9F1700A4B45C /* AylaDeviceGateway.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AylaDeviceGateway.h; sourceTree = "<group>"; };
-		8D1C1F4F1D2E9F1700A4B45C /* AylaDeviceGatewaySupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AylaDeviceGatewaySupport.h; sourceTree = "<group>"; };
-		8D1C1F501D2E9F1700A4B45C /* AylaDeviceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AylaDeviceManager.h; sourceTree = "<group>"; };
-		8D1C1F511D2E9F1700A4B45C /* AylaDeviceNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AylaDeviceNode.h; sourceTree = "<group>"; };
-		8D1C1F521D2E9F1700A4B45C /* AylaDeviceNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AylaDeviceNotification.h; sourceTree = "<group>"; };
-		8D1C1F531D2E9F1700A4B45C /* AylaDeviceNotificationSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AylaDeviceNotificationSupport.h; sourceTree = "<group>"; };
-		8D1C1F541D2E9F1700A4B45C /* AylaDeviceSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AylaDeviceSupport.h; sourceTree = "<group>"; };
-		8D1C1F551D2E9F1700A4B45C /* AylaDiscovery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AylaDiscovery.h; sourceTree = "<group>"; };
-		8D1C1F561D2E9F1700A4B45C /* AylaError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AylaError.h; sourceTree = "<group>"; };
-		8D1C1F571D2E9F1700A4B45C /* AylaErrorSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AylaErrorSupport.h; sourceTree = "<group>"; };
-		8D1C1F581D2E9F1700A4B45C /* AylaGrant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AylaGrant.h; sourceTree = "<group>"; };
-		8D1C1F591D2E9F1700A4B45C /* AylaGrantSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AylaGrantSupport.h; sourceTree = "<group>"; };
-		8D1C1F5A1D2E9F1700A4B45C /* AylaHost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AylaHost.h; sourceTree = "<group>"; };
-		8D1C1F5B1D2E9F1700A4B45C /* AylaHTTPOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AylaHTTPOperation.h; sourceTree = "<group>"; };
-		8D1C1F5C1D2E9F1700A4B45C /* AylaLanCommandEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AylaLanCommandEntity.h; sourceTree = "<group>"; };
-		8D1C1F5D1D2E9F1700A4B45C /* AylaLanMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AylaLanMessage.h; sourceTree = "<group>"; };
-		8D1C1F5E1D2E9F1700A4B45C /* AylaLanMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AylaLanMode.h; sourceTree = "<group>"; };
-		8D1C1F5F1D2E9F1700A4B45C /* AylaLanModeSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AylaLanModeSupport.h; sourceTree = "<group>"; };
-		8D1C1F601D2E9F1700A4B45C /* AylaLanModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AylaLanModule.h; sourceTree = "<group>"; };
-		8D1C1F611D2E9F1700A4B45C /* AylaLanOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AylaLanOperation.h; sourceTree = "<group>"; };
-		8D1C1F621D2E9F1700A4B45C /* AylaLanSession+Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AylaLanSession+Message.h"; sourceTree = "<group>"; };
-		8D1C1F631D2E9F1700A4B45C /* AylaLibraryBundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AylaLibraryBundle.bundle; sourceTree = "<group>"; };
-		8D1C1F641D2E9F1700A4B45C /* AylaLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AylaLocation.h; sourceTree = "<group>"; };
-		8D1C1F651D2E9F1700A4B45C /* AylaLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AylaLog.h; sourceTree = "<group>"; };
-		8D1C1F661D2E9F1700A4B45C /* AylaLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AylaLogger.h; sourceTree = "<group>"; };
-		8D1C1F671D2E9F1700A4B45C /* AylaLogManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AylaLogManager.h; sourceTree = "<group>"; };
-		8D1C1F681D2E9F1700A4B45C /* AylaLogManagerSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AylaLogManagerSupport.h; sourceTree = "<group>"; };
-		8D1C1F691D2E9F1700A4B45C /* AylaLogService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AylaLogService.h; sourceTree = "<group>"; };
-		8D1C1F6A1D2E9F1700A4B45C /* AylaLogSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AylaLogSupport.h; sourceTree = "<group>"; };
-		8D1C1F6B1D2E9F1700A4B45C /* AylaMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AylaMessage.h; sourceTree = "<group>"; };
-		8D1C1F6C1D2E9F1700A4B45C /* AylaMessageResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AylaMessageResponse.h; sourceTree = "<group>"; };
-		8D1C1F6D1D2E9F1700A4B45C /* AylaModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AylaModule.h; sourceTree = "<group>"; };
-		8D1C1F6E1D2E9F1700A4B45C /* AylaModuleScanResults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AylaModuleScanResults.h; sourceTree = "<group>"; };
-		8D1C1F6F1D2E9F1700A4B45C /* AylaModuleSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AylaModuleSupport.h; sourceTree = "<group>"; };
-		8D1C1F701D2E9F1700A4B45C /* AylaNetworks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AylaNetworks.h; sourceTree = "<group>"; };
-		8D1C1F711D2E9F1700A4B45C /* AylaNotify.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AylaNotify.h; sourceTree = "<group>"; };
-		8D1C1F721D2E9F1700A4B45C /* AylaNotifyHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AylaNotifyHandler.h; sourceTree = "<group>"; };
-		8D1C1F731D2E9F1700A4B45C /* AylaOAuth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AylaOAuth.h; sourceTree = "<group>"; };
-		8D1C1F741D2E9F1700A4B45C /* AylaReachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AylaReachability.h; sourceTree = "<group>"; };
-		8D1C1F751D2E9F1700A4B45C /* AylaReachabilitySupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AylaReachabilitySupport.h; sourceTree = "<group>"; };
-		8D1C1F761D2E9F1700A4B45C /* AylaRegistration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AylaRegistration.h; sourceTree = "<group>"; };
-		8D1C1F771D2E9F1700A4B45C /* AylaRequestAck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AylaRequestAck.h; sourceTree = "<group>"; };
-		8D1C1F781D2E9F1700A4B45C /* AylaResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AylaResponse.h; sourceTree = "<group>"; };
-		8D1C1F791D2E9F1700A4B45C /* AylaResponseSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AylaResponseSupport.h; sourceTree = "<group>"; };
-		8D1C1F7A1D2E9F1700A4B45C /* AylaSchedule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AylaSchedule.h; sourceTree = "<group>"; };
-		8D1C1F7B1D2E9F1700A4B45C /* AylaScheduleAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AylaScheduleAction.h; sourceTree = "<group>"; };
-		8D1C1F7C1D2E9F1700A4B45C /* AylaScheduleActionSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AylaScheduleActionSupport.h; sourceTree = "<group>"; };
-		8D1C1F7D1D2E9F1700A4B45C /* AylaScheduleSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AylaScheduleSupport.h; sourceTree = "<group>"; };
-		8D1C1F7E1D2E9F1700A4B45C /* AylaSecurity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AylaSecurity.h; sourceTree = "<group>"; };
-		8D1C1F7F1D2E9F1700A4B45C /* AylaSecuritySupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AylaSecuritySupport.h; sourceTree = "<group>"; };
-		8D1C1F801D2E9F1700A4B45C /* AylaSetup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AylaSetup.h; sourceTree = "<group>"; };
-		8D1C1F811D2E9F1700A4B45C /* AylaSetupSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AylaSetupSupport.h; sourceTree = "<group>"; };
-		8D1C1F821D2E9F1700A4B45C /* AylaShare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AylaShare.h; sourceTree = "<group>"; };
-		8D1C1F831D2E9F1700A4B45C /* AylaShareUserProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AylaShareUserProfile.h; sourceTree = "<group>"; };
-		8D1C1F841D2E9F1700A4B45C /* AylaSystemUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AylaSystemUtils.h; sourceTree = "<group>"; };
-		8D1C1F851D2E9F1700A4B45C /* AylaSystemUtilsSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AylaSystemUtilsSupport.h; sourceTree = "<group>"; };
-		8D1C1F861D2E9F1700A4B45C /* AylaTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AylaTimer.h; sourceTree = "<group>"; };
-		8D1C1F871D2E9F1700A4B45C /* AylaTimeZone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AylaTimeZone.h; sourceTree = "<group>"; };
-		8D1C1F881D2E9F1700A4B45C /* AylaTrigger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AylaTrigger.h; sourceTree = "<group>"; };
-		8D1C1F891D2E9F1700A4B45C /* AylaTriggerSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AylaTriggerSupport.h; sourceTree = "<group>"; };
-		8D1C1F8A1D2E9F1700A4B45C /* AylaUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AylaUser.h; sourceTree = "<group>"; };
-		8D1C1F8B1D2E9F1700A4B45C /* AylaWiFiConnectHistory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AylaWiFiConnectHistory.h; sourceTree = "<group>"; };
-		8D1C1F8C1D2E9F1700A4B45C /* AylaWiFiStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AylaWiFiStatus.h; sourceTree = "<group>"; };
-		8D1C1F8D1D2E9F1700A4B45C /* CocoaLumberjack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CocoaLumberjack.h; sourceTree = "<group>"; };
-		8D1C1F8E1D2E9F1700A4B45C /* DAVConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAVConnection.h; sourceTree = "<group>"; };
-		8D1C1F8F1D2E9F1700A4B45C /* DAVResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAVResponse.h; sourceTree = "<group>"; };
-		8D1C1F901D2E9F1700A4B45C /* DDAbstractDatabaseLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDAbstractDatabaseLogger.h; sourceTree = "<group>"; };
-		8D1C1F911D2E9F1700A4B45C /* DDASLLogCapture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDASLLogCapture.h; sourceTree = "<group>"; };
-		8D1C1F921D2E9F1700A4B45C /* DDASLLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDASLLogger.h; sourceTree = "<group>"; };
-		8D1C1F931D2E9F1700A4B45C /* DDAssertMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDAssertMacros.h; sourceTree = "<group>"; };
-		8D1C1F941D2E9F1700A4B45C /* DDContextFilterLogFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDContextFilterLogFormatter.h; sourceTree = "<group>"; };
-		8D1C1F951D2E9F1700A4B45C /* DDData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDData.h; sourceTree = "<group>"; };
-		8D1C1F961D2E9F1700A4B45C /* DDDispatchQueueLogFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDDispatchQueueLogFormatter.h; sourceTree = "<group>"; };
-		8D1C1F971D2E9F1700A4B45C /* DDFileLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDFileLogger.h; sourceTree = "<group>"; };
-		8D1C1F981D2E9F1700A4B45C /* DDLegacyMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDLegacyMacros.h; sourceTree = "<group>"; };
-		8D1C1F991D2E9F1700A4B45C /* DDLog+LOGV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DDLog+LOGV.h"; sourceTree = "<group>"; };
-		8D1C1F9A1D2E9F1700A4B45C /* DDLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDLog.h; sourceTree = "<group>"; };
-		8D1C1F9B1D2E9F1700A4B45C /* DDLogMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDLogMacros.h; sourceTree = "<group>"; };
-		8D1C1F9C1D2E9F1700A4B45C /* DDMultiFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDMultiFormatter.h; sourceTree = "<group>"; };
-		8D1C1F9D1D2E9F1700A4B45C /* DDNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDNumber.h; sourceTree = "<group>"; };
-		8D1C1F9E1D2E9F1700A4B45C /* DDRange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDRange.h; sourceTree = "<group>"; };
-		8D1C1F9F1D2E9F1700A4B45C /* DDTTYLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDTTYLogger.h; sourceTree = "<group>"; };
-		8D1C1FA01D2E9F1700A4B45C /* DELETEResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DELETEResponse.h; sourceTree = "<group>"; };
-		8D1C1FA11D2E9F1700A4B45C /* GCDAsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncSocket.h; sourceTree = "<group>"; };
-		8D1C1FA21D2E9F1700A4B45C /* GCDAsyncUdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncUdpSocket.h; sourceTree = "<group>"; };
-		8D1C1FA31D2E9F1700A4B45C /* HTTPAsyncFileResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPAsyncFileResponse.h; sourceTree = "<group>"; };
-		8D1C1FA41D2E9F1700A4B45C /* HTTPAuthenticationRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPAuthenticationRequest.h; sourceTree = "<group>"; };
-		8D1C1FA51D2E9F1700A4B45C /* HTTPConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPConnection.h; sourceTree = "<group>"; };
-		8D1C1FA61D2E9F1700A4B45C /* HTTPDataResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPDataResponse.h; sourceTree = "<group>"; };
-		8D1C1FA71D2E9F1700A4B45C /* HTTPDynamicFileResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPDynamicFileResponse.h; sourceTree = "<group>"; };
-		8D1C1FA81D2E9F1700A4B45C /* HTTPFileResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPFileResponse.h; sourceTree = "<group>"; };
-		8D1C1FA91D2E9F1700A4B45C /* HTTPLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPLogging.h; sourceTree = "<group>"; };
-		8D1C1FAA1D2E9F1700A4B45C /* HTTPMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPMessage.h; sourceTree = "<group>"; };
-		8D1C1FAB1D2E9F1700A4B45C /* HTTPRedirectResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPRedirectResponse.h; sourceTree = "<group>"; };
-		8D1C1FAC1D2E9F1700A4B45C /* HTTPResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPResponse.h; sourceTree = "<group>"; };
-		8D1C1FAD1D2E9F1700A4B45C /* HTTPServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPServer.h; sourceTree = "<group>"; };
-		8D1C1FAE1D2E9F1700A4B45C /* libAFNetworking.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libAFNetworking.a; sourceTree = "<group>"; };
-		8D1C1FAF1D2E9F1700A4B45C /* libCocoaAsyncSocket.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libCocoaAsyncSocket.a; sourceTree = "<group>"; };
-		8D1C1FB01D2E9F1700A4B45C /* libCocoaHTTPServer.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libCocoaHTTPServer.a; sourceTree = "<group>"; };
-		8D1C1FB11D2E9F1700A4B45C /* libCocoaLumberjack.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libCocoaLumberjack.a; sourceTree = "<group>"; };
-		8D1C1FB21D2E9F1700A4B45C /* libiOS_AylaLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libiOS_AylaLibrary.a; sourceTree = "<group>"; };
-		8D1C1FB31D2E9F1700A4B45C /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libPods.a; sourceTree = "<group>"; };
-		8D1C1FB41D2E9F1700A4B45C /* MultipartFormDataParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultipartFormDataParser.h; sourceTree = "<group>"; };
-		8D1C1FB51D2E9F1700A4B45C /* MultipartMessageHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultipartMessageHeader.h; sourceTree = "<group>"; };
-		8D1C1FB61D2E9F1700A4B45C /* MultipartMessageHeaderField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultipartMessageHeaderField.h; sourceTree = "<group>"; };
-		8D1C1FB71D2E9F1700A4B45C /* NSObject+AylaNetworks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+AylaNetworks.h"; sourceTree = "<group>"; };
-		8D1C1FB81D2E9F1700A4B45C /* NSString+AylaNetworks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+AylaNetworks.h"; sourceTree = "<group>"; };
-		8D1C1FB91D2E9F1700A4B45C /* NSString+Validation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Validation.h"; sourceTree = "<group>"; };
-		8D1C1FBA1D2E9F1700A4B45C /* PUTResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PUTResponse.h; sourceTree = "<group>"; };
-		8D1C1FBB1D2E9F1700A4B45C /* UIActivityIndicatorView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIActivityIndicatorView+AFNetworking.h"; sourceTree = "<group>"; };
-		8D1C1FBC1D2E9F1700A4B45C /* UIAlertView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+AFNetworking.h"; sourceTree = "<group>"; };
-		8D1C1FBD1D2E9F1700A4B45C /* UIButton+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+AFNetworking.h"; sourceTree = "<group>"; };
-		8D1C1FBE1D2E9F1700A4B45C /* UIImage+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+AFNetworking.h"; sourceTree = "<group>"; };
-		8D1C1FBF1D2E9F1700A4B45C /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
-		8D1C1FC01D2E9F1700A4B45C /* UIKit+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIKit+AFNetworking.h"; sourceTree = "<group>"; };
-		8D1C1FC11D2E9F1700A4B45C /* UIProgressView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIProgressView+AFNetworking.h"; sourceTree = "<group>"; };
-		8D1C1FC21D2E9F1700A4B45C /* UIRefreshControl+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIRefreshControl+AFNetworking.h"; sourceTree = "<group>"; };
-		8D1C1FC31D2E9F1700A4B45C /* UIWebView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWebView+AFNetworking.h"; sourceTree = "<group>"; };
-		8D1C1FC41D2E9F1700A4B45C /* WebSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebSocket.h; sourceTree = "<group>"; };
-		A8CA77D961A2A858AF119767 /* Pods-OznerLibraryDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OznerLibraryDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OznerLibraryDemo/Pods-OznerLibraryDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		8D66929B1D337F5500CE76A5 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		8D66929D1D337F7D00CE76A5 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		8D66929F1D337FE700CE76A5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		8D6692A11D337FF600CE76A5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		8D6692A31D33800B00CE76A5 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		8D6692A51D33801B00CE76A5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		8D6692A71D33802900CE76A5 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		8D6692A91D33803800CE76A5 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		8D6693E91D33990400CE76A5 /* ExternalAccessory.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExternalAccessory.framework; path = System/Library/Frameworks/ExternalAccessory.framework; sourceTree = SDKROOT; };
+		8D6693EB1D33990D00CE76A5 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		8D6693ED1D33991500CE76A5 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -472,15 +331,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D6693EE1D33991500CE76A5 /* MobileCoreServices.framework in Frameworks */,
+				8D6693EC1D33990D00CE76A5 /* Security.framework in Frameworks */,
+				8D6693EA1D33990400CE76A5 /* ExternalAccessory.framework in Frameworks */,
+				8D6692A21D337FF600CE76A5 /* Foundation.framework in Frameworks */,
+				8D6692A01D337FE700CE76A5 /* UIKit.framework in Frameworks */,
+				8D66929E1D337F7D00CE76A5 /* SystemConfiguration.framework in Frameworks */,
+				8D66929C1D337F5500CE76A5 /* libz.tbd in Frameworks */,
 				02FBC0A91CA0DD6000C6DB5E /* libxml2.tbd in Frameworks */,
-				8D1C1FCA1D2E9F1700A4B45C /* libCocoaLumberjack.a in Frameworks */,
 				02E98BF71C18686100ED06F1 /* libsqlite3.0.tbd in Frameworks */,
-				8D1C1FC91D2E9F1700A4B45C /* libCocoaHTTPServer.a in Frameworks */,
-				8D1C1FC71D2E9F1700A4B45C /* libAFNetworking.a in Frameworks */,
-				8D1C1FCC1D2E9F1700A4B45C /* libPods.a in Frameworks */,
-				8D1C1FCB1D2E9F1700A4B45C /* libiOS_AylaLibrary.a in Frameworks */,
-				8D1C1FC81D2E9F1700A4B45C /* libCocoaAsyncSocket.a in Frameworks */,
-				C1D8454D28B57075F00430D2 /* Pods_OznerLibraryDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -578,7 +437,6 @@
 				02E98B501C18679D00ED06F1 /* OznerLibrary */,
 				02E98B261C18673000ED06F1 /* OznerLibraryDemo */,
 				02E98B251C18673000ED06F1 /* Products */,
-				2020320051B377D22A486A1C /* Pods */,
 				875BA39E36FF0A1BC4D147AA /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -638,9 +496,9 @@
 		02E98B501C18679D00ED06F1 /* OznerLibrary */ = {
 			isa = PBXGroup;
 			children = (
-				02067F7C1C27E5CE009A05D4 /* WaterReplenishmentMeter */,
 				02E98B951C18679D00ED06F1 /* OznerManager.h */,
 				02E98B961C18679D00ED06F1 /* OznerManager.m */,
+				02067F7C1C27E5CE009A05D4 /* WaterReplenishmentMeter */,
 				02E98B511C18679D00ED06F1 /* AirPurifier */,
 				02E98B5E1C18679D00ED06F1 /* Bluetooth */,
 				02E98B691C18679D00ED06F1 /* Cup */,
@@ -807,7 +665,6 @@
 		02E98BB31C18679D00ED06F1 /* Wifi */ = {
 			isa = PBXGroup;
 			children = (
-				8D1C1F2F1D2E9F1700A4B45C /* AylaLiabrary */,
 				02E98BB41C18679D00ED06F1 /* MXChip */,
 			);
 			path = Wifi;
@@ -859,176 +716,22 @@
 			name = Bluetooth;
 			sourceTree = "<group>";
 		};
-		2020320051B377D22A486A1C /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				A8CA77D961A2A858AF119767 /* Pods-OznerLibraryDemo.debug.xcconfig */,
-				0FC5B885947E76CDD2AA39F1 /* Pods-OznerLibraryDemo.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		875BA39E36FF0A1BC4D147AA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				3B14056FB839D68CCC0B5CBE /* Pods_OznerLibraryDemo.framework */,
+				8D6693ED1D33991500CE76A5 /* MobileCoreServices.framework */,
+				8D6693EB1D33990D00CE76A5 /* Security.framework */,
+				8D6693E91D33990400CE76A5 /* ExternalAccessory.framework */,
+				8D6692A91D33803800CE76A5 /* MessageUI.framework */,
+				8D6692A71D33802900CE76A5 /* CoreLocation.framework */,
+				8D6692A51D33801B00CE76A5 /* CoreGraphics.framework */,
+				8D6692A31D33800B00CE76A5 /* AudioToolbox.framework */,
+				8D6692A11D337FF600CE76A5 /* Foundation.framework */,
+				8D66929F1D337FE700CE76A5 /* UIKit.framework */,
+				8D66929D1D337F7D00CE76A5 /* SystemConfiguration.framework */,
+				8D66929B1D337F5500CE76A5 /* libz.tbd */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		8D1C1F2F1D2E9F1700A4B45C /* AylaLiabrary */ = {
-			isa = PBXGroup;
-			children = (
-				8D1C1F301D2E9F1700A4B45C /* AFHTTPRequestOperation.h */,
-				8D1C1F311D2E9F1700A4B45C /* AFHTTPRequestOperationManager.h */,
-				8D1C1F321D2E9F1700A4B45C /* AFHTTPSessionManager.h */,
-				8D1C1F331D2E9F1700A4B45C /* AFNetworkActivityIndicatorManager.h */,
-				8D1C1F341D2E9F1700A4B45C /* AFNetworking.h */,
-				8D1C1F351D2E9F1700A4B45C /* AFNetworkReachabilityManager.h */,
-				8D1C1F361D2E9F1700A4B45C /* AFSecurityPolicy.h */,
-				8D1C1F371D2E9F1700A4B45C /* AFURLConnectionOperation.h */,
-				8D1C1F381D2E9F1700A4B45C /* AFURLRequestSerialization.h */,
-				8D1C1F391D2E9F1700A4B45C /* AFURLResponseSerialization.h */,
-				8D1C1F3A1D2E9F1700A4B45C /* AFURLSessionManager.h */,
-				8D1C1F3B1D2E9F1700A4B45C /* AsyncSocket.h */,
-				8D1C1F3C1D2E9F1700A4B45C /* AsyncUdpSocket.h */,
-				8D1C1F3E1D2E9F1700A4B45C /* AylaApiClient.h */,
-				8D1C1F3F1D2E9F1700A4B45C /* AylaApiClientSupport.h */,
-				8D1C1F401D2E9F1700A4B45C /* AylaAppNotification.h */,
-				8D1C1F411D2E9F1700A4B45C /* AylaAppNotificationSupport.h */,
-				8D1C1F421D2E9F1700A4B45C /* AylaArrayQueue.h */,
-				8D1C1F431D2E9F1700A4B45C /* AylaBatchRequest.h */,
-				8D1C1F441D2E9F1700A4B45C /* AylaBatchResponse.h */,
-				8D1C1F451D2E9F1700A4B45C /* AylaCache.h */,
-				8D1C1F461D2E9F1700A4B45C /* AylaCacheSupport.h */,
-				8D1C1F471D2E9F1700A4B45C /* AylaConnectionOperation.h */,
-				8D1C1F481D2E9F1700A4B45C /* AylaConnectionOperationSupport.h */,
-				8D1C1F491D2E9F1700A4B45C /* AylaContact.h */,
-				8D1C1F4A1D2E9F1700A4B45C /* AylaDatum.h */,
-				8D1C1F4B1D2E9F1700A4B45C /* AylaDefines.h */,
-				8D1C1F4C1D2E9F1700A4B45C /* AylaDefines_Internal.h */,
-				8D1C1F4D1D2E9F1700A4B45C /* AylaDevice.h */,
-				8D1C1F4E1D2E9F1700A4B45C /* AylaDeviceGateway.h */,
-				8D1C1F4F1D2E9F1700A4B45C /* AylaDeviceGatewaySupport.h */,
-				8D1C1F501D2E9F1700A4B45C /* AylaDeviceManager.h */,
-				8D1C1F511D2E9F1700A4B45C /* AylaDeviceNode.h */,
-				8D1C1F521D2E9F1700A4B45C /* AylaDeviceNotification.h */,
-				8D1C1F531D2E9F1700A4B45C /* AylaDeviceNotificationSupport.h */,
-				8D1C1F541D2E9F1700A4B45C /* AylaDeviceSupport.h */,
-				8D1C1F551D2E9F1700A4B45C /* AylaDiscovery.h */,
-				8D1C1F561D2E9F1700A4B45C /* AylaError.h */,
-				8D1C1F571D2E9F1700A4B45C /* AylaErrorSupport.h */,
-				8D1C1F581D2E9F1700A4B45C /* AylaGrant.h */,
-				8D1C1F591D2E9F1700A4B45C /* AylaGrantSupport.h */,
-				8D1C1F5A1D2E9F1700A4B45C /* AylaHost.h */,
-				8D1C1F5B1D2E9F1700A4B45C /* AylaHTTPOperation.h */,
-				8D1C1F5C1D2E9F1700A4B45C /* AylaLanCommandEntity.h */,
-				8D1C1F5D1D2E9F1700A4B45C /* AylaLanMessage.h */,
-				8D1C1F5E1D2E9F1700A4B45C /* AylaLanMode.h */,
-				8D1C1F5F1D2E9F1700A4B45C /* AylaLanModeSupport.h */,
-				8D1C1F601D2E9F1700A4B45C /* AylaLanModule.h */,
-				8D1C1F611D2E9F1700A4B45C /* AylaLanOperation.h */,
-				8D1C1F621D2E9F1700A4B45C /* AylaLanSession+Message.h */,
-				8D1C1F631D2E9F1700A4B45C /* AylaLibraryBundle.bundle */,
-				8D1C1F641D2E9F1700A4B45C /* AylaLocation.h */,
-				8D1C1F651D2E9F1700A4B45C /* AylaLog.h */,
-				8D1C1F661D2E9F1700A4B45C /* AylaLogger.h */,
-				8D1C1F671D2E9F1700A4B45C /* AylaLogManager.h */,
-				8D1C1F681D2E9F1700A4B45C /* AylaLogManagerSupport.h */,
-				8D1C1F691D2E9F1700A4B45C /* AylaLogService.h */,
-				8D1C1F6A1D2E9F1700A4B45C /* AylaLogSupport.h */,
-				8D1C1F6B1D2E9F1700A4B45C /* AylaMessage.h */,
-				8D1C1F6C1D2E9F1700A4B45C /* AylaMessageResponse.h */,
-				8D1C1F6D1D2E9F1700A4B45C /* AylaModule.h */,
-				8D1C1F6E1D2E9F1700A4B45C /* AylaModuleScanResults.h */,
-				8D1C1F6F1D2E9F1700A4B45C /* AylaModuleSupport.h */,
-				8D1C1F701D2E9F1700A4B45C /* AylaNetworks.h */,
-				8D1C1F711D2E9F1700A4B45C /* AylaNotify.h */,
-				8D1C1F721D2E9F1700A4B45C /* AylaNotifyHandler.h */,
-				8D1C1F731D2E9F1700A4B45C /* AylaOAuth.h */,
-				8D1C1F741D2E9F1700A4B45C /* AylaReachability.h */,
-				8D1C1F751D2E9F1700A4B45C /* AylaReachabilitySupport.h */,
-				8D1C1F761D2E9F1700A4B45C /* AylaRegistration.h */,
-				8D1C1F771D2E9F1700A4B45C /* AylaRequestAck.h */,
-				8D1C1F781D2E9F1700A4B45C /* AylaResponse.h */,
-				8D1C1F791D2E9F1700A4B45C /* AylaResponseSupport.h */,
-				8D1C1F7A1D2E9F1700A4B45C /* AylaSchedule.h */,
-				8D1C1F7B1D2E9F1700A4B45C /* AylaScheduleAction.h */,
-				8D1C1F7C1D2E9F1700A4B45C /* AylaScheduleActionSupport.h */,
-				8D1C1F7D1D2E9F1700A4B45C /* AylaScheduleSupport.h */,
-				8D1C1F7E1D2E9F1700A4B45C /* AylaSecurity.h */,
-				8D1C1F7F1D2E9F1700A4B45C /* AylaSecuritySupport.h */,
-				8D1C1F801D2E9F1700A4B45C /* AylaSetup.h */,
-				8D1C1F811D2E9F1700A4B45C /* AylaSetupSupport.h */,
-				8D1C1F821D2E9F1700A4B45C /* AylaShare.h */,
-				8D1C1F831D2E9F1700A4B45C /* AylaShareUserProfile.h */,
-				8D1C1F841D2E9F1700A4B45C /* AylaSystemUtils.h */,
-				8D1C1F851D2E9F1700A4B45C /* AylaSystemUtilsSupport.h */,
-				8D1C1F861D2E9F1700A4B45C /* AylaTimer.h */,
-				8D1C1F871D2E9F1700A4B45C /* AylaTimeZone.h */,
-				8D1C1F881D2E9F1700A4B45C /* AylaTrigger.h */,
-				8D1C1F891D2E9F1700A4B45C /* AylaTriggerSupport.h */,
-				8D1C1F8A1D2E9F1700A4B45C /* AylaUser.h */,
-				8D1C1F8B1D2E9F1700A4B45C /* AylaWiFiConnectHistory.h */,
-				8D1C1F8C1D2E9F1700A4B45C /* AylaWiFiStatus.h */,
-				8D1C1F8D1D2E9F1700A4B45C /* CocoaLumberjack.h */,
-				8D1C1F8E1D2E9F1700A4B45C /* DAVConnection.h */,
-				8D1C1F8F1D2E9F1700A4B45C /* DAVResponse.h */,
-				8D1C1F901D2E9F1700A4B45C /* DDAbstractDatabaseLogger.h */,
-				8D1C1F911D2E9F1700A4B45C /* DDASLLogCapture.h */,
-				8D1C1F921D2E9F1700A4B45C /* DDASLLogger.h */,
-				8D1C1F931D2E9F1700A4B45C /* DDAssertMacros.h */,
-				8D1C1F941D2E9F1700A4B45C /* DDContextFilterLogFormatter.h */,
-				8D1C1F951D2E9F1700A4B45C /* DDData.h */,
-				8D1C1F961D2E9F1700A4B45C /* DDDispatchQueueLogFormatter.h */,
-				8D1C1F971D2E9F1700A4B45C /* DDFileLogger.h */,
-				8D1C1F981D2E9F1700A4B45C /* DDLegacyMacros.h */,
-				8D1C1F991D2E9F1700A4B45C /* DDLog+LOGV.h */,
-				8D1C1F9A1D2E9F1700A4B45C /* DDLog.h */,
-				8D1C1F9B1D2E9F1700A4B45C /* DDLogMacros.h */,
-				8D1C1F9C1D2E9F1700A4B45C /* DDMultiFormatter.h */,
-				8D1C1F9D1D2E9F1700A4B45C /* DDNumber.h */,
-				8D1C1F9E1D2E9F1700A4B45C /* DDRange.h */,
-				8D1C1F9F1D2E9F1700A4B45C /* DDTTYLogger.h */,
-				8D1C1FA01D2E9F1700A4B45C /* DELETEResponse.h */,
-				8D1C1FA11D2E9F1700A4B45C /* GCDAsyncSocket.h */,
-				8D1C1FA21D2E9F1700A4B45C /* GCDAsyncUdpSocket.h */,
-				8D1C1FA31D2E9F1700A4B45C /* HTTPAsyncFileResponse.h */,
-				8D1C1FA41D2E9F1700A4B45C /* HTTPAuthenticationRequest.h */,
-				8D1C1FA51D2E9F1700A4B45C /* HTTPConnection.h */,
-				8D1C1FA61D2E9F1700A4B45C /* HTTPDataResponse.h */,
-				8D1C1FA71D2E9F1700A4B45C /* HTTPDynamicFileResponse.h */,
-				8D1C1FA81D2E9F1700A4B45C /* HTTPFileResponse.h */,
-				8D1C1FA91D2E9F1700A4B45C /* HTTPLogging.h */,
-				8D1C1FAA1D2E9F1700A4B45C /* HTTPMessage.h */,
-				8D1C1FAB1D2E9F1700A4B45C /* HTTPRedirectResponse.h */,
-				8D1C1FAC1D2E9F1700A4B45C /* HTTPResponse.h */,
-				8D1C1FAD1D2E9F1700A4B45C /* HTTPServer.h */,
-				8D1C1FAE1D2E9F1700A4B45C /* libAFNetworking.a */,
-				8D1C1FAF1D2E9F1700A4B45C /* libCocoaAsyncSocket.a */,
-				8D1C1FB01D2E9F1700A4B45C /* libCocoaHTTPServer.a */,
-				8D1C1FB11D2E9F1700A4B45C /* libCocoaLumberjack.a */,
-				8D1C1FB21D2E9F1700A4B45C /* libiOS_AylaLibrary.a */,
-				8D1C1FB31D2E9F1700A4B45C /* libPods.a */,
-				8D1C1FB41D2E9F1700A4B45C /* MultipartFormDataParser.h */,
-				8D1C1FB51D2E9F1700A4B45C /* MultipartMessageHeader.h */,
-				8D1C1FB61D2E9F1700A4B45C /* MultipartMessageHeaderField.h */,
-				8D1C1FB71D2E9F1700A4B45C /* NSObject+AylaNetworks.h */,
-				8D1C1FB81D2E9F1700A4B45C /* NSString+AylaNetworks.h */,
-				8D1C1FB91D2E9F1700A4B45C /* NSString+Validation.h */,
-				8D1C1FBA1D2E9F1700A4B45C /* PUTResponse.h */,
-				8D1C1FBB1D2E9F1700A4B45C /* UIActivityIndicatorView+AFNetworking.h */,
-				8D1C1FBC1D2E9F1700A4B45C /* UIAlertView+AFNetworking.h */,
-				8D1C1FBD1D2E9F1700A4B45C /* UIButton+AFNetworking.h */,
-				8D1C1FBE1D2E9F1700A4B45C /* UIImage+AFNetworking.h */,
-				8D1C1FBF1D2E9F1700A4B45C /* UIImageView+AFNetworking.h */,
-				8D1C1FC01D2E9F1700A4B45C /* UIKit+AFNetworking.h */,
-				8D1C1FC11D2E9F1700A4B45C /* UIProgressView+AFNetworking.h */,
-				8D1C1FC21D2E9F1700A4B45C /* UIRefreshControl+AFNetworking.h */,
-				8D1C1FC31D2E9F1700A4B45C /* UIWebView+AFNetworking.h */,
-				8D1C1FC41D2E9F1700A4B45C /* WebSocket.h */,
-			);
-			path = AylaLiabrary;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1038,12 +741,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 02E98B3B1C18673100ED06F1 /* Build configuration list for PBXNativeTarget "OznerLibraryDemo" */;
 			buildPhases = (
-				D4E7AA9E9965F270D0D97BE0 /* [CP] Check Pods Manifest.lock */,
 				02E98B201C18673000ED06F1 /* Sources */,
 				02E98B211C18673000ED06F1 /* Frameworks */,
 				02E98B221C18673000ED06F1 /* Resources */,
-				CE2696EBB718C74BF748B615 /* [CP] Embed Pods Frameworks */,
-				A30A2E2DB9E466C6D1EDB099 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1093,7 +793,6 @@
 			files = (
 				02E98B371C18673000ED06F1 /* LaunchScreen.storyboard in Resources */,
 				02067F8A1C27F797009A05D4 /* WaterReplenishmentMeter_TableViewCell.xib in Resources */,
-				8D1C1FC61D2E9F1700A4B45C /* AylaLibraryBundle.bundle in Resources */,
 				0286D58B1C23A34000C027B5 /* AirPurifier_Bluetooth_TableViewCell.xib in Resources */,
 				0286D5771C21438C00C027B5 /* DeviceTableViewCell.xib in Resources */,
 				02E98B4E1C18676400ED06F1 /* ic_settings_bluetooth.png in Resources */,
@@ -1107,54 +806,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		A30A2E2DB9E466C6D1EDB099 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OznerLibraryDemo/Pods-OznerLibraryDemo-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		CE2696EBB718C74BF748B615 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OznerLibraryDemo/Pods-OznerLibraryDemo-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D4E7AA9E9965F270D0D97BE0 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		02E98B201C18673000ED06F1 /* Sources */ = {
@@ -1358,7 +1009,6 @@
 		};
 		02E98B3C1C18673100ED06F1 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A8CA77D961A2A858AF119767 /* Pods-OznerLibraryDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -1385,7 +1035,6 @@
 		};
 		02E98B3D1C18673100ED06F1 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0FC5B885947E76CDD2AA39F1 /* Pods-OznerLibraryDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
