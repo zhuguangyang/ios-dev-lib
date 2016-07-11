@@ -18,7 +18,7 @@
 #endif
 
 
-@interface HTTPServer : NSObject IMPLEMENTED_PROTOCOLS
+@interface HttpServer_Xu : NSObject IMPLEMENTED_PROTOCOLS
 {
 	// Underlying asynchronous TCP/IP socket
 	dispatch_queue_t serverQueue;

@@ -10,14 +10,14 @@
 #import <sys/socket.h>
 #import <netinet/in.h>
 #import <arpa/inet.h>
-@class HttpServer;
+@class HttpServer_Xu;
 
 @protocol onFTCfinishedDelegate <NSObject>
 @required
 -(void)onFTCfinished:(NSString *)json;
 @end
 
-@interface HttpServer : NSObject
+@interface HttpServer_Xu : NSObject
 {
     ushort _port;
     int _socket;

@@ -37,7 +37,7 @@
 		028727EA1C37B3340013857D /* util_mosq.c in Sources */ = {isa = PBXBuildFile; fileRef = 028727D51C37B3340013857D /* util_mosq.c */; };
 		028727EB1C37B3340013857D /* will_mosq.c in Sources */ = {isa = PBXBuildFile; fileRef = 028727D71C37B3340013857D /* will_mosq.c */; };
 		028727EC1C37B3340013857D /* MQTTKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 028727DC1C37B3340013857D /* MQTTKit.m */; };
-		0292AB1E1CA23F0C005882D7 /* HttpServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0292AB1D1CA23F0C005882D7 /* HttpServer.m */; };
+		0292AB1E1CA23F0C005882D7 /* HttpServer_Xu.m in Sources */ = {isa = PBXBuildFile; fileRef = 0292AB1D1CA23F0C005882D7 /* HttpServer_Xu.m */; };
 		029F93E71C1FA44200D73A35 /* DeviceInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 029F93E61C1FA44200D73A35 /* DeviceInfoView.m */; };
 		029F93FD1C1FB9E300D73A35 /* BaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 029F93FC1C1FB9E300D73A35 /* BaseTableViewCell.m */; };
 		029F940D1C1FF45C00D73A35 /* MyButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 029F940C1C1FF45C00D73A35 /* MyButton.m */; };
@@ -115,6 +115,7 @@
 		8D1C1FCA1D2E9F1700A4B45C /* libCocoaLumberjack.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D1C1FB11D2E9F1700A4B45C /* libCocoaLumberjack.a */; };
 		8D1C1FCB1D2E9F1700A4B45C /* libiOS_AylaLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D1C1FB21D2E9F1700A4B45C /* libiOS_AylaLibrary.a */; };
 		8D1C1FCC1D2E9F1700A4B45C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D1C1FB31D2E9F1700A4B45C /* libPods.a */; };
+		C1D8454D28B57075F00430D2 /* Pods_OznerLibraryDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B14056FB839D68CCC0B5CBE /* Pods_OznerLibraryDemo.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -173,8 +174,8 @@
 		028727D81C37B3340013857D /* will_mosq.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = will_mosq.h; sourceTree = "<group>"; };
 		028727DB1C37B3340013857D /* MQTTKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MQTTKit.h; sourceTree = "<group>"; };
 		028727DC1C37B3340013857D /* MQTTKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MQTTKit.m; sourceTree = "<group>"; };
-		0292AB1C1CA23F0C005882D7 /* HttpServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpServer.h; sourceTree = "<group>"; };
-		0292AB1D1CA23F0C005882D7 /* HttpServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpServer.m; sourceTree = "<group>"; };
+		0292AB1C1CA23F0C005882D7 /* HttpServer_Xu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpServer_Xu.h; sourceTree = "<group>"; };
+		0292AB1D1CA23F0C005882D7 /* HttpServer_Xu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpServer_Xu.m; sourceTree = "<group>"; };
 		029F93E51C1FA44200D73A35 /* DeviceInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceInfoView.h; sourceTree = "<group>"; };
 		029F93E61C1FA44200D73A35 /* DeviceInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceInfoView.m; sourceTree = "<group>"; };
 		029F93FB1C1FB9E300D73A35 /* BaseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableViewCell.h; sourceTree = "<group>"; };
@@ -313,6 +314,8 @@
 		02E98C201C1E566200ED06F1 /* WifiAddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WifiAddViewController.h; sourceTree = "<group>"; };
 		02E98C211C1E566200ED06F1 /* WifiAddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WifiAddViewController.m; sourceTree = "<group>"; };
 		02FBC0A81CA0DD5F00C6DB5E /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
+		0FC5B885947E76CDD2AA39F1 /* Pods-OznerLibraryDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OznerLibraryDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-OznerLibraryDemo/Pods-OznerLibraryDemo.release.xcconfig"; sourceTree = "<group>"; };
+		3B14056FB839D68CCC0B5CBE /* Pods_OznerLibraryDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OznerLibraryDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D1C1F301D2E9F1700A4B45C /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
 		8D1C1F311D2E9F1700A4B45C /* AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
 		8D1C1F321D2E9F1700A4B45C /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager.h; sourceTree = "<group>"; };
@@ -461,6 +464,7 @@
 		8D1C1FC21D2E9F1700A4B45C /* UIRefreshControl+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIRefreshControl+AFNetworking.h"; sourceTree = "<group>"; };
 		8D1C1FC31D2E9F1700A4B45C /* UIWebView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWebView+AFNetworking.h"; sourceTree = "<group>"; };
 		8D1C1FC41D2E9F1700A4B45C /* WebSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebSocket.h; sourceTree = "<group>"; };
+		A8CA77D961A2A858AF119767 /* Pods-OznerLibraryDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OznerLibraryDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OznerLibraryDemo/Pods-OznerLibraryDemo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -476,6 +480,7 @@
 				8D1C1FCC1D2E9F1700A4B45C /* libPods.a in Frameworks */,
 				8D1C1FCB1D2E9F1700A4B45C /* libiOS_AylaLibrary.a in Frameworks */,
 				8D1C1FC81D2E9F1700A4B45C /* libCocoaAsyncSocket.a in Frameworks */,
+				C1D8454D28B57075F00430D2 /* Pods_OznerLibraryDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -573,6 +578,8 @@
 				02E98B501C18679D00ED06F1 /* OznerLibrary */,
 				02E98B261C18673000ED06F1 /* OznerLibraryDemo */,
 				02E98B251C18673000ED06F1 /* Products */,
+				2020320051B377D22A486A1C /* Pods */,
+				875BA39E36FF0A1BC4D147AA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -827,8 +834,8 @@
 		02E98BBD1C18679D00ED06F1 /* Pair */ = {
 			isa = PBXGroup;
 			children = (
-				0292AB1C1CA23F0C005882D7 /* HttpServer.h */,
-				0292AB1D1CA23F0C005882D7 /* HttpServer.m */,
+				0292AB1C1CA23F0C005882D7 /* HttpServer_Xu.h */,
+				0292AB1D1CA23F0C005882D7 /* HttpServer_Xu.m */,
 				02E98BBE1C18679D00ED06F1 /* ConfigurationDevice.h */,
 				02E98BBF1C18679D00ED06F1 /* ConfigurationDevice.m */,
 				02E98BC01C18679D00ED06F1 /* EasyLinkSender.h */,
@@ -850,6 +857,23 @@
 				0286D5821C229E2D00C027B5 /* BluetoothAirPurifierFilterStatus.m */,
 			);
 			name = Bluetooth;
+			sourceTree = "<group>";
+		};
+		2020320051B377D22A486A1C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A8CA77D961A2A858AF119767 /* Pods-OznerLibraryDemo.debug.xcconfig */,
+				0FC5B885947E76CDD2AA39F1 /* Pods-OznerLibraryDemo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		875BA39E36FF0A1BC4D147AA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3B14056FB839D68CCC0B5CBE /* Pods_OznerLibraryDemo.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		8D1C1F2F1D2E9F1700A4B45C /* AylaLiabrary */ = {
@@ -1014,9 +1038,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 02E98B3B1C18673100ED06F1 /* Build configuration list for PBXNativeTarget "OznerLibraryDemo" */;
 			buildPhases = (
+				D4E7AA9E9965F270D0D97BE0 /* [CP] Check Pods Manifest.lock */,
 				02E98B201C18673000ED06F1 /* Sources */,
 				02E98B211C18673000ED06F1 /* Frameworks */,
 				02E98B221C18673000ED06F1 /* Resources */,
+				CE2696EBB718C74BF748B615 /* [CP] Embed Pods Frameworks */,
+				A30A2E2DB9E466C6D1EDB099 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1080,6 +1107,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A30A2E2DB9E466C6D1EDB099 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OznerLibraryDemo/Pods-OznerLibraryDemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CE2696EBB718C74BF748B615 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OznerLibraryDemo/Pods-OznerLibraryDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D4E7AA9E9965F270D0D97BE0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		02E98B201C18673000ED06F1 /* Sources */ = {
@@ -1165,7 +1240,7 @@
 				028727E41C37B3340013857D /* read_handle_shared.c in Sources */,
 				02E98C071C19517C00ED06F1 /* BluetoothAirPurifierSensor.m in Sources */,
 				02067F821C27E67A009A05D4 /* WaterReplenishmentMeter.m in Sources */,
-				0292AB1E1CA23F0C005882D7 /* HttpServer.m in Sources */,
+				0292AB1E1CA23F0C005882D7 /* HttpServer_Xu.m in Sources */,
 				0286D5711C213B3B00C027B5 /* WaterPurifier_TableViewCell.m in Sources */,
 				028727EB1C37B3340013857D /* will_mosq.c in Sources */,
 				02E98BD11C18679D00ED06F1 /* CupManager.m in Sources */,
@@ -1283,6 +1358,7 @@
 		};
 		02E98B3C1C18673100ED06F1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A8CA77D961A2A858AF119767 /* Pods-OznerLibraryDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -1309,6 +1385,7 @@
 		};
 		02E98B3D1C18673100ED06F1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0FC5B885947E76CDD2AA39F1 /* Pods-OznerLibraryDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";

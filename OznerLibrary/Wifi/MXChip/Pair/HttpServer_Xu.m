@@ -6,9 +6,9 @@
 //  Copyright © 2015年 Zhiyongxu. All rights reserved.
 //
 
-#import "HttpServer.h"
+#import "HttpServer_Xu.h"
 
-@implementation HttpServer
+@implementation HttpServer_Xu
 
 -(instancetype) init:(ushort)port
 {

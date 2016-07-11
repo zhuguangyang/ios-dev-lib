@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "HTTPServer.h"
+#import "HttpServer_Xu.h"
 //#import "MyHTTPConnection.h"
 #import "Pair/ConfigurationDevice.h"
 #import "../MXChip/MXChipIO.h"

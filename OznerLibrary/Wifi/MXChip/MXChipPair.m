@@ -10,7 +10,7 @@
 #import "Pair/EasyLinkSender.h"
 #import <SystemConfiguration/CaptiveNetwork.h>
 //#import "HTTPServer.h"
-#import "HttpServer.h"
+#import "HttpServer_Xu.h"
 #import "../../OznerManager.h"
 
 #define Timeout 120
@@ -42,7 +42,7 @@
     @try {
         [services removeAllObjects];
         device=NULL;
-        HttpServer* httpServer=[[HttpServer alloc] init:8000];
+        HttpServer_Xu* httpServer=[[HttpServer_Xu alloc] init:8000];
         httpServer.delegate=self;
         [httpServer start];
 //        HTTPServer* httpServer=[[HTTPServer alloc] init];

@@ -2,7 +2,7 @@
 
 @class GCDAsyncSocket;
 @class HTTPMessage;
-@class HTTPServer;
+@class HttpServer_Xu;
 @class WebSocket;
 @protocol HTTPResponse;
 
@@ -15,15 +15,15 @@
 
 @interface HTTPConfig : NSObject
 {
-	HTTPServer __unsafe_unretained *server;
+	HttpServer_Xu __unsafe_unretained *server;
 	NSString __strong *documentRoot;
 	dispatch_queue_t queue;
 }
 
-- (id)initWithServer:(HTTPServer *)server documentRoot:(NSString *)documentRoot;
-- (id)initWithServer:(HTTPServer *)server documentRoot:(NSString *)documentRoot queue:(dispatch_queue_t)q;
+- (id)initWithServer:(HttpServer_Xu *)server documentRoot:(NSString *)documentRoot;
+- (id)initWithServer:(HttpServer_Xu *)server documentRoot:(NSString *)documentRoot queue:(dispatch_queue_t)q;
 
-@property (nonatomic, unsafe_unretained, readonly) HTTPServer *server;
+@property (nonatomic, unsafe_unretained, readonly) HttpServer_Xu *server;
 @property (nonatomic, strong, readonly) NSString *documentRoot;
 @property (nonatomic, readonly) dispatch_queue_t queue;
 
