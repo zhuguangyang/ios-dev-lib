@@ -35,9 +35,12 @@
     self->serviceBrowser.delegate=self;
     [self->serviceBrowser searchForServicesOfType:@"_easylink._tcp" inDomain:@"local."];
 }
-
-
--(void)run
+//ayla配网
+-(void)run_Ayla
+{
+}
+//庆科配网
+-(void)run_QK
 {
     @try {
         [services removeAllObjects];
@@ -45,17 +48,6 @@
         HttpServer_Xu* httpServer=[[HttpServer_Xu alloc] init:8000];
         httpServer.delegate=self;
         [httpServer start];
-//        HTTPServer* httpServer=[[HTTPServer alloc] init];
-//        [httpServer setType:@"_http._tcp."];
-//        [httpServer setConnectionClass:[MyHTTPConnection class]];
-//        
-//        [MyHTTPConnection setFtcDelegate:self];
-//        NSError *error = nil;
-//        [httpServer setPort:8000];
-//        if(![httpServer start:&error])
-//        {
-//            NSLog(@"Error starting HTTP Server: %@", error);
-//        }
         [self.delegate mxChipPairSendConfiguration];
         EasyLinkSender* easy=[[EasyLinkSender alloc] init:ssid Password:password];
         @try {
@@ -263,16 +255,24 @@
     
     runThread=nil;
 }
--(void) start:(NSString*)ssid Password:(NSString*)password;
+-(void) start:(NSString*)Ssid Password:(NSString*)Password;
 {
     if (runThread)
     {
         return;
     }
     self->services=[[NSMutableArray alloc] init];
-    self->ssid=[NSString stringWithString:ssid];
-    self->password=[NSString stringWithString:password];
-    runThread=[[NSThread alloc] initWithTarget:self selector:@selector(run) object:NULL];
+    self->ssid=[NSString stringWithString:Ssid];
+    self->password=[NSString stringWithString:Password];
+    if ((runPairCount % 2)==0)
+    {
+        runThread=[[NSThread alloc] initWithTarget:self selector:@selector(run_Ayla) object:NULL];
+    }else
+    {
+        runThread=[[NSThread alloc] initWithTarget:self selector:@selector(run_QK) object:NULL];
+    }
+    runPairCount++;
+    
     [runThread start];
 }
 @end

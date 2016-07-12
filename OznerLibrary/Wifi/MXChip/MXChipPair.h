@@ -45,6 +45,7 @@
     NSMutableArray* services;
     dispatch_semaphore_t semaphore;
     NSNetServiceBrowser* serviceBrowser;
+    int runPairCount;
 }
 @property (nonatomic, weak) id<MxChipPairDelegate> delegate;
 
