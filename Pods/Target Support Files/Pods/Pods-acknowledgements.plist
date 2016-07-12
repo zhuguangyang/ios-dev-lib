@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>PreferenceSpecifiers</key>
+	<array>
+		<dict>
+			<key>FooterText</key>
+			<string>This application makes use of the following third party libraries:</string>
+			<key>Title</key>
+			<string>Acknowledgements</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>FooterText</key>
+			<string>Copyright (c) 2011&#8211;2015 Alamofire Software Foundation (http://alamofire.org/)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+</string>
+			<key>Title</key>
+			<string>AFNetworking</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>FooterText</key>
+			<string>Public Domain License
+
+The CocoaAsyncSocket project is in the public domain.
+
+The original TCP version (AsyncSocket) was created by Dustin Voss in January 2003.
+Updated and maintained by Deusty LLC and the Apple development community.
+</string>
+			<key>Title</key>
+			<string>CocoaAsyncSocket</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>FooterText</key>
+			<string>Software License Agreement (BSD License)
+
+Copyright (c) 2011, Deusty, LLC
+All rights reserved.
+
+Redistribution and use of this software in source and binary forms,
+with or without modification, are permitted provided that the following conditions are met:
+
+* Redistributions of source code must retain the above
+  copyright notice, this list of conditions and the
+  following disclaimer.
+
+* Neither the name of Deusty nor the names of its
+  contributors may be used to endorse or promote products
+  derived from this software without specific prior
+  written permission of Deusty, LLC.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</string>
+			<key>Title</key>
+			<string>CocoaHTTPServer</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>FooterText</key>
+			<string>Software License Agreement (BSD License)
+
+Copyright (c) 2010-2016, Deusty, LLC
+All rights reserved.
+
+Redistribution and use of this software in source and binary forms,
+with or without modification, are permitted provided that the following conditions are met:
+
+* Redistributions of source code must retain the above
+  copyright notice, this list of conditions and the
+  following disclaimer.
+
+* Neither the name of Deusty nor the names of its
+  contributors may be used to endorse or promote products
+  derived from this software without specific prior
+  written permission of Deusty, LLC.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</string>
+			<key>Title</key>
+			<string>CocoaLumberjack</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>FooterText</key>
+			<string>Terms of Service
+
+1	Acceptance of Terms.
+
+1.1	Ayla Networks, Inc. (&#8220;Ayla&#8221;) provides its Services to you subject to this Terms of Service (&#8220;TOS&#8221;).  By accepting this TOS, you acknowledge that you have read, understood, and agree to be bound by this TOS.  If you are entering into this TOS on behalf of a company, business or other legal entity, you represent that you have the authority to bind such entity and its affiliates to this TOS, in which case the terms &#8220;you&#8221; or &#8220;your&#8221; shall refer to such entity and its affiliates. If you do not have such authority, or if you do not agree with this TOS, you must not accept this TOS and may not use the Service.
+
+2	Description of Services.	Ayla&#8217;s Services allow manufacturers to build devices which connect to the Services (&#8220;Devices&#8221;). The &#8220;Services&#8221; consist of (a) Ayla&#8217;s web site located at aylanetworks.com (the &#8220;Site&#8221;); (b) the Ayla Platform&#8482;, a platform that allows you and your end user customers to view and manage your use of the Service and manage Devices; (c) Ayla Connectivity Modules, which consist of hardware modules containing Ayla software that are installed onto a Device to allow it to connect to the Service; and (d) Ayla Application Libraries, which consist of software that allows you to build applications that allow your end user customers to access Devices and the Service. The Services may also include data and other content and printed and electronic documentation provided by Ayla (&#8220;Documentation&#8221;). Any new features added to or augmenting the Service are also subject to this TOS.
+
+3	Access and Use of the Service; Restrictions.
+
+1.1	Subject to your acceptance of and compliance with this TOS and any Documentation, Ayla hereby grants you a limited, non-exclusive, non-transferable, non-sublicensable, license during the term of this TOS to (i) access the Ayla Cloud Platform pursuant to the terms provided therein; (ii) install the software binaries included in the Ayla Connectivity Modules onto Devices in order to allow them to access the Service; (iii) install, copy, use and modify the microcontroller code drivers for the Ayla Connectivity Modules solely as necessary to incorporate onto Devices to allow them to connect to the Service; (iv) distribute the software binaries and microcontroller code drivers included in the Ayla Connectivity Modules with Devices to distributors and purchasers of the Devices pursuant to end user license agreements at least as protective of Ayla as the terms of this TOS; (v) install, copy, use and modify the Ayla Application Libraries to create applications that allows end user customers to access their Devices and the Service. Any rights not expressly granted herein are reserved and no license or right to use any trademark of Ayla or any third party is granted to you in connection with the Services. 
+
+1.2	You will not, directly or indirectly: (i) reverse engineer, decompile, disassemble or otherwise attempt to discover the source code, object code or underlying structure, ideas or algorithms of the Services or any software or documentation related to the Services; (ii) modify, translate, or create derivative works based on the Services or any Software (except to the extent expressly permitted by Ayla or authorized within the Services); or (iii) remove any proprietary notices or labels. You will not (and will not allow any third party to) use any portion of the Services, including without limitation the microcontroller code drivers or software binaries included in the Ayla Connectivity Modules, to connect the Ayla Connectivity Modules to any website or service other than aylanetworks.com without Ayla&#8217;s explicit written consent. 
+
+1.3	You agree to promptly communicate to Ayla your discovery of any bugs or errors in the Services, and you may communicate to Ayla suggestions for improvements to the Services (collectively, "Feedback"). Ayla shall own all right, title, and interest in and to the Feedback, and will be entitled to use the Feedback without restriction.  Ayla shall not be required to use any Feedback, including fixing any bugs or errors, and will in its sole discretion determine the manner and schedule for any bug or error fixes.
+
+1.4	You are responsible for obtaining and maintaining any equipment and ancillary services needed to connect to, access or otherwise use the Services, including, without limitation, Devices, modems, hardware, server, software, operating system, networking, and web servers (collectively, &#8220;Equipment&#8221;).  You shall also be responsible for maintaining the security of the Equipment, your account, passwords (including but not limited to administrative and user passwords) and files, and for all uses of your account or the Equipment with or without your knowledge or consent.
+
+1.5	You represent, covenant, and warrant that you will use the Services only in compliance with this TOS, Ayla&#8217;s standard published policies then in effect, and all applicable laws and regulations (including but not limited to policies and laws related to spamming, privacy, intellectual property, consumer and child protection, obscenity or defamation).  Any use of the Services in violation of the foregoing will result in immediate termination of your account and Ayla may pursue all available remedies at law and equity. You hereby agree to indemnify and hold harmless Ayla against any damages, losses, liabilities, settlements and expenses (including without limitation costs and attorneys&#8217; fees) in connection with any claim or action that arises from an alleged violation of the foregoing or otherwise from your use of Services in violation of this TOS. Without limiting Ayla&#8217;s other rights and remedies, you acknowledge and agree that any actual or threatened breach of Sections 3 or 5 would result in irreparable harm to Ayla, and Ayla shall be entitled to equitable relief as a remedy for such breach.
+
+1.6	You may not use Ayla Devices, Services, or Software to operate nuclear facilities, life support, or other mission critical applications where human life or property may be at stake. You understand that Ayla products are not designed for such purposes and that its failure in such cases could lead to death, personal injury, or severe property or environmental damage for which Ayla is not responsible.
+
+4	Payment.  You agree to pay all fees due to Ayla within 30 days after invoice, or in any other manner agreed to by you and Ayla in writing. If you dispute any charges you must let Ayla know within sixty (60) days after the date that Ayla invoices you. You are responsible for all taxes associated with your use of the Services, excluding taxes based on Ayla&#8217;s income. 
+
+5	Confidentiality.  Each party (the &#8220;Receiving Party&#8221;) understands that the other party (the &#8220;Disclosing Party&#8221;) has disclosed or may disclose business, technical or financial information relating to the Disclosing Party&#8217;s business, which may include personally identifying information of individuals (hereinafter referred to as &#8220;Proprietary Information&#8221; of the Disclosing Party).  Proprietary Information of Ayla includes non-public information regarding features, functionality and performance of the Service. The Receiving Party agrees: (i) to take reasonable precautions to protect such Proprietary Information, and (ii) not to use (except as expressly permitted herein) or divulge to any third person any such Proprietary Information.  The Disclosing Party agrees that the foregoing shall not apply with respect to any information after five (5) years following the disclosure thereof or any information that the Receiving Party can document (a) is or becomes generally available to the public, or (b) was in its possession or known by it prior to receipt from the Disclosing Party, or (c) was rightfully disclosed to it without restriction by a third party, or (d) was independently developed without use of any Proprietary Information of the Disclosing Party or (e) is required by law.  
+
+6	Data.  All data arising from your end user customer&#8217;s use of the Devices as gathered by the Services (collectively, &#8220;Device Data&#8221;) belong to you and/or your end user customers. You hereby grant Ayla, and will contractually obligate your end user customers to grant to Ayla, a perpetual, worldwide, non-exclusive, royalty-free, fully paid up, assignable and transferable right and license to use Device Data to provide the Services, to improve and enhance the Services and Devices, and for other development, diagnostic and corrective purposes in connection with the Services. In addition, the data may be used for data analytics and/or to provide other services.
+
+7	Termination.  You have the right to terminate your account and this TOS at any time in accordance with the procedures set forth on the Services. Either party may terminate this TOS upon thirty (30) days&#8217; notice (or immediately and without notice in the case of nonpayment or breach of Section 3), if the other party materially breaches any of the terms or conditions of this TOS.  You will pay in full for the Services up to and including the last day on which the Services are provided. Upon any termination, all rights and licenses granted to you hereunder will immediately terminate, other than sublicenses of the software binaries and microcontroller code drivers included in the Ayla Connectivity Modules solely as installed onto a Device pursuant to Section 3.1(iv) (subject to continued payment, if applicable) and your rights to data under Section 6. All sections of this TOS which by their nature should survive termination will survive termination, including, without limitation, restrictions on use, accrued rights to payment, data, confidentiality obligations, indemnification obligations, warranty disclaimers, and limitations of liability.
+
+8	WARRANTIES AND DISCLAIMER.  Ayla shall use reasonable efforts consistent with prevailing industry standards to provide and maintain the Services in a manner which minimizes errors and interruptions in the Services.  Services may be temporarily unavailable for scheduled maintenance or for unscheduled emergency maintenance, either by Ayla or by third-party providers, or because of other causes beyond Ayla reasonable control, but Ayla shall use reasonable efforts to provide advance notice in writing or by e-mail of any scheduled service disruption.  EXCEPT AS EXPRESSLY SET FORTH HEREIN, THE SERVICES, ARE PROVIDED ON AN &#8220;AS IS&#8221; AND &#8220;AS AVAILABLE&#8221; BASIS WITHOUT ANY WARRANTIES OF ANY KIND, AND AYLA EXPRESSLY DISCLAIMS ANY AND ALL WARRANTIES, WHETHER EXPRESS OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY, TITLE, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT. 
+
+9	LIMITATION OF LIABILITY.
+1.1	UNDER NO CIRCUMSTANCES AND UNDER NO LEGAL THEORY (WHETHER IN CONTRACT, TORT, OR OTHERWISE) SHALL AYLA BE LIABLE TO YOU OR ANY THIRD PARTY FOR (A) ANY INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, CONSEQUENTIAL OR PUNITIVE DAMAGES, INCLUDING LOST PROFITS, LOST SALES OR BUSINESS, LOST DATA OR BUSINESS INTERRUPTION, OR (B) FOR ANY DIRECT DAMAGES, COSTS, LOSSES OR LIABILITIES IN EXCESS OF THE FEES ACTUALLY PAID BY YOU IN THE SIX (6) MONTHS PRECEDING THE EVENT GIVING RISE TO YOUR CLAIM.  THE PROVISIONS OF THIS SECTION ALLOCATE THE RISKS UNDER THIS TOS BETWEEN THE PARTIES, AND THE PARTIES HAVE RELIED ON THESE LIMITATIONS IN DETERMINING WHETHER TO ENTER INTO THIS TOS.
+1.2	Some states do not allow the exclusion of implied warranties or limitation of liability for incidental or consequential damages, which means that some of the above limitations may not apply to you. IN THESE STATES, AYLA&#8217;S LIABILITY WILL BE LIMITED TO THE GREATEST EXTENT PERMITTED BY LAW.
+
+9	Indemnification.  You shall defend, indemnify, and hold harmless Ayla from and against any claims, actions or demands, including without limitation reasonable legal and accounting fees, arising or resulting from your breach of this TOS, or your other access, contribution to, use or misuse of the Services.  Ayla shall provide notice to you of any such claim, suit or demand.  Ayla reserves the right to assume the exclusive defense and control of any matter which is subject to indemnification under this section. In such case, you agree to cooperate with any reasonable requests assisting Ayla&#8217;s defense of such matter.
+
+10	Export Controls.  You may not remove or export from the United States or allow the export or re-export of the Services, Software or anything related thereto, or any direct product thereof in violation of any restrictions, laws or regulations of the United States Department of Commerce, the United States Department of Treasury Office of Foreign Assets Control, or any other United States or foreign agency or authority.  As defined in FAR section 2.101, the Software and documentation are &#8220;commercial items&#8221; and according to DFAR section 252.2277014(a)(1) and (5) are deemed to be &#8220;commercial computer software&#8221; and &#8220;commercial computer software documentation.&#8221;  Consistent with DFAR section 227.7202 and FAR section 12.212, any use modification, reproduction, release, performance, display, or disclosure of such commercial software or commercial software documentation by the U.S. Government will be governed solely by the terms of this TOS and will be prohibited except to the extent expressly permitted by the terms of this TOS.
+
+11	Miscellaneous.	If any provision of this TOS is found to be unenforceable or invalid, that provision will be limited or eliminated to the minimum extent necessary so that this TOS will otherwise remain in full force and effect and enforceable.  This TOS is not assignable, transferable or sublicensable by you except with Ayla&#8217;s prior written consent.  Ayla may transfer and assign any of its rights and obligations under this TOS without consent.  This TOS is the complete and exclusive statement of the mutual understanding of the parties and supersedes and cancels all previous written and oral TOSs, communications and other understandings relating to the subject matter of this TOS, and that all waivers and modifications must be in a writing signed by both parties, except as otherwise provided herein.  No agency, partnership, joint venture, or employment is created as a result of this TOS and you does not have any authority of any kind to bind Ayla in any respect whatsoever.  In any action or proceeding to enforce rights under this TOS, the prevailing party will be entitled to recover costs and attorneys&#8217; fees. This TOS shall be governed by the laws of the State of California without regard to the principles of conflicts of law. Unless otherwise elected by Ayla in a particular instance, you hereby expressly agree to submit to the exclusive personal jurisdiction of the federal and state courts of the State of California for the purpose of resolving any dispute relating to your access to or use of the Service.
+&#8212;&#8212;&#8212;&#8212;&#8212;
+
+The following open source frameworks are used when making this library:
+
+    AFNetworking
+    https://github.com/AFNetworking/AFNetworking/blob/master/LICENSE
+
+    CocoaHTTPServer
+    https://github.com/robbiehanson/CocoaHTTPServer/blob/master/LICENSE.txt
+
+    CocoaAsyncSocket
+    https://github.com/robbiehanson/CocoaAsyncSocket/wiki/License
+
+    CocoaLumberjack
+    https://github.com/CocoaLumberjack/CocoaLumberjack/blob/master/LICENSE.txt
+
+
+</string>
+			<key>Title</key>
+			<string>iOS_AylaLibrary</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>FooterText</key>
+			<string>Generated by CocoaPods - http://cocoapods.org</string>
+			<key>Title</key>
+			<string></string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+	</array>
+	<key>StringsTable</key>
+	<string>Acknowledgements</string>
+	<key>Title</key>
+	<string>Acknowledgements</string>
+</dict>
+</plist>

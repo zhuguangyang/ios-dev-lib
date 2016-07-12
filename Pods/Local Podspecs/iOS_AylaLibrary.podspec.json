@@ -1,0 +1,47 @@
+{
+  "name": "iOS_AylaLibrary",
+  "version": "4.4.00",
+  "summary": "iOS_AylaLibrary.",
+  "homepage": "https://github.com/AylaNetworks/iOS_AylaLibrary_Public.git",
+  "license": {
+    "type": "Commercial",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Company": "Ayla Networks"
+  },
+  "source": {
+    "git": "https://github.com/AylaNetworks/iOS_AylaLibrary_Public.git",
+    "tag": "4.4.00"
+  },
+  "platforms": {
+    "ios": "6.0"
+  },
+  "libraries": "z",
+  "frameworks": [
+    "SystemConfiguration",
+    "MobileCoreServices",
+    "Security",
+    "UIKit"
+  ],
+  "public_header_files": "iOS_AylaLibrary/{,Log/,Internal/}*.h",
+  "source_files": "iOS_AylaLibrary/**/*.{h,m}",
+  "resource_bundles": {
+    "AylaLibraryBundle": [
+      "iOS_AylaLibrary/Bundle\\ Files/*"
+    ]
+  },
+  "prefix_header_contents": "#import <SystemConfiguration/SystemConfiguration.h>\n#import <MobileCoreServices/MobileCoreServices.h>",
+  "requires_arc": true,
+  "dependencies": {
+    "AFNetworking": [
+      "~> 2.5"
+    ],
+    "CocoaAsyncSocket": [
+      "~> 7.4"
+    ],
+    "CocoaHTTPServer": [
+      "~> 2.3"
+    ]
+  }
+}
