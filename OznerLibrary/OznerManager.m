@@ -32,7 +32,7 @@ OznerManager* oznerManager=nil;
 
 -(NSString*)getOwnerTableName
 {
-    return [NSString stringWithFormat:@"A%@",[Helper md5:owner]];
+    return [NSString stringWithFormat:@"A%@",[Helper md5:_user]];
 }
 
 -(instancetype)init
@@ -68,7 +68,7 @@ OznerManager* oznerManager=nil;
 {
     if (!aOwner) return;
     
-    self->owner=[[NSString stringWithString:aOwner] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    _user=[[NSString stringWithString:aOwner] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
     _token=Token;
     @synchronized(devices) {
         [devices removeAllObjects];
@@ -77,7 +77,7 @@ OznerManager* oznerManager=nil;
     
     NSString* sql=[NSString stringWithFormat:@"CREATE TABLE IF NOT EXISTS %@ (identifier VARCHAR PRIMARY KEY NOT NULL,Type Text NOT NULL,JSON TEXT)",[self getOwnerTableName]];
     [db ExecSQLNonQuery:sql params:nil];
-    [self.delegate OznerManagerDidOwnerChanged:self->owner];
+    [self.delegate OznerManagerDidOwnerChanged:_user];
     [self loadDevices];
     
 }
@@ -140,7 +140,7 @@ OznerManager* oznerManager=nil;
 -(void)save:(OznerDevice*)device Callback:(OperateCallback)cb;
 {
     if (!devices) return;
-    if (StringIsNullOrEmpty(owner)) return;
+    if (StringIsNullOrEmpty(_user)) return;
     bool isNew=false;
     
     @synchronized(devices) {

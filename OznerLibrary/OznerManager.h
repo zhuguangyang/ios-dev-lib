@@ -48,12 +48,13 @@
     @private
     NSMutableDictionary* devices;
     BluetoothIOMgr* bluetoothMgr;
-    NSString* owner;
+    //NSString* owner;
     SqlLiteDB* db;
     NSArray* deviceMgrList;
 }
 @property (nonatomic, weak) id<OznerManagerDelegate> delegate;
 @property (nonatomic, weak) NSString* token;
+@property (nonatomic, weak) NSString* user;
 /*!
  @function setOwner
  @discussion 设置当前运行账号

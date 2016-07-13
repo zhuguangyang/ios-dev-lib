@@ -138,6 +138,7 @@
     if (runThread) return;
     runThread=[[NSThread alloc] initWithTarget:self selector:@selector(runThreadProc) object:nil];
     [runThread start];
+    
 }
 
 -(void)setSecureCode:(NSString*)secureCode;

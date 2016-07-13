@@ -108,13 +108,16 @@
 		02E98C0A1C1BB84600ED06F1 /* CupDBRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E98C091C1BB84600ED06F1 /* CupDBRecord.m */; };
 		02E98C221C1E566200ED06F1 /* WifiAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E98C211C1E566200ED06F1 /* WifiAddViewController.m */; };
 		02FBC0A91CA0DD6000C6DB5E /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 02FBC0A81CA0DD5F00C6DB5E /* libxml2.tbd */; };
+		8D451C941D361C2D00C862A2 /* AylaIO.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D451C931D361C2D00C862A2 /* AylaIO.m */; };
+		8D451C971D361E4700C862A2 /* AylaIOManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D451C961D361E4700C862A2 /* AylaIOManager.m */; };
 		8D66929C1D337F5500CE76A5 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D66929B1D337F5500CE76A5 /* libz.tbd */; };
 		8D66929E1D337F7D00CE76A5 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D66929D1D337F7D00CE76A5 /* SystemConfiguration.framework */; };
 		8D6692A01D337FE700CE76A5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D66929F1D337FE700CE76A5 /* UIKit.framework */; };
 		8D6692A21D337FF600CE76A5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D6692A11D337FF600CE76A5 /* Foundation.framework */; };
-		8D6693EA1D33990400CE76A5 /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D6693E91D33990400CE76A5 /* ExternalAccessory.framework */; };
-		8D6693EC1D33990D00CE76A5 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D6693EB1D33990D00CE76A5 /* Security.framework */; };
-		8D6693EE1D33991500CE76A5 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D6693ED1D33991500CE76A5 /* MobileCoreServices.framework */; };
+		8D9646781D34D8CC00C4F529 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D9646771D34D8CC00C4F529 /* MessageUI.framework */; };
+		8D96467A1D34D8D500C4F529 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D9646791D34D8D500C4F529 /* CoreLocation.framework */; };
+		8D96467C1D34D8E600C4F529 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D96467B1D34D8E600C4F529 /* AudioToolbox.framework */; };
+		8D96467E1D34D8F000C4F529 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D96467D1D34D8F000C4F529 /* CoreGraphics.framework */; };
 		BB0A86EA35FC9E71186069B4 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A0F41B2FA4B51DBF67F9E895 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -316,14 +319,18 @@
 		02FBC0A81CA0DD5F00C6DB5E /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
 		09DD244272CC335F6D4D3009 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		79D4D5845AD1359A80A66784 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		8D451C921D361C2D00C862A2 /* AylaIO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AylaIO.h; sourceTree = "<group>"; };
+		8D451C931D361C2D00C862A2 /* AylaIO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AylaIO.m; sourceTree = "<group>"; };
+		8D451C951D361E4700C862A2 /* AylaIOManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AylaIOManager.h; sourceTree = "<group>"; };
+		8D451C961D361E4700C862A2 /* AylaIOManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AylaIOManager.m; sourceTree = "<group>"; };
 		8D66929B1D337F5500CE76A5 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		8D66929D1D337F7D00CE76A5 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		8D66929F1D337FE700CE76A5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		8D6692A11D337FF600CE76A5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		8D6692A51D33801B00CE76A5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		8D6693E91D33990400CE76A5 /* ExternalAccessory.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExternalAccessory.framework; path = System/Library/Frameworks/ExternalAccessory.framework; sourceTree = SDKROOT; };
-		8D6693EB1D33990D00CE76A5 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		8D6693ED1D33991500CE76A5 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		8D9646771D34D8CC00C4F529 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		8D9646791D34D8D500C4F529 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		8D96467B1D34D8E600C4F529 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		8D96467D1D34D8F000C4F529 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		A0F41B2FA4B51DBF67F9E895 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -332,9 +339,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8D6693EE1D33991500CE76A5 /* MobileCoreServices.framework in Frameworks */,
-				8D6693EC1D33990D00CE76A5 /* Security.framework in Frameworks */,
-				8D6693EA1D33990400CE76A5 /* ExternalAccessory.framework in Frameworks */,
+				8D96467E1D34D8F000C4F529 /* CoreGraphics.framework in Frameworks */,
+				8D96467C1D34D8E600C4F529 /* AudioToolbox.framework in Frameworks */,
+				8D96467A1D34D8D500C4F529 /* CoreLocation.framework in Frameworks */,
+				8D9646781D34D8CC00C4F529 /* MessageUI.framework in Frameworks */,
 				8D6692A21D337FF600CE76A5 /* Foundation.framework in Frameworks */,
 				8D6692A01D337FE700CE76A5 /* UIKit.framework in Frameworks */,
 				8D66929E1D337F7D00CE76A5 /* SystemConfiguration.framework in Frameworks */,
@@ -732,10 +740,10 @@
 		875BA39E36FF0A1BC4D147AA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				8D6693ED1D33991500CE76A5 /* MobileCoreServices.framework */,
-				8D6693EB1D33990D00CE76A5 /* Security.framework */,
-				8D6693E91D33990400CE76A5 /* ExternalAccessory.framework */,
-				8D6692A51D33801B00CE76A5 /* CoreGraphics.framework */,
+				8D96467D1D34D8F000C4F529 /* CoreGraphics.framework */,
+				8D96467B1D34D8E600C4F529 /* AudioToolbox.framework */,
+				8D9646791D34D8D500C4F529 /* CoreLocation.framework */,
+				8D9646771D34D8CC00C4F529 /* MessageUI.framework */,
 				8D6692A11D337FF600CE76A5 /* Foundation.framework */,
 				8D66929F1D337FE700CE76A5 /* UIKit.framework */,
 				8D66929D1D337F7D00CE76A5 /* SystemConfiguration.framework */,
@@ -748,6 +756,10 @@
 		8D354A4B1D34C50B00F10EAB /* Ayla */ = {
 			isa = PBXGroup;
 			children = (
+				8D451C921D361C2D00C862A2 /* AylaIO.h */,
+				8D451C931D361C2D00C862A2 /* AylaIO.m */,
+				8D451C951D361E4700C862A2 /* AylaIOManager.h */,
+				8D451C961D361E4700C862A2 /* AylaIOManager.m */,
 			);
 			path = Ayla;
 			sourceTree = "<group>";
@@ -935,6 +947,7 @@
 				02E98BCC1C18679D00ED06F1 /* FirmwareTools.m in Sources */,
 				02E98BDE1C18679D00ED06F1 /* Helper.m in Sources */,
 				02E98B2C1C18673000ED06F1 /* AppDelegate.m in Sources */,
+				8D451C971D361E4700C862A2 /* AylaIOManager.m in Sources */,
 				028727DF1C37B3340013857D /* messages_mosq.c in Sources */,
 				029F93FD1C1FB9E300D73A35 /* BaseTableViewCell.m in Sources */,
 				02E98BCA1C18679D00ED06F1 /* BluetoothIOMgr.m in Sources */,
@@ -959,6 +972,7 @@
 				028727E81C37B3340013857D /* time_mosq.c in Sources */,
 				028727E41C37B3340013857D /* read_handle_shared.c in Sources */,
 				02E98C071C19517C00ED06F1 /* BluetoothAirPurifierSensor.m in Sources */,
+				8D451C941D361C2D00C862A2 /* AylaIO.m in Sources */,
 				02067F821C27E67A009A05D4 /* WaterReplenishmentMeter.m in Sources */,
 				0292AB1E1CA23F0C005882D7 /* HttpServer_Xu.m in Sources */,
 				0286D5711C213B3B00C027B5 /* WaterPurifier_TableViewCell.m in Sources */,
@@ -1097,7 +1111,29 @@
 					"$(PROJECT_DIR)/OznerLibrary/Wifi/iOS_AylaLibrary",
 					"$(PROJECT_DIR)/OznerLibrary/Wifi/AylaLiabrary",
 				);
-				OTHER_LDFLAGS = "-lxml2 ";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"AFNetworking\"",
+					"-l\"CocoaAsyncSocket\"",
+					"-l\"CocoaHTTPServer\"",
+					"-l\"CocoaLumberjack\"",
+					"-l\"iOS_AylaLibrary\"",
+					"-l\"xml2\"",
+					"-l\"z\"",
+					"-framework",
+					"\"CFNetwork\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"UIKit\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ozner.LibraryDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -1125,7 +1161,29 @@
 					"$(PROJECT_DIR)/OznerLibrary/Wifi/iOS_AylaLibrary",
 					"$(PROJECT_DIR)/OznerLibrary/Wifi/AylaLiabrary",
 				);
-				OTHER_LDFLAGS = "-lxml2 ";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"AFNetworking\"",
+					"-l\"CocoaAsyncSocket\"",
+					"-l\"CocoaHTTPServer\"",
+					"-l\"CocoaLumberjack\"",
+					"-l\"iOS_AylaLibrary\"",
+					"-l\"xml2\"",
+					"-l\"z\"",
+					"-framework",
+					"\"CFNetwork\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"UIKit\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ozner.LibraryDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

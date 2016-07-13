@@ -11,6 +11,10 @@
 //#import "MyHTTPConnection.h"
 #import "Pair/ConfigurationDevice.h"
 #import "../MXChip/MXChipIO.h"
+#import "AylaIO.h"
+#import <AylaNetworks.h>
+@class AylaNetworks;
+
 @protocol MxChipPairDelegate <NSObject>
 
 /*!
@@ -57,6 +61,7 @@
 +(NSString*)getWifiSSID;
 
 -(void) start:(NSString*)ssid Password:(NSString*)password;
+-(AylaIO*) createAylaIO:(AylaDevice*)device;
 -(BOOL)isRuning;
 -(void)cancel;
 

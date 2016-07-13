@@ -13,6 +13,10 @@
 #import "HttpServer_Xu.h"
 #import "../../OznerManager.h"
 
+
+#import <AylaNetworks.h>
+
+
 #define Timeout 120
 @implementation MXChipPair
 +(NSString*)getWifiSSID
@@ -35,10 +39,40 @@
     self->serviceBrowser.delegate=self;
     [self->serviceBrowser searchForServicesOfType:@"_easylink._tcp" inDomain:@"local."];
 }
+
 //ayla配网
+-(AylaIO*) createAylaIO:(AylaDevice*)device
+{
+    AylaIO* io;// = [AylaIO init:device];
+    //doAvailable(io);
+    
+    return io;
+}
 -(void)run_Ayla
 {
+    [AylaUser ssoLogin:[[OznerManager instance] user] password:@"" token:[[OznerManager instance] token] appId:@"a_ozner_water_mobile-cn-id" appSecret:@"a_ozner_water_mobile-cn-7331816" success:^(AylaResponse *response, AylaUser *user) {
+
+        NSLog(@"%@,%@,%@",response,user,AylaUser.currentUser.accessToken);
+        NSLog(@"%@,%@",response,user);
+        [AylaDevice getDevices:nil success:^(AylaResponse *response, NSArray *devices) {
+            for (int i=0; i<devices.count; i++) {
+                AylaDevice* device=(AylaDevice*)[devices objectAtIndex:i];
+                NSLog(@"%@",device);
+                [self createAylaIO:device];
+                
+                
+            }
+            
+            NSLog(@"%@,%@",response,devices);
+        } failure:^(AylaError *err) {
+            NSLog(@"%@",err);
+        }];
+    } failure:^(AylaError *err) {
+        NSLog(@"%@",err);
+        NSLog(@"%@",err);
+    }];
 }
+
 //庆科配网
 -(void)run_QK
 {
