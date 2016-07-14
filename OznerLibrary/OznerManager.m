@@ -74,7 +74,8 @@ OznerManager* oznerManager=nil;
         [devices removeAllObjects];
     }
     [self closeAll];
-    
+    AylaIOManager* tmpIO=[[AylaIOManager alloc] init];
+    [tmpIO Start:aOwner Token:Token];
     NSString* sql=[NSString stringWithFormat:@"CREATE TABLE IF NOT EXISTS %@ (identifier VARCHAR PRIMARY KEY NOT NULL,Type Text NOT NULL,JSON TEXT)",[self getOwnerTableName]];
     [db ExecSQLNonQuery:sql params:nil];
     [self.delegate OznerManagerDidOwnerChanged:_user];

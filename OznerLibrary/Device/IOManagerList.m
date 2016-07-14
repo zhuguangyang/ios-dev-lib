@@ -15,6 +15,7 @@
     {
         _bluetooth=[[BluetoothIOMgr alloc] init];
         _mxchip=[[MXChipIOManager alloc] init];
+        _aylaIOManager=[[AylaIOManager alloc] init];
     }
     return self;
 }
@@ -24,6 +25,9 @@
     ret=[_bluetooth getAvailableDevice:identifier];
     if (!ret)
         ret=[_mxchip getAvailableDevice:identifier];
+    if (!ret) {
+        ret=[_aylaIOManager getAvailableDevice:identifier];
+    }
     return ret;
 }
 -(NSArray *)getAvailableDevices
@@ -31,11 +35,13 @@
     NSMutableArray* array=[[NSMutableArray alloc] init];
     [array addObjectsFromArray:[_bluetooth getAvailableDevices]];
     [array addObjectsFromArray:[_mxchip getAvailableDevices]];
+    [array addObjectsFromArray:[_aylaIOManager getAvailableDevices]];
     return array;
 }
 -(void)closeAll
 {
     [_bluetooth closeAll];
     [_mxchip closeAll];
+    [_aylaIOManager closeAll];
 }
 @end

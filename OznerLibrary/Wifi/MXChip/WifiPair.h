@@ -15,32 +15,41 @@
 #import <AylaNetworks.h>
 @class AylaNetworks;
 
-@protocol MxChipPairDelegate <NSObject>
+@protocol WifiPairDelegate <NSObject>
+
+/*!
+ @function 开始查找Ayla设备
+ */
+-(void)StartPairAyla;
+/*!
+ @function 开始配对庆科设备
+ */
+-(void)StartPariMxChip;
 
 /*!
  @function 开始发送Wifi信息
  */
--(void)mxChipPairSendConfiguration;
+-(void)SendConfiguration;
 
 /*!
  @function 等待设备连接
  */
--(void)mxChipPairWaitConnectWifi;
+-(void)WaitConnectWifi;
 
 /*!
  @function 等待设备激活
  */
--(void)mxChipPairActivate;
+-(void)ActivateDevice;
 
 //配网完成
--(void)mxChipComplete:(MXChipIO*)io;
+-(void)PairComplete:(MXChipIO*)io;
 
 //配网失败
--(void)mxChipFailure;
+-(void)PairFailure;
 
 @end
 
-@interface MXChipPair : NSObject<onFTCfinishedDelegate,NSNetServiceBrowserDelegate,NSNetServiceDelegate>
+@interface WifiPair : NSObject<onFTCfinishedDelegate,NSNetServiceBrowserDelegate,NSNetServiceDelegate>
 {
     NSThread* runThread;
     ConfigurationDevice* device;
@@ -49,9 +58,12 @@
     NSMutableArray* services;
     dispatch_semaphore_t semaphore;
     NSNetServiceBrowser* serviceBrowser;
+    
+    AylaDevice* aylaDevice;
     int runPairCount;
+    NSDate* startRunTime;
 }
-@property (nonatomic, weak) id<MxChipPairDelegate> delegate;
+@property (nonatomic, weak) id<WifiPairDelegate> delegate;
 
 /*!
  @function getWifiSSID

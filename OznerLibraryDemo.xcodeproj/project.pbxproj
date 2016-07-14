@@ -97,7 +97,7 @@
 		02E98BEF1C18679D00ED06F1 /* MQTTProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E98BB61C18679D00ED06F1 /* MQTTProxy.m */; };
 		02E98BF01C18679D00ED06F1 /* MXChipIO.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E98BB81C18679D00ED06F1 /* MXChipIO.m */; };
 		02E98BF11C18679D00ED06F1 /* MXChipIOManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E98BBA1C18679D00ED06F1 /* MXChipIOManager.m */; };
-		02E98BF21C18679D00ED06F1 /* MXChipPair.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E98BBC1C18679D00ED06F1 /* MXChipPair.m */; };
+		02E98BF21C18679D00ED06F1 /* WifiPair.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E98BBC1C18679D00ED06F1 /* WifiPair.m */; };
 		02E98BF31C18679D00ED06F1 /* ConfigurationDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E98BBF1C18679D00ED06F1 /* ConfigurationDevice.m */; };
 		02E98BF41C18679D00ED06F1 /* EasyLinkSender.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E98BC11C18679D00ED06F1 /* EasyLinkSender.m */; };
 		02E98BF71C18686100ED06F1 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 02E98BF61C18686100ED06F1 /* libsqlite3.0.tbd */; };
@@ -110,6 +110,8 @@
 		02FBC0A91CA0DD6000C6DB5E /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 02FBC0A81CA0DD5F00C6DB5E /* libxml2.tbd */; };
 		8D451C941D361C2D00C862A2 /* AylaIO.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D451C931D361C2D00C862A2 /* AylaIO.m */; };
 		8D451C971D361E4700C862A2 /* AylaIOManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D451C961D361E4700C862A2 /* AylaIOManager.m */; };
+		8D451C9A1D37355400C862A2 /* WaterPurifier_Ayla.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D451C991D37355400C862A2 /* WaterPurifier_Ayla.m */; };
+		8D451C9D1D37E1D000C862A2 /* WaterPurifier_MXChip.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D451C9C1D37E1D000C862A2 /* WaterPurifier_MXChip.m */; };
 		8D66929C1D337F5500CE76A5 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D66929B1D337F5500CE76A5 /* libz.tbd */; };
 		8D66929E1D337F7D00CE76A5 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D66929D1D337F7D00CE76A5 /* SystemConfiguration.framework */; };
 		8D6692A01D337FE700CE76A5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D66929F1D337FE700CE76A5 /* UIKit.framework */; };
@@ -297,8 +299,8 @@
 		02E98BB81C18679D00ED06F1 /* MXChipIO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXChipIO.m; sourceTree = "<group>"; };
 		02E98BB91C18679D00ED06F1 /* MXChipIOManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXChipIOManager.h; sourceTree = "<group>"; };
 		02E98BBA1C18679D00ED06F1 /* MXChipIOManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXChipIOManager.m; sourceTree = "<group>"; };
-		02E98BBB1C18679D00ED06F1 /* MXChipPair.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXChipPair.h; sourceTree = "<group>"; };
-		02E98BBC1C18679D00ED06F1 /* MXChipPair.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXChipPair.m; sourceTree = "<group>"; };
+		02E98BBB1C18679D00ED06F1 /* WifiPair.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WifiPair.h; sourceTree = "<group>"; };
+		02E98BBC1C18679D00ED06F1 /* WifiPair.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WifiPair.m; sourceTree = "<group>"; };
 		02E98BBE1C18679D00ED06F1 /* ConfigurationDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfigurationDevice.h; sourceTree = "<group>"; };
 		02E98BBF1C18679D00ED06F1 /* ConfigurationDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfigurationDevice.m; sourceTree = "<group>"; };
 		02E98BC01C18679D00ED06F1 /* EasyLinkSender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EasyLinkSender.h; sourceTree = "<group>"; };
@@ -323,6 +325,10 @@
 		8D451C931D361C2D00C862A2 /* AylaIO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AylaIO.m; sourceTree = "<group>"; };
 		8D451C951D361E4700C862A2 /* AylaIOManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AylaIOManager.h; sourceTree = "<group>"; };
 		8D451C961D361E4700C862A2 /* AylaIOManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AylaIOManager.m; sourceTree = "<group>"; };
+		8D451C981D37355400C862A2 /* WaterPurifier_Ayla.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaterPurifier_Ayla.h; sourceTree = "<group>"; };
+		8D451C991D37355400C862A2 /* WaterPurifier_Ayla.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaterPurifier_Ayla.m; sourceTree = "<group>"; };
+		8D451C9B1D37E1D000C862A2 /* WaterPurifier_MXChip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaterPurifier_MXChip.h; sourceTree = "<group>"; };
+		8D451C9C1D37E1D000C862A2 /* WaterPurifier_MXChip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaterPurifier_MXChip.m; sourceTree = "<group>"; };
 		8D66929B1D337F5500CE76A5 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		8D66929D1D337F7D00CE76A5 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		8D66929F1D337FE700CE76A5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -661,6 +667,10 @@
 			children = (
 				02E98BA91C18679D00ED06F1 /* WaterPurifier.h */,
 				02E98BAA1C18679D00ED06F1 /* WaterPurifier.m */,
+				8D451C9B1D37E1D000C862A2 /* WaterPurifier_MXChip.h */,
+				8D451C9C1D37E1D000C862A2 /* WaterPurifier_MXChip.m */,
+				8D451C981D37355400C862A2 /* WaterPurifier_Ayla.h */,
+				8D451C991D37355400C862A2 /* WaterPurifier_Ayla.m */,
 				02E98BAB1C18679D00ED06F1 /* WaterPurifierInfo.h */,
 				02E98BAC1C18679D00ED06F1 /* WaterPurifierInfo.m */,
 				02E98BAD1C18679D00ED06F1 /* WaterPurifierManager.h */,
@@ -693,8 +703,8 @@
 				02E98BB81C18679D00ED06F1 /* MXChipIO.m */,
 				02E98BB91C18679D00ED06F1 /* MXChipIOManager.h */,
 				02E98BBA1C18679D00ED06F1 /* MXChipIOManager.m */,
-				02E98BBB1C18679D00ED06F1 /* MXChipPair.h */,
-				02E98BBC1C18679D00ED06F1 /* MXChipPair.m */,
+				02E98BBB1C18679D00ED06F1 /* WifiPair.h */,
+				02E98BBC1C18679D00ED06F1 /* WifiPair.m */,
 				02E98BBD1C18679D00ED06F1 /* Pair */,
 			);
 			path = MXChip;
@@ -903,6 +913,7 @@
 				028727EC1C37B3340013857D /* MQTTKit.m in Sources */,
 				028727E01C37B3340013857D /* mosquitto.c in Sources */,
 				0286D57A1C229B7E00C027B5 /* BluetoothAirPurifierStatus.m in Sources */,
+				8D451C9D1D37E1D000C862A2 /* WaterPurifier_MXChip.m in Sources */,
 				02E98C0A1C1BB84600ED06F1 /* CupDBRecord.m in Sources */,
 				0286D56C1C21350700C027B5 /* AirPurifier_MXChip_TableViewCell.m in Sources */,
 				02E98BEF1C18679D00ED06F1 /* MQTTProxy.m in Sources */,
@@ -917,6 +928,7 @@
 				02E98BF41C18679D00ED06F1 /* EasyLinkSender.m in Sources */,
 				02E98BD61C18679D00ED06F1 /* CupSettings.m in Sources */,
 				02E98BD31C18679D00ED06F1 /* CupRecord.m in Sources */,
+				8D451C9A1D37355400C862A2 /* WaterPurifier_Ayla.m in Sources */,
 				02E98BFA1C192EBF00ED06F1 /* PowerTimer.m in Sources */,
 				02E98C001C194F5100ED06F1 /* AirPurifierManager.m in Sources */,
 				02E98BE81C18679D00ED06F1 /* TapSensor.m in Sources */,
@@ -965,7 +977,7 @@
 				02E98BEB1C18679D00ED06F1 /* WaterPurifierInfo.m in Sources */,
 				02E98BCF1C18679D00ED06F1 /* CupFirmware.m in Sources */,
 				02E98BCB1C18679D00ED06F1 /* BluetoothSynchronizedObject.m in Sources */,
-				02E98BF21C18679D00ED06F1 /* MXChipPair.m in Sources */,
+				02E98BF21C18679D00ED06F1 /* WifiPair.m in Sources */,
 				02E98BC71C18679D00ED06F1 /* MxChipAirPurifierStatus.m in Sources */,
 				02E98BCE1C18679D00ED06F1 /* Cup.m in Sources */,
 				02E98BE11C18679D00ED06F1 /* OznerManager.m in Sources */,

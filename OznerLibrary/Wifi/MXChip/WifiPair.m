@@ -6,7 +6,7 @@
 //  Copyright © 2015年 Zhiyongxu. All rights reserved.
 //
 
-#import "MXChipPair.h"
+#import "WifiPair.h"
 #import "Pair/EasyLinkSender.h"
 #import <SystemConfiguration/CaptiveNetwork.h>
 //#import "HTTPServer.h"
@@ -18,7 +18,7 @@
 
 
 #define Timeout 120
-@implementation MXChipPair
+@implementation WifiPair
 +(NSString*)getWifiSSID
 {
     NSArray *ifs = (__bridge id)CNCopySupportedInterfaces();
@@ -40,38 +40,7 @@
     [self->serviceBrowser searchForServicesOfType:@"_easylink._tcp" inDomain:@"local."];
 }
 
-//ayla配网
--(AylaIO*) createAylaIO:(AylaDevice*)device
-{
-    AylaIO* io;// = [AylaIO init:device];
-    //doAvailable(io);
-    
-    return io;
-}
--(void)run_Ayla
-{
-    [AylaUser ssoLogin:[[OznerManager instance] user] password:@"" token:[[OznerManager instance] token] appId:@"a_ozner_water_mobile-cn-id" appSecret:@"a_ozner_water_mobile-cn-7331816" success:^(AylaResponse *response, AylaUser *user) {
 
-        NSLog(@"%@,%@,%@",response,user,AylaUser.currentUser.accessToken);
-        NSLog(@"%@,%@",response,user);
-        [AylaDevice getDevices:nil success:^(AylaResponse *response, NSArray *devices) {
-            for (int i=0; i<devices.count; i++) {
-                AylaDevice* device=(AylaDevice*)[devices objectAtIndex:i];
-                NSLog(@"%@",device);
-                [self createAylaIO:device];
-                
-                
-            }
-            
-            NSLog(@"%@,%@",response,devices);
-        } failure:^(AylaError *err) {
-            NSLog(@"%@",err);
-        }];
-    } failure:^(AylaError *err) {
-        NSLog(@"%@",err);
-        NSLog(@"%@",err);
-    }];
-}
 
 //庆科配网
 -(void)run_QK
@@ -82,7 +51,7 @@
         HttpServer_Xu* httpServer=[[HttpServer_Xu alloc] init:8000];
         httpServer.delegate=self;
         [httpServer start];
-        [self.delegate mxChipPairSendConfiguration];
+        [self.delegate SendConfiguration];
         EasyLinkSender* easy=[[EasyLinkSender alloc] init:ssid Password:password];
         @try {
             NSDate* time=[NSDate dateWithTimeIntervalSinceNow:0];
@@ -122,7 +91,7 @@
         
         if (!device)
         {
-            [self.delegate mxChipFailure];
+            [self.delegate PairFailure];
             return;
         }
         if (device.activated)
@@ -142,14 +111,14 @@
                     device.mac=mac;
                     MXChipIO* io=[[OznerManager instance].ioManager.mxchip createMXChipIO:device.mac Type:device.type];
                     io.name=device.name;
-                    [self.delegate mxChipComplete:io];
+                    [self.delegate PairComplete:io];
                     
                     return;
                 }
             }
         }
         
-        [self.delegate mxChipPairWaitConnectWifi];
+        [self.delegate WaitConnectWifi];
         [self performSelectorOnMainThread:@selector(startMDNS) withObject:self waitUntilDone:false];
         self->semaphore = dispatch_semaphore_create(0);
         dispatch_semaphore_wait(self->semaphore,  dispatch_time(DISPATCH_TIME_NOW, Timeout * NSEC_PER_SEC));
@@ -159,30 +128,30 @@
         NSLog(@"dispatch_semaphore_wait");
         if (device.ip==nil)
         {
-            [self.delegate mxChipFailure];
+            [self.delegate PairFailure];
             return;
         }
-        [self.delegate mxChipPairActivate];
+        [self.delegate ActivateDevice];
         
         if (![self activeDevice])
         {
-            [self.delegate mxChipFailure];
+            [self.delegate PairFailure];
         }
         
         MXChipIO* io=[[OznerManager instance].ioManager.mxchip createMXChipIO:device.mac Type:device.type];
         if (io!=NULL)
         {
             io.name=device.name;
-            [self.delegate mxChipComplete:io];
+            [self.delegate PairComplete:io];
         }else
         {
-            [self.delegate mxChipFailure];
+            [self.delegate PairFailure];
             return;
         }
 
     }
     @catch (NSException *exception) {
-        [self.delegate mxChipFailure];
+        [self.delegate PairFailure];
         NSLog(@"exception:%@",[exception debugDescription]);
     }
     @finally {
@@ -306,7 +275,140 @@
         runThread=[[NSThread alloc] initWithTarget:self selector:@selector(run_QK) object:NULL];
     }
     runPairCount++;
-    
     [runThread start];
+    startRunTime=[NSDate dateWithTimeIntervalSinceNow:0];
+    //[self runNext];
+    
+}
+//-(void)runNext{
+//    
+//    //runThread=nil;
+//    
+//    
+//}
+//ayla配网--下面都是新加内容
+//开始连接AYLA AP
+-(void)connectDevice:(AylaModuleScanResults*)ap{
+    [self.delegate SendConfiguration];
+    [AylaSetup connectNewDeviceToService:ssid password:password optionalParams:nil success:^(AylaResponse *Response) {
+        [AylaSetup confirmNewDeviceToServiceConnection:^(AylaResponse *response, NSDictionary *result) {
+            NSString * success = [result valueForKeyPath:@"success"];
+            if([success isEqualToString:@"success"]){
+                 // success then then try to register
+                aylaDevice = [result objectForKey: @"device"];
+                
+            }
+
+        } failure:^(AylaError *err) {
+            NSLog(@"err:%@",err);
+        }];
+    } failure:^(AylaError *err) {
+        NSLog(@"err:%@",err);
+    }];
+}
+-(void)run_Ayla
+{
+    //[self.delegate StartPairAyla];
+    @try {
+        device=NULL;
+        @try {
+            NSDate* time=[NSDate dateWithTimeIntervalSinceNow:0];
+            while (!device)
+            {
+                
+                if ([NSThread currentThread].isCancelled)
+                    return;
+                [self connectDevice:NULL];
+                [AylaSetup getNewDeviceScanForAPs:^(AylaResponse *response, NSMutableArray *apList) {
+                    NSLog(@"response:%@,apList:%@",response,apList);
+                    if (apList.count>0) {
+                        [self connectDevice:[apList objectAtIndex:0]];
+                    }
+                } failure:^(AylaError *err) {
+                    NSLog(@"err:%@",err);
+                }];
+                [NSThread sleepForTimeInterval:3.0f];
+                int t=abs((int)[time timeIntervalSinceNow]);
+                if (t>Timeout)
+                {
+                    [self.delegate PairFailure];
+                    break;
+                }
+            }
+        }
+        
+        @finally {
+            
+        }
+        
+//        if (!device)
+//        {
+//            [self.delegate PairFailure];
+//            return;
+//        }
+//        if (device.activated)
+//        {
+//            NSRange range=[device.deviceId rangeOfString:@"/"];
+//            if (range.location!=NSNotFound)
+//            {
+//                NSString* tmp=[[device.deviceId substringFromIndex:range.length+range.length] uppercaseString];
+//                if (tmp.length== 12) {
+//                    NSString* mac=[NSString stringWithFormat:@"%@:%@:%@:%@:%@:%@",
+//                                   [tmp substringWithRange:NSMakeRange(0, 2)],
+//                                   [tmp substringWithRange:NSMakeRange(2, 2)],
+//                                   [tmp substringWithRange:NSMakeRange(4, 2)],
+//                                   [tmp substringWithRange:NSMakeRange(6, 2)],
+//                                   [tmp substringWithRange:NSMakeRange(8, 2)],
+//                                   [tmp substringWithRange:NSMakeRange(10, 2)]];
+//                    device.mac=mac;
+//                    MXChipIO* io=[[OznerManager instance].ioManager.mxchip createMXChipIO:device.mac Type:device.type];
+//                    io.name=device.name;
+//                    [self.delegate PairComplete:io];
+//                    
+//                    return;
+//                }
+//            }
+//        }
+//        
+//        [self.delegate WaitConnectWifi];
+//        [self performSelectorOnMainThread:@selector(startMDNS) withObject:self waitUntilDone:false];
+//        self->semaphore = dispatch_semaphore_create(0);
+//        dispatch_semaphore_wait(self->semaphore,  dispatch_time(DISPATCH_TIME_NOW, Timeout * NSEC_PER_SEC));
+//        if ([NSThread currentThread].isCancelled)
+//            return;
+//        
+//        NSLog(@"dispatch_semaphore_wait");
+//        if (device.ip==nil)
+//        {
+//            [self.delegate PairFailure];
+//            return;
+//        }
+//        [self.delegate ActivateDevice];
+//        
+//        if (![self activeDevice])
+//        {
+//            [self.delegate PairFailure];
+//        }
+//        
+//        MXChipIO* io=[[OznerManager instance].ioManager.mxchip createMXChipIO:device.mac Type:device.type];
+//        if (io!=NULL)
+//        {
+//            io.name=device.name;
+//            [self.delegate PairComplete:io];
+//        }else
+//        {
+//            [self.delegate PairFailure];
+//            return;
+//        }
+        
+    }
+    @catch (NSException *exception) {
+        [self.delegate PairFailure];
+        NSLog(@"exception:%@",[exception debugDescription]);
+    }
+    @finally {
+        runThread=nil;
+    }
+    
 }
 @end

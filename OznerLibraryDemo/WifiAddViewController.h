@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "../OznerLibrary/Wifi/MXChip/MXChipPair.h"
-@interface WifiAddViewController : UIViewController<MxChipPairDelegate>
+#import "../OznerLibrary/Wifi/MXChip/WifiPair.h"
+@interface WifiAddViewController : UIViewController<WifiPairDelegate>
 {
     NSDate* startTime;
-    MXChipPair* pair;
+    WifiPair* pair;
     MXChipIO* foundIO;
     NSLayoutConstraint* selfHeightConstraint;
 }

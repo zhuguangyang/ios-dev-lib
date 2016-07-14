@@ -9,12 +9,15 @@
 #import <Foundation/Foundation.h>
 #import "../Bluetooth/BluetoothIOMgr.h"
 #import "../Wifi/MXChip/MXChipIOManager.h"
+#import "AylaIOManager.h"
+
 @interface IOManagerList : NSObject
 {
     
 }
 @property (strong,nonatomic) BluetoothIOMgr* bluetooth;
 @property (strong,nonatomic) MXChipIOManager* mxchip;
+@property (strong,nonatomic) AylaIOManager* aylaIOManager;
 
 -(void)closeAll;
 -(BaseDeviceIO*) getAvailableDevice:(NSString*)identifier;

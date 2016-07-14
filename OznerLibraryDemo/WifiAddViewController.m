@@ -17,9 +17,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    pair=[[MXChipPair alloc] init];
+    pair=[[WifiPair alloc] init];
     pair.delegate=self;
-    NSString* ssid=[MXChipPair getWifiSSID];
+    NSString* ssid=[WifiPair getWifiSSID];
     self.SSID.text=ssid;
     if (!StringIsNullOrEmpty(ssid))
     {
@@ -85,7 +85,7 @@
     self.StartButton.enabled=true;
     
 }
--(void)mxChipComplete:(MXChipIO *)io
+-(void)PairComplete:(MXChipIO *)io
 {
     [self complete:io];
 }
@@ -97,19 +97,19 @@
     self.CancelButton.enabled=false;
     self.StartButton.enabled=true;
 }
--(void)mxChipFailure
+-(void)PairFailure
 {
     [self performSelectorOnMainThread:@selector(doFailure) withObject:nil waitUntilDone:false];
 }
--(void)mxChipPairActivate
+-(void)ActivateDevice
 {
     [self performSelectorOnMainThread:@selector(showStatus:) withObject:@"等待设备激活" waitUntilDone:false];
 }
--(void)mxChipPairSendConfiguration
+-(void)SendConfiguration
 {
     [self performSelectorOnMainThread:@selector(showStatus:) withObject:@"正在发送配置信息" waitUntilDone:false];
 }
--(void)mxChipPairWaitConnectWifi
+-(void)WaitConnectWifi
 {
     [self performSelectorOnMainThread:@selector(showStatus:) withObject:@"等待设备连接wifi"waitUntilDone:false];
     

@@ -13,4 +13,5 @@
     //MQTTProxy* proxy;
     NSMutableDictionary* listenDeviceList;
 }
+-(void) Start:(NSString*) user Token:(NSString*)Token;
 @end
