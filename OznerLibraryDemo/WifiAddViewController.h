@@ -12,7 +12,8 @@
 {
     NSDate* startTime;
     WifiPair* pair;
-    MXChipIO* foundIO;
+    BaseDeviceIO* foundIO;
+    //AylaIO* foundAylaIO;
     NSLayoutConstraint* selfHeightConstraint;
 }
 @property (weak, nonatomic) IBOutlet UITextField *SSID;

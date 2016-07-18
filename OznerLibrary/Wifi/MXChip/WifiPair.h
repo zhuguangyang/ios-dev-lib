@@ -13,18 +13,20 @@
 #import "../MXChip/MXChipIO.h"
 #import "AylaIO.h"
 #import <AylaNetworks.h>
+#import <CoreLocation/CoreLocation.h>
+
 @class AylaNetworks;
 
 @protocol WifiPairDelegate <NSObject>
 
+///*!
+// @function 开始查找Ayla设备
+// */
+//-(void)StartPairAyla;
 /*!
- @function 开始查找Ayla设备
+ @function 开始配对
  */
--(void)StartPairAyla;
-/*!
- @function 开始配对庆科设备
- */
--(void)StartPariMxChip;
+-(void)StartPair;
 
 /*!
  @function 开始发送Wifi信息
@@ -42,14 +44,14 @@
 -(void)ActivateDevice;
 
 //配网完成
--(void)PairComplete:(MXChipIO*)io;
+-(void)PairComplete:(BaseDeviceIO*)io;
 
 //配网失败
 -(void)PairFailure;
 
 @end
 
-@interface WifiPair : NSObject<onFTCfinishedDelegate,NSNetServiceBrowserDelegate,NSNetServiceDelegate>
+@interface WifiPair : NSObject<onFTCfinishedDelegate,NSNetServiceBrowserDelegate,NSNetServiceDelegate,CLLocationManagerDelegate>
 {
     NSThread* runThread;
     ConfigurationDevice* device;
@@ -59,7 +61,8 @@
     dispatch_semaphore_t semaphore;
     NSNetServiceBrowser* serviceBrowser;
     
-    AylaDevice* aylaDevice;
+    CLLocationManager *locationManager;
+    AylaDevice* newDevice;
     int runPairCount;
     NSDate* startRunTime;
 }

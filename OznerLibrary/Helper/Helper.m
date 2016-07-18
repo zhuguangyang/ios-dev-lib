@@ -131,6 +131,10 @@ bool StringIsNullOrEmpty(NSString* str)
     if ([str isEqualToString:@""]) return true;
     return false;
 }
-
+//Ayla
++(id)getAylaDeviceJson:(NSString*)lanIp;
+{
+    return @"";
+}
 
 @end

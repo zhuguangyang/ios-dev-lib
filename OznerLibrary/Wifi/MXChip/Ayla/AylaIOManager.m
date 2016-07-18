@@ -8,8 +8,9 @@
 
 #import "AylaIOManager.h"
 #import <AylaNetworks.h>
-#import "AylaIO.h"
+//#import "AylaIO.h"
 #import "IOManager.hpp"
+//#import "AylaDevelopHelper.h"
 
 @implementation AylaIOManager
 NSString* gblAmlDeviceSsidRegex = @"^OZNER_WATER-[0-9A-Fa-f]{12}";
@@ -22,14 +23,16 @@ NSString* gblAmlDeviceSsidRegex = @"^OZNER_WATER-[0-9A-Fa-f]{12}";
 {
     if (self=[super init])
     {
-        NSDictionary *dic = @{AML_DEVICE_SSID_REG_EXP:gblAmlDeviceSsidRegex,AML_APP_ID:@"super app"};
+        NSDictionary *dic = @{AML_DEVICE_SSID_REG_EXP:gblAmlDeviceSsidRegex,AML_APP_ID:@"a_ozner_water_mobile-cn-id"};//"super app"
         listenDeviceList=[[NSMutableDictionary alloc] init];
         [AylaNetworks initWithParams:dic];
-        [AylaSystemUtils serviceType:[NSNumber numberWithInt:AML_DEVELOPMENT_SERVICE]];
+        
+        [AylaSystemUtils serviceType:[NSNumber numberWithInt:AML_DEVELOPMENT_SERVICE]];//AML_STAGING_SERVICE//AML_DEVELOPMENT_SERVICE
         [AylaSystemUtils serviceLocationWithCountryCode:@"CN"];
         [AylaSystemUtils loggingLevel:1 << 2];
         [AylaSystemUtils slowConnection:[NSNumber numberWithInt:1]];
         [AylaSystemUtils saveCurrentSettings];
+        //[AylaLanMode enable];
     }
     return self;
 }
@@ -63,13 +66,13 @@ NSString* gblAmlDeviceSsidRegex = @"^OZNER_WATER-[0-9A-Fa-f]{12}";
                 
             }
             
-            NSLog(@"%@,%@",response,devices);
+            //NSLog(@"%@,%@",response,devices);
         } failure:^(AylaError *err) {
             NSLog(@"%@",err);
         }];
     } failure:^(AylaError *err) {
         NSLog(@"%@",err);
-        NSLog(@"%@",err);
+        //NSLog(@"%@",err);
     }];
 }
 -(AylaIO*) createAylaIO:(AylaDevice*)device

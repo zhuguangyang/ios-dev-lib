@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "BaseTableViewCell.h"
 #import "WaterPurifier.h"
+#import "WaterPurifier_Ayla.h"
 #import "AirPurifier_MxChip.h"
 #import "AirPurifier_Bluetooth.h"
 @implementation ViewController
@@ -110,7 +111,7 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     OznerDevice* device=[devices objectAtIndex:indexPath.item];
-    if ([device.class isSubclassOfClass:[WaterPurifier class]])
+    if ([device.class isSubclassOfClass:[WaterPurifier class]]||[device.class isSubclassOfClass:[WaterPurifier_Ayla class]])
     {
         return 200;
     }

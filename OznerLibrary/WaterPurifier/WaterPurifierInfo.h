@@ -21,7 +21,7 @@
 /**
  * 主板编号
  */
-@property (copy,readonly) NSString*  MainBoard;
+@property (copy) NSString*  MainBoard;
 /**
  * 控制板编号
  */
@@ -37,5 +37,5 @@
 
 -(void)load:(BytePtr)bytes;
 
-
+-(void)load_Ayla:(BytePtr)bytes;
 @end

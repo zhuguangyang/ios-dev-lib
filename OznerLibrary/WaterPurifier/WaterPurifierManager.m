@@ -20,7 +20,7 @@
         [[OznerManager instance].ioManager.mxchip createMXChipIO:identifier Type:type];
         return device;
     } else if([type isEqualToString:@"AY001MAB1"]){
-        WaterPurifier* waterPurifier = [[WaterPurifier_Ayla alloc] init:identifier Type:type Settings:json];
+        WaterPurifier_Ayla* waterPurifier = [[WaterPurifier_Ayla alloc] init:identifier Type:type Settings:json];
         return waterPurifier;
     }else{
         return nil;

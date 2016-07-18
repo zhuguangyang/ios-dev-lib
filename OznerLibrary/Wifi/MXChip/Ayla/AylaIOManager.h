@@ -7,11 +7,12 @@
 //
 
 #import "IOManager.h"
-
+#import "AylaIO.h"
 @interface AylaIOManager : IOManager
 {
     //MQTTProxy* proxy;
     NSMutableDictionary* listenDeviceList;
 }
 -(void) Start:(NSString*) user Token:(NSString*)Token;
+-(AylaIO*) createAylaIO:(AylaDevice*)device;
 @end

@@ -62,7 +62,7 @@
     [super didReceiveMemoryWarning];
 }
 
--(void)complete:(MXChipIO *)io
+-(void)complete:(BaseDeviceIO *)io
 {
     NSDate* date=[NSDate dateWithTimeIntervalSinceNow:0];
     NSString* log=[NSString stringWithFormat:@"配网成功,耗时:%f秒",
@@ -85,10 +85,11 @@
     self.StartButton.enabled=true;
     
 }
--(void)PairComplete:(MXChipIO *)io
+-(void)PairComplete:(BaseDeviceIO *)io
 {
     [self complete:io];
 }
+
 -(void)doFailure
 {
     [self showStatus:@"配网失败"];
@@ -161,8 +162,7 @@
         OznerDevice* device=[[OznerManager instance] getDeviceByIO:foundIO];
         [[OznerManager instance] save:device];
         [self popoverPresentationController];
-    }
-    else
+    }else
     {
         NSString* ssid=self.SSID.text;
         NSString* pwd=self.Password.text;

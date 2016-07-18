@@ -111,7 +111,6 @@
 		8D451C941D361C2D00C862A2 /* AylaIO.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D451C931D361C2D00C862A2 /* AylaIO.m */; };
 		8D451C971D361E4700C862A2 /* AylaIOManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D451C961D361E4700C862A2 /* AylaIOManager.m */; };
 		8D451C9A1D37355400C862A2 /* WaterPurifier_Ayla.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D451C991D37355400C862A2 /* WaterPurifier_Ayla.m */; };
-		8D451C9D1D37E1D000C862A2 /* WaterPurifier_MXChip.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D451C9C1D37E1D000C862A2 /* WaterPurifier_MXChip.m */; };
 		8D66929C1D337F5500CE76A5 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D66929B1D337F5500CE76A5 /* libz.tbd */; };
 		8D66929E1D337F7D00CE76A5 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D66929D1D337F7D00CE76A5 /* SystemConfiguration.framework */; };
 		8D6692A01D337FE700CE76A5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D66929F1D337FE700CE76A5 /* UIKit.framework */; };
@@ -327,8 +326,6 @@
 		8D451C961D361E4700C862A2 /* AylaIOManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AylaIOManager.m; sourceTree = "<group>"; };
 		8D451C981D37355400C862A2 /* WaterPurifier_Ayla.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaterPurifier_Ayla.h; sourceTree = "<group>"; };
 		8D451C991D37355400C862A2 /* WaterPurifier_Ayla.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaterPurifier_Ayla.m; sourceTree = "<group>"; };
-		8D451C9B1D37E1D000C862A2 /* WaterPurifier_MXChip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaterPurifier_MXChip.h; sourceTree = "<group>"; };
-		8D451C9C1D37E1D000C862A2 /* WaterPurifier_MXChip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaterPurifier_MXChip.m; sourceTree = "<group>"; };
 		8D66929B1D337F5500CE76A5 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		8D66929D1D337F7D00CE76A5 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		8D66929F1D337FE700CE76A5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -667,8 +664,6 @@
 			children = (
 				02E98BA91C18679D00ED06F1 /* WaterPurifier.h */,
 				02E98BAA1C18679D00ED06F1 /* WaterPurifier.m */,
-				8D451C9B1D37E1D000C862A2 /* WaterPurifier_MXChip.h */,
-				8D451C9C1D37E1D000C862A2 /* WaterPurifier_MXChip.m */,
 				8D451C981D37355400C862A2 /* WaterPurifier_Ayla.h */,
 				8D451C991D37355400C862A2 /* WaterPurifier_Ayla.m */,
 				02E98BAB1C18679D00ED06F1 /* WaterPurifierInfo.h */,
@@ -913,7 +908,6 @@
 				028727EC1C37B3340013857D /* MQTTKit.m in Sources */,
 				028727E01C37B3340013857D /* mosquitto.c in Sources */,
 				0286D57A1C229B7E00C027B5 /* BluetoothAirPurifierStatus.m in Sources */,
-				8D451C9D1D37E1D000C862A2 /* WaterPurifier_MXChip.m in Sources */,
 				02E98C0A1C1BB84600ED06F1 /* CupDBRecord.m in Sources */,
 				0286D56C1C21350700C027B5 /* AirPurifier_MXChip_TableViewCell.m in Sources */,
 				02E98BEF1C18679D00ED06F1 /* MQTTProxy.m in Sources */,

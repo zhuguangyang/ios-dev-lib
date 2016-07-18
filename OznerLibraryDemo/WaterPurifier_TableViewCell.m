@@ -8,10 +8,13 @@
 
 #import "WaterPurifier_TableViewCell.h"
 #import "WaterPurifier.h"
+#import "OznerDevice.h"
+#import "WaterPurifier_Ayla.h"
 @implementation WaterPurifier_TableViewCell
 
+//OznerDevice* Device;
 - (void)awakeFromNib {
-    // Initialization code
+    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -21,47 +24,85 @@
 }
 
 - (IBAction)PowerClick:(id)sender {
-    WaterPurifier* device=(WaterPurifier*)self.device;
-    if (self.device)
-    {
+    if (!self.device) {
+        return;
+    }
+    
+    if ([self.device.type isEqualToString:@"AY001MAB1"]) {
+        WaterPurifier_Ayla* Device=(WaterPurifier_Ayla*)self.device;
+        [self.deviceInfo startSend];
+        [Device setPower:!Device.Power Callback:^(NSError *error) {
+            [self printSendStatus:error];
+        }];
+    }else{
+        WaterPurifier* Device=(WaterPurifier*)self.device;
         [self.deviceInfo startSend];
         
-        [device.status setPower:!device.status.power Callback:^(NSError* error){
+        [Device.status setPower:!Device.status.power Callback:^(NSError* error){
             [self printSendStatus:error];
         }];
     }
+    
 }
 
 - (IBAction)HotClick:(id)sender {
-    WaterPurifier* device=(WaterPurifier*)self.device;
-    if (self.device)
-    {
+    if (!self.device) {
+        return;
+    }
+    
+    if ([self.device.type isEqualToString:@"AY001MAB1"]) {
+        WaterPurifier_Ayla* Device=(WaterPurifier_Ayla*)self.device;
+        [self.deviceInfo startSend];
+        [Device setHot:!Device.Hot Callback:^(NSError *error) {
+            [self printSendStatus:error];
+        }];
+    }else{
+        WaterPurifier* Device=(WaterPurifier*)self.device;
         [self.deviceInfo startSend];
         
-        [device.status setHot:!device.status.hot Callback:^(NSError* error){
+        [Device.status setHot:!Device.status.hot Callback:^(NSError* error){
             [self printSendStatus:error];
         }];
     }
 }
 
 - (IBAction)CoolClick:(id)sender {
-    WaterPurifier* device=(WaterPurifier*)self.device;
-    if (self.device)
-    {
+    if (!self.device) {
+        return;
+    }
+    
+    if ([self.device.type isEqualToString:@"AY001MAB1"]) {
+        WaterPurifier_Ayla* Device=(WaterPurifier_Ayla*)self.device;
+        [self.deviceInfo startSend];
+        [Device setCool:!Device.Cool Callback:^(NSError *error) {
+            [self printSendStatus:error];
+        }];
+    }else{
+        WaterPurifier* Device=(WaterPurifier*)self.device;
         [self.deviceInfo startSend];
         
-        [device.status setCool:!device.status.cool Callback:^(NSError* error){
+        [Device.status setCool:!Device.status.cool Callback:^(NSError* error){
             [self printSendStatus:error];
         }];
     }
 }
 
 - (IBAction)SterilizationClick:(id)sender {
-    WaterPurifier* device=(WaterPurifier*)self.device;
-    if (self.device)
-    {
+    if (!self.device) {
+        return;
+    }
+    
+    if ([self.device.type isEqualToString:@"AY001MAB1"]) {
+        WaterPurifier_Ayla* Device=(WaterPurifier_Ayla*)self.device;
         [self.deviceInfo startSend];
-        [device.status setSterilization:!device.status.sterilization Callback:^(NSError* error){
+        [Device setSterilization:!Device.Sterilization Callback:^(NSError *error) {
+            [self printSendStatus:error];
+        }];
+    }else{
+        WaterPurifier* Device=(WaterPurifier*)self.device;
+        [self.deviceInfo startSend];
+        
+        [Device.status setSterilization:!Device.status.sterilization Callback:^(NSError* error){
             [self printSendStatus:error];
         }];
     }
