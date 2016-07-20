@@ -31,7 +31,7 @@
     if ([self.device.type isEqualToString:@"AY001MAB1"]) {
         WaterPurifier_Ayla* Device=(WaterPurifier_Ayla*)self.device;
         [self.deviceInfo startSend];
-        [Device setPower:!Device.Power Callback:^(NSError *error) {
+        [Device setPower:![Device getPower] Callback:^(NSError *error) {
             [self printSendStatus:error];
         }];
     }else{
@@ -53,7 +53,7 @@
     if ([self.device.type isEqualToString:@"AY001MAB1"]) {
         WaterPurifier_Ayla* Device=(WaterPurifier_Ayla*)self.device;
         [self.deviceInfo startSend];
-        [Device setHot:!Device.Hot Callback:^(NSError *error) {
+        [Device setHot:![Device getHot] Callback:^(NSError *error) {
             [self printSendStatus:error];
         }];
     }else{
@@ -74,7 +74,7 @@
     if ([self.device.type isEqualToString:@"AY001MAB1"]) {
         WaterPurifier_Ayla* Device=(WaterPurifier_Ayla*)self.device;
         [self.deviceInfo startSend];
-        [Device setCool:!Device.Cool Callback:^(NSError *error) {
+        [Device setCool:![Device getCool] Callback:^(NSError *error) {
             [self printSendStatus:error];
         }];
     }else{
@@ -95,7 +95,7 @@
     if ([self.device.type isEqualToString:@"AY001MAB1"]) {
         WaterPurifier_Ayla* Device=(WaterPurifier_Ayla*)self.device;
         [self.deviceInfo startSend];
-        [Device setSterilization:!Device.Sterilization Callback:^(NSError *error) {
+        [Device setSterilization:![Device getSterilization] Callback:^(NSError *error) {
             [self printSendStatus:error];
         }];
     }else{

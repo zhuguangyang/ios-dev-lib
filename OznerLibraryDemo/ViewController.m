@@ -21,6 +21,7 @@
     [self->_tableView registerNib:[UINib nibWithNibName:@"WaterPurifier_TableViewCell" bundle:nil] forCellReuseIdentifier:NSStringFromClass([WaterPurifier class])];
     
     [self->_tableView registerNib:[UINib nibWithNibName:@"AirPurifier_MXChip_TableViewCell" bundle:nil] forCellReuseIdentifier:NSStringFromClass([AirPurifier_MxChip class])];
+    [self->_tableView registerNib:[UINib nibWithNibName:@"AirPurifier_MXChip_TableViewCell" bundle:nil] forCellReuseIdentifier:NSStringFromClass([AirPurifier_MxChip class])];
     
     [self->_tableView registerNib:[UINib nibWithNibName:@"AirPurifier_Bluetooth_TableViewCell" bundle:nil] forCellReuseIdentifier:NSStringFromClass([AirPurifier_Bluetooth class])];
     
@@ -99,7 +100,14 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     OznerDevice* device=[devices objectAtIndex:indexPath.item];
     NSString* name=NSStringFromClass(device.class);
-    BaseTableViewCell *cell = (BaseTableViewCell*)[tableView dequeueReusableCellWithIdentifier:name];
+    BaseTableViewCell *cell;
+    if ([name containsString:@"WaterPurifier"]) {
+        cell = (BaseTableViewCell*)[tableView dequeueReusableCellWithIdentifier:@"WaterPurifier"];
+    }else{
+        cell = (BaseTableViewCell*)[tableView dequeueReusableCellWithIdentifier:name];
+    }
+    
+    
     if (cell==nil)
     {
         cell = (BaseTableViewCell*)[tableView dequeueReusableCellWithIdentifier:@"DeviceTableViewCell"];

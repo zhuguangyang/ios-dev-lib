@@ -76,7 +76,7 @@
 +(NSString*)getWifiSSID;
 
 -(void) start:(NSString*)ssid Password:(NSString*)password;
--(AylaIO*) createAylaIO:(AylaDevice*)device;
+
 -(BOOL)isRuning;
 -(void)cancel;
 

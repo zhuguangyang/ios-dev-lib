@@ -271,6 +271,7 @@
     self->services=[[NSMutableArray alloc] init];
     self->ssid=[NSString stringWithString:Ssid];
     self->password=[NSString stringWithString:Password];
+    //获取周围网络情况，检查有无"OZNER_WATER-"的网络，有就优先配对Ayla，无就优先配对情况
     if ((runPairCount % 2)==0)
     {
         runThread=[[NSThread alloc] initWithTarget:self selector:@selector(run_Ayla) object:NULL];
@@ -296,7 +297,8 @@
 //AYLA 配网步骤
 -(void)run_Ayla
 {
-    
+    [AylaSystemUtils slowConnection:[NSNumber numberWithInt:1]];
+    [AylaSystemUtils saveCurrentSettings];
     [self initLocationManager];
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"prefs:root=WIFI"]];
     [self connectToNewDevice];
@@ -308,7 +310,8 @@ static AylaModule *foundDevice_Ayla = nil;
     [AylaSetup connectToNewDevice:^(AylaResponse *response, AylaModule *newdevice) {
         NSLog(@"%@",newdevice.dsn);
         foundDevice_Ayla=newdevice;
-        [self getNewDeviceScanForAPs];
+        //[self getNewDeviceScanForAPs];
+        [self connectNewDeviceToService];
     } failure:^(AylaError *err) {
         NSLog(@"%@",err);
         sleep(2.0f);
@@ -322,7 +325,7 @@ static AylaModule *foundDevice_Ayla = nil;
         
     }];
 }
-//2
+////2
 -(void)getNewDeviceScanForAPs{
     [AylaSetup getNewDeviceScanForAPs:^(AylaResponse *response, NSMutableArray *apList) {
         
@@ -330,6 +333,7 @@ static AylaModule *foundDevice_Ayla = nil;
     } failure:^(AylaError *err) {
         NSLog(@"%@",err);
         runThread=nil;
+        [self.delegate PairFailure];
     }];
 }
 //3
@@ -362,10 +366,12 @@ static AylaModule *foundDevice_Ayla = nil;
         } failure:^(AylaError *err) {
             NSLog(@"%@",err);
             runThread=nil;
+            [self.delegate PairFailure];
         }];
     } failure:^(AylaError *err) {
         NSLog(@"%@",err);
         runThread=nil;
+        [self.delegate PairFailure];
     }];
 }
 //4
@@ -399,9 +405,12 @@ static AylaModule *foundDevice_Ayla = nil;
         tmpIo.name=registeredDevice.productName;
         [self.delegate PairComplete:tmpIo];
         runThread=nil;
+       
+        
     } failure:^(AylaError *err) {
         NSLog(@"%@",err);
         runThread=nil;
+        [self.delegate PairFailure];
     }];
 }
 @end

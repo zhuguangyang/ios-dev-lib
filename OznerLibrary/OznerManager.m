@@ -74,8 +74,9 @@ OznerManager* oznerManager=nil;
         [devices removeAllObjects];
     }
     [self closeAll];
-    AylaIOManager* tmpIO=[[AylaIOManager alloc] init];
-    [tmpIO Start:aOwner Token:Token];
+    [[[[OznerManager instance] ioManager] aylaIOManager] Start:aOwner Token:Token];
+    //AylaIOManager* tmpIO=[[AylaIOManager alloc] init];
+    //[tmpIO Start:aOwner Token:Token];
     NSString* sql=[NSString stringWithFormat:@"CREATE TABLE IF NOT EXISTS %@ (identifier VARCHAR PRIMARY KEY NOT NULL,Type Text NOT NULL,JSON TEXT)",[self getOwnerTableName]];
     [db ExecSQLNonQuery:sql params:nil];
     [self.delegate OznerManagerDidOwnerChanged:_user];
@@ -101,7 +102,13 @@ OznerManager* oznerManager=nil;
     OznerDevice* device=nil;
     @synchronized(devices) {
         device=[devices objectForKey:io.identifier];
-        if (device) return device;
+        if ([WaterPurifierManager isWaterPurifier_Ayla:io.type]) {
+            
+        }
+        else
+        {
+            if (device) return device;
+        }
     }
 
     for (BaseDeviceManager* mgr in deviceMgrList)
@@ -217,6 +224,10 @@ OznerManager* oznerManager=nil;
     [db ExecSQLNonQuery:sql params:[NSArray arrayWithObjects:device.identifier, nil]];
     @synchronized(devices) {
         [devices removeObjectForKey:device.identifier];
+    }
+    //Ayla 
+    if ([WaterPurifierManager isWaterPurifier_Ayla:device.type]) {
+        [[[[OznerManager instance] ioManager] aylaIOManager] removeDevice:device.identifier];
     }
     [device bind:nil];
     [self.delegate OznerManagerDidRemoveDevice:device];

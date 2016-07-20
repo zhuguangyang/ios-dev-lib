@@ -25,11 +25,11 @@
     enum ConnectStatus connectStatus;
     NSString* address;
     NSMutableDictionary* properties;
-    
+    AylaDevice* privatAylaDevice;
 }
 
-@property (weak,nonatomic) AylaDevice* ayladevice;
-//-(void)setSecureCode:(NSString*)secureCode;
+@property (weak,nonatomic) AylaDevice* aylaDevice;
+
 -(instancetype)init:(AylaDevice*)device;
 //-(BOOL)runJob:(nonnull SEL)aSelector withObject:(nullable id)arg waitUntilDone:(BOOL)wait;
 -(NSString*)getAddress;

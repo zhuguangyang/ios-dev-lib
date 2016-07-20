@@ -131,10 +131,28 @@ bool StringIsNullOrEmpty(NSString* str)
     if ([str isEqualToString:@""]) return true;
     return false;
 }
-//Ayla
-+(id)getAylaDeviceJson:(NSString*)lanIp;
+//Ayla归档与解档
++(AylaDevice*)getAylaDeviceFromLocal:(NSString*)identifier;
 {
-    return @"";
+    NSString *filePath = [NSHomeDirectory() stringByAppendingPathComponent:[identifier stringByAppendingString:@".src"]];
+    id device = [NSKeyedUnarchiver unarchiveObjectWithFile:filePath];
+    if (device==nil) {
+        return nil;
+    }
+    NSLog(@"%@",device);
+    return (AylaDevice*)device;
 }
-
++(void)setAylaDeviceToLocal:(AylaDevice*)device;
+{
+    NSString* address=[[device.mac stringByReplacingOccurrencesOfString:@":" withString:@""] uppercaseString];
+    NSString *filePath = [NSHomeDirectory() stringByAppendingPathComponent:[address stringByAppendingString:@".src"]];
+    
+    BOOL success = [NSKeyedArchiver archiveRootObject:device toFile:filePath];
+    if(success){
+        NSLog(@"Ayla归档成功");
+    }
+    else{
+        NSLog(@"Ayla归档失败");
+    }
+}
 @end

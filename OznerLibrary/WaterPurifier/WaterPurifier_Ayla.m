@@ -27,7 +27,7 @@ NSString* Property_Heating = @"Heating";
 NSString* Property_Cooling = @"Cooling";
 NSString* Property_Sterilization = @"Sterilization";
 NSString* Property_Status = @"Sterilization";
-
+int requestCount = 0;
 
 -(instancetype)init:(NSString *)identifier Type:(NSString *)type Settings:(NSString *)json
 {
@@ -42,6 +42,7 @@ NSString* Property_Status = @"Sterilization";
     }
     return self;
 }
+
 -(NSString*) getProperty:(NSString*) name {
     if (io == nil) return @"";
     return [(AylaIO*)io getProperty:name];
@@ -51,7 +52,7 @@ NSString* Property_Status = @"Sterilization";
 {
     NSString* value = [self getProperty:Property_Power];
     if (!StringIsNullOrEmpty(value))
-        return (value.intValue != 0 ? true : false);
+        return [NSNumber numberWithInt:value.intValue].boolValue;
     return false;
 }
 -(void)setPower:(bool)Power Callback:(OperateCallback)cb
@@ -63,7 +64,7 @@ NSString* Property_Status = @"Sterilization";
     }
     NSMutableDictionary* object =  [[NSMutableDictionary alloc] init];
     [object setValue:Property_Power forKey:@"name"];
-    [object setValue:[NSString stringWithFormat:@"%d",Power ? 1:0] forKey:@"value"];
+    [object setValue:[NSNumber numberWithBool:Power].stringValue forKey:@"value"];
     [io send:(NSData *)object Callback:cb];
 }
 -(bool)getHot
@@ -72,7 +73,7 @@ NSString* Property_Status = @"Sterilization";
     NSString* value = [self getProperty:Property_Heating];
     
     if (!StringIsNullOrEmpty(value))
-        return (value.intValue != 0 ? true : false);
+        return [NSNumber numberWithInt:value.intValue].boolValue;
     return false;
 }
 -(void)setHot:(bool)Hot Callback:(OperateCallback)cb
@@ -84,7 +85,7 @@ NSString* Property_Status = @"Sterilization";
     }
     NSMutableDictionary* object =  [[NSMutableDictionary alloc] init];
     [object setValue:Property_Heating forKey:@"name"];
-    [object setValue:[NSString stringWithFormat:@"%d",Hot ? 1:0] forKey:@"value"];
+    [object setValue:[NSNumber numberWithBool:Hot].stringValue forKey:@"value"];
     [io send:(NSData *)object Callback:cb];
 }
 -(bool)getCool
@@ -93,7 +94,7 @@ NSString* Property_Status = @"Sterilization";
     NSString* value = [self getProperty:Property_Cooling];
     
     if (!StringIsNullOrEmpty(value))
-        return (value.intValue != 0 ? true : false);
+        return [NSNumber numberWithInt:value.intValue].boolValue;
     return false;
 }
 -(void)setCool:(bool)Cool Callback:(OperateCallback)cb
@@ -105,7 +106,7 @@ NSString* Property_Status = @"Sterilization";
     }
     NSMutableDictionary* object =  [[NSMutableDictionary alloc] init];
     [object setValue:Property_Cooling forKey:@"name"];
-    [object setValue:[NSString stringWithFormat:@"%d",Cool ? 1:0] forKey:@"value"];
+    [object setValue:[NSNumber numberWithBool:Cool].stringValue forKey:@"value"];
     [io send:(NSData *)object Callback:cb];
 }
 -(bool)getSterilization
@@ -114,7 +115,7 @@ NSString* Property_Status = @"Sterilization";
     NSString* value = [self getProperty:Property_Sterilization];
     
     if (!StringIsNullOrEmpty(value))
-        return (value.intValue != 0 ? true : false);
+        return [NSNumber numberWithInt:value.intValue].boolValue;
     return false;
 }
 -(void)setSterilization:(bool)Sterilization Callback:(OperateCallback)cb
@@ -126,7 +127,7 @@ NSString* Property_Status = @"Sterilization";
     }
     NSMutableDictionary* object =  [[NSMutableDictionary alloc] init];
     [object setValue:Property_Sterilization forKey:@"name"];
-    [object setValue:[NSString stringWithFormat:@"%d",Sterilization ? 1:0] forKey:@"value"];
+    [object setValue:[NSNumber numberWithBool:Sterilization].stringValue forKey:@"value"];
     [io send:(NSData *)object Callback:cb];
 }
 -(void) setOffline:(BOOL)value
@@ -137,11 +138,12 @@ NSString* Property_Status = @"Sterilization";
         
     }
 }
-int requestCount = 0;
+
+
 -(void) updateStatus:(OperateCallback)cb {
     if (io == nil) {
-        if (cb != nil)
-            cb([NSError errorWithDomain:@"Connection Closed" code:0 userInfo:nil]);
+//        if (cb != nil&cb != NULL)
+//            cb([NSError errorWithDomain:@"Connection Closed" code:0 userInfo:nil]);
     } else {
         requestCount++;
         if (requestCount > 3) {
@@ -150,33 +152,22 @@ int requestCount = 0;
         [(AylaIO*)io updateProperty];
     }
 }
-//-(void)setStatus:(NSData*)data Callback:(OperateCallback)cb
-//{
-//    if (!io)
-//    {
-//        if (cb)
-//        {
-//            cb([NSError errorWithDomain:@"Connection Closed" code:0 userInfo:nil]);
-//        }
-//        return;
-//    }
-//    [io send:[self MakeWoodyBytes:GroupCode_AppToDevice Opcode:Opcode_ChangeStatus Data:data] Callback:cb];
-//    [self reqeusetStatsus];
-//}
 
-//-(NSString *)description
-//{
-//    return [NSString stringWithFormat:@"Status:%@\nSensor:%@",
-//            
-//            [self.status description],[self.sensor description]];
-//}
-//
+
+-(NSString *)description
+{
+    return [NSString stringWithFormat:@"Power:%@,Hot:%@,Cool:%@,TDS1:%d,TDS2:%d",
+            
+            [NSNumber numberWithBool:[self getPower]],[NSNumber numberWithBool:[self getHot]],[NSNumber numberWithBool:[self getCool]] ,self.TDS1,self.TDS2];
+}
+
+//绑定io关键第一步
 -(void)doSetDeviceIO:(BaseDeviceIO *)oldio NewIO:(BaseDeviceIO *)newio
 {
     if ([newio isReady]) {
         [self DeviceIODidReadly:newio];
     }
-    //[(AylaIO*)newio setSecureCode:SecureCode];
+   
 }
 
 
@@ -199,6 +190,7 @@ int requestCount = 0;
     } 
     
 }
+//关键
 -(void)DeviceIO:(BaseDeviceIO *)io recv:(NSData *)data
 {
     _requestCount=0;
@@ -225,20 +217,7 @@ int requestCount = 0;
         
     }
 }
-//-(BOOL)reqeusetStatsus
-//{
-//    if (io)
-//    {
-//        _requestCount++;
-//        if (_requestCount>=3)
-//        {
-//            _isOffline=true;
-//            [self doStatusUpdate];
-//        }
-//        return [io send:[self MakeWoodyBytes:GroupCode_AppToDevice Opcode:Opcode_RequestStatus Data:nil]];
-//    }else
-//        return false;
-//}
+
 
 -(BOOL)DeviceIOWellInit:(BaseDeviceIO *)Io
 {
@@ -258,7 +237,6 @@ int requestCount = 0;
 -(void)DeviceIODidReadly:(BaseDeviceIO *)Io
 {
     [self setOffline:false];
-    //[self reqeusetStatsus];
     [self start_auto_update];
     @try {
         [super DeviceIODidReadly:Io];
@@ -294,17 +272,18 @@ int requestCount = 0;
         [self stop_auto_update];
     if (!updateTimer)
     {
+        
         updateTimer=[NSTimer scheduledTimerWithTimeInterval:5 target:self
-                                                   selector:@selector(auto_update)
+                                                   selector:@selector(updateStatus:)
                                                    userInfo:nil repeats:YES];
         [updateTimer fire];
     }
 }
 
--(void)auto_update
-{
-    //[self reqeusetStatsus];
-}
+//-(void)auto_update
+//{
+//    [self reqeusetStatsus];
+//}
 
 @end
 

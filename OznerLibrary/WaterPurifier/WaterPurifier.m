@@ -147,9 +147,9 @@
         return false;
 }
 
--(BOOL)DeviceIOWellInit:(BaseDeviceIO *)io
+-(BOOL)DeviceIOWellInit:(BaseDeviceIO *)Io
 {
-    if ([io send:[self MakeWoodyBytes:GroupCode_AppToDevice Opcode:Opcode_RequestStatus Data:nil]])
+    if ([Io send:[self MakeWoodyBytes:GroupCode_AppToDevice Opcode:Opcode_RequestStatus Data:nil]])
     {
         [self wait:5];
     }
@@ -157,12 +157,12 @@
 }
 
 
--(void)DeviceIODidReadly:(BaseDeviceIO *)io
+-(void)DeviceIODidReadly:(BaseDeviceIO *)Io
 {
     [self reqeusetStatsus];
     [self start_auto_update];
     @try {
-         [super DeviceIODidReadly:io];
+         [super DeviceIODidReadly:Io];
     }
     @catch (NSException *exception) {
         
@@ -170,11 +170,11 @@
    
 }
 
--(void)DeviceIODidDisconnected:(BaseDeviceIO *)io
+-(void)DeviceIODidDisconnected:(BaseDeviceIO *)Io
 {
     [self stop_auto_update];
     @try {
-        [super DeviceIODidDisconnected:io];
+        [super DeviceIODidDisconnected:Io];
     }
     @catch (NSException *exception) {
         

@@ -7,7 +7,7 @@
 //
 
 #import "DeviceInfoView.h"
-
+#import "WaterPurifier_Ayla.h"
 @implementation DeviceInfoView
 
 -(instancetype)initWithCoder:(NSCoder *)aDecoder
@@ -72,7 +72,12 @@
             [StatusLabel setText:@"连接状态:连接中"];
             break;
     }
+    
     [DescLabel setText:[device description]];
+    
+    
+    
+    
 }
 
 

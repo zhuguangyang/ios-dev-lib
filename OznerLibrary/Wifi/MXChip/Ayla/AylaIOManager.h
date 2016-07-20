@@ -15,4 +15,5 @@
 }
 -(void) Start:(NSString*) user Token:(NSString*)Token;
 -(AylaIO*) createAylaIO:(AylaDevice*)device;
+-(void) removeDevice:(NSString*) identifier;
 @end

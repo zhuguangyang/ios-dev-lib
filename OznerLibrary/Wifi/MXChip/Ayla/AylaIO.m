@@ -9,11 +9,13 @@
 #import "AylaIO.h"
 #import "BaseDeviceIO.hpp"
 #import "Helper.h"
+#import <AylaNetworks.h>
+#import "OznerManager.h"
 @implementation AylaIO
 -(instancetype)init:(AylaDevice*)device
 {
-    //
     NSString* tmpMac=device.mac.uppercaseString;
+
     self->address=[NSString stringWithFormat:@"%@:%@:%@:%@:%@:%@",
                    [tmpMac substringWithRange:NSMakeRange(0, 2)],
                    [tmpMac substringWithRange:NSMakeRange(2, 2)],
@@ -21,9 +23,15 @@
                    [tmpMac substringWithRange:NSMakeRange(6, 2)],
                    [tmpMac substringWithRange:NSMakeRange(8, 2)],
                    [tmpMac substringWithRange:NSMakeRange(10, 2)]];
+    
     if (self=[super init:self->address Type:device.model])
     {
-        _ayladevice=device;
+        [self doConnecting];
+        properties=[[NSMutableDictionary alloc] init];
+        
+        self->_aylaDevice=device;
+        privatAylaDevice=device;
+        NSLog(@"");
         [device getProperties:nil success:^(AylaResponse *response, NSArray *Properties) {
             NSLog(@"%@,%@",response,Properties);
             @synchronized(properties) {
@@ -38,7 +46,8 @@
         } failure:^(AylaError *err) {
             NSLog(@"%@",err);
         }];
-        [self doConnecting];
+        
+        
     }
     return self;
 }
@@ -90,7 +99,8 @@
         [self postSend:op];
     }else
     {
-        [self performSelector:@selector(postSend:) onThread:runThread withObject:op waitUntilDone:false];
+        //[self performSelector:@selector(postSend:) onThread:runThread withObject:op waitUntilDone:false];
+        [self postSend:op];
     }
 }
 
@@ -110,18 +120,17 @@
 
 -(BOOL)postSend:(OperateData*)data
 {
-    
-    AylaProperty* tmpPros=[self getAylaProperty:[(id)data objectForKey:@"name"]];
+    NSLog(@"%@",data.data);
+    AylaProperty* tmpPros=[self getAylaProperty:[(id)data.data objectForKey:@"name"]];
     if (tmpPros != nil)
     {
         if (data.callback)
             data.callback(nil);
-        AylaDatapoint* datapoint;
-        if ([[tmpPros baseType] isEqualToString:@"boolean"]) {
-            [datapoint setNValue:[(id)data objectForKey:@"value"]];
-            //datapoint.nValue(new Byte(object.getBoolean("value") ? (byte) 1 : (byte) 0));
-        } else
-            [datapoint setNValue:[(id)data objectForKey:@"value"]];
+        AylaDatapoint* datapoint=[[AylaDatapoint alloc] init];
+        NSString* tmpValue=[(id)data.data objectForKey:@"value"];
+        [datapoint setNValue:[NSNumber numberWithInt:tmpValue.intValue]];
+        [datapoint setSValue:tmpValue];
+
         [tmpPros createDatapoint:datapoint success:^(AylaResponse *response, AylaDatapoint *datapointCreated) {
             NSLog(@"%@,%@",response,datapointCreated);
             
@@ -129,7 +138,7 @@
             NSLog(@"%@",err);
             
         }];
-        //property.createDatapoint(new ParamHandler(callback), datapoint);
+        
         return true;
     }else
     {
@@ -138,12 +147,13 @@
         return false;
     }
 }
+//第一关键
 -(void)updateProperty
 {
-    
-    [_ayladevice getProperties:nil success:^(AylaResponse *response, NSArray *Properties) {
+    NSLog(@"%@",_aylaDevice.productName);
+    [_aylaDevice getProperties:nil success:^(AylaResponse *response, NSArray *Properties) {
         NSLog(@"%@,%@",response,Properties);
-        NSMutableArray* ap;
+        NSMutableArray* apArr=[[NSMutableArray alloc] init];
         @synchronized(properties) {
             for (int i=0; i<Properties.count; i++) {
                 AylaProperty* tmpP=[Properties objectAtIndex:i];
@@ -152,21 +162,21 @@
                     if (property.value != nil) {
                         
                         if (![[property value] isEqual:tmpP.value]) {
-                            [ap addObject:tmpP];
+                            [apArr addObject:tmpP];
                         }
                     }
                 }
                 [properties setObject:tmpP forKey:tmpP.name];
             }
             
-            NSMutableDictionary *json;
-            if (ap.count > 0) {
-                for (AylaProperty* p in ap) {
+            NSMutableDictionary *json=[[NSMutableDictionary alloc] init];
+            if (apArr.count > 0) {
+                for (AylaProperty* p in apArr) {
                     [json setObject:p.value forKey:p.name];
                 }
             }
-            
-            [self doRecv:[NSJSONSerialization dataWithJSONObject:json options:NSJSONWritingPrettyPrinted error:nil]];
+            //第二关键
+            [self doRecv:(NSData*)json];
             
         }
     } failure:^(AylaError *err) {
@@ -176,7 +186,7 @@
 -(NSString*) getProperty:(NSString*) name {
     AylaProperty* property = [self getAylaProperty:name];
     if (property != nil) {
-        return [property datapoint].value;//.datapoint.value();
+        return [property datapoint].value;
     } else
         return nil;
 }
@@ -188,43 +198,49 @@
     return true;
 }
 
-//-(void)runThreadProc
-//{
-//    int msgId=0;
-//    @try {
-//        if (!proxy.connected)
-//            return ;
+-(void)runThreadProc
+{
+    @try {
+        if (![[_aylaDevice connectionStatus] isEqualToString:@"OffLine"])
+        {
+            [self doConnected];
+            return ;
+        }
+        
 //        [self doConnecting];
 //        
-//        msgId=[proxy registerOnPublish:^(NSString *topic, NSData *data) {
-//            if (outKey)
-//            {
-//                if ([topic isEqualToString:outKey])
-//                    [self doRecv:data];
-//            }
+//        
+//        [AylaDevice registerNewDevice:_aylaDevice success:^(AylaResponse *response, AylaDevice *registeredDevice) {
+//            NSLog(@"Ayla Device Register Success%@",registeredDevice);
+//            AylaIO* tmpIo= [[[[OznerManager instance] ioManager] aylaIOManager] createAylaIO:registeredDevice];
+//            tmpIo.name=registeredDevice.productName;
+//            OznerDevice* device=[[OznerManager instance] getDeviceByIO:tmpIo];
+//            //[[OznerManager instance] save:device];
+//        } failure:^(AylaError *err) {
+//            NSLog(@"%@",err);
+//            //runThread=nil;
+//            //[self.delegate PairFailure];
 //        }];
 //        
-//        if (![proxy subscribe:outKey])
-//            return;
 //        [self doConnected];
 //        
 //        if (![self doInit])
 //            return;
 //        
 //        [self doReady];
-//        while (![[NSThread currentThread] isCancelled]) {
-//            [[NSRunLoop currentRunLoop] run];
-//        }
-//    }
-//    @catch (NSException *exception) {
-//        NSLog(@"exception:%@",[exception debugDescription]);
-//    }
-//    @finally {
-//        [proxy unsubscribe:outKey];
-//        [self->proxy unregisterOnPublish:msgId];
-//        [self doDisconnect];
-//    }
-//}
+        while (![[NSThread currentThread] isCancelled]) {
+            [[NSRunLoop currentRunLoop] run];
+        }
+    }
+    @catch (NSException *exception) {
+        NSLog(@"exception:%@",[exception debugDescription]);
+    }
+    @finally {
+        //[proxy unsubscribe:outKey];
+        //[self->proxy unregisterOnPublish:msgId];
+        //[self doDisconnect];
+    }
+}
 
 //-(void)doDisconnect
 //{
@@ -235,20 +251,13 @@
 
 -(void)open
 {
-//    if (StringIsNullOrEmpty(outKey))
-//    {
-//        @throw [NSException exceptionWithName:@"MXChioIO" reason:@"out IsNull" userInfo:nil];
-//    }
-//    if (runThread) return;
-//    runThread=[[NSThread alloc] initWithTarget:self selector:@selector(runThreadProc) object:nil];
-//    [runThread start];
+    
+    if (runThread) return;
+    runThread=[[NSThread alloc] initWithTarget:self selector:@selector(runThreadProc) object:nil];
+    [runThread start];
 }
 
-//-(void)setSecureCode:(NSString*)secureCode;
-//{
-//    self->inKey=[NSString stringWithFormat:@"%@/%@/in",secureCode,[[self.identifier stringByReplacingOccurrencesOfString:@":" withString:@""] lowercaseString]];
-//    self->outKey=[NSString stringWithFormat:@"%@/%@/out",secureCode,[[self.identifier stringByReplacingOccurrencesOfString:@":" withString:@""] lowercaseString]];
-//}
+
 
 
 @end

@@ -11,5 +11,5 @@
 
 @interface WaterPurifierManager : BaseDeviceManager
 +(BOOL)isWaterPurifier:(NSString*)type;
-
++(BOOL)isWaterPurifier_Ayla:(NSString*)type;
 @end

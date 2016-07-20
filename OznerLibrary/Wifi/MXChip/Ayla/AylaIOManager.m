@@ -8,9 +8,9 @@
 
 #import "AylaIOManager.h"
 #import <AylaNetworks.h>
-//#import "AylaIO.h"
+#import "Helper.h"
 #import "IOManager.hpp"
-//#import "AylaDevelopHelper.h"
+#import "OznerManager.h"
 
 @implementation AylaIOManager
 NSString* gblAmlDeviceSsidRegex = @"^OZNER_WATER-[0-9A-Fa-f]{12}";
@@ -30,15 +30,18 @@ NSString* gblAmlDeviceSsidRegex = @"^OZNER_WATER-[0-9A-Fa-f]{12}";
         [AylaSystemUtils serviceType:[NSNumber numberWithInt:AML_DEVELOPMENT_SERVICE]];//AML_STAGING_SERVICE//AML_DEVELOPMENT_SERVICE
         [AylaSystemUtils serviceLocationWithCountryCode:@"CN"];
         [AylaSystemUtils loggingLevel:1 << 2];
-        [AylaSystemUtils slowConnection:[NSNumber numberWithInt:1]];
+        [AylaSystemUtils slowConnection:[NSNumber numberWithInt:0]];
         [AylaSystemUtils saveCurrentSettings];
         //[AylaLanMode enable];
     }
     return self;
 }
--(void) removeDevice:(BaseDeviceIO*) io {
-     AylaIO* aylaIO = (AylaIO*) io;
-    [[aylaIO ayladevice] unregisterDevice:nil success:^(AylaResponse *response) {
+-(void) removeDevice:(NSString*) identifier {
+    AylaDevice* dev=(AylaDevice*)[listenDeviceList objectForKey:identifier];
+    if (dev==nil) {
+        return;
+    }
+    [dev unregisterDevice:nil success:^(AylaResponse *response) {
         NSLog(@"Ayla unregisterDevice complete%@",response);
     } failure:^(AylaError *err) {
         NSLog(@"Ayla unregisterDevice Error:%@",err);
@@ -57,13 +60,15 @@ NSString* gblAmlDeviceSsidRegex = @"^OZNER_WATER-[0-9A-Fa-f]{12}";
         
         NSLog(@"%@,%@,%@",response,user,AylaUser.currentUser.accessToken);
         NSLog(@"%@,%@",response,user);
+        
         [AylaDevice getDevices:nil success:^(AylaResponse *response, NSArray *devices) {
             for (int i=0; i<devices.count; i++) {
                 AylaDevice* device=(AylaDevice*)[devices objectAtIndex:i];
                 NSLog(@"%@",device);
-                [self createAylaIO:device];
+                AylaIO* io=[[[[OznerManager instance] ioManager] aylaIOManager] createAylaIO:device];
                 
-                
+                OznerDevice* ioDevice=[[OznerManager instance] getDeviceByIO:io];
+                [[OznerManager instance] save:ioDevice];
             }
             
             //NSLog(@"%@,%@",response,devices);
@@ -78,7 +83,9 @@ NSString* gblAmlDeviceSsidRegex = @"^OZNER_WATER-[0-9A-Fa-f]{12}";
 -(AylaIO*) createAylaIO:(AylaDevice*)device
 {
     AylaIO* io = [[AylaIO alloc] init:device];
+    [listenDeviceList setObject:device forKey:io.identifier];
     [self doAvailable:io];
     return io;
 }
+
 @end
