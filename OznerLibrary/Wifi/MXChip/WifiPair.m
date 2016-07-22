@@ -307,6 +307,7 @@
 //1
 static AylaModule *foundDevice_Ayla = nil;
 -(void)connectToNewDevice{
+    //[self getNewDeviceScanForAPs];
     [AylaSetup connectToNewDevice:^(AylaResponse *response, AylaModule *newdevice) {
         NSLog(@"%@",newdevice.dsn);
         foundDevice_Ayla=newdevice;
@@ -328,12 +329,12 @@ static AylaModule *foundDevice_Ayla = nil;
 ////2
 -(void)getNewDeviceScanForAPs{
     [AylaSetup getNewDeviceScanForAPs:^(AylaResponse *response, NSMutableArray *apList) {
-        
+        NSLog(@"%@",apList);
         [self connectNewDeviceToService];
     } failure:^(AylaError *err) {
         NSLog(@"%@",err);
-        runThread=nil;
-        [self.delegate PairFailure];
+//        runThread=nil;
+//        [self.delegate PairFailure];
     }];
 }
 //3

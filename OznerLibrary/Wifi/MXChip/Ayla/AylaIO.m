@@ -30,10 +30,10 @@
         properties=[[NSMutableDictionary alloc] init];
         
         self->_aylaDevice=device;
-        privatAylaDevice=device;
-        NSLog(@"");
+        //privatAylaDevice=device;
+        //NSLog(@"");
         [device getProperties:nil success:^(AylaResponse *response, NSArray *Properties) {
-            NSLog(@"%@,%@",response,Properties);
+            //NSLog(@"%@,%@",response,Properties);
             @synchronized(properties) {
                 for (int i=0; i<Properties.count; i++) {
                     AylaProperty* tmpPro=(AylaProperty*)[Properties objectAtIndex:i];
@@ -132,10 +132,10 @@
         [datapoint setSValue:tmpValue];
 
         [tmpPros createDatapoint:datapoint success:^(AylaResponse *response, AylaDatapoint *datapointCreated) {
-            NSLog(@"%@,%@",response,datapointCreated);
+            NSLog(@"postSend:Send Data Success");
             
         } failure:^(AylaError *err) {
-            NSLog(@"%@",err);
+            NSLog(@"postSend:Send Data Success%@",err);
             
         }];
         
@@ -150,9 +150,18 @@
 //第一关键
 -(void)updateProperty
 {
-    NSLog(@"%@",_aylaDevice.productName);
+    //NSLog(@"_aylaDeviceName:%@",_aylaDevice.productName);
+    if ([[_aylaDevice connectionStatus] isEqualToString:@"OffLine"])
+    {
+        [self doDisconnect];
+        return ;
+    }
+    else
+    {
+        [self doConnected];
+    }
     [_aylaDevice getProperties:nil success:^(AylaResponse *response, NSArray *Properties) {
-        NSLog(@"%@,%@",response,Properties);
+        //NSLog(@"%@,%@",response,Properties);
         NSMutableArray* apArr=[[NSMutableArray alloc] init];
         @synchronized(properties) {
             for (int i=0; i<Properties.count; i++) {

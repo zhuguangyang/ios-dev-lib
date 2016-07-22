@@ -25,7 +25,7 @@
     enum ConnectStatus connectStatus;
     NSString* address;
     NSMutableDictionary* properties;
-    AylaDevice* privatAylaDevice;
+    //AylaDevice* privatAylaDevice;
 }
 
 @property (weak,nonatomic) AylaDevice* aylaDevice;

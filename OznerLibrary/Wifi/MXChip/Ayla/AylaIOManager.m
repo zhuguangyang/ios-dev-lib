@@ -58,13 +58,12 @@ NSString* gblAmlDeviceSsidRegex = @"^OZNER_WATER-[0-9A-Fa-f]{12}";
     
     [AylaUser ssoLogin:user password:@"" token:Token appId:@"a_ozner_water_mobile-cn-id" appSecret:@"a_ozner_water_mobile-cn-7331816" success:^(AylaResponse *response, AylaUser *user) {
         
-        NSLog(@"%@,%@,%@",response,user,AylaUser.currentUser.accessToken);
-        NSLog(@"%@,%@",response,user);
+        NSLog(@"AylaUser Login Success:%@,%@,%@",response,user,AylaUser.currentUser.accessToken);
         
         [AylaDevice getDevices:nil success:^(AylaResponse *response, NSArray *devices) {
             for (int i=0; i<devices.count; i++) {
                 AylaDevice* device=(AylaDevice*)[devices objectAtIndex:i];
-                NSLog(@"%@",device);
+                //NSLog(@"%@",device);
                 AylaIO* io=[[[[OznerManager instance] ioManager] aylaIOManager] createAylaIO:device];
                 
                 OznerDevice* ioDevice=[[OznerManager instance] getDeviceByIO:io];
