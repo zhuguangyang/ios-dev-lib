@@ -9,11 +9,11 @@
 #import "MxChipAirPurifierSensor.h"
 #import "AirPurifierConsts.h"
 @implementation MxChipAirPurifierSensor
--(instancetype)init:(NSDictionary *)propertys
+-(instancetype)init:(NSDictionary *)Propertys
 {
     if (self=[super init])
     {
-        self->propertys=propertys;
+        self->propertys=Propertys;
     }
     return self;
 }

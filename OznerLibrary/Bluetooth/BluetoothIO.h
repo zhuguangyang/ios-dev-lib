@@ -23,7 +23,7 @@
     CBCentralManager * centralManager;
 }
 
--(instancetype)initWithPeripheral:(CBPeripheral*)Peripheral Address:(NSString*)address
+-(instancetype)initWithPeripheral:(nullable CBPeripheral*)Peripheral Address:(NSString*)address
                    CentralManager:(CBCentralManager *)CentralManager BluetoothData:(ScanData *)scanData;
 @property (nonnull,strong,readonly) NSDate* firmwareVersion;
 @property (nonnull,copy,readonly) NSString* Platform;
@@ -32,6 +32,6 @@
 -(BOOL)runJob:(nonnull SEL)aSelector withObject:(nullable id)arg waitUntilDone:(BOOL)wait;
 -(void)updateScarnResponse:(int)type Data:(nullable NSData*)data;
 -(void)updateConnectStatus:(enum ConnectStatus)status;
--(void)setInfo:(NSString*)platform Firmware:(NSDate*)firmwareVersion;
+-(void)setInfo:(nonnull NSString*)platform Firmware:(nonnull NSDate*)firmwareVersion;
 
 @end

@@ -68,10 +68,10 @@
 {
     return @"AirPurifier";
 }
--(BOOL)reqesutProperty:(NSSet*)propertys
+-(BOOL)reqesutProperty:(NSSet*)Propertys
 {
     if (!io) return false;
-    int len=14 + [propertys count];
+    int len=14 + (int)[Propertys count];
     Byte bytes[len];
     memset(bytes, 0, len);
     bytes[0] = (Byte) 0xfb;
@@ -93,7 +93,7 @@
     bytes[11]=0;
     bytes[12]=(Byte)[propertys count];
     int p=13;
-    for (NSNumber* prop in [propertys allObjects])
+    for (NSNumber* prop in [Propertys allObjects])
     {
         bytes[p]=(Byte)[prop intValue];
         p++;
@@ -221,9 +221,10 @@
     NSDate* date=[NSDate dateWithTimeIntervalSinceNow:0];
     int time=(int)[date timeIntervalSince1970];
     *((int*)bytes)=time;
+    __weak typeof(self) weakSelf = self;
     [self setProperty:PROPERTY_TIME Data:[NSData dataWithBytes:bytes length:sizeof(bytes)] Callback:^(NSError* error)
      {
-         [self wait:Timeout];
+         [weakSelf wait:Timeout];
      }];
     
 }

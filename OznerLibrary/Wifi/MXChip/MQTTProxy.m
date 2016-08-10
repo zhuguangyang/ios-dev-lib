@@ -30,16 +30,17 @@
         //mqtt.username="
         
         NSLog(@"start connect");
+        typeof(self) weakSelf = self;
         [mqtt setDisconnectionHandler:^(NSUInteger code)
          {
-             [self doDiconnected];
+             [weakSelf doDiconnected];
          }];
         
         [mqtt connectToHost:MQTT_HOST
                  completionHandler:^(NSUInteger code) {
                      switch (code) {
                          case ConnectionAccepted:
-                             [self doConnected];
+                             [weakSelf doConnected];
                              break;
                              
                          default:
@@ -51,7 +52,7 @@
         [mqtt setMessageHandler:^(MQTTMessage *message) {
             
             NSArray* array=nil;
-            @synchronized(self->onPublishList) {
+            @synchronized(weakSelf->onPublishList) {
                 array=[NSArray arrayWithArray:[onPublishList allValues]];
             }
             

@@ -12,7 +12,7 @@
 #import "Pair/ConfigurationDevice.h"
 #import "../MXChip/MXChipIO.h"
 #import "AylaIO.h"
-#import <AylaNetworks.h>
+
 #import <CoreLocation/CoreLocation.h>
 
 @class AylaNetworks;

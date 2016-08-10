@@ -22,7 +22,7 @@
 @property (nonatomic) int powerOffTime;
 @property (nonatomic) int week;
 -(BOOL)loadByBytes:(NSData*)data;
--(void)loadByJSON:(NSString*)json;
+-(BOOL)loadByJSON:(NSString*)json;
 -(NSData*)toBytes;
 -(NSString*)toJSON;
 @end

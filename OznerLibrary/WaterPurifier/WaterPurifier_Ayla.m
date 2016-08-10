@@ -48,14 +48,14 @@ int requestCount = 0;
     return [(AylaIO*)io getProperty:name];
 }
 
--(bool)getPower
+-(BOOL)getPower
 {
     NSString* value = [self getProperty:Property_Power];
     if (!StringIsNullOrEmpty(value))
         return [NSNumber numberWithInt:value.intValue].boolValue;
     return false;
 }
--(void)setPower:(bool)Power Callback:(OperateCallback)cb
+-(void)setPower:(BOOL)Power Callback:(OperateCallback)cb
 {
     if (io == nil) {
         if (cb != nil)
@@ -67,7 +67,7 @@ int requestCount = 0;
     [object setValue:[NSNumber numberWithBool:Power].stringValue forKey:@"value"];
     [io send:(NSData *)object Callback:cb];
 }
--(bool)getHot
+-(BOOL)getHot
 {
     
     NSString* value = [self getProperty:Property_Heating];
@@ -76,7 +76,7 @@ int requestCount = 0;
         return [NSNumber numberWithInt:value.intValue].boolValue;
     return false;
 }
--(void)setHot:(bool)Hot Callback:(OperateCallback)cb
+-(void)setHot:(BOOL)Hot Callback:(OperateCallback)cb
 {
     if (io == nil) {
         if (cb != nil)
@@ -88,7 +88,7 @@ int requestCount = 0;
     [object setValue:[NSNumber numberWithBool:Hot].stringValue forKey:@"value"];
     [io send:(NSData *)object Callback:cb];
 }
--(bool)getCool
+-(BOOL)getCool
 {
     
     NSString* value = [self getProperty:Property_Cooling];
@@ -97,7 +97,7 @@ int requestCount = 0;
         return [NSNumber numberWithInt:value.intValue].boolValue;
     return false;
 }
--(void)setCool:(bool)Cool Callback:(OperateCallback)cb
+-(void)setCool:(BOOL)Cool Callback:(OperateCallback)cb
 {
     if (io == nil) {
         if (cb != nil)
@@ -109,7 +109,7 @@ int requestCount = 0;
     [object setValue:[NSNumber numberWithBool:Cool].stringValue forKey:@"value"];
     [io send:(NSData *)object Callback:cb];
 }
--(bool)getSterilization
+-(BOOL)getSterilization
 {
     
     NSString* value = [self getProperty:Property_Sterilization];
@@ -118,7 +118,7 @@ int requestCount = 0;
         return [NSNumber numberWithInt:value.intValue].boolValue;
     return false;
 }
--(void)setSterilization:(bool)Sterilization Callback:(OperateCallback)cb
+-(void)setSterilization:(BOOL)Sterilization Callback:(OperateCallback)cb
 {
     if (io == nil) {
         if (cb != nil)

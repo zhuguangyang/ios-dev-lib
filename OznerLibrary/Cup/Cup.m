@@ -124,7 +124,7 @@
         return true;
 }
 
--(void)DeviceIO:(BaseDeviceIO *)io recv:(NSData *)data
+-(void)DeviceIO:(BaseDeviceIO *)Io recv:(NSData *)data
 {
     BytePtr bytes=(BytePtr)data.bytes;
     Byte opCode=*bytes;
@@ -151,7 +151,7 @@
             [formatter setDateFormat:@"MMM dd yyyy HH:mm:ss"];
             NSDate* date= [formatter dateFromString:[NSString stringWithFormat:@"%@ %@ %@ %@:%@:%@",month,day,year,hour,min,sec]];
             
-            [((BluetoothIO*)io) setInfo:platform Firmware:date];
+            [((BluetoothIO*)Io) setInfo:platform Firmware:date];
             
         }
         case opCode_ReadSensorRet:
@@ -207,18 +207,18 @@
     return true;
 }
 
--(void)DeviceIODidReadly:(BaseDeviceIO *)io
+-(void)DeviceIODidReadly:(BaseDeviceIO *)Io
 {
     [self send:opCode_ReadSensor Bytes:nil Length:0];
     
     [self start_auto_update];
-    [super DeviceIODidReadly:io];
+    [super DeviceIODidReadly:Io];
 }
 
--(void)DeviceIODidDisconnected:(BaseDeviceIO *)io
+-(void)DeviceIODidDisconnected:(BaseDeviceIO *)Io
 {
     [self stop_auto_update];
-    [super DeviceIODidDisconnected:io];
+    [super DeviceIODidDisconnected:Io];
     [self.sensor reset];
     
 }

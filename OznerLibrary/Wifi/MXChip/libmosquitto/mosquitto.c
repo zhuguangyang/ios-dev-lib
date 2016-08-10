@@ -80,7 +80,7 @@ int mosquitto_lib_init(void)
 	struct timeval tv;
 
 	gettimeofday(&tv, NULL);
-	srand(tv.tv_sec*1000 + tv.tv_usec/1000);
+	srand((int)tv.tv_sec*1000 + (int)tv.tv_usec/1000);
 #endif
 
 	_mosquitto_net_init();
@@ -856,7 +856,7 @@ int mosquitto_loop(struct mosquitto *mosq, int timeout, int max_packets)
 int mosquitto_loop_forever(struct mosquitto *mosq, int timeout, int max_packets)
 {
 	int run = 1;
-	int rc;
+	int rc  = 0;
 	unsigned int reconnects = 0;
 	unsigned long reconnect_delay;
 
@@ -898,7 +898,7 @@ int mosquitto_loop_forever(struct mosquitto *mosq, int timeout, int max_packets)
 #ifdef WIN32
 			Sleep(reconnect_delay*1000);
 #else
-			sleep(reconnect_delay);
+			sleep((int)reconnect_delay);
 #endif
 
 			pthread_mutex_lock(&mosq->state_mutex);
@@ -976,7 +976,7 @@ static int _mosquitto_loop_rc_handle(struct mosquitto *mosq, int rc)
 
 int mosquitto_loop_read(struct mosquitto *mosq, int max_packets)
 {
-	int rc;
+	int rc = 0;
 	int i;
 	if(max_packets < 1) return MOSQ_ERR_INVAL;
 
@@ -998,7 +998,7 @@ int mosquitto_loop_read(struct mosquitto *mosq, int max_packets)
 
 int mosquitto_loop_write(struct mosquitto *mosq, int max_packets)
 {
-	int rc;
+	int rc = 0;
 	int i;
 	if(max_packets < 1) return MOSQ_ERR_INVAL;
 
@@ -1152,7 +1152,7 @@ int mosquitto_sub_topic_tokenise(const char *subtopic, char ***topics, int *coun
 
 	if(!subtopic || !topics || !count) return MOSQ_ERR_INVAL;
 
-	len = strlen(subtopic);
+	len = (int)strlen(subtopic);
 
 	for(i=0; i<len; i++){
 		if(subtopic[i] == '/'){

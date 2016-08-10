@@ -46,7 +46,7 @@
 
 -(void)setRemindStart:(uint)remindStart
 {
-    [self put:@"isRemind" Value:[NSNumber numberWithInt:remindStart]];
+    [self put:@"remindStart" Value:[NSNumber numberWithInt:remindStart]];
 }
 
 -(uint)getRemindEnd

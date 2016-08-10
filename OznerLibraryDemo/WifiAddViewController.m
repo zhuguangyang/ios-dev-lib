@@ -9,9 +9,7 @@
 #import "WifiAddViewController.h"
 #import "../OznerLibrary/OznerManager.h"
 #import "../OznerLibrary/Helper/Helper.h"
-@interface WifiAddViewController ()
 
-@end
 
 @implementation WifiAddViewController
 
