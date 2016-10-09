@@ -13,7 +13,7 @@
 @class MXChipIO;
 @protocol MXChipIOStatusDelegate <NSObject>
 @required
--(void)IOClosed:(MXChipIO*)io;
+-(void)IOClosed:(MXChipIO *)io;
 @end
 
 @interface MXChipIO : BaseDeviceIO

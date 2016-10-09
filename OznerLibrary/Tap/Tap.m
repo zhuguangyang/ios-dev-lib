@@ -225,18 +225,18 @@ typedef struct _RecordTime
     return true;
 }
 
--(void)DeviceIODidReadly:(BaseDeviceIO *)io
+-(void)DeviceIODidReadly:(BaseDeviceIO *)Io
 {
     [self send:opCode_ReadSensor Bytes:nil Length:0];
     
     [self start_auto_update];
-    [super DeviceIODidReadly:io];
+    [super DeviceIODidReadly:Io];
 }
 
--(void)DeviceIODidDisconnected:(BaseDeviceIO *)io
+-(void)DeviceIODidDisconnected:(BaseDeviceIO *)Io
 {
     [self stop_auto_update];
-    [super DeviceIODidDisconnected:io];
+    [super DeviceIODidDisconnected:Io];
     [self.sensor reset];
 }
 

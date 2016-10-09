@@ -17,13 +17,14 @@
 
 - (IBAction)PowerClick:(id)sender {
     [self.deviceInfo startSend];
+     __weak typeof(self) weakSelf = self;
     [air.status setPower:!air.status.power Callback:^(NSError* error){
-        [self.deviceInfo printSendStatus:error];
+        [weakSelf.deviceInfo printSendStatus:error];
     }];
     
 }
 - (IBAction)resetClick:(id)sender {
-    int RPM=_SpeedSlider.value;
+    //int RPM=_SpeedSlider.value;
     [self.deviceInfo startSend];
     [air.status resetFilterStatus:^(NSError *error) {
         [self.deviceInfo printSendStatus:error];
@@ -33,8 +34,9 @@
 - (IBAction)SetClick:(id)sender {
     int RPM=_SpeedSlider.value;
     [self.deviceInfo startSend];
+    __weak typeof(self) weakSelf = self;
     [air.status setRPM:RPM Callback:^(NSError* error){
-        [self.deviceInfo printSendStatus:error];
+        [weakSelf.deviceInfo printSendStatus:error];
     }];
 }
 -(void)setDevice:(OznerDevice *)device

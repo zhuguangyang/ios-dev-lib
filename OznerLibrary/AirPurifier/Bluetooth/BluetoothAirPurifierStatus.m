@@ -106,7 +106,7 @@
     lastTime->min=[dateComps minute];
     lastTime->sec=[dateComps second];
     
-    NSDate* nextTime=[cal dateByAddingUnit:NSCalendarUnitMonth value:3 toDate:time options:nil];
+    NSDate* nextTime=[cal dateByAddingUnit:NSCalendarUnitMonth value:3 toDate:time options:NSCalendarWrapComponents];
     
     NSDateComponents *stopComps = [cal components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay|NSCalendarUnitHour|NSCalendarUnitMinute|NSCalendarUnitSecond fromDate:nextTime];
     

@@ -10,12 +10,12 @@
 #import "AirPurifierConsts.h"
 @implementation MxChipAirPurifierStatus
 
--(instancetype)init:(NSDictionary*)propertys Callback:(updateStatusHandler)cb;
+-(instancetype)init:(NSDictionary*)Propertys Callback:(updateStatusHandler)cb;
 {
     if (self=[super init])
     {
         self->callback=cb;
-        self->propertys=propertys;
+        self->propertys=Propertys;
     }
     return self;
 }

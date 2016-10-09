@@ -14,6 +14,6 @@
 @property (copy,nonatomic) NSDate* stopTime;
 @property (nonatomic) int workTime;
 @property (nonatomic) int maxWorkTime;
--(void)load:(NSData*)data;
--(void)reset;
+//-(void)load:(NSData*)data;
+//-(void)reset;
 @end

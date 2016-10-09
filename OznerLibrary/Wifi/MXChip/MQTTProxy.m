@@ -28,11 +28,11 @@
         mqtt.cleanSession=false;
         mqtt.reconnectDelay=10;
         //mqtt.username="
-        
+        __weak typeof(self) weakSelf = self;
         NSLog(@"start connect");
         [mqtt setDisconnectionHandler:^(NSUInteger code)
          {
-             [self doDiconnected];
+             [weakSelf doDiconnected];
          }];
         
         [mqtt connectToHost:MQTT_HOST
@@ -48,10 +48,11 @@
                              break;
                      }
                  }];
+        __strong typeof(self) strongSelf = self;
         [mqtt setMessageHandler:^(MQTTMessage *message) {
             
             NSArray* array=nil;
-            @synchronized(self->onPublishList) {
+            @synchronized(strongSelf->onPublishList) {
                 array=[NSArray arrayWithArray:[onPublishList allValues]];
             }
             

@@ -46,6 +46,7 @@
  @property settings
  @discussion 设置信息
  */
+
 @property (strong,readonly) TapSettings* settings;
 @property (nonatomic, weak) id<TapDelegate> tapDelegate;
 

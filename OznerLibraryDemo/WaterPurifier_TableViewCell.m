@@ -11,6 +11,7 @@
 @implementation WaterPurifier_TableViewCell
 
 - (void)awakeFromNib {
+    [super awakeFromNib];
     // Initialization code
 }
 

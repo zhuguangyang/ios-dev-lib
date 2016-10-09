@@ -23,6 +23,7 @@
 
 -(BOOL)loadByJSON:(NSString *)json
 {
+    
     if (json)
     {
         NSData* data=[json dataUsingEncoding:NSUTF8StringEncoding];
@@ -41,6 +42,7 @@
     }
     else
         return false;
+    
 }
 
 -(NSString *)toJSON

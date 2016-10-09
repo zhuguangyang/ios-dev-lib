@@ -11,6 +11,7 @@
 @implementation AirPurifier_MXChip_TableViewCell
 
 - (void)awakeFromNib {
+    [super awakeFromNib];
     // Initialization code
 }
 
