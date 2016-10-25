@@ -11,6 +11,12 @@
 #import "BluetoothSynchronizedObject.h"
 #import "../Device/IOManager.hpp"
 #import <UIKit/UIKit.h>
+@interface BluetoothIOMgr()
+{
+    NSMutableArray* scanRespParseres;
+}
+@end
+
 @implementation BluetoothIOMgr
 
 #define iOS9 ([[[UIDevice currentDevice] systemVersion] floatValue] >= 9.0)
@@ -28,6 +34,7 @@
 {
     if (self=[super init])
     {
+        scanRespParseres=[[NSMutableArray alloc] init];
         [BluetoothSynchronizedObject initSynchronizedObject];
         const char *queueName = [@"bluetooth_queue" UTF8String];
         queue=dispatch_queue_create(queueName, NULL);
@@ -37,6 +44,14 @@
         
     }
     return self;
+}
+-(void)registerScanResponseParser:(id<ScanResponseParserDelegate>)delgeate;
+{
+    for (id parser in scanRespParseres)
+    {
+        if (parser==delgeate) return;
+    }
+    [scanRespParseres addObject:delgeate];
 }
 -(bool)isScanning
 {
@@ -102,7 +117,17 @@
         CBUUID* uuid=[CBUUID UUIDWithString:@"FFF0"];
         NSData* data=[dict objectForKey:uuid];
         @try {
-            scanData=[[ScanData alloc] init:data];
+            if (scanRespParseres.count>0)
+            {
+                for (id parser in scanRespParseres)
+                {
+                    scanData=[parser parserScanData:peripheral data:data];
+                    if (scanData) break;
+                }
+            }
+            if (!scanData)
+                scanData=[[ScanData alloc] init:data];
+            
         }
         @catch (NSException *exception) {
             return;
@@ -125,10 +150,21 @@
 
     if (scanData)
     {
-        BluetoothIO* io=(BluetoothIO*)[self getAvailableDevice:[self getIdentifier:peripheral]];
+        NSString* identifier=[self getIdentifier:peripheral];
+        if ([advertisementData objectForKey:CBAdvertisementDataManufacturerDataKey])
+        {
+            NSData* data=[advertisementData objectForKey:CBAdvertisementDataManufacturerDataKey];
+            
+            BytePtr bytes=(BytePtr)[data bytes];
+            identifier =[NSString stringWithFormat:@"%02X:%02X:%02X:%02X:%02X:%02X",
+                         bytes[7],bytes[6],bytes[5],bytes[4],bytes[3],bytes[2]];
+            //NSString* address=[
+        }
+        
+        BluetoothIO* io=(BluetoothIO*)[self getAvailableDevice:identifier];
         if (!io)
         {
-            io=[[BluetoothIO alloc] initWithPeripheral:peripheral Address:[self getIdentifier:peripheral] CentralManager:centralManager BluetoothData:scanData];
+            io=[[BluetoothIO alloc] initWithPeripheral:peripheral Address:identifier CentralManager:centralManager BluetoothData:scanData];
             @synchronized(addressList) {
                 //设置mac和identifier uuid对应关系
                 [addressList setObject:[NSString stringWithString:io.identifier] forKey:[peripheral.identifier UUIDString]];

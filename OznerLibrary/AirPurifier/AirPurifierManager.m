@@ -14,7 +14,7 @@
 @implementation AirPurifierManager
 +(BOOL)isMXChipAirPurifier:(NSString*)type
 {
-    return [type isEqualToString:@"FOG_HAOZE_AIR"];
+    return ([type isEqualToString:@"FOG_HAOZE_AIR"] || [type isEqualToString:@"580c2783"]);
     
 }
 +(BOOL)isBluetoothAirPurifier:(NSString*)type

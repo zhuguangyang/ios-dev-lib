@@ -114,6 +114,15 @@
                                    [tmp substringWithRange:NSMakeRange(8, 2)],
                                    [tmp substringWithRange:NSMakeRange(10, 2)]];
                     device.mac=mac;
+                    NSString* type=[device.deviceId substringToIndex:range.location];
+                    if (type)
+                    {
+                        device.type=type;
+                    }else
+                    {
+                        [self.delegate mxChipFailure];
+                        return;
+                    }
                     MXChipIO* io=[[OznerManager instance].ioManager.mxchip createMXChipIO:device.mac Type:device.type];
                     io.name=device.name;
                     [self.delegate mxChipComplete:io];
@@ -138,9 +147,22 @@
         }
         [self.delegate mxChipPairActivate];
         
-        if (![self activeDevice])
+        NSString* deviceId=[self activeDevice];
+        if (!deviceId)
         {
             [self.delegate mxChipFailure];
+            return;
+        }else{
+            NSRange range=[deviceId rangeOfString:@"/"];
+            NSString* type=[deviceId substringToIndex:range.location];
+            if (type)
+            {
+                device.type=type;
+            }else
+            {
+                [self.delegate mxChipFailure];
+                return;
+            }
         }
         
         MXChipIO* io=[[OznerManager instance].ioManager.mxchip createMXChipIO:device.mac Type:device.type];

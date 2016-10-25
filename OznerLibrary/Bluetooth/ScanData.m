@@ -45,6 +45,29 @@ typedef struct
     }
     return self;
 }
+-(instancetype)init:(NSString*)model
+           platform:(NSString*) platform
+           firmware:(NSDate*)firmware
+  mainboardPlatform:(NSString*)mainboardPlatform
+  mainboardFirmware:(NSDate*)mainboardFirmware
+      advertisement:(NSData*)advertisementData
+   scanResponesType:(int)type
+{
+    if (self=[super init])
+    {
+        _model=[[NSString stringWithString:model] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+        _platform=[NSString stringWithString:platform];
+        _scanResponesData=[[NSData alloc] initWithBytes:[advertisementData bytes] length:[advertisementData length]];
+        
+        _firmware=[NSDate dateWithTimeIntervalSince1970:[firmware timeIntervalSince1970]];
+        _mainboardFirmware=[NSDate dateWithTimeIntervalSince1970:[mainboardFirmware timeIntervalSince1970]];
+        _mainboardPlatform=[NSString stringWithString:mainboardPlatform];
+        _scanResponesType=type;
+        _scanResponesData=[[NSData alloc] initWithBytes:[advertisementData bytes] length:[advertisementData length]];
+        
+    }
+    return self;
+}
 -(instancetype)init:(NSData *)data
 {
     if (self=[super init])

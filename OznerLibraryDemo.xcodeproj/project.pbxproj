@@ -37,10 +37,14 @@
 		028727EA1C37B3340013857D /* util_mosq.c in Sources */ = {isa = PBXBuildFile; fileRef = 028727D51C37B3340013857D /* util_mosq.c */; };
 		028727EB1C37B3340013857D /* will_mosq.c in Sources */ = {isa = PBXBuildFile; fileRef = 028727D71C37B3340013857D /* will_mosq.c */; };
 		028727EC1C37B3340013857D /* MQTTKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 028727DC1C37B3340013857D /* MQTTKit.m */; };
+		0288C6961DBE06ED00B7C306 /* ROWaterPurufier.m in Sources */ = {isa = PBXBuildFile; fileRef = 0288C6951DBE06ED00B7C306 /* ROWaterPurufier.m */; };
 		0292AB1E1CA23F0C005882D7 /* HttpServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0292AB1D1CA23F0C005882D7 /* HttpServer.m */; };
 		029F93E71C1FA44200D73A35 /* DeviceInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 029F93E61C1FA44200D73A35 /* DeviceInfoView.m */; };
 		029F93FD1C1FB9E300D73A35 /* BaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 029F93FC1C1FB9E300D73A35 /* BaseTableViewCell.m */; };
 		029F940D1C1FF45C00D73A35 /* MyButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 029F940C1C1FF45C00D73A35 /* MyButton.m */; };
+		02B5628D1DBF33920035BAC0 /* ROWaterSettingInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 02B5628C1DBF33920035BAC0 /* ROWaterSettingInfo.m */; };
+		02B562901DBF35330035BAC0 /* RO_WaterInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 02B5628F1DBF35330035BAC0 /* RO_WaterInfo.m */; };
+		02B562931DBF364E0035BAC0 /* RO_FilterInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 02B562921DBF364E0035BAC0 /* RO_FilterInfo.m */; };
 		02E98B291C18673000ED06F1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E98B281C18673000ED06F1 /* main.m */; };
 		02E98B2C1C18673000ED06F1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E98B2B1C18673000ED06F1 /* AppDelegate.m */; };
 		02E98B2F1C18673000ED06F1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E98B2E1C18673000ED06F1 /* ViewController.m */; };
@@ -166,6 +170,8 @@
 		028727D81C37B3340013857D /* will_mosq.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = will_mosq.h; sourceTree = "<group>"; };
 		028727DB1C37B3340013857D /* MQTTKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MQTTKit.h; sourceTree = "<group>"; };
 		028727DC1C37B3340013857D /* MQTTKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MQTTKit.m; sourceTree = "<group>"; };
+		0288C6941DBE06ED00B7C306 /* ROWaterPurufier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ROWaterPurufier.h; sourceTree = "<group>"; };
+		0288C6951DBE06ED00B7C306 /* ROWaterPurufier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ROWaterPurufier.m; sourceTree = "<group>"; };
 		0292AB1C1CA23F0C005882D7 /* HttpServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpServer.h; sourceTree = "<group>"; };
 		0292AB1D1CA23F0C005882D7 /* HttpServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpServer.m; sourceTree = "<group>"; };
 		029F93E51C1FA44200D73A35 /* DeviceInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceInfoView.h; sourceTree = "<group>"; };
@@ -174,6 +180,12 @@
 		029F93FC1C1FB9E300D73A35 /* BaseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewCell.m; sourceTree = "<group>"; };
 		029F940B1C1FF45C00D73A35 /* MyButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyButton.h; sourceTree = "<group>"; };
 		029F940C1C1FF45C00D73A35 /* MyButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyButton.m; sourceTree = "<group>"; };
+		02B5628B1DBF33920035BAC0 /* ROWaterSettingInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ROWaterSettingInfo.h; sourceTree = "<group>"; };
+		02B5628C1DBF33920035BAC0 /* ROWaterSettingInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ROWaterSettingInfo.m; sourceTree = "<group>"; };
+		02B5628E1DBF35330035BAC0 /* RO_WaterInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RO_WaterInfo.h; sourceTree = "<group>"; };
+		02B5628F1DBF35330035BAC0 /* RO_WaterInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RO_WaterInfo.m; sourceTree = "<group>"; };
+		02B562911DBF364E0035BAC0 /* RO_FilterInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RO_FilterInfo.h; path = ../Tap/RO_FilterInfo.h; sourceTree = "<group>"; };
+		02B562921DBF364E0035BAC0 /* RO_FilterInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RO_FilterInfo.m; path = ../Tap/RO_FilterInfo.m; sourceTree = "<group>"; };
 		02E98B241C18673000ED06F1 /* OznerLibraryDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OznerLibraryDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		02E98B281C18673000ED06F1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		02E98B2A1C18673000ED06F1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -632,6 +644,14 @@
 				02E98BB01C18679D00ED06F1 /* WaterPurifierSensor.m */,
 				02E98BB11C18679D00ED06F1 /* WaterPurifierStatus.h */,
 				02E98BB21C18679D00ED06F1 /* WaterPurifierStatus.m */,
+				0288C6941DBE06ED00B7C306 /* ROWaterPurufier.h */,
+				0288C6951DBE06ED00B7C306 /* ROWaterPurufier.m */,
+				02B5628B1DBF33920035BAC0 /* ROWaterSettingInfo.h */,
+				02B5628C1DBF33920035BAC0 /* ROWaterSettingInfo.m */,
+				02B5628E1DBF35330035BAC0 /* RO_WaterInfo.h */,
+				02B5628F1DBF35330035BAC0 /* RO_WaterInfo.m */,
+				02B562911DBF364E0035BAC0 /* RO_FilterInfo.h */,
+				02B562921DBF364E0035BAC0 /* RO_FilterInfo.m */,
 			);
 			path = WaterPurifier;
 			sourceTree = "<group>";
@@ -790,6 +810,7 @@
 				0286D5891C23A1A700C027B5 /* AirPurifier_Bluetooth_TableViewCell.m in Sources */,
 				02E98BDB1C18679D00ED06F1 /* IOManager.m in Sources */,
 				028727E91C37B3340013857D /* tls_mosq.c in Sources */,
+				02B5628D1DBF33920035BAC0 /* ROWaterSettingInfo.m in Sources */,
 				02E98BF41C18679D00ED06F1 /* EasyLinkSender.m in Sources */,
 				02E98BD61C18679D00ED06F1 /* CupSettings.m in Sources */,
 				02E98BD31C18679D00ED06F1 /* CupRecord.m in Sources */,
@@ -825,12 +846,14 @@
 				02E98B2C1C18673000ED06F1 /* AppDelegate.m in Sources */,
 				028727DF1C37B3340013857D /* messages_mosq.c in Sources */,
 				029F93FD1C1FB9E300D73A35 /* BaseTableViewCell.m in Sources */,
+				0288C6961DBE06ED00B7C306 /* ROWaterPurufier.m in Sources */,
 				02E98BCA1C18679D00ED06F1 /* BluetoothIOMgr.m in Sources */,
 				028727DD1C37B3340013857D /* logging_mosq.c in Sources */,
 				02E98BD71C18679D00ED06F1 /* BaseDeviceIO.m in Sources */,
 				02E98BD01C18679D00ED06F1 /* CupGravity.m in Sources */,
 				028727DE1C37B3340013857D /* memory_mosq.c in Sources */,
 				02E98BDC1C18679D00ED06F1 /* IOManagerList.m in Sources */,
+				02B562931DBF364E0035BAC0 /* RO_FilterInfo.m in Sources */,
 				02067F851C27E6E3009A05D4 /* WaterReplenishmentMeterStatus.m in Sources */,
 				02E98B291C18673000ED06F1 /* main.m in Sources */,
 				028727E51C37B3340013857D /* send_client_mosq.c in Sources */,
@@ -847,6 +870,7 @@
 				028727E81C37B3340013857D /* time_mosq.c in Sources */,
 				028727E41C37B3340013857D /* read_handle_shared.c in Sources */,
 				02E98C071C19517C00ED06F1 /* BluetoothAirPurifierSensor.m in Sources */,
+				02B562901DBF35330035BAC0 /* RO_WaterInfo.m in Sources */,
 				02067F821C27E67A009A05D4 /* WaterReplenishmentMeter.m in Sources */,
 				0292AB1E1CA23F0C005882D7 /* HttpServer.m in Sources */,
 				0286D5711C213B3B00C027B5 /* WaterPurifier_TableViewCell.m in Sources */,

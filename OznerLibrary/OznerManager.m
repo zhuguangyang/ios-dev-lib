@@ -38,11 +38,13 @@ OznerManager* oznerManager=nil;
 {
     if (self=[super init])
     {
+        oznerManager=self;
         db=[[SqlLiteDB alloc] init:@"ozner" Version:1];
         devices=[[NSMutableDictionary alloc] init];
         _ioManager=[[IOManagerList alloc] init];
         _ioManager.bluetooth.delegate=self;
         _ioManager.mxchip.delegate=self;
+        
         
         deviceMgrList=[NSArray arrayWithObjects:
                        [[CupManager alloc] init],
@@ -54,7 +56,7 @@ OznerManager* oznerManager=nil;
                        
                        nil];
         
-        oznerManager=self;
+        
     }
     return self;
 }

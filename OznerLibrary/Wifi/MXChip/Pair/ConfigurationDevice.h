@@ -10,7 +10,7 @@
 
 @interface ConfigurationDevice : NSObject
 @property (copy)NSString* name;
-@property (readonly,copy)NSString* type;
+@property (copy)NSString* type;
 @property (readonly,nonatomic)BOOL activated;
 @property (readonly,copy)NSString* deviceId;
 @property (copy)NSString* login_id;
