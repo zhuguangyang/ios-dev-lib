@@ -25,5 +25,10 @@
 @property (strong,readonly) RO_FilterInfo* filterInfo;
 
 -(BOOL) reset;
+//重置滤芯时间
+-(BOOL) resetFilter;
+//返回是否允许滤芯重置
+-(BOOL) isEnableFilterReset;
+
 +(BOOL)isBindMode:(BluetoothIO*)io;
 @end

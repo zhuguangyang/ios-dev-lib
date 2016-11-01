@@ -191,7 +191,16 @@ Byte calcSum(Byte* data,int size)
     requestCount++;
 }
 
-
+//重置滤芯时间
+-(BOOL) resetFilter
+{
+    return true;
+}
+//返回是否允许滤芯重置
+-(BOOL) isEnableFilterReset
+{
+    return true;
+}
 
 +(BOOL)isBindMode:(BluetoothIO*)io
 {
