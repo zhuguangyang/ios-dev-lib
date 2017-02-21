@@ -241,7 +241,8 @@ Byte calcSum(Byte* data,int size)
         {
             Byte flag=((Byte*)[io.scanResponseData bytes])[0];
             return flag;
-        }
+        }else
+            return false;
     }
     else
         return false;
