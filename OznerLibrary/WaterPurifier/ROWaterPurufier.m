@@ -121,7 +121,7 @@ Byte calcSum(Byte* data,int size)
     bytes[7]=interval;
     bytes[8]=worktime;
     bytes[9]=reset?1:0;
-    bytes[10]=calcSum(bytes,9);
+    bytes[10]=calcSum(bytes,10);
     [data appendBytes:bytes length:11];
     
     return [io send:data];
@@ -235,6 +235,15 @@ Byte calcSum(Byte* data,int size)
 
 +(BOOL)isBindMode:(BluetoothIO*)io
 {
-    return true;
+    if (io)
+    {
+        if (io.scanResponseData)
+        {
+            Byte flag=((Byte*)[io.scanResponseData bytes])[0];
+            return flag;
+        }
+    }
+    else
+        return false;
 }
 @end
